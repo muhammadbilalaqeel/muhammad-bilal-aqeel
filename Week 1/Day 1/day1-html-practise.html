@@ -1,51 +1,249 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Day 1- Practise HTML</title>
-</head>
-<body>
+  </head>
+  <body>
+    <!-- Header -->
     <header>
-        <marquee>Announcement! Sales upto 50%off</marquee>
-        <nav>
-            <span>
-                Brand Name
-            </span>
-            <ul>
-                <li><a href="#headings">Headings</a></li>
-                <li><a href="#paragraphs">Paragraphs</a></li>
-                <li><a href="#">Contact</a></li>
-                <li><a href="#">Portfolio</a></li>
-            </ul>
-            <button>
-                Github
-            </button>
-        </nav>
+      <!-- Announcement Bar -->
+      <marquee>Announcement! Sales upto 50%off</marquee>
+      <!-- Navigation Bar -->
+      <nav>
+        <span> Brand Name </span>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Portfolio</a></li>
+        </ul>
+        <button>Login</button>
+      </nav>
     </header>
-    <hr>
+    <hr />
     <main>
-        <section id="headings">
-            <div>
-                <h1><center>Headings......</center></h1>
-                <h1>This is heading 1</h1>
-                <h2>This is heading 2</h2>
-                <h3>This is heading 3</h3>
-                <h4>This is heading 4</h4>
-                <h5>This is heading 5</h5>
-                <h6>This is heading 6</h6>
+      <!-- Home Section -->
+      <section id="home">
+        <div class="left">
+          <span>Hello</span>
+          <h1>Welcome to our website</h1>
+          <h2>We are here to provide you tech services.</h2>
+          <button>Explore Us</button>
+        </div>
+        <br />
+        <div class="right">
+          <img src="https://placehold.co/600x400" alt="" />
+        </div>
+      </section>
+
+      <hr />
+
+      <!-- About Section -->
+      <section id="about">
+        <div class="left">
+          <h1>About Us</h1>
+          <p>
+            <strong>Lorem ipsum</strong> dolor sit amet consectetur adipisicing
+            elit. Ipsum, rem aspernatur necessitatibus itaque ipsa facere
+            eligendi sint fuga vero suscipit facilis illo, explicabo ratione
+            enim fugit architecto ex corporis eaque.
+          </p>
+          <p>
+            <strong>Lorem ipsum</strong> dolor sit amet consectetur adipisicing
+            elit. Provident quae labore fugiat sequi, molestias eveniet tempora.
+            Ipsam tenetur atque aut.
+          </p>
+        </div>
+        <div class="right">
+          <img src="https://placehold.co/600x400/orange/white" alt="" />
+        </div>
+      </section>
+
+      <hr />
+
+      <!-- Products Section -->
+      <section id="products">
+        <!-- Ordered List -->
+        <div class="ordered_list">
+          <h2>Services we provide</h2>
+          <ol>
+            <li>Blockchain Development</li>
+            <li>App Development</li>
+            <li>Website Development</li>
+            <li>AI Models Creation</li>
+            <li>Chat bot Development</li>
+            <li>Cloud Operations</li>
+            <li>System Maintenance</li>
+            <li>Email Handlings</li>
+            <li>System Designs</li>
+            <li>Home Automations</li>
+          </ol>
+        </div>
+
+        <!-- Unordered List -->
+        <div class="unordered_list">
+          <h2>Technology in which we work</h2>
+          <ul>
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>JS</li>
+            <li>C++</li>
+            <li>C#</li>
+            <li>NodeJS</li>
+            <li>Python</li>
+            <li>React</li>
+            <li>Ruby</li>
+            <li>PHP</li>
+          </ul>
+        </div>
+      </section>
+
+      <hr />
+
+      <!-- Achievements Table -->
+      <section id="achievements">
+        <h2>Our Achievements</h2>
+        <table border="2">
+          <thead>
+            <tr>
+              <th>Achievement</th>
+              <th>Description</th>
+              <th>Year</th>
+              <th>Read More</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Award 1</td>
+              <td>
+                Lorem ipsum <strong>dolor sit</strong>.
+                <em>Lorem ipsum</em> dolor sit amet consectetur adipisicing
+                elit. <u>Provident</u> , modi.
+              </td>
+              <td>2009</td>
+              <td><a href="https://www.google.com/">Google</a></td>
+            </tr>
+            <tr>
+              <td>Award 2</td>
+              <td>
+                Lorem ipsum <strong>dolor sit</strong>.
+                <em>Lorem ipsum</em> dolor sit amet consectetur adipisicing
+                elit. <u>Provident</u> , modi.
+              </td>
+              <td>2010</td>
+              <td rowspan="2">
+                <a href="https://placehold.co/">Placeholder Image</a>
+              </td>
+            </tr>
+            <tr>
+              <td>Award 3</td>
+              <td>
+                Lorem ipsum <strong>dolor sit</strong>.
+                <em>Lorem ipsum</em> dolor sit amet consectetur adipisicing
+                elit. <u>Provident</u> , modi.
+              </td>
+              <td>2013</td>
+              <!-- <td><a href="https://www.google.com/">Google</a></td> -->
+            </tr>
+            <tr>
+              <td>Award 4</td>
+              <td>
+                Lorem ipsum <strong>dolor sit</strong>.
+                <em>Lorem ipsum</em> dolor sit amet consectetur adipisicing
+                elit. <u>Provident</u> , modi.
+              </td>
+              <td>2015</td>
+              <td rowspan="3">
+                <a href="https://www.netixsol.com/">Netixsol</a>
+              </td>
+            </tr>
+            <tr>
+              <td>Award 5</td>
+              <td>
+                Lorem ipsum <strong>dolor sit</strong>.
+                <em>Lorem ipsum</em> dolor sit amet consectetur adipisicing
+                elit. <u>Provident</u> , modi.
+              </td>
+              <td>2009</td>
+              <!-- <td><a href="https://www.google.com/">Google</a></td> -->
+            </tr>
+            <tr>
+              <td>Award 6</td>
+              <td>
+                Lorem ipsum <strong>dolor sit</strong>.
+                <em>Lorem ipsum</em> dolor sit amet consectetur adipisicing
+                elit. <u>Provident</u> , modi.
+              </td>
+              <td>2009</td>
+              <!-- <td><a href="https://www.google.com/">Google</a></td> -->
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <hr />
+
+      <!-- Gallery Section -->
+      <section id="gallery">
+        <h2>Our Gallery</h2>
+        <div class="gallery">
+          <img src="https://placehold.co/600x400/pink/white" alt="" />
+          <img src="https://placehold.co/600x400/red/white" alt="" />
+          <img src="https://placehold.co/600x400/green/white" alt="" />
+          <img src="https://placehold.co/600x400/black/white" alt="" />
+        </div>
+      </section>
+
+      <hr />
+
+      <!-- Employees -->
+      <section id="employees">
+        <h2>Our Employees</h2>
+        <div class="container">
+          <div class="card">
+            <img src="https://placehold.co/40x40" alt="" />
+            <h3>Name</h3>
+            <span><strong>Email:</strong> kbksda@dummy.com</span>
+          </div>
+          <div class="card">
+            <img src="https://placehold.co/40x40" alt="" />
+            <h3>Name</h3>
+            <span><strong>Email:</strong> kbksda@dummy.com</span>
+          </div>
+          <div class="card">
+            <img src="https://placehold.co/40x40" alt="" />
+            <h3>Name</h3>
+            <span><strong>Email:</strong> kbksda@dummy.com</span>
+          </div>
+          <div class="card">
+            <img src="https://placehold.co/40x40" alt="" />
+            <h3>Name</h3>
+            <span><strong>Email:</strong> kbksda@dummy.com</span>
+          </div>
+        </div>
+      </section>
+      <hr>
+      <!-- Contact Form -->
+      <section id="contact_form">
+        <h2>Contact Form</h2>
+         <form>
+            <div class="username">
+                <label for="username">Username: </label>
+                <input type="text" id="username" name="username" required placeholder="e.g bilal">
             </div>
-        </section>
-        <hr>
-        <section id="paragraphs">
-            <h1><center>Paragraphs.....</center></h1>
-            <p><strong>Lorem ipsum</strong> dolor sit amet consectetur adipisicing elit. Quae excepturi aspernatur in ipsum ipsam id quas labore nemo, vero expedita, perspiciatis reprehenderit sapiente similique quaerat accusamus non temporibus ea facere.</p>
-            <p><strong>Lorem ipsum</strong> dolor sit amet consectetur adipisicing elit. Ex optio libero quaerat ad tempore accusantium nostrum doloribus consequuntur commodi consectetur explicabo nemo vitae error eaque iste hic sequi facilis, nam animi id. Sunt nesciunt nisi iure, ducimus veniam magni autem!</p>
-            <p><strong>Lorem ipsum</strong> dolor sit amet consectetur adipisicing elit. Officia dolores nobis tempore, sint aspernatur error deserunt labore accusantium quisquam ex consectetur ducimus deleniti molestias corrupti temporibus. Dolores obcaecati incidunt aliquam?</p>
-            <p><strong>Lorem ipsum</strong> dolor sit amet, consectetur adipisicing elit. Suscipit natus earum reprehenderit alias obcaecati facilis accusamus, sequi aperiam, doloribus et, perferendis temporibus officia sint nobis delectus minus ea beatae asperiores aliquid! Eligendi eius rem dolorem obcaecati nemo. Illo, temporibus possimus. Fuga quis voluptatem facilis minima hic laudantium velit, nobis veritatis.</p>
-            <p><strong>Lorem ipsum</strong> dolor sit amet, consectetur adipisicing elit. Enim, excepturi.</p>
-            <p><strong>Lorem ipsum</strong> dolor sit amet consectetur adipisicing elit. Repellat est incidunt nisi beatae, voluptatem reiciendis placeat similique saepe, dicta molestiae ab sed veritatis deleniti doloremque voluptate provident asperiores libero earum quia? Atque a ipsa corporis voluptatibus, veritatis vel praesentium. Consequatur, amet ad perferendis, quia, facere explicabo voluptatem provident nobis iusto labore autem vel itaque illo dolores. Qui consequuntur placeat suscipit. Minus reiciendis id iure tempore et ad excepturi deleniti dicta.</p>
-        </section>
+             <div class="email">
+                <label for="email">Email: </label>
+                <input type="email" id="email" name="email"  required placeholder="e.g example@gmail.com">
+            </div>
+             <div class="message">
+                <label for="message">Message: </label>
+                <textarea name="message" id="message"></textarea>
+            </div>
+
+         </form>
+      </section>
     </main>
-</body>
+  </body>
 </html>
