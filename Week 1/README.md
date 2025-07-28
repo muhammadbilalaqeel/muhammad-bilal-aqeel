@@ -8,7 +8,6 @@
         📄 Created HTML file with 200+ tags (h1-h6,img,nav,header,section,div,a,span,footer etc).
         ✅ Pushed project to GitHub (Netixsol email)  
         🌐 Deployed live on Vercel  
-        📌 Joined official Slack workspace
         🔗 Live Link: https://week1-day1-task1.vercel.app/day1-html-practise.html
 
     📄 Task 2: Resume Page (HTML Only)
