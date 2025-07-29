@@ -1,11 +1,319 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Day 2 - Resume Task</title>
-</head>
-<body>
-    
-</body>
+    <script
+      src="https://kit.fontawesome.com/9b197449cc.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="max-w-[900px] mx-auto p-3">
+    <section class="header flex flex-col items-center">
+      <h1 class="name text-4xl font-bold">John Doe</h1>
+      <p class="work mt-2 text-xl">Creative and Innovative Web Developer</p>
+      <div class="more_info flex mt-2 gap-3">
+        <div class="location flex items-center justify-center gap-2">
+          <i class="fa-solid fa-location-dot text-green-400"></i>
+          Pleasantville, CA 94588
+        </div>
+        <div class="phone flex items-center justify-center gap-2">
+          <i class="fa-solid fa-phone text-green-400"></i>
+          <a href="tel:+555123-4567">(555) 123-4567</a>
+        </div>
+        <div class="email flex items-center justify-center gap-2">
+          <i class="fa-solid fa-at text-green-400"></i>
+          <a href="mailto:john.doe@gmail.com"> john.doe@gmail.com</a>
+        </div>
+        <div class="portfolio flex items-center justify-center gap-2">
+          <i class="fa-solid fa-link text-green-400"></i>
+          <a href="https://johndoe.me/">https://johndoe.me/</a>
+        </div>
+      </div>
+    </section>
+    <div
+      class="horizontal-divider w-[100%] h-[2px] bg-black rounded-full my-3"
+    ></div>
+
+    <!-- Profiles Section -->
+
+    <section id="profiles" class="flex pb-2">
+      <h2 class="w-[20%] text-2xl font-bold">Profiles</h2>
+
+      <div class="flex w-[80%]">
+        <!-- Linkedin -->
+        <div class="linkedin flex flex-col">
+          <div class="username">
+            <a href="#" class="flex items-center gap-1"
+              ><i class="fa-brands fa-linkedin text-blue-500 text-xl"></i
+              >johndoe</a
+            >
+          </div>
+          <span class="text-sm">LinkedIn</span>
+        </div>
+        <!-- Github -->
+        <div class="github ml-auto flex flex-col">
+          <div class="username">
+            <a href="#" class="flex items-center gap-1">
+              <i class="fa-brands fa-github text-black text-xl"></i>johndoe</a
+            >
+          </div>
+          <span class="text-sm">GitHub</span>
+        </div>
+        <!-- Stack Overflow -->
+        <div class="stack_overflow mx-auto flex flex-col">
+          <div class="username">
+            <a href="#" class="flex items-center gap-1">
+              <i
+                class="fa-brands fa-stack-overflow text-orange-500 text-xl"
+              ></i>
+              johndoe</a
+            >
+          </div>
+          <span class="text-sm">StackOverflow</span>
+        </div>
+      </div>
+    </section>
+
+    <div
+      class="horizontal-divider w-[100%] h-[2px] bg-black rounded-full my-3"
+    ></div>
+
+    <!-- Summary Section -->
+
+    <section id="summary" class="pb-2 flex">
+      <h2 class="w-[20%] text-2xl font-bold">Summary</h2>
+      <p class="w-[80%] text-justify">
+        Innovative Web Developer with 5 years of experience in building
+        impactful and user-friendly websites and applications. Specializes in
+        <span class="font-bold">front-end technologies</span> and passionate
+        about modern web standards and cutting-edge development techniques.
+        Proven track record of leading successful projects from concept to
+        deployment.
+      </p>
+    </section>
+
+    <div
+      class="horizontal-divider w-[100%] h-[2px] bg-black rounded-full my-3"
+    ></div>
+
+    <!-- Experience Section -->
+
+    <section id="experiences" class="flex pb-2">
+      <h2 class="w-[20%] text-2xl font-bold">Experience</h2>
+      <div class="w-[80%] flex flex-col gap-4">
+        <div class="experiecne mt-1">
+          <div class="head flex justify-between">
+            <div class="left">
+              <h3 class="company font-bold text-xl">Creative Solutions Inc.</h3>
+              <p class="post text-lg">Senior Web Developer</p>
+            </div>
+            <div class="right">
+              <h3 class="duration_of_work font-bold text-xl">January 2019 to Present</h3>
+              <p class="location text-lg text-right">San Francisco, CA</p>
+            </div>
+          </div>
+          <div class="ml-1 mt-1">
+            <a class="company_weblink mt-2" href="https://creativesolutions.inc/">
+            <i class="fa-solid fa-link text-green-400"></i>
+            https://creativesolutions.inc/</a>
+          <ul class="mt-2 list-disc marker:text-green-400 ml-4">
+            <li class="text-justify">
+              Spearheaded the redesign of the main product website, resulting in
+              a 40% increase in user engagement.
+            </li>
+
+            <li class="text-justify">
+              Developed and implemented a new responsive framework, improving
+              cross-device compatibility.
+            </li>
+
+            <li class="text-justify">
+              Mentored a team of four junior developers, fostering a culture of
+              technical excellence
+            </li>
+          </ul>
+          </div>
+        </div>
+
+        <div class="experiecne mt-1">
+          <div class="head flex justify-between">
+            <div class="left">
+              <h3 class="company font-bold text-xl">TechAdvancers</h3>
+              <p class="post text-lg">Web Developer</p>
+            </div>
+            <div class="right">
+              <h3 class="duration_of_work font-bold text-xl">June 2016 to December 2018</h3>
+              <p class="location text-lg text-right">San Jose, CA</p>
+            </div>
+          </div>
+          
+
+          <div class="ml-1 mt-1">
+             <a class="company_weblink mt-2" href="https://creativesolutions.inc/">
+            <i class="fa-solid fa-link text-green-400"></i>
+            https://creativesolutions.inc/</a>
+          <ul class="mt-2 list-disc marker:text-green-400 ml-4">
+            <li class="text-justify">
+              Collaborated in a team of 10 to develop high-quality web
+              applications using React.js and Node.js.
+            </li>
+
+            <li class="text-justify">
+              Managed the integration of third-party services such as Stripe for
+              payments and Twilio for SMS services.
+            </li>
+
+            <li class="text-justify">
+              Optimized application performance, achieving a 30% reduction in
+              load times.
+            </li>
+          </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div
+      class="horizontal-divider w-[100%] h-[2px] bg-black rounded-full my-3"
+    ></div>
+    <!-- Education Section -->
+
+    <section id="educations" class="flex pb-2">
+      <h2 class="w-[20%] text-2xl font-bold">Education</h2>
+      <d class="w-[80%] education flex justify-between">
+        
+        <div class="left">
+          <h3 class="institute text-xl font-bold">University of Calefornia</h3>
+          <p class="location text-lg">Berkeley, CA</p>
+        </div>
+        <div class="right">
+          <h3 class="duration_of_course text-xl font-bold">August 2012 to May 2016</h3>
+          <p class="course text-lg">Bachelor's in Computer Science</p>
+        </div>
+      
+      </div>
+    </section>
+
+    <div
+      class="horizontal-divider w-[100%] h-[2px] bg-black rounded-full my-3"
+    ></div>
+
+    <!-- Projects Section -->
+
+    <section id="projects" class="flex pb-2">
+      <h2 class="w-[20%] text-2xl font-bold">Projects</h2>
+      <div class="w-[80%] flex gap-8">
+        <div class="project flex-1">
+        <h3 class="title text-xl font-bold">E-Commerce Platform</h3>
+        <p class="role text-lg">Project Lead</p>
+        <p class="description mt-2">
+          Led the development of a full-stack e-commerce platform, improving
+          sales conversion by 25%.
+        </p>
+      </div>
+
+      <div class="project flex-1">
+        <h3 class="title text-xl font-bold">Interactive Dashboard</h3>
+        <p class="role text-lg">Frontend Developer</p>
+        <p class="description mt-2">
+          Created an interactive analytics dashboard for a SaaS application,
+          enhancing data visualization for clients.
+        </p>
+      </div>
+      </div>
+    </section>
+
+    <div
+      class="horizontal-divider w-[100%] h-[2px] bg-black rounded-full my-3"
+    ></div>
+    <!-- Skills Section -->
+    <section id="skills" class="flex pb-2">
+      <h2 class="w-[20%] text-2xl font-bold">Skills</h2>
+     
+
+      <div class="w-[80%] flex gap-4">
+         <div class="skill flex-1">
+        <h3 class="title text-xl font-bold">Web Technologies</h3>
+        <p class="expertise text-lg mt-1">Advanced</p>
+        <p class="technologies mt-1">HTML5, Javascript, PHP, Python</p>
+      </div>
+
+      <div class="skill flex-1">
+        <h3 class="title text-xl font-bold">Web Frameworks</h3>
+        <p class="expertise text-lg mt-1">Intermediate</p>
+        <p class="technologies mt-1">React.js, Angular, Vue.js, Laravel, Django</p>
+      </div>
+
+      <div class="skill flex-1">
+        <h3 class="title text-xl font-bold">Tools</h3>
+        <p class="expertise text-lg mt-1">Intermediate</p>
+        <p class="technologies mt-1">Webpack,Git, Jenkins, Docker, JIRA</p>
+      </div>
+      </div>
+    </section>
+
+    <div
+      class="horizontal-divider w-[100%] h-[2px] bg-black rounded-full my-3"
+    ></div>
+    <!-- Certifications Section -->
+    <section id="Certifications" class="flex pb-2">
+      <h2 class="w-[20%] text-2xl font-bold">Certifications</h2>
+      <div class="w-[80%] flex gap-3 -mt-2">
+        <div class="certificate flex-1 flex items-center justify-between">
+        <div>
+          <h3 class="title text-xl font-bold">Full-Stack Web Development</h3>
+          <p class="institute text-lg">CodeAcademy</p>
+        </div>
+        <div class="year">
+          <h4 class="text-lg font-bold">2020</h4>
+        </div>
+      </div>
+
+      <div class="certificate flex-1 flex items-center justify-between">
+        <div>
+          <h3 class="title text-xl font-bold">AWS Certified Developer</h3>
+          <p class="institute text-lg">Amazon Web Services</p>
+        </div>
+        <div class="year">
+          <h4 class="text-lg font-bold">2019</h4>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <div
+      class="horizontal-divider w-[100%] h-[2px] bg-black rounded-full my-3"
+    ></div>
+    <!-- Languages Section -->
+    <section id="languages" class="flex pb-2">
+      <h2 class="w-[20%] text-2xl font-bold">Languages</h2>
+      <div class="w-[80%] flex ">
+        <div class="language flex-1">
+        <h3 class="title text-xl font-bold">English</h3>
+        <p class="expertise text-lg">Native Speaker</p>
+      </div>
+
+      <div class="language flex-1">
+        <h3 class="title text-xl font-bold">Spanish</h3>
+        <p class="expertise text-lg">Intermediate</p>
+      </div>
+      </div>
+    </section>
+
+    <div
+      class="horizontal-divider w-[100%] h-[2px] bg-black rounded-full my-3"
+    ></div>
+    <!-- References Section -->
+    <section id="references" class="flex pb-2">
+      <h2 class="w-[20%] text-2xl font-bold">References</h2>
+      <div class="w-[80%] flex flex-col ">
+        <div class="reference mt-1">
+        <h3 class="text-xl font-bold">Available upon request</h3>
+      </div>
+      </div>
+    </section>
+  </body>
 </html>
