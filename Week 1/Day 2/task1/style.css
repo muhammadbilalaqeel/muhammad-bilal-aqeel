@@ -1,34 +1,29 @@
-
 /* Universal Selector */
-*{
- margin: 0;
- padding: 0;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-html{
-    /* Making 1rem to 10px */
-    font-size: 62.5%;  
+html {
+  /* Making 1rem to 10px */
+  font-size: 62.5%;
 }
-
-
 
 /* Element Selector */
-h1{
+h1 {
   font-size: 3rem;
 }
 
-
 /* Class Selectors */
-.red{
-    width: 200px;
-    height: 200px;
-    background-color: red;
+.box {
+  width: 200px;
+  height: 200px;
+  margin: 10px;
+}
+.red {
+  background-color: red;
 }
 
-.purple{
-    width: 200px;
-    height: 200px;
-    background-color: purple;
+.purple {
+  background-color: purple;
 }
-
-
