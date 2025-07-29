@@ -21,18 +21,25 @@
       transform: translateY(0);
     }
   }
+  main{
+    background-color: #FDF5E6;
+  }
 
   section{
     transition: all 0.2s linear;
   }
-  section:hover{
-    background-color: rgba(0, 0, 0, 0.2);
+  section:hover:not(.header){
+  background-color: #fce8c4; 
+  }
+
+  .horizontal-divider{
+    background:rgba(0, 0, 0, 0.1);
   }
 </style>
 
   </head>
   <body class="max-w-[920px] mx-auto p-3">
-  <main class="px-4 border-2 " style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
+  <main class="p-[40px] border-0 rounded-[40px] " >
       <section class="header flex py-3 flex-col items-center w-full opacity-0 animate-[fadeIn_0.5s_ease-out_forwards]" style="animation-delay: 0.1s;">
       <h1 class="name text-3xl font-bold text-center">John Doe</h1>
       <p class="work mt-2 text-lg text-gray-600 text-center">Creative and Innovative Web Developer</p>
@@ -56,7 +63,7 @@
       </div>
     </section>
     <div
-      class="horizontal-divider w-[100%] h-[2px] bg-black rounded-full  opacity-0 animate-[fadeIn_0.5s_ease-out_forwards] " style="animation-delay: 0.3s;"
+      class="horizontal-divider w-[100%] h-[2px]  rounded-full  opacity-0 animate-[fadeIn_0.5s_ease-out_forwards] " style="animation-delay: 0.3s;"
     ></div>
 
     <!-- Profiles Section -->
@@ -100,7 +107,7 @@
     </section>
 
     <div
-      class="horizontal-divider w-[100%] h-[2px] bg-black rounded-full  opacity-0 animate-[fadeIn_0.5s_ease-out_forwards]" style="animation-delay: 0.7s;"
+      class="horizontal-divider w-[100%] h-[2px]  rounded-full  opacity-0 animate-[fadeIn_0.5s_ease-out_forwards]" style="animation-delay: 0.7s;"
     ></div>
 
     <!-- Summary Section -->
@@ -118,7 +125,7 @@
     </section>
 
     <div
-      class="horizontal-divider w-[100%] h-[2px] bg-black rounded-full  opacity-0 animate-[fadeIn_0.5s_ease-out_forwards]" style="animation-delay: 1.1s;"
+      class="horizontal-divider w-[100%] h-[2px]  rounded-full  opacity-0 animate-[fadeIn_0.5s_ease-out_forwards]" style="animation-delay: 1.1s;"
     ></div>
 
     <!-- Experience Section -->
@@ -199,7 +206,7 @@
     </section>
 
     <div
-      class="horizontal-divider w-[100%] h-[2px] bg-black rounded-full  opacity-0 animate-[fadeIn_0.5s_ease-out_forwards]" style="animation-delay: 1.5s;"
+      class="horizontal-divider w-[100%] h-[2px]  rounded-full  opacity-0 animate-[fadeIn_0.5s_ease-out_forwards]" style="animation-delay: 1.5s;"
     ></div>
     <!-- Education Section -->
 
@@ -220,7 +227,7 @@
     </section>
 
     <div
-      class="horizontal-divider w-[100%] h-[2px] bg-black rounded-full opacity-0 animate-[fadeIn_0.5s_ease-out_forwards]" style="animation-delay: 1.9s;"
+      class="horizontal-divider w-[100%] h-[2px]  rounded-full opacity-0 animate-[fadeIn_0.5s_ease-out_forwards]" style="animation-delay: 1.9s;"
     ></div>
 
     <!-- Projects Section -->
@@ -249,7 +256,7 @@
     </section>
 
     <div
-      class="horizontal-divider w-[100%] h-[2px] bg-black rounded-full  opacity-0 animate-[fadeIn_0.5s_ease-out_forwards] " style="animation-delay: 2.3s;"
+      class="horizontal-divider w-[100%] h-[2px]  rounded-full  opacity-0 animate-[fadeIn_0.5s_ease-out_forwards] " style="animation-delay: 2.3s;"
     ></div>
     <!-- Skills Section -->
     <section id="skills" class="flex md:flex-row flex-col gap-2 p-3 opacity-0 animate-[fadeIn_0.5s_ease-out_forwards]" style="animation-delay: 2.5s;">
@@ -278,7 +285,7 @@
     </section>
 
     <div
-      class="horizontal-divider w-[100%] h-[2px] bg-black rounded-full  opacity-0 animate-[fadeIn_0.5s_ease-out_forwards]" style="animation-delay: 2.7s;"
+      class="horizontal-divider w-[100%] h-[2px]  rounded-full  opacity-0 animate-[fadeIn_0.5s_ease-out_forwards]" style="animation-delay: 2.7s;"
     ></div>
     <!-- Certifications Section -->
     <section id="Certifications" class="flex md:flex-row flex-col gap-2 p-3 opacity-0 animate-[fadeIn_0.5s_ease-out_forwards]" style="animation-delay: 2.9s;">
@@ -307,7 +314,7 @@
     </section>
 
     <div
-      class="horizontal-divider w-[100%] h-[2px] bg-black rounded-full  opacity-0 animate-[fadeIn_0.5s_ease-out_forwards]" style="animation-delay: 3.1s;"
+      class="horizontal-divider w-[100%] h-[2px]  rounded-full  opacity-0 animate-[fadeIn_0.5s_ease-out_forwards]" style="animation-delay: 3.1s;"
     ></div>
     <!-- Languages Section -->
     <section id="languages" class="flex md:flex-row flex-col gap-2 p-3 opacity-0 animate-[fadeIn_0.5s_ease-out_forwards]" style="animation-delay: 3.3s;">
@@ -326,7 +333,7 @@
     </section>
 
     <div
-      class="horizontal-divider w-[100%] h-[2px] bg-black rounded-full  opacity-0 animate-[fadeIn_0.5s_ease-out_forwards] " style="animation-delay: 3.5s;"
+      class="horizontal-divider w-[100%] h-[2px]  rounded-full  opacity-0 animate-[fadeIn_0.5s_ease-out_forwards] " style="animation-delay: 3.5s;"
     ></div>
     <!-- References Section -->
     <section id="references" class="flex md:flex-row flex-col gap-2 p-3 opacity-0 animate-[fadeIn_0.5s_ease-out_forwards] " style="animation-delay: 3.7s;">
@@ -339,7 +346,9 @@
     </section>
   </main>
 
-<p class="my-8 text-center opacity-0 animate-[fadeIn_0.5s_ease-out_forwards] " style="animation-delay: 3.9s;">🛠️ Created by Muhammad Bilal Aqeel as part of the Summer Stackers 2025 Internship by <a href="https://netixsol.com" target="_blank" rel="noopener noreferrer">Netixsol</a>.</p>
+  <footer>
+    <p class="my-8 text-center opacity-0 animate-[fadeIn_0.5s_ease-out_forwards] " style="animation-delay: 3.9s;">🛠️ Created by Muhammad Bilal Aqeel as part of the Summer Stackers 2025 Internship by <a href="https://netixsol.com" target="_blank" rel="noopener noreferrer" class="text-blue-500">Netixsol</a>.</p>
 
+  </footer>
   </body>
 </html>
