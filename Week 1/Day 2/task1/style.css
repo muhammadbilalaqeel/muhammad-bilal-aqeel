@@ -22,11 +22,82 @@ h1 {
 }
 .red {
   background-color: red;
-   box-shadow: 10px 0 20px  rgba(0, 0, 0,0.2);
-   border-radius: 10px;
+  box-shadow: 10px 0 20px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  animation: circle_to_left 2s ease ;
+  animation-fill-mode: forwards;
 }
 
 .purple {
   background-color: purple;
-  box-shadow: inset 10px 0 10px 10px rgba(255, 255, 255,0.2);
+  box-shadow: inset 10px 0 10px 10px rgba(255, 255, 255, 0.2);
+}
+
+.ball{
+    margin: 50px 50px 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: rgb(255, 204, 0);
+    animation: bounce_the_ball 0.8s linear infinite;
+    
+}
+
+.ground{
+    width: 80px;
+    height: 10px;
+    margin-left: 25px;
+    background-color: greenyellow;
+}
+
+.anim{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+/* Id Selector */
+
+#neon_btn {
+  margin: 30px;
+  padding: 8px 16px;
+  cursor: pointer;
+  background-color: black;
+  color: #fff;
+  border: none;
+  outline: none;
+
+  /* box-shadow: 0 2px 15px rgb(0, 234, 255); */
+
+  transition: all 0.2s linear;
+}
+
+#neon_btn:hover {
+  box-shadow: 0 5px 15px rgb(0, 234, 255);
+}
+
+#neon_btn:active {
+  background-color: rgba(0, 0, 0, 0.899);
+}
+
+/* Animations */
+
+@keyframes circle_to_left {
+  from {
+    margin: 10px;
+    border-radius: 10px;
+  }
+  to {
+    margin-left: 100px;
+    border-radius: 50%;
+  }
+}
+
+@keyframes bounce_the_ball{
+    0%,100%{
+        transform: translateY(0);
+    }
+    50%{
+        transform: translateY(-20px);
+    }
 }
