@@ -289,4 +289,8 @@ main {
   .testimonial > p {
     margin-top: 0.9rem;
   }
+
+  .testimonial .headline{
+    font-size: 1rem;
+  }
 }
