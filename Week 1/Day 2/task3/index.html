@@ -9,65 +9,127 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+
+       section,.horizontal-divider{
+        opacity: 0;
+         animation: fadeIn 0.2s linear forwards;
+       }
+
+       section:nth-child(1),.horizontal-divider:nth-child(1){
+        animation-delay: 0.2s;
+       }
+       
+       section:nth-child(2),.horizontal-divider:nth-child(2){
+        animation-delay: 0.4s;
+       }
+       
+       section:nth-child(3),.horizontal-divider:nth-child(3){
+        animation-delay: 0.6s;
+       }
+       
+       section:nth-child(4),.horizontal-divider:nth-child(4){
+        animation-delay: 0.8s;
+       }
+
+       
+       section:nth-child(5),.horizontal-divider:nth-child(5){
+        animation-delay: 1s;
+       }
+
+       
+       section:nth-child(6),.horizontal-divider:nth-child(6){
+        animation-delay: 1.2s;
+       }
+
+       
+       section:nth-child(7),.horizontal-divider:nth-child(7){
+        animation-delay: 1.4s;
+       }
+
+       
+       section:nth-child(8),.horizontal-divider:nth-child(8){
+        animation-delay: 1.6s;
+       }
+       
+       section:nth-child(9),.horizontal-divider:nth-child(9){
+        animation-delay: 1.8s;
+       }
+       
+       section:nth-child(10){
+        animation-delay: 2s;
+       }
+
+        @keyframes fadeIn{
+            from{
+                transform: translateY(-30px);
+            }
+            to{
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
   </head>
   <body class="max-w-[900px] mx-auto p-3">
-    <section class="header flex flex-col items-center">
-      <h1 class="name text-4xl font-bold">John Doe</h1>
-      <p class="work mt-2 text-xl">Creative and Innovative Web Developer</p>
-      <div class="more_info flex mt-2 gap-3">
-        <div class="location flex items-center justify-center gap-2">
-          <i class="fa-solid fa-location-dot text-green-400"></i>
+    <section class="header flex flex-col items-center w-full">
+      <h1 class="name text-3xl font-bold text-center">John Doe</h1>
+      <p class="work mt-2 text-lg text-gray-600 text-center">Creative and Innovative Web Developer</p>
+      <div class="more_info flex sm:flex-row flex-col items-start sm:justify-center mt-2 gap-3 flex-wrap">
+        <div class="location flex items-center justify-start sm:justify-center gap-2 text-sm flex-1">
+          <i class="fa-solid fa-location-dot text-green-400 text-sm"></i>
           Pleasantville, CA 94588
         </div>
-        <div class="phone flex items-center justify-center gap-2">
-          <i class="fa-solid fa-phone text-green-400"></i>
-          <a href="tel:+555123-4567">(555) 123-4567</a>
+        <div class="phone flex items-center justify-center gap-2 text-sm flex-1">
+          <i class="fa-solid fa-phone text-green-400 text-sm"></i>
+          <a href="tel:+555123-4567 text-sm">(555) 123-4567</a>
         </div>
-        <div class="email flex items-center justify-center gap-2">
-          <i class="fa-solid fa-at text-green-400"></i>
-          <a href="mailto:john.doe@gmail.com"> john.doe@gmail.com</a>
+        <div class="email flex items-center justify-center gap-2 text-sm flex-1">
+          <i class="fa-solid fa-at text-green-400 text-sm"></i>
+          <a href="mailto:john.doe@gmail.com" class="text-sm"> john.doe@gmail.com</a>
         </div>
-        <div class="portfolio flex items-center justify-center gap-2">
-          <i class="fa-solid fa-link text-green-400"></i>
-          <a href="https://johndoe.me/">https://johndoe.me/</a>
+        <div class="portfolio flex items-center justify-center gap-2 text-sm flex-1">
+          <i class="fa-solid fa-link text-green-400 text-sm"></i>
+          <a href="https://johndoe.me/" class="text-sm">https://johndoe.me/</a>
         </div>
       </div>
     </section>
     <div
-      class="horizontal-divider w-[100%] h-[2px] bg-black rounded-full my-3"
+      class="horizontal-divider w-[100%] h-[2px] bg-black rounded-full my-3 opacity-0"
     ></div>
 
     <!-- Profiles Section -->
 
-    <section id="profiles" class="flex pb-2">
-      <h2 class="w-[20%] text-2xl font-bold">Profiles</h2>
+    <section id="profiles" class="flex md:flex-row flex-col gap-2 pb-2">
+      <h2 class="md:w-[20%] w-full text-xl font-bold">Profiles</h2>
 
-      <div class="flex w-[80%]">
+      <div class="flex md:w-[80%] w-full flex-wrap sm:gap-0 gap-3 sm:flex-row flex-col ">
         <!-- Linkedin -->
-        <div class="linkedin flex flex-col">
+        <div class="linkedin flex sm:flex-col flex-row">
           <div class="username">
-            <a href="#" class="flex items-center gap-1"
-              ><i class="fa-brands fa-linkedin text-blue-500 text-xl"></i
+            <a href="#" class="flex items-center gap-1 text-sm"
+              ><i class="fa-brands fa-linkedin text-blue-500 text-sm"></i
               >johndoe</a
             >
           </div>
           <span class="text-sm">LinkedIn</span>
         </div>
         <!-- Github -->
-        <div class="github ml-auto flex flex-col">
+        <div class="github ml-0 sm:ml-auto flex  sm:flex-col flex-row">
           <div class="username">
-            <a href="#" class="flex items-center gap-1">
-              <i class="fa-brands fa-github text-black text-xl"></i>johndoe</a
+            <a href="#" class="flex items-center gap-1 text-sm">
+              <i class="fa-brands fa-github text-black text-sm"></i>johndoe</a
             >
           </div>
           <span class="text-sm">GitHub</span>
         </div>
         <!-- Stack Overflow -->
-        <div class="stack_overflow mx-auto flex flex-col">
+        <div class="stack_overflow ml-0 sm:mx-auto flex sm:flex-col flex-row">
           <div class="username">
-            <a href="#" class="flex items-center gap-1">
+            <a href="#" class="flex items-center gap-1 text-sm">
               <i
-                class="fa-brands fa-stack-overflow text-orange-500 text-xl"
+                class="fa-brands fa-stack-overflow text-orange-500 text-sm"
               ></i>
               johndoe</a
             >
@@ -78,14 +140,14 @@
     </section>
 
     <div
-      class="horizontal-divider w-[100%] h-[2px] bg-black rounded-full my-3"
+      class="horizontal-divider w-[100%] h-[2px] bg-black rounded-full my-3 opacity-0"
     ></div>
 
     <!-- Summary Section -->
 
-    <section id="summary" class="pb-2 flex">
-      <h2 class="w-[20%] text-2xl font-bold">Summary</h2>
-      <p class="w-[80%] text-justify">
+    <section id="summary" class="pb-2 flex md:flex-row flex-col gap-2">
+      <h2 class="md:w-[20%] w-full text-xl font-bold">Summary</h2>
+      <p class="md:w-[80%] w-full text-justify text-sm">
         Innovative Web Developer with 5 years of experience in building
         impactful and user-friendly websites and applications. Specializes in
         <span class="font-bold">front-end technologies</span> and passionate
@@ -96,41 +158,41 @@
     </section>
 
     <div
-      class="horizontal-divider w-[100%] h-[2px] bg-black rounded-full my-3"
+      class="horizontal-divider w-[100%] h-[2px] bg-black rounded-full my-3 opacity-0"
     ></div>
 
     <!-- Experience Section -->
 
-    <section id="experiences" class="flex pb-2">
-      <h2 class="w-[20%] text-2xl font-bold">Experience</h2>
-      <div class="w-[80%] flex flex-col gap-4">
+    <section id="experiences" class="flex md:flex-row flex-col gap-2 pb-2">
+      <h2 class="md:w-[20%] w-full text-xl font-bold">Experience</h2>
+      <div class="md:w-[80%] w-full flex flex-col gap-4">
         <div class="experiecne mt-1">
-          <div class="head flex justify-between">
+          <div class="head flex justify-between flex-col md:flex-row">
             <div class="left">
-              <h3 class="company font-bold text-xl">Creative Solutions Inc.</h3>
-              <p class="post text-lg">Senior Web Developer</p>
+              <h3 class="company font-bold text-base">Creative Solutions Inc.</h3>
+              <p class="job_title text-sm">Senior Web Developer</p>
             </div>
             <div class="right">
-              <h3 class="duration_of_work font-bold text-xl">January 2019 to Present</h3>
-              <p class="location text-lg text-right">San Francisco, CA</p>
+              <h3 class="duration_of_work font-semibold md:font-bold text-base">January 2019 to Present</h3>
+              <p class="location text-sm text-left md:text-right">San Francisco, CA</p>
             </div>
           </div>
           <div class="ml-1 mt-1">
-            <a class="company_weblink mt-2" href="https://creativesolutions.inc/">
-            <i class="fa-solid fa-link text-green-400"></i>
+            <a class="company_weblink mt-2 text-sm" href="https://creativesolutions.inc/">
+            <i class="fa-solid fa-link text-green-400 text-sm"></i>
             https://creativesolutions.inc/</a>
           <ul class="mt-2 list-disc marker:text-green-400 ml-4">
-            <li class="text-justify">
+            <li class="text-justify text-sm">
               Spearheaded the redesign of the main product website, resulting in
               a 40% increase in user engagement.
             </li>
 
-            <li class="text-justify">
+            <li class="text-justify text-sm">
               Developed and implemented a new responsive framework, improving
               cross-device compatibility.
             </li>
 
-            <li class="text-justify">
+            <li class="text-justify text-sm">
               Mentored a team of four junior developers, fostering a culture of
               technical excellence
             </li>
@@ -139,34 +201,34 @@
         </div>
 
         <div class="experiecne mt-1">
-          <div class="head flex justify-between">
+          <div class="head flex justify-between flex-col md:flex-row">
             <div class="left">
-              <h3 class="company font-bold text-xl">TechAdvancers</h3>
-              <p class="post text-lg">Web Developer</p>
+              <h3 class="company font-bold text-base">TechAdvancers</h3>
+              <p class="job_title text-sm">Web Developer</p>
             </div>
             <div class="right">
-              <h3 class="duration_of_work font-bold text-xl">June 2016 to December 2018</h3>
-              <p class="location text-lg text-right">San Jose, CA</p>
+              <h3 class="duration_of_work font-semibold md:font-bold text-base">June 2016 to December 2018</h3>
+              <p class="location text-sm text-left md:text-right">San Jose, CA</p>
             </div>
           </div>
           
 
           <div class="ml-1 mt-1">
-             <a class="company_weblink mt-2" href="https://creativesolutions.inc/">
-            <i class="fa-solid fa-link text-green-400"></i>
+             <a class="company_weblink mt-2 text-sm" href="https://creativesolutions.inc/">
+            <i class="fa-solid fa-link text-sm text-green-400"></i>
             https://creativesolutions.inc/</a>
           <ul class="mt-2 list-disc marker:text-green-400 ml-4">
-            <li class="text-justify">
+            <li class="text-justify text-sm">
               Collaborated in a team of 10 to develop high-quality web
               applications using React.js and Node.js.
             </li>
 
-            <li class="text-justify">
+            <li class="text-justify text-sm">
               Managed the integration of third-party services such as Stripe for
               payments and Twilio for SMS services.
             </li>
 
-            <li class="text-justify">
+            <li class="text-justify text-sm">
               Optimized application performance, achieving a 30% reduction in
               load times.
             </li>
@@ -177,48 +239,48 @@
     </section>
 
     <div
-      class="horizontal-divider w-[100%] h-[2px] bg-black rounded-full my-3"
+      class="horizontal-divider w-[100%] h-[2px] bg-black rounded-full my-3 opacity-0"
     ></div>
     <!-- Education Section -->
 
-    <section id="educations" class="flex pb-2">
-      <h2 class="w-[20%] text-2xl font-bold">Education</h2>
-      <d class="w-[80%] education flex justify-between">
+    <section id="educations" class="flex md:flex-row flex-col gap-2 pb-2">
+      <h2 class="md:w-[20%] w-full text-xl font-bold">Education</h2>
+      <d class="md:w-[80%] w-full education flex justify-between md:flex-row flex-col md:gap-0 gap-2">
         
         <div class="left">
-          <h3 class="institute text-xl font-bold">University of Calefornia</h3>
-          <p class="location text-lg">Berkeley, CA</p>
+          <h3 class="institute text-base font-bold">University of Calefornia</h3>
+          <p class="location text-sm">Berkeley, CA</p>
         </div>
         <div class="right">
-          <h3 class="duration_of_course text-xl font-bold">August 2012 to May 2016</h3>
-          <p class="course text-lg">Bachelor's in Computer Science</p>
+          <h3 class="duration_of_course text-base font-bold">August 2012 to May 2016</h3>
+          <p class="course text-sm">Bachelor's in Computer Science</p>
         </div>
       
       </div>
     </section>
 
     <div
-      class="horizontal-divider w-[100%] h-[2px] bg-black rounded-full my-3"
+      class="horizontal-divider w-[100%] h-[2px] bg-black rounded-full my-3 opacity-0"
     ></div>
 
     <!-- Projects Section -->
 
-    <section id="projects" class="flex pb-2">
-      <h2 class="w-[20%] text-2xl font-bold">Projects</h2>
-      <div class="w-[80%] flex gap-8">
+    <section id="projects" class="flex md:flex-row flex-col gap-2 pb-2">
+      <h2 class="md:w-[20%] w-full text-xl font-bold">Projects</h2>
+      <div class="md:w-[80%] w-full flex gap-8 flex-wrap md:flex-row flex-col md:gap-0 gap-2">
         <div class="project flex-1">
-        <h3 class="title text-xl font-bold">E-Commerce Platform</h3>
-        <p class="role text-lg">Project Lead</p>
-        <p class="description mt-2">
+        <h3 class="title text-base font-bold">E-Commerce Platform</h3>
+        <p class="role text-sm">Project Lead</p>
+        <p class="description mt-2 text-sm">
           Led the development of a full-stack e-commerce platform, improving
           sales conversion by 25%.
         </p>
       </div>
 
       <div class="project flex-1">
-        <h3 class="title text-xl font-bold">Interactive Dashboard</h3>
-        <p class="role text-lg">Frontend Developer</p>
-        <p class="description mt-2">
+        <h3 class="title text-base font-bold">Interactive Dashboard</h3>
+        <p class="role text-sm">Frontend Developer</p>
+        <p class="description mt-2 text-sm">
           Created an interactive analytics dashboard for a SaaS application,
           enhancing data visualization for clients.
         </p>
@@ -227,91 +289,91 @@
     </section>
 
     <div
-      class="horizontal-divider w-[100%] h-[2px] bg-black rounded-full my-3"
+      class="horizontal-divider w-[100%] h-[2px] bg-black rounded-full my-3 opacity-0"
     ></div>
     <!-- Skills Section -->
-    <section id="skills" class="flex pb-2">
-      <h2 class="w-[20%] text-2xl font-bold">Skills</h2>
+    <section id="skills" class="flex md:flex-row flex-col gap-2 pb-2">
+      <h2 class="md:w-[20%] w-full text-xl font-bold">Skills</h2>
      
 
-      <div class="w-[80%] flex gap-4">
+      <div class="md:w-[80%] w-full flex  flex-wrap md:flex-row flex-col md:gap-4 gap-2">
          <div class="skill flex-1">
-        <h3 class="title text-xl font-bold">Web Technologies</h3>
-        <p class="expertise text-lg mt-1">Advanced</p>
-        <p class="technologies mt-1">HTML5, Javascript, PHP, Python</p>
+        <h3 class="title text-base font-bold">Web Technologies</h3>
+        <p class="expertise text-sm mt-1">Advanced</p>
+        <p class="technologies mt-1 text-sm">HTML5, Javascript, PHP, Python</p>
       </div>
 
       <div class="skill flex-1">
-        <h3 class="title text-xl font-bold">Web Frameworks</h3>
-        <p class="expertise text-lg mt-1">Intermediate</p>
-        <p class="technologies mt-1">React.js, Angular, Vue.js, Laravel, Django</p>
+        <h3 class="title text-base font-bold">Web Frameworks</h3>
+        <p class="expertise text-sm mt-1">Intermediate</p>
+        <p class="technologies mt-1 text-sm">React.js, Angular, Vue.js, Laravel, Django</p>
       </div>
 
       <div class="skill flex-1">
-        <h3 class="title text-xl font-bold">Tools</h3>
-        <p class="expertise text-lg mt-1">Intermediate</p>
-        <p class="technologies mt-1">Webpack,Git, Jenkins, Docker, JIRA</p>
+        <h3 class="title text-base font-bold">Tools</h3>
+        <p class="expertise text-sm mt-1">Intermediate</p>
+        <p class="technologies mt-1 text-sm">Webpack,Git, Jenkins, Docker, JIRA</p>
       </div>
       </div>
     </section>
 
     <div
-      class="horizontal-divider w-[100%] h-[2px] bg-black rounded-full my-3"
+      class="horizontal-divider w-[100%] h-[2px] bg-black rounded-full my-3 opacity-0"
     ></div>
     <!-- Certifications Section -->
-    <section id="Certifications" class="flex pb-2">
-      <h2 class="w-[20%] text-2xl font-bold">Certifications</h2>
-      <div class="w-[80%] flex gap-3 -mt-2">
-        <div class="certificate flex-1 flex items-center justify-between">
+    <section id="Certifications" class="flex md:flex-row flex-col gap-2 pb-2">
+      <h2 class="md:w-[20%] w-full text-xl font-bold">Certifications</h2>
+      <div class="md:w-[80%] w-full flex  -mt-2 flex-wrap md:flex-row flex-col md:gap-3 gap-2">
+        <div class="certificate flex-1 flex items-start md:items-center justify-between flex-wrap">
         <div>
-          <h3 class="title text-xl font-bold">Full-Stack Web Development</h3>
-          <p class="institute text-lg">CodeAcademy</p>
+          <h3 class="title text-base font-bold">Full-Stack Web Development</h3>
+          <p class="institute text-sm">CodeAcademy</p>
         </div>
         <div class="year">
-          <h4 class="text-lg font-bold">2020</h4>
+          <h4 class="text-base font-bold">2020</h4>
         </div>
       </div>
 
       <div class="certificate flex-1 flex items-center justify-between">
         <div>
-          <h3 class="title text-xl font-bold">AWS Certified Developer</h3>
-          <p class="institute text-lg">Amazon Web Services</p>
+          <h3 class="title text-base font-bold">AWS Certified Developer</h3>
+          <p class="institute text-sm">Amazon Web Services</p>
         </div>
         <div class="year">
-          <h4 class="text-lg font-bold">2019</h4>
+          <h4 class="text-base font-bold">2019</h4>
         </div>
       </div>
       </div>
     </section>
 
     <div
-      class="horizontal-divider w-[100%] h-[2px] bg-black rounded-full my-3"
+      class="horizontal-divider w-[100%] h-[2px] bg-black rounded-full my-3 opacity-0"
     ></div>
     <!-- Languages Section -->
-    <section id="languages" class="flex pb-2">
-      <h2 class="w-[20%] text-2xl font-bold">Languages</h2>
-      <div class="w-[80%] flex ">
+    <section id="languages" class="flex md:flex-row flex-col gap-2 pb-2 ">
+      <h2 class="md:w-[20%] w-full text-xl font-bold">Languages</h2>
+      <div class="md:w-[80%] w-full flex flex-wrap sm:flex-row flex-col">
         <div class="language flex-1">
-        <h3 class="title text-xl font-bold">English</h3>
-        <p class="expertise text-lg">Native Speaker</p>
+        <h3 class="title text-base font-bold">English</h3>
+        <p class="expertise text-sm">Native Speaker</p>
       </div>
 
       <div class="language flex-1">
-        <h3 class="title text-xl font-bold">Spanish</h3>
-        <p class="expertise text-lg">Intermediate</p>
+        <h3 class="title text-base font-bold">Spanish</h3>
+        <p class="expertise text-sm">Intermediate</p>
       </div>
       </div>
     </section>
 
     <div
-      class="horizontal-divider w-[100%] h-[2px] bg-black rounded-full my-3"
+      class="horizontal-divider w-[100%] h-[2px] bg-black rounded-full my-3 opacity-0"
     ></div>
     <!-- References Section -->
-    <section id="references" class="flex pb-2">
-      <h2 class="w-[20%] text-2xl font-bold">References</h2>
-      <div class="w-[80%] flex flex-col ">
+    <section id="references" class="flex md:flex-row flex-col gap-2 pb-2">
+      <h2 class="md:w-[20%] w-full text-xl font-bold">References</h2>
+      <div class="md:w-[80%] w-full flex flex-col ">
         <div class="reference mt-1">
-        <h3 class="text-xl font-bold">Available upon request</h3>
+        <h3 class="text-base font-bold">Available upon request</h3>
       </div>
       </div>
     </section>
