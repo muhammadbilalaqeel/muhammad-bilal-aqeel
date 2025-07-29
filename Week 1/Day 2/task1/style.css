@@ -10,6 +10,15 @@ html{
     font-size: 62.5%;  
 }
 
+
+
+/* Element Selector */
+h1{
+  font-size: 3rem;
+}
+
+
+/* Class Selectors */
 .red{
     width: 200px;
     height: 200px;
@@ -21,4 +30,5 @@ html{
     height: 200px;
     background-color: purple;
 }
+
 
