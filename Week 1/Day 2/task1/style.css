@@ -1,0 +1,24 @@
+
+/* Universal Selector */
+*{
+ margin: 0;
+ padding: 0;
+}
+
+html{
+    /* Making 1rem to 10px */
+    font-size: 62.5%;  
+}
+
+.red{
+    width: 200px;
+    height: 200px;
+    background-color: red;
+}
+
+.purple{
+    width: 200px;
+    height: 200px;
+    background-color: purple;
+}
+
