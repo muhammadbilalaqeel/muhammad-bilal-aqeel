@@ -19,15 +19,17 @@
   --grey-300: hsl(0, 0%, 96%);
   --grey-400: hsl(224, 10%, 45%);
   --grey-500: hsl(217, 19%, 35%);
+  --grey-600: hsl(217, 19%, 28%);
+  --grey-700: hsl(217, 19%, 22%);
+  --grey-800: hsl(217, 19%, 15%);
+  --grey-900: hsl(217, 19%, 10%);
+
   --dark-blue: hsl(219, 29%, 14%);
   --black: hsl(0, 0%, 7%);
-  --text-primary:#9FA3AA;
-  --text-secondary:#8e949d;
+  --text-primary: #9fa3aa;
+  --text-secondary: #8e949d;
+  --clr-secondary-400: 217 19% 35%;
 }
-/* 
-html{
-    font-size: 62.5% ;
-} */
 
 body {
   font-family: "Barlow Semi Condensed", sans-serif;
@@ -44,9 +46,15 @@ body {
   gap: 1rem;
 }
 
+.flex div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
 main {
   padding: 2rem;
-  max-width: 75%;
+  max-width: 70%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
@@ -56,9 +64,9 @@ main {
 }
 
 .testimonial {
-  /* border: 1px solid var(--dark-blue); */
   padding: 1.5rem;
   border-radius: 0.5rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
 }
 
 .testimonial img {
@@ -68,13 +76,16 @@ main {
 }
 
 .testimonial .name {
-  font-size: 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
   color: var(--grey-100);
 }
 
 .testimonial .education {
-  font-size: 0.9rem;
+  font-size: 0.75rem;
   color: var(--grey-300);
+  font-weight: 500;
+  opacity: 0.9;
 }
 
 .testimonial > p {
@@ -83,12 +94,13 @@ main {
 
 .testimonial .headline {
   font-size: 1.2rem;
-  font-weight: 600;
+  font-weight: 800;
   color: var(--grey-300);
 }
 .testimonial .cmnt {
   color: var(--grey-100);
   font-size: 0.9rem;
+  opacity: 0.9;
 }
 
 .testimonial:nth-child(1) {
@@ -103,22 +115,56 @@ main {
   background-color: var(--white);
   color: var(--grey-400);
   grid-area: three;
+  .name {
+    color: var(--grey-500);
+  }
+  .education {
+    color: var(--grey-400);
+  }
+  .headline {
+    color: var(--grey-500);
+    padding-right: 2rem;
+  }
+  .cmnt {
+    color: var(--grey-600);
+    opacity: 1 !important;
+    font-weight: 500;
+  }
 }
 .testimonial:nth-child(4) {
-  
-    background-color: var(--dark-blue);
+  background-color: var(--dark-blue);
   grid-area: four;
-   .headline{
+
+  .name {
+    opacity: 0.8;
+  }
+  .education {
+    opacity: 0.8;
+  }
+  .headline {
     color: var(--text-primary);
   }
-  .cmnt{
+  .cmnt {
     color: var(--grey-100);
     opacity: 0.8;
   }
 }
 .testimonial:nth-child(5) {
-background-color: var(--white);
+  background-color: var(--white);
   grid-area: five;
-
- 
+  .name {
+    color: var(--grey-500);
+  }
+  .education {
+    color: var(--grey-400);
+  }
+  .headline {
+    color: var(--grey-500);
+    padding-right: 2rem;
+  }
+  .cmnt {
+    color: var(--grey-600);
+    opacity: 1 !important;
+    font-weight: 500;
+  }
 }
