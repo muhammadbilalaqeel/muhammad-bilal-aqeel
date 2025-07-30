@@ -8,7 +8,9 @@ export default {
         imperial : ['"Imperial Script"', 'cursive']
       },
       backgroundImage:{
-        'hero' : "url('../assets/hero.jpg')"
+        'hero' : "url('../assets/hero.jpg')",
+        'desert' : "url('../assets/hisma_desert_1.png')",
+        'explore' : "url('../assets/explore_bg.png')"
       }
      },
    },
