@@ -1,23 +1,54 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Imperial+Script&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Imperial+Script&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-body{
-    @apply font-poppin;
+body {
+  @apply font-poppin text-white;
 }
 
-.paddings{
-  @apply px-8
+.paddings {
+  @apply px-8;
 }
 
-.nav-links{
-   li{
-    @apply text-base
-   }
+.nav-links {
+  li {
+    @apply text-base;
+  }
 }
 
-.hero{
-    @apply h-screen w-full bg-hero bg-cover bg-center text-white
+.hero {
+  @apply h-screen w-full bg-hero bg-cover bg-center text-white;
+}
+
+.destinations-grid {
+  @apply max-h-full md:max-h-[1100px] grid lg:grid-cols-[1.1fr_1fr_1.1fr] md:grid-cols-[1fr_1fr_1fr]  md:grid-rows-3 gap-6 pt-8;
+  .card {
+    @apply rounded-3xl overflow-hidden md:h-full  h-[310px];
+    > img {
+      @apply w-full h-full object-cover;
+    }
+  }
+
+
+
+  .card:nth-child(1) {
+    @apply lg:row-start-1 lg:row-end-3 lg:col-start-1 lg:col-end-2 md:col-start-1 md:col-end-3 md:row-start-1 md:row-end-2;
+  }
+  .card:nth-child(2) {
+    @apply lg:col-start-2 lg:col-end-3   md:col-start-3 md:col-end-4  md:row-start-1 md:row-end-2;
+  }
+  .card:nth-child(3) {
+    @apply lg:col-start-3 lg:col-end-4 lg:row-start-1 lg:row-end-3 md:col-start-1 md:col-end-2 md:row-start-2 md:row-end-3;
+  }
+  .card:nth-child(4) {
+    @apply lg:col-start-1 lg:col-end-2 md:col-start-2 md:col-end-4;
+  }
+  .card:nth-child(5) {
+    @apply lg:col-start-2 lg:col-end-3 lg:row-start-2 lg:row-end-4 md:col-start-1 md:col-end-3;
+  }
+  .card:nth-child(6) {
+    @apply lg:col-start-3 lg:col-end-4 md:col-start-3 md:col-end-4;
+  }
 }

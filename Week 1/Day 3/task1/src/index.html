@@ -11,7 +11,7 @@
   </head>
   <body>
     <!-- Header -->
-    <header class="text-white w-full min-h-[80px] fixed top-0 paddings">
+    <header class="text-white w-full min-h-[80px] fixed top-0 paddings hidden">
       <!-- Navbar -->
       <nav class="w-full h-full flex justify-between items-start pt-6">
         <div class="brand_logo">
@@ -84,7 +84,7 @@
       </div>
       <div class="flex justify-between pt-[3%] pb-8 w-full">
         <div class="w-[340px]">
-          <h2 class="xl:text-3xl lg:text-2xl">History and Heritage</h2>
+          <h3 class="xl:text-3xl lg:text-2xl">History and Heritage</h3>
           <p class="text-base mt-2">
             Saudi Arabia has long occupied an important role at the center of
             the islamic and Arab worlds. Located at the heart of three
@@ -92,7 +92,7 @@
           </p>
         </div>
         <div class="w-[340px]">
-          <h2 class="xl:text-3xl lg:text-2xl">People and Culture</h2>
+          <h3 class="xl:text-3xl lg:text-2xl">People and Culture</h2>
           <p class="text-base mt-2">
             Saudi Arabia has a rich Culture Shaped by the diversity of its
             people. which has formed the basis of its cultural identity.
@@ -107,15 +107,156 @@
 
 
 
-    <!-- Testimonial Section -->
+    <!-- Destination Section -->
 
-    <section id="testimonial paddings bg-black w-full h-screen">
-        <div class="brands max-w-[1327px] flex ">
-            <img src="../assets/brand_1.svg" alt="al_saudia" class="flex-1">
-            <img src="../assets/brand_2.svg" alt="al_rajhi_bank" class="flex-1">
-            <img src="../assets/brand_3.svg" alt="stc" class="flex-1">
-            <img src="../assets/brand_4.svg" alt="almarai" class="flex-1">
+    <section id="destinations" class="paddings w-full min-h-screen bg-black py-10">
+        <div class="brands max-w-[1327px] flex  gap:8 flex-wrap lg:gap-14 mx-auto">
+            <img src="../assets/brand_1.svg" alt="al_saudia" class="flex-1 lg:h-[80px] xl:h-[100px]">
+            <img src="../assets/brand_2.svg" alt="al_rajhi_bank" class="flex-1 lg:h-[80px] xl:h-[100px]">
+            <img src="../assets/brand_3.svg" alt="stc" class="flex-1 lg:h-[80px] xl:h-[100px]">
+            <img src="../assets/brand_4.svg" alt="almarai" class="flex-1 lg:h-[80px] xl:h-[100px]">
         </div>
+        <div class="destinations my-20">
+            <div class="head max-w-[550px] mx-auto">
+                <h2 class="text-center text-4xl text-semibold">Best Destinations</h2>
+                <p class="text-center text-base pt-2">Explore the enchanting landscapes of saudi Arabia, from the breathtaking deserts to the stunning coastal shores.</p>
+            </div>
+
+            <!-- Destinations Grid -->
+            <div class="destinations-grid">
+                 
+                <!-- Card 1 -->
+                <div class="card relative">
+                    <img src="../assets/hisma_desert.png"  alt="hisma_desert">
+                    <div class="absolute top-0 w-full h-full py-8 xl:py-12 px-6 lg:px-8 flex flex-col justify-between">
+                        <div class="t">
+                            <h3 class="title text-xl md:text-2xl  lg:text-3xl  xl:text-4xl font-extrabold">Hisma Desert</h3>
+                            <p class="desc md:text-base text-sm mt-1">The hisma desert is a true marvel of nature, and several desert oasis.</p>
+                        </div>
+                    <div class="b flex items-center">
+                        <img src="../assets/middle_east.png" alt="person_pic" class="w-12 lg:w-14 xl:w-16 rounded-full object-cover">
+                        <div class="ml-3 flex flex-col justify-center">
+                            <h3 class="name font-medium text-base lg:text-lg">Wazeem Al Mulk</h3>
+                            <p class="text-[12px] sm:text-sm ">Traveler</p>
+                        </div>
+                    </div>
+                    </div>
+                  </div>
+
+
+                  <!-- Card 2 -->
+
+                   <div class="card relative">
+                    <img src="../assets/riyadh.png"  alt="riyadh" >
+                    <div class="absolute top-0 w-full h-full py-8 xl:py-12 px-6 lg:px-8 flex flex-col justify-between">
+                        <div class="t">
+                            <h3 class="title text-xl md:text-2xl  lg:text-3xl  xl:text-4xl font-extrabold">Kafd World Trade
+Centre, Riyadh.</h3>
+                            <p class="desc md:text-base text-sm mt-1">The Towering Structure stands as a
+testament to Saudi Arabia’s vision for
+a thriving business hub.</p>
+                        </div>
+                    <div class="b flex items-center">
+                        <img src="../assets/beard_man.png" alt="person_pic" class="w-12 lg:w-14 xl:w-16 rounded-full object-cover">
+                        <div class="ml-3 flex flex-col justify-center">
+                            <h3 class="name font-medium text-base lg:text-lg">Benjamin Voros</h3>
+                            <p class="text-[12px] sm:text-sm ">Traveler</p>
+                        </div>
+                    </div>
+                    </div>
+                  </div>
+
+<!-- Card 3 -->
+                   <div class="card relative">
+                    <img src="../assets/qarah.png"  alt="al_qarah">
+                    <div class="absolute top-0 w-full h-full py-8 xl:py-12 px-6 lg:px-8 flex flex-col justify-between">
+                        <div class="t">
+                            <h3 class="title text-xl md:text-2xl  lg:text-3xl  xl:text-4xl font-extrabold">Al Qarah Mountain</h3>
+                            <p class="desc md:text-base text-sm mt-1">The Mountain’s distractive rocks
+formations inviting adventures to
+explore its hidden treasure.</p>
+                        </div>
+                    <div class="b flex items-center">
+                        <img src="../assets/sunglasses.png" alt="person_pic" class="w-12 lg:w-14 xl:w-16 rounded-full object-cover">
+                        <div class="ml-3 flex flex-col justify-center">
+                            <h3 class="name font-medium text-base lg:text-lg">John Towner</h3>
+                            <p class="text-[12px] sm:text-sm ">Traveler</p>
+                        </div>
+                    </div>
+                    </div>
+                  </div>
+
+<!-- Card 4 -->
+                   <div class="card relative">
+                    <img src="../assets/tabuk.png"  alt="tabuk">
+                    <div class="absolute top-0 w-full h-full py-8 xl:py-12 px-6 lg:px-8 flex flex-col justify-between">
+                        <div class="t">
+                            <h3 class="title text-xl md:text-2xl  lg:text-3xl  xl:text-4xl font-extrabold">The best of Tabuk</h3>
+                            <p class="desc md:text-base text-sm mt-1">Tabuk also spelled Tabouk, the capital city of the 
+Tabuk Region in northwestern Saudi Arabia.</p>
+                        </div>
+                    <div class="b flex items-center">
+                        <img src="../assets/isolated_man.png" alt="person_pic" class="w-12 lg:w-14 xl:w-16 rounded-full object-cover">
+                        <div class="ml-3 flex flex-col justify-center">
+                            <h3 class="name font-medium text-base lg:text-lg">Jonatan Pie</h3>
+                            <p class="text-[12px] sm:text-sm ">Influencer</p>
+                        </div>
+                    </div>
+                    </div>
+                  </div>
+
+                  <!-- Card 5 -->
+
+                   <div class="card relative">
+                    <img src="../assets/alulah.png"  alt="alula_desert">
+                    <div class="absolute top-0 w-full h-full py-8 xl:py-12 px-6 lg:px-8 flex flex-col justify-between">
+                        <div class="t">
+                            <h3 class="title text-xl md:text-2xl  lg:text-3xl  xl:text-4xl font-extrabold">AlUIa</h3>
+                            <p class="desc md:text-base text-sm mt-1">AIUIa is located deep in the desert in
+the northwest of Saudi Arabia</p>
+                        </div>
+                    <div class="b flex items-center">
+                        <img src="../assets/shawl_man.png" alt="person_pic" class="w-12 lg:w-14 xl:w-16 rounded-full object-cover">
+                        <div class="ml-3 flex flex-col justify-center">
+                            <h3 class="name font-medium text-base lg:text-lg">Garrett Parker</h3>
+                            <p class="text-[12px] sm:text-sm ">Traveler</p>
+                        </div>
+                    </div>
+                    </div>
+                  </div>
+
+<!-- Card 6 -->
+                   <div class="card relative">
+                    <img src="../assets/taif.png"  alt="taif">
+                    <div class="absolute top-0 w-full h-full py-8 xl:py-12 px-6 lg:px-8 flex flex-col justify-between">
+                        <div class="t">
+                            <h3 class="title text-xl md:text-2xl  lg:text-3xl  xl:text-4xl font-extrabold">The best things 
+To do in Taif</h3>
+                            <p class="desc md:text-base text-sm mt-1">Taif is a city and governorate in the Makkah
+ Region of Saudi Arabia.</p>
+                        </div>
+                    <div class="b flex items-center">
+                        <img src="../assets/woman.png" alt="person_pic" class="w-12 lg:w-14 xl:w-16 rounded-full object-cover">
+                        <div class="ml-3 flex flex-col justify-center">
+                            <h3 class="name font-medium text-base lg:text-lg">Cristina Gottardi</h3>
+                            <p class="text-[12px] sm:text-sm ">Traveler</p>
+                        </div>
+                    </div>
+                    </div>
+                  </div>
+
+                  
+
+
+                  
+            </div>
+
+            <!-- See More Link -->
+            <div class="w-full pt-10 flex justify-end">
+                <a href="#" class="xl:text-base text-sm underline">See More</a>
+            </div>
+        </div>
+
     </section>
   </body>
 </html>
