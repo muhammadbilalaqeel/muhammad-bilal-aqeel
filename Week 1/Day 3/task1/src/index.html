@@ -5,23 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Saudi Arabia | Heritage, Culture & History</title>
     <link rel="stylesheet" href="./output.css" />
+
+    <!-- width="213"
+            height="118" -->
   </head>
   <body>
     <!-- Header -->
-    <header class="text-white w-full min-h-[80px] fixed paddings">
+    <header class="text-white w-full min-h-[80px] fixed top-0 paddings">
       <!-- Navbar -->
       <nav class="w-full h-full flex justify-between items-start pt-6">
         <div class="brand_logo">
           <svg
-            width="213"
-            height="118"
-            class="xl:h-[118px] xl:w-[213px]"
+            class="xl:h-[118px] xl:w-[213px] lg:h-[102px] lg:w-[180px]"
             viewBox="0 0 213 118"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             xmlns:xlink="http://www.w3.org/1999/xlink"
           >
-            <rect width="213" height="118" fill="url(#pattern0_5_32)" />
+            <rect
+              class="xl:h-[115px] xl:w-[208px] lg:h-[102px] lg:w-[180px]"
+              fill="url(#pattern0_5_32)"
+            />
             <defs>
               <pattern
                 id="pattern0_5_32"
@@ -64,14 +68,54 @@
     </header>
 
     <!-- Hero Section -->
-    <section id="hero" class="hero flex items-center justify-center">
-      <div class="title flex items-center flex-col max-w-[550px] ">
-        <h1 class="text-center text-[80px] font-bold leading-tight">Explore Saudi Arabia</h1>
-        <p class="text-center">
+    <section id="hero" class="hero flex items-center  flex-col paddings">
+      <div
+        class="title flex items-center flex-col pt-40 lg:max-w-[550px] xl:max-w-[652px]"
+      >
+        <h1
+          class="text-center lg:text-[80px] xl:text-[98px] font-bold leading-tight"
+        >
+          Explore Saudi Arabia
+        </h1>
+        <p class="text-center xl:text-[20px] lg:text-[16px]">
           Saudi Arabia is rich in heritage and history. The country is home to
           hundreds of historically important sites.
         </p>
       </div>
+      <div class="flex justify-between pt-[3%] pb-8 w-full">
+        <div class="w-[340px]">
+          <h2 class="xl:text-3xl lg:text-2xl">History and Heritage</h2>
+          <p class="text-base mt-2">
+            Saudi Arabia has long occupied an important role at the center of
+            the islamic and Arab worlds. Located at the heart of three
+            continents.
+          </p>
+        </div>
+        <div class="w-[340px]">
+          <h2 class="xl:text-3xl lg:text-2xl">People and Culture</h2>
+          <p class="text-base mt-2">
+            Saudi Arabia has a rich Culture Shaped by the diversity of its
+            people. which has formed the basis of its cultural identity.
+          </p>
+        </div>
+      </div>
+
+      <!-- Gradient Div -->
+       <div class="w-full h-[80px] absolute bottom-0 bg-[linear-gradient(0deg,_#000000,_rgba(0,0,0,0))]"></div>
+    </section>
+
+
+
+
+    <!-- Testimonial Section -->
+
+    <section id="testimonial paddings bg-black w-full h-screen">
+        <div class="brands max-w-[1327px] flex ">
+            <img src="../assets/brand_1.svg" alt="al_saudia" class="flex-1">
+            <img src="../assets/brand_2.svg" alt="al_rajhi_bank" class="flex-1">
+            <img src="../assets/brand_3.svg" alt="stc" class="flex-1">
+            <img src="../assets/brand_4.svg" alt="almarai" class="flex-1">
+        </div>
     </section>
   </body>
 </html>

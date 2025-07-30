@@ -5,6 +5,7 @@ export default {
      extend: {
       fontFamily:{
         poppin:['"Poppins"', 'sans-serif'],
+        imperial : ['"Imperial Script"', 'cursive']
       },
       backgroundImage:{
         'hero' : "url('../assets/hero.jpg')"
