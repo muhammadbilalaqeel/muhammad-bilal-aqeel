@@ -54,10 +54,24 @@ body {
 }
 
 
-.arrow_btn{
-    @apply h-20 w-20 border-2 border-white rounded-full relative before:content-[''] before:absolute before:left-0 before:top-0 before-h-full before-w-full before:bg-white;
+.arrow_btn {
+  @apply   h-16 w-16    md:h-20 md:w-20 border-2 border-white rounded-full hover:bg-white;
 
-    i{
-        @apply text-3xl;
+  i {
+    @apply text-3xl   transition-colors duration-300;
+  }
+}
+
+
+
+footer{
+    @apply  bg-[#222222] pt-16 pb-4  min-h-[260px];
+    .business_footer{
+        @apply   w-full  flex justify-between lg:flex-row flex-col lg:gap-0 gap-10 pb-4;
     }
+
+    li{
+        @apply transition-all duration-300 hover:translate-x-[20px] hover:underline;
+    }
+
 }
