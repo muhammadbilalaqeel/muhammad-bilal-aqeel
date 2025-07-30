@@ -4,6 +4,17 @@
 @tailwind components;
 @tailwind utilities;
 
+
+@layer utilities {
+  .custom-bg-gradient {
+    background: linear-gradient(180deg, #047F01 -19.92%, #FFFFFF -4.32%, #047E01 7.78%, #047F01 92.62%, #FFFFFF 108.2%);
+  }
+
+  .custom-shadow {
+    box-shadow: 2px -4px 2.3px 0px #047F01, 0px 4px 4px 0px #047F01;
+  }
+}
+
 body {
   @apply font-poppin text-white bg-black;
 }

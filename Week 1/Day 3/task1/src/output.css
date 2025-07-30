@@ -681,6 +681,14 @@ video {
   height: 100%;
 }
 
+.h-\[\]{
+  height: ;
+}
+
+.h-\[200px\]{
+  height: 200px;
+}
+
 .min-h-\[80px\]{
   min-height: 80px;
 }
@@ -803,16 +811,16 @@ video {
   background-image: url('../assets/hisma_desert_1.png');
 }
 
+.bg-destination{
+  background-image: url('../assets/destination_bg.png');
+}
+
 .bg-explore{
   background-image: url('../assets/explore_bg.png');
 }
 
 .bg-hero{
   background-image: url('../assets/hero.jpg');
-}
-
-.bg-destination{
-  background-image: url('../assets/destination_bg.png');
 }
 
 .bg-cover{
@@ -851,6 +859,16 @@ video {
 .py-8{
   padding-top: 2rem;
   padding-bottom: 2rem;
+}
+
+.py-1{
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
+.py-16{
+  padding-top: 4rem;
+  padding-bottom: 4rem;
 }
 
 .pt-10{
@@ -942,6 +960,10 @@ video {
 
 .underline{
   text-decoration-line: underline;
+}
+
+.custom-bg-gradient {
+  background: linear-gradient(180deg, #047F01 -19.92%, #FFFFFF -4.32%, #047E01 7.78%, #047F01 92.62%, #FFFFFF 108.2%);
 }
 
 body{
