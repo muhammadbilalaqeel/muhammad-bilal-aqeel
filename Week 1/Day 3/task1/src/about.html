@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About | Saudi Arabia</title>
-       <script
+    <script
       src="https://kit.fontawesome.com/9b197449cc.js"
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="./output.css" />
-</head>
-<body>
-        <!-- Header -->
+  </head>
+  <body>
+    <!-- Header -->
     <header class="text-white w-full min-h-[80px] fixed top-0 z-50 paddings">
       <!-- Navbar -->
       <nav class="w-full h-full flex justify-between items-center pt-6">
@@ -51,41 +51,171 @@
         </div>
         <div class="flex items-center gap-14">
           <!-- Dark Mode Toggler -->
-          <div class="mode_toggler w-14 bg-white h-7 rounded-full relative">
-            <div
-              class="circle absolute rounded-full w-6 h-6 bg-black top-0.5 right-1"
-            ></div>
-            <div class="light"></div>
-            <div class="dark"></div>
+          <div class="mode_toggler w-14 bg-white h-8 rounded-full relative flex items-center p-1 gap-0.5 cursor-pointer">
+            <!-- <div
+              class="circle absolute z-10 rounded-full w-6 h-6 bg-black top-0.5 right-1"
+            ></div> -->
+            <div class="dark flex-1 flex items-center justify-center bg-black h-full rounded-full "><i class="fa-regular fa-moon text-white"></i></div>
+            <div class="light flex-1 flex items-center justify-center"><i class="fa-solid fa-sun text-black"></i></div>
           </div>
           <!-- Nav Links -->
           <ul class="md:flex hidden items-center gap-14 nav-links">
-            <li><a href="#">Destinations</a></li>
-            <li><a href="#">Members</a></li>
-            <li><a href="#">Gallery</a></li>
+            <li><a href="./destinations.html">Destinations</a></li>
+            <li><a href="./about.html">Members</a></li>
+            <li><a href="./index.html">Gallery</a></li>
           </ul>
         </div>
       </nav>
     </header>
 
-
-       <!-- Hero Section -->
-    <section id="hero" class="hero bg-destination flex items-center  justify-center  flex-col paddings">
+    <!-- Hero Section -->
+    <section
+      id="hero"
+      class="hero bg-about flex items-center justify-center flex-col paddings"
+    >
       <div
-        class="title flex items-center flex-col   lg:max-w-[550px] md:max-w-[400px] sm:max-w-[330px] max-w-full mx-2 xl:max-w-[652px]"
+        class="title flex items-center flex-col lg:max-w-[550px] md:max-w-[400px] sm:max-w-[330px] max-w-full mx-2 xl:max-w-[652px]"
       >
         <h1
           class="text-center text-[48px] md:text-[60px] lg:text-[82px] xl:text-[98px] font-bold leading-tight"
         >
-       About Us
+          About Us
         </h1>
-        <p class="text-center xl:text-[20px] lg:text-[17px] md:text-[15px] text-sm sm:text-base">
-       Discover the country's hidden gems and breathtaking landscapes
+        <p
+          class="text-center xl:text-[20px] lg:text-[17px] md:text-[15px] text-sm sm:text-base"
+        >
+          Discover the country's hidden gems and breathtaking landscapes
         </p>
       </div>
 
       <!-- Gradient Div -->
-       <div class="w-full h-[80px] absolute bottom-0 bg-[linear-gradient(0deg,_#000000,_rgba(0,0,0,0))]"></div>
+      <div
+        class="w-full h-[80px] absolute bottom-0 bg-[linear-gradient(0deg,_#000000,_rgba(0,0,0,0))]"
+      ></div>
     </section>
-</body>
+
+
+
+  <!-- About Section -->
+     <section id="about" class="paddings w-full min-h-screen bg-black py-10">
+          <div class="my-6">
+             <div class="head max-w-[850px] mx-auto">
+                <h2 class="text-center text-4xl font-medium">Saudi, a kingdom that inspires</h2>
+                <p class="text-center text-base pt-2">A uniquely Saudi experience awaits in winter</p>
+            </div>
+            <div class="about mt-16">
+                <h2 class="text-[40px]  font-semibold">Traditions of Saudi Arabia</h2>
+                <div class="mt-10 flex items-center gap-10 md:flex-row flex-col ">
+                   <div class="flex-1 h-[340px] md:h-[500px] overflow-hidden rounded-3xl order-2 md:order-1">
+                     <img src="../assets/language.png" class="w-full h-full object-cover " alt="">
+                   </div>
+                   <div class="flex-1 order-1 md:order-2">
+                      <h3 class="text-3xl font-bold">Language</h3>
+                      <p class="text-lg mt-4 leading-thin text-justify">Arabic is the official language of Saudi Arabia and the primary language used in all dealings and public transactions. English serves as an informal second language in the Kingdom and is spoken by a large section of its society. All road signs are bilingual, showing information in both Arabic and English.</p>
+                   </div>
+                </div>
+
+    <div class="mt-20 flex items-center gap-10 md:flex-row flex-col ">
+                  
+                   <div class="flex-1 ">
+                      <h3 class="text-3xl font-bold">Culture</h3>
+                      <p class="text-base mt-4 leading-thin text-justify text-lg">Arabic is the official language of Saudi Arabia and the primary language used in all dealings and public transactions. English serves as an informal second language in the Kingdom and is spoken by a large section of its society. All road signs are bilingual, showing information in both Arabic and English.</p>
+                   </div>
+
+                    <div class="flex-1 h-[500px] overflow-hidden rounded-3xl">
+                     <img src="../assets/culture.png" class="w-full h-full object-cover " alt="">
+                   </div>
+                </div>
+            </div>
+          </div>
+     </section>
+
+    <!-- Whatsapp Button -->
+    <section class="paddings pt-16 pb-4">
+      <div
+        class="custom-bg-gradient px-10 md:px-16 w-full flex justify-between items-center h-[200px] rounded-full"
+      >
+        <p class="text-lg md:text-2xl lg:text-3xl">Contact us on Whatsapp</p>
+        <button class="bg-white rounded-2xl md:w-[160px] w-[120px] h-[40px]  md:h-[60px] text-[#037e01]">
+          Start Chat
+        </button>
+      </div>
+    </section>
+
+    <!-- Explore Section -->
+
+    <section class="paddings h-[400px] sm:h-[500px] mt-[150px] mb-[200px]">
+      <div
+        class="bg-explore w-full h-full bg-cover bg-center flex items-center justify-between px-4 md:px-10"
+      >
+        <h3
+          class="lg:text-5xl md:text-4xl text-3xl font-semibold leading-[1.1] w-[515px]"
+        >
+          Made To Change <br />
+          NEOM
+        </h3>
+        <div class="btn">
+          <button class="arrow_btn">
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="">
+      <div class="business_footer paddings">
+        <div class="brand_logo w-[220px]">
+          <img src="../assets/brand_logo.png" alt="brand_logo" />
+        </div>
+        <div
+          class="flex flex-wrap lg:flex-row flex-col xl:gap-20 gap-[70px] justify-between"
+        >
+          <!-- First -->
+          <div>
+            <h4 class="text-xl text-semibold">About</h4>
+            <ul class="flex flex-col gap-3 mt-3">
+              <li><a href="./about.html">About us</a></li>
+              <li><a href="#">Features</a></li>
+              <li><a href="#">News & Blogs</a></li>
+            </ul>
+          </div>
+
+          <!-- Second -->
+          <div>
+            <h4 class="text-xl text-semibold">Contact</h4>
+            <ul class="flex flex-col gap-3 mt-3">
+              <li><a href="#">Instagram</a></li>
+              <li><a href="#">Twitter</a></li>
+              <li><a href="#">Facebook</a></li>
+            </ul>
+          </div>
+
+          <!-- Third -->
+          <div>
+            <h4 class="text-xl text-semibold">Support</h4>
+            <ul class="flex flex-col gap-3 mt-3">
+              <li><a href="#">FAQs</a></li>
+              <li><a href="#">Support Centre</a></li>
+              <li><a href="#">Feedback</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Credit -->
+
+      <p class="mt-8 mb-2 text-center text-sm">
+        🛠️ Created by Muhammad Bilal Aqeel as part of the Summer Stackers 2025
+        Internship by
+        <a
+          href="https://netixsol.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-blue-500"
+          >Netixsol</a
+        >.
+      </p>
+    </footer>
+  </body>
 </html>
