@@ -19,7 +19,7 @@ body {
 }
 
 .hero {
-  @apply h-screen w-full bg-hero bg-cover bg-center text-white;
+  @apply h-screen w-full  bg-cover bg-center text-white;
 }
 
 .destinations-grid {

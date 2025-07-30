@@ -578,6 +578,10 @@ video {
   bottom: 0px;
 }
 
+.bottom-\[60px\]{
+  bottom: 60px;
+}
+
 .right-1{
   right: 0.25rem;
 }
@@ -590,6 +594,15 @@ video {
   top: 0.125rem;
 }
 
+.z-50{
+  z-index: 50;
+}
+
+.mx-2{
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
 .mx-auto{
   margin-left: auto;
   margin-right: auto;
@@ -600,9 +613,8 @@ video {
   margin-bottom: 5rem;
 }
 
-.my-8{
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+.mb-2{
+  margin-bottom: 0.5rem;
 }
 
 .mb-\[200px\]{
@@ -617,24 +629,16 @@ video {
   margin-top: 0.25rem;
 }
 
-.mt-2{
-  margin-top: 0.5rem;
-}
-
 .mt-3{
   margin-top: 0.75rem;
-}
-
-.mt-\[200px\]{
-  margin-top: 200px;
 }
 
 .mt-8{
   margin-top: 2rem;
 }
 
-.mb-2{
-  margin-bottom: 0.5rem;
+.mt-\[200px\]{
+  margin-top: 200px;
 }
 
 .flex{
@@ -653,8 +657,12 @@ video {
   height: 1.75rem;
 }
 
-.h-\[120px\]{
-  height: 120px;
+.h-\[102px\]{
+  height: 102px;
+}
+
+.h-\[160px\]{
+  height: 160px;
 }
 
 .h-\[400px\]{
@@ -693,6 +701,10 @@ video {
   width: 1.5rem;
 }
 
+.w-\[180px\]{
+  width: 180px;
+}
+
 .w-\[220px\]{
   width: 220px;
 }
@@ -709,16 +721,12 @@ video {
   width: 100%;
 }
 
-.max-w-\[1327px\]{
-  max-width: 1327px;
-}
-
 .max-w-\[550px\]{
   max-width: 550px;
 }
 
-.flex-1{
-  flex: 1 1 0%;
+.max-w-full{
+  max-width: 100%;
 }
 
 .transform{
@@ -731,10 +739,6 @@ video {
 
 .flex-wrap{
   flex-wrap: wrap;
-}
-
-.items-start{
-  align-items: flex-start;
 }
 
 .items-center{
@@ -751,6 +755,14 @@ video {
 
 .justify-between{
   justify-content: space-between;
+}
+
+.justify-around{
+  justify-content: space-around;
+}
+
+.gap-10{
+  gap: 2.5rem;
 }
 
 .gap-14{
@@ -795,6 +807,14 @@ video {
   background-image: url('../assets/explore_bg.png');
 }
 
+.bg-hero{
+  background-image: url('../assets/hero.jpg');
+}
+
+.bg-destination{
+  background-image: url('../assets/destination_bg.png');
+}
+
 .bg-cover{
   background-size: cover;
 }
@@ -823,12 +843,13 @@ video {
   padding-bottom: 2.5rem;
 }
 
-.py-8{
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+.py-6{
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
 }
 
-.pb-8{
+.py-8{
+  padding-top: 2rem;
   padding-bottom: 2rem;
 }
 
@@ -840,16 +861,8 @@ video {
   padding-top: 0.5rem;
 }
 
-.pt-40{
-  padding-top: 10rem;
-}
-
 .pt-6{
   padding-top: 1.5rem;
-}
-
-.pt-\[3\%\]{
-  padding-top: 3%;
 }
 
 .text-center{
@@ -872,6 +885,10 @@ video {
 
 .text-\[12px\]{
   font-size: 12px;
+}
+
+.text-\[48px\]{
+  font-size: 48px;
 }
 
 .text-base{
@@ -950,7 +967,6 @@ body{
 .hero{
   height: 100vh;
   width: 100%;
-  background-image: url('../assets/hero.jpg');
   background-size: cover;
   background-position: center;
   --tw-text-opacity: 1;
@@ -1279,6 +1295,15 @@ footer{
     height: 500px;
   }
 
+  .sm\:max-w-\[330px\]{
+    max-width: 330px;
+  }
+
+  .sm\:text-base{
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+
   .sm\:text-sm{
     font-size: 0.875rem;
     line-height: 1.25rem;
@@ -1286,9 +1311,21 @@ footer{
 }
 
 @media (min-width: 768px){
+  .md\:flex{
+    display: flex;
+  }
+
+  .md\:max-w-\[400px\]{
+    max-width: 400px;
+  }
+
   .md\:px-10{
     padding-left: 2.5rem;
     padding-right: 2.5rem;
+  }
+
+  .md\:pt-28{
+    padding-top: 7rem;
   }
 
   .md\:text-2xl{
@@ -1306,6 +1343,14 @@ footer{
     line-height: 1;
   }
 
+  .md\:text-\[15px\]{
+    font-size: 15px;
+  }
+
+  .md\:text-\[60px\]{
+    font-size: 60px;
+  }
+
   .md\:text-base{
     font-size: 1rem;
     line-height: 1.5rem;
@@ -1313,20 +1358,12 @@ footer{
 }
 
 @media (min-width: 1024px){
-  .lg\:h-\[102px\]{
-    height: 102px;
-  }
-
-  .lg\:h-\[80px\]{
-    height: 80px;
+  .lg\:mt-2{
+    margin-top: 0.5rem;
   }
 
   .lg\:w-14{
     width: 3.5rem;
-  }
-
-  .lg\:w-\[180px\]{
-    width: 180px;
   }
 
   .lg\:max-w-\[550px\]{
@@ -1341,9 +1378,18 @@ footer{
     gap: 3.5rem;
   }
 
+  .lg\:px-6{
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
   .lg\:px-8{
     padding-left: 2rem;
     padding-right: 2rem;
+  }
+
+  .lg\:pt-8{
+    padding-top: 2rem;
   }
 
   .lg\:text-2xl{
@@ -1366,12 +1412,17 @@ footer{
     line-height: 1;
   }
 
-  .lg\:text-\[16px\]{
-    font-size: 16px;
+  .lg\:text-\[17px\]{
+    font-size: 17px;
   }
 
-  .lg\:text-\[80px\]{
-    font-size: 80px;
+  .lg\:text-\[82px\]{
+    font-size: 82px;
+  }
+
+  .lg\:text-base{
+    font-size: 1rem;
+    line-height: 1.5rem;
   }
 
   .lg\:text-lg{
@@ -1416,6 +1467,10 @@ footer{
   .xl\:py-12{
     padding-top: 3rem;
     padding-bottom: 3rem;
+  }
+
+  .xl\:pt-40{
+    padding-top: 10rem;
   }
 
   .xl\:text-3xl{
