@@ -60,3 +60,32 @@
         ✅ Uploaded to GitHub
         🌐 Deployed on Vercel
         🔗 Live Link: https://week1-day2-task3.vercel.app/
+
+
+🗓️ Day 3
+    
+    📄 Task: Figma to Code – UI Design Implementation
+
+        🎯 Goal: Convert a given Figma design into a pixel-perfect responsive web layout using HTML and Tailwind CSS.
+        🎨 Translated static Figma design into clean, semantic HTML structure
+        🔧 Used Tailwind CSS utility classes for layout, spacing, typography, and styling
+        📱 Made design fully responsive with Tailwind’s responsive breakpoints (sm, md, lg)
+        🧩 Practiced using Tailwind’s grid, flexbox, and custom spacing
+        🖼️ Exported and optimized Figma assets (SVGs, PNGs)
+        ✅ Folder structured properly (assets, input.css/output.css, index.html)
+        ✅ GitHub repository created and pushed
+
+
+🗓️ Day 4
+    
+    📄 Task: Make Design Interactive – JavaScript + Tailwind
+
+        🎯 Goal: Add interactivity to the previously built layout using JavaScript
+        🔘 Added functional buttons to navigate or trigger actions
+        🧠 Implemented interactivity (e.g., toggle sections, open links, dropdowns)
+        💡 Used onclick, addEventListener, and basic DOM manipulation
+        🔄 Connected event listeners to UI elements (cards, nav, buttons)
+        🎯 Enhanced UX with visual feedback using Tailwind classes like hover, focus, active
+        📱 Ensured responsive behavior maintained across interactions
+        ✅ Uploaded to GitHub
+        🌐 Deployed on Vercel
