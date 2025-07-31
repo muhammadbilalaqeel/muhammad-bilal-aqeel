@@ -13,30 +13,40 @@
   .custom-shadow {
     box-shadow: 2px -4px 2.3px 0px #047F01, 0px 4px 4px 0px #047F01;
   }
+
+  
+}
+.custom-bottom-to-top-gradient {
+  @apply dark:bg-[linear-gradient(0deg,_#000000,_rgba(0,0,0,0))]  
+}
+
+.custom-top-to-bottom-gradient{
+  @apply bg-[linear-gradient(180deg,_#000000,_rgba(0,0,0,0))]
 }
 
 body {
-  @apply font-poppin text-white bg-black;
+  @apply font-poppin text-black dark:text-white bg-slate-100 dark:bg-black overflow-x-hidden;
 }
 
 .paddings {
-  @apply px-8;
+  @apply     px-6 sm:px-8  md:px-14 lg:px-20 max-w-[2400px];
 }
 
 .nav-links {
   li {
-    @apply text-base;
+    @apply text-base  2xl:text-lg;
   }
 }
+
 
 .hero {
   @apply h-screen w-full  bg-cover bg-center text-white;
 }
 
 .destinations-grid {
-  @apply max-h-full md:max-h-[1100px] grid lg:grid-cols-[1.1fr_1fr_1.1fr] md:grid-cols-[1fr_1fr_1fr]  md:grid-rows-3 gap-6 pt-8;
+  @apply max-h-full md:max-h-[1100px] grid lg:grid-cols-[1.1fr_1fr_1.1fr] md:grid-cols-[1fr_1fr_1fr]  md:grid-rows-3 gap-6 pt-20;
   .card {
-    @apply rounded-3xl overflow-hidden md:h-full  h-[310px];
+    @apply rounded-3xl overflow-hidden md:h-full  h-[310px] text-white;
     > img {
       @apply w-full h-full object-cover;
     }
@@ -76,13 +86,12 @@ body {
 
 
 footer{
-    @apply  bg-[#222222] pt-16 pb-4  min-h-[260px];
+    @apply  bg-slate-700 dark:bg-[#222222] text-white pt-16 pb-4  min-h-[260px];
     .business_footer{
-        @apply   w-full  flex justify-between lg:flex-row flex-col lg:gap-0 gap-10 pb-4;
+        @apply   w-full  flex justify-between  lg:flex-row flex-col lg:gap-0 gap-10 pb-4;
     }
 
     li{
-        @apply transition-all duration-300 hover:translate-x-[20px] hover:underline;
+        @apply transition-all duration-300 hover:translate-x-[20px] hover:underline md:text-sm xl:text-base 2xl:text-lg w-fit ;
     }
-
 }
