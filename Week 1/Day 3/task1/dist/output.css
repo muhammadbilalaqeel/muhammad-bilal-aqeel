@@ -724,20 +724,12 @@ video {
   margin-top: 2rem;
 }
 
-.mt-\[200px\]{
-  margin-top: 200px;
-}
-
 .mt-\[50px\]{
   margin-top: 50px;
 }
 
-.mt-\[100px\]{
-  margin-top: 100px;
-}
-
-.mt-\[\]{
-  margin-top: ;
+.mt-\[200px\]{
+  margin-top: 200px;
 }
 
 .flex{
@@ -1848,16 +1840,16 @@ footer {
     margin-bottom: 200px;
   }
 
-  .md\:mt-\[200px\]{
-    margin-top: 200px;
-  }
-
-  .md\:mt-\[100px\]{
-    margin-top: 100px;
-  }
-
   .md\:mt-\[150px\]{
     margin-top: 150px;
+  }
+
+  .md\:mt-\[250px\]{
+    margin-top: 250px;
+  }
+
+  .md\:mt-\[200px\]{
+    margin-top: 200px;
   }
 
   .md\:flex{
@@ -2025,6 +2017,14 @@ footer {
     font-size: 15px;
   }
 
+  .lg\:text-\[20px\]{
+    font-size: 20px;
+  }
+
+  .lg\:text-\[70px\]{
+    font-size: 70px;
+  }
+
   .lg\:text-\[82px\]{
     font-size: 82px;
   }
@@ -2042,10 +2042,6 @@ footer {
   .lg\:text-xl{
     font-size: 1.25rem;
     line-height: 1.75rem;
-  }
-
-  .lg\:text-\[70px\]{
-    font-size: 70px;
   }
 }
 
@@ -2093,13 +2089,13 @@ footer {
     font-size: 70px;
   }
 
+  .xl\:text-\[82px\]{
+    font-size: 82px;
+  }
+
   .xl\:text-base{
     font-size: 1rem;
     line-height: 1.5rem;
-  }
-
-  .xl\:text-\[82px\]{
-    font-size: 82px;
   }
 }
 
@@ -2167,6 +2163,10 @@ footer {
   .\32xl\:text-8xl{
     font-size: 6rem;
     line-height: 1;
+  }
+
+  .\32xl\:text-\[100px\]{
+    font-size: 100px;
   }
 
   .\32xl\:text-\[130px\]{
