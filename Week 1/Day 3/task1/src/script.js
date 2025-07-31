@@ -65,3 +65,26 @@ menu_btn.addEventListener("click", function () {
     nav_menu.classList.remove("mobile_nav");
   }
 });
+
+
+
+// Scroll TO Top
+
+ // Show/hide button based on scroll position
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 20) {
+      scrollToTopBtn.classList.remove('opacity-0', 'invisible');
+      scrollToTopBtn.classList.add('opacity-100', 'visible');
+    } else {
+      scrollToTopBtn.classList.add('opacity-0', 'invisible');
+      scrollToTopBtn.classList.remove('opacity-100', 'visible');
+    }
+  });
+
+  // Smooth scroll to top
+  scrollToTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
