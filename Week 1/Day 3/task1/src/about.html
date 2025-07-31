@@ -51,12 +51,20 @@
         </div>
         <div class="flex items-center gap-14">
           <!-- Dark Mode Toggler -->
-          <div class="mode_toggler w-14 bg-white h-8 rounded-full relative flex items-center p-1 gap-0.5 cursor-pointer">
+          <div
+            class="mode_toggler w-14 bg-white h-8 rounded-full relative flex items-center p-1 gap-0.5 cursor-pointer"
+          >
             <!-- <div
               class="circle absolute z-10 rounded-full w-6 h-6 bg-black top-0.5 right-1"
             ></div> -->
-            <div class="dark flex-1 flex items-center justify-center bg-black h-full rounded-full "><i class="fa-regular fa-moon text-white"></i></div>
-            <div class="light flex-1 flex items-center justify-center"><i class="fa-solid fa-sun text-black"></i></div>
+            <div
+              class="dark flex-1 flex items-center justify-center bg-black h-full rounded-full"
+            >
+              <i class="fa-regular fa-moon text-white"></i>
+            </div>
+            <div class="light flex-1 flex items-center justify-center">
+              <i class="fa-solid fa-sun text-black"></i>
+            </div>
           </div>
           <!-- Nav Links -->
           <ul class="md:flex hidden items-center gap-14 nav-links">
@@ -94,41 +102,64 @@
       ></div>
     </section>
 
-
-
-  <!-- About Section -->
-     <section id="about" class="paddings w-full min-h-screen bg-black py-10">
-          <div class="my-6">
-             <div class="head max-w-[850px] mx-auto">
-                <h2 class="text-center text-4xl font-medium">Saudi, a kingdom that inspires</h2>
-                <p class="text-center text-base pt-2">A uniquely Saudi experience awaits in winter</p>
+    <!-- About Section -->
+    <section id="about" class="paddings w-full min-h-screen bg-black py-10">
+      <div class="my-6">
+        <div class="head max-w-[850px] mx-auto">
+          <h2 class="text-center text-4xl font-medium">
+            Saudi, a kingdom that inspires
+          </h2>
+          <p class="text-center text-base pt-2">
+            A uniquely Saudi experience awaits in winter
+          </p>
+        </div>
+        <div class="about mt-16">
+          <h2 class="text-[40px] font-semibold">Traditions of Saudi Arabia</h2>
+          <div class="mt-10 flex items-center gap-10 md:flex-row flex-col">
+            <div
+              class="flex-1 h-[340px] md:h-[500px] overflow-hidden rounded-3xl order-2 md:order-1"
+            >
+              <img
+                src="../assets/language.png"
+                class="w-full h-full object-cover"
+                alt=""
+              />
             </div>
-            <div class="about mt-16">
-                <h2 class="text-[40px]  font-semibold">Traditions of Saudi Arabia</h2>
-                <div class="mt-10 flex items-center gap-10 md:flex-row flex-col ">
-                   <div class="flex-1 h-[340px] md:h-[500px] overflow-hidden rounded-3xl order-2 md:order-1">
-                     <img src="../assets/language.png" class="w-full h-full object-cover " alt="">
-                   </div>
-                   <div class="flex-1 order-1 md:order-2">
-                      <h3 class="text-3xl font-bold">Language</h3>
-                      <p class="text-lg mt-4 leading-thin text-justify">Arabic is the official language of Saudi Arabia and the primary language used in all dealings and public transactions. English serves as an informal second language in the Kingdom and is spoken by a large section of its society. All road signs are bilingual, showing information in both Arabic and English.</p>
-                   </div>
-                </div>
-
-    <div class="mt-20 flex items-center gap-10 md:flex-row flex-col ">
-                  
-                   <div class="flex-1 ">
-                      <h3 class="text-3xl font-bold">Culture</h3>
-                      <p class="text-base mt-4 leading-thin text-justify text-lg">Arabic is the official language of Saudi Arabia and the primary language used in all dealings and public transactions. English serves as an informal second language in the Kingdom and is spoken by a large section of its society. All road signs are bilingual, showing information in both Arabic and English.</p>
-                   </div>
-
-                    <div class="flex-1 h-[500px] overflow-hidden rounded-3xl">
-                     <img src="../assets/culture.png" class="w-full h-full object-cover " alt="">
-                   </div>
-                </div>
+            <div class="flex-1 order-1 md:order-2">
+              <h3 class="text-3xl font-bold">Language</h3>
+              <p class="text-lg mt-4 leading-thin text-justify">
+                Arabic is the official language of Saudi Arabia and the primary
+                language used in all dealings and public transactions. English
+                serves as an informal second language in the Kingdom and is
+                spoken by a large section of its society. All road signs are
+                bilingual, showing information in both Arabic and English.
+              </p>
             </div>
           </div>
-     </section>
+
+          <div class="mt-20 flex items-center gap-10 md:flex-row flex-col">
+            <div class="flex-1">
+              <h3 class="text-3xl font-bold">Culture</h3>
+              <p class="text-base mt-4 leading-thin text-justify text-lg">
+                Arabic is the official language of Saudi Arabia and the primary
+                language used in all dealings and public transactions. English
+                serves as an informal second language in the Kingdom and is
+                spoken by a large section of its society. All road signs are
+                bilingual, showing information in both Arabic and English.
+              </p>
+            </div>
+
+            <div class="flex-1 h-[500px] overflow-hidden rounded-3xl">
+              <img
+                src="../assets/culture.png"
+                class="w-full h-full object-cover"
+                alt=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- Whatsapp Button -->
     <section class="paddings pt-16 pb-4">
@@ -136,7 +167,9 @@
         class="custom-bg-gradient px-10 md:px-16 w-full flex justify-between items-center h-[200px] rounded-full"
       >
         <p class="text-lg md:text-2xl lg:text-3xl">Contact us on Whatsapp</p>
-        <button class="bg-white rounded-2xl md:w-[160px] w-[120px] h-[40px]  md:h-[60px] text-[#037e01]">
+        <button
+          class="bg-white rounded-2xl md:w-[160px] w-[120px] h-[40px] md:h-[60px] text-[#037e01]"
+        >
           Start Chat
         </button>
       </div>
