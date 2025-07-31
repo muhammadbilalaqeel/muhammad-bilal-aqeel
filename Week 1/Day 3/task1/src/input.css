@@ -95,3 +95,10 @@ footer{
         @apply transition-all duration-300 hover:translate-x-[20px] hover:underline md:text-sm xl:text-base 2xl:text-lg w-fit ;
     }
 }
+
+
+/* Mobile Menu  */
+
+.mobile_nav{
+  @apply translate-x-0
+}

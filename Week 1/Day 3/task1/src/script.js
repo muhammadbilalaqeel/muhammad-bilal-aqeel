@@ -46,16 +46,22 @@ function enableLightMode() {
   darkIcon.classList.add("text-black");
 }
 
-// Header Background Color change on scroll to top
+// Mobile Menu
 
-// const header = document.querySelector('header');
-
-// window.addEventListener('scroll',function(){
-// if(window.scrollY > 10){
-//     header.classList.add('bg-black','text-white');
-//     AOS.refresh()
-// }
-// else{
-//      header.classList.remove('bg-black')
-// }
-// })
+const menu_btn = document.querySelector(".mobile_menu");
+const menu_icon = menu_btn.querySelector("i");
+const nav_menu = document.getElementById("mobile_nav");
+menu_btn.addEventListener("click", function () {
+  // console.log(menu_icon);
+  if (menu_icon.classList.contains("fa-bars")) {
+    menu_icon.classList.remove("fa-bars");
+    menu_icon.classList.add("fa-xmark");
+    nav_menu.classList.remove("translate-x-[100%]");
+    nav_menu.classList.add("mobile_nav");
+  } else if (menu_icon.classList.contains("fa-xmark")) {
+    menu_icon.classList.add("fa-bars");
+    menu_icon.classList.remove("fa-xmark");
+    nav_menu.classList.add("translate-x-[100%]");
+    nav_menu.classList.remove("mobile_nav");
+  }
+});
