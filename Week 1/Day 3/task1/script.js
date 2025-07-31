@@ -88,3 +88,13 @@ menu_btn.addEventListener("click", function () {
       behavior: 'smooth'
     });
   });
+
+
+
+  const arrow_btn = document.querySelectorAll('.arrow_btn');
+
+  arrow_btn.forEach(element => {
+    element.addEventListener('click',function(){
+      window.location.href='about.html'
+    })
+  });

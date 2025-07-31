@@ -8,6 +8,7 @@
       src="https://kit.fontawesome.com/9b197449cc.js"
       crossorigin="anonymous"
     ></script>
+        <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="./output.css" />
  <!-- AOS CSS -->
     <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet" />
@@ -21,17 +22,17 @@
       data-aos="fade-down"
       data-aos-duration="500"
       data-aos-delay="100"
-      class="text-white w-full 2xl:h-[180px] lg:h-[120px] absolute top-0 left-0 z-50 paddings transition-all duration-300 ease-in-out  "
+      class="text-white w-full 2xl:h-[140px] lg:h-[120px] absolute top-0 left-0 z-50 paddings transition-all duration-300 ease-in-out  "
     >
       <!-- Navbar -->
       <nav class="w-full h-full flex justify-between items-center py-6 container mx-auto">
-        <div class="brand_logo 2xl:w-[250px] 2xl:h-[130px] h-[85px] xl:w-[200px] lg:w-[170px]  w-[150px] mt-3">
-          <img src="../assets/brand_logo.png" class="w-full h-full" alt="" />
+        <div class="brand_logo 2xl:w-[180px] xl:w-[140px]  w-[130px] mt-3">
+          <img src="./assets/brand_logo.png" class="w-full h-full" alt="" />
         </div>
         <div class="flex items-center gap-4 md:gap-14">
           <!-- Dark Mode Toggler -->
           <div
-            class="mode_toggler 2xl:w-20 2xl:h-10 w-16 bg-white h-8 rounded-full relative flex items-center p-1 gap-0.5 cursor-pointer"
+            class="mode_toggler  w-16 bg-white h-8 rounded-full relative flex items-center p-1 gap-0.5 cursor-pointer"
           >
             <div
               class="dark flex-1 flex items-center justify-center h-full rounded-full"
@@ -79,17 +80,17 @@
     <!-- Hero Section -->
     <section id="hero" class="hero bg-hero flex items-center  justify-center  flex-col paddings overflow-x-hidden relative">
       <div
-        class="container mx-auto title flex items-center flex-col lg:max-w-[550px] md:max-w-[400px] sm:max-w-[330px] max-w-full  xl:max-w-[470px] 2xl:max-w-[900px] "
+        class="container mx-auto title flex items-center flex-col lg:max-w-[550px] md:max-w-[400px] sm:max-w-[330px] max-w-full  xl:max-w-[700px]"
       >
         <h1
-          class="text-center text-[48px] md:text-[60px]  lg:text-[70px] 2xl:text-[100px] font-bold leading-tight"
+          class="text-center text-[48px] md:text-[60px]  lg:text-[70px] xl:text-[83px] font-bold leading-none"
           data-aos="zoom-in"
           data-aos-duration="500"
           data-aos-delay="300"
         >
           Explore Saudi Arabia
         </h1>
-        <p class="text-center xl:text-[17px] 2xl:text-[23px] 2xl:leading-tight lg:text-[15px] text-[14px]"   
+        <p class="text-center xl:text-[16px]   lg:text-[15px] text-[14px]"   
           data-aos="fade-up"
           data-aos-duration="500"
           data-aos-delay="600">
@@ -99,16 +100,16 @@
       </div>
       <div class="container mx-auto md:flex hidden justify-between w-full md:pt-28 absolute bottom-[60px] paddings lg:pt-8 xl:pt-40 overflow-hidden ">
         <div class="2xl:w-[400px] w-[340px]" data-aos="fade-up" data-aos-duration="500" data-aos-delay="700">
-          <h3 class="xl:text-2xl lg:text-xl text-lg font-medium 2xl:text-3xl">History and Heritage</h3>
-          <p class="text-sm  mt-1 lg:mt-2 2xl:text-xl" >
+          <h3 class="xl:text-[20px] text-[17px] font-medium ">History and Heritage</h3>
+          <p class="text-sm   mt-0.5" >
             Saudi Arabia has long occupied an important role at the center of
             the islamic and Arab worlds. Located at the heart of three
             continents.
           </p>
         </div>
         <div class="2xl:w-[400px] w-[340px]"  data-aos="fade-up" data-aos-duration="500" data-aos-delay="800">
-          <h3 class="xl:text-2xl lg:text-xl text-xl font-semibold 2xl:text-3xl">People and Culture</h2>
-          <p class="text-sm  mt-1 lg:mt-2  2xl:text-xl">
+          <h3 class="xl:text-[20px] text-[17px] font-medium ">People and Culture</h2>
+          <p class="text-sm   mt-0.5">
             Saudi Arabia has a rich Culture Shaped by the diversity of its
             people. which has formed the basis of its cultural identity.
           </p>
@@ -126,16 +127,16 @@
     <section id="logos" class="paddings mt-20 container mx-auto">
       <div class="l grid md:grid-cols-4 grid-cols-2 justify-between items-center gap-8" data-aos="fade-up" data-aos-duration="400">
         <div>
-          <img src="../assets/Saudi.png" alt="saudi" class="filter brightness-0 dark:filter-none">
+          <img src="./assets/Saudi.png" alt="saudi" class="filter brightness-0 dark:filter-none">
         </div>
         <div>
-          <img src="../assets/Al_Rajhi.png" alt="al_rajhi" class="filter brightness-0 dark:filter-none">
+          <img src="./assets/Al_Rajhi.png" alt="al_rajhi" class="filter brightness-0 dark:filter-none">
         </div>
         <div>
-          <img src="../assets/Saudi.png" alt="saudi" class="filter brightness-0 dark:filter-none">
+          <img src="./assets/Saudi.png" alt="saudi" class="filter brightness-0 dark:filter-none">
         </div>
         <div>
-          <img src="../assets/Saudi.png" alt="saudi" class="filter brightness-0 dark:filter-none">
+          <img src="./assets/Saudi.png" alt="saudi" class="filter brightness-0 dark:filter-none">
         </div>
       </div>
     </section>
@@ -172,13 +173,13 @@
         <div class="destinations-grid container mx-auto">
           <!-- Card 1 -->
           <div class="card relative" data-aos="zoom-in" data-aos-delay="0" data-aos-duration="500">
-            <img src="../assets/hisma_desert.png" alt="hisma_desert" class="filter brightness-75 dark:brightness-100" />
+            <img src="./assets/hisma_desert.png" alt="hisma_desert" class="filter brightness-75 dark:brightness-100" />
             <div
               class="absolute top-0 w-full h-full xl:py-8 2xl:py-10 p-6 lg:px-8 flex flex-col justify-between"
             >
               <div class="t">
                 <h3
-                  class="title text-xl md:text-xl lg:text-2xl xl:text-3xl font-extrabold"
+                  class="title text-xl  xl:text-2xl font-extrabold"
                 >
                   Hisma Desert
                 </h3>
@@ -189,7 +190,7 @@
               </div>
               <div class="b flex items-center">
                 <img
-                  src="../assets/middle_east.png"
+                  src="./assets/middle_east.png"
                   alt="person_pic"
                   class="w-12 lg:w-14 xl:w-16 rounded-full object-cover"
                 />
@@ -206,24 +207,24 @@
           <!-- Card 2 -->
 
           <div class="card relative" data-aos="zoom-in" data-aos-delay="100" data-aos-duration="500">
-            <img src="../assets/riyadh.png" alt="riyadh" class="filter brightness-75 dark:brightness-100" />
+            <img src="./assets/riyadh.png" alt="riyadh" class="filter brightness-75 dark:brightness-100" />
             <div
               class="absolute top-0 w-full h-full xl:py-8 2xl:py-10 p-6 lg:px-8 flex flex-col justify-between"
             >
               <div class="t">
                 <h3
-                  class="title text-xl md:text-xl lg:text-2xl xl:text-3xl font-extrabold"
+                  class="title text-xl  xl:text-2xl font-extrabold"
                 >
                   Kafd World Trde Centre, Riyadh.
                 </h3>
-                <p class="desc lg:text-base text-sm mt-1">
+                <p class="desc md:text-base text-sm mt-1 2xl:text-lg">
                   The Towering Structure stands to Saudi Arabia’s vision for a
                   thriving business hub.
                 </p>
               </div>
               <div class="b flex items-center">
                 <img
-                  src="../assets/beard_man.png"
+                  src="./assets/beard_man.png"
                   alt="person_pic"
                   class="w-12 lg:w-14 xl:w-16 rounded-full object-cover"
                 />
@@ -239,24 +240,24 @@
 
           <!-- Card 3 -->
           <div class="card relative" data-aos="zoom-in" data-aos-delay="200" data-aos-duration="500">
-            <img src="../assets/qarah.png" alt="al_qarah" class="filter brightness-75 dark:brightness-100" />
+            <img src="./assets/qarah.png" alt="al_qarah" class="filter brightness-75 dark:brightness-100" />
             <div
               class="absolute top-0 w-full h-full xl:py-8 2xl:py-10 p-6 lg:px-8 flex flex-col justify-between"
             >
               <div class="t">
                 <h3
-                  class="title text-xl md:text-xl lg:text-2xl xl:text-3xl font-extrabold"
+                  class="title text-xl  xl:text-2xl font-extrabold"
                 >
                   Al Qarah Mountain
                 </h3>
-                <p class="desc md:text-base text-sm mt-1">
+                <p class="desc md:text-base text-sm mt-1 2xl:text-lg">
                   The Mountain’s distractive rocks formations inviting
                   adventures to explore its hidden treasure.
                 </p>
               </div>
               <div class="b flex items-center">
                 <img
-                  src="../assets/sunglasses.png"
+                  src="./assets/sunglasses.png"
                   alt="person_pic"
                   class="w-12 lg:w-14 xl:w-16 rounded-full object-cover"
                 />
@@ -272,24 +273,24 @@
 
           <!-- Card 4 -->
           <div class="card relative" data-aos="zoom-in" data-aos-delay="300" data-aos-duration="500">
-            <img src="../assets/tabuk.png" alt="tabuk" class="filter brightness-75 dark:brightness-100" />
+            <img src="./assets/tabuk.png" alt="tabuk" class="filter brightness-75 dark:brightness-100" />
             <div
               class="absolute top-0 w-full h-full xl:py-8 2xl:py-10 p-6 lg:px-8 flex flex-col justify-between"
             >
               <div class="t">
                 <h3
-                  class="title text-xl md:text-xl lg:text-2xl xl:text-3xl font-extrabold"
+                  class="title text-xl  xl:text-2xl font-extrabold"
                 >
                   The best of Tabuk
                 </h3>
-                <p class="desc md:text-base text-sm mt-1">
+                <p class="desc md:text-base text-sm mt-1 2xl:text-lg">
                   Tabuk also spelled Tabouk, the capital city of the Tabuk
                   Region in northwestern Saudi Arabia.
                 </p>
               </div>
               <div class="b flex items-center">
                 <img
-                  src="../assets/isolated_man.png"
+                  src="./assets/isolated_man.png"
                   alt="person_pic"
                   class="w-12 lg:w-14 xl:w-16 rounded-full object-cover"
                 />
@@ -306,24 +307,24 @@
           <!-- Card 5 -->
 
           <div class="card relative" data-aos="zoom-in" data-aos-delay="400" data-aos-duration="500">
-            <img src="../assets/alulah.png" alt="alula_desert" class="filter brightness-75 dark:brightness-100" />
+            <img src="./assets/alulah.png" alt="alula_desert" class="filter brightness-75 dark:brightness-100" />
             <div
               class="absolute top-0 w-full h-full xl:py-8 2xl:py-10 p-6 lg:px-8 flex flex-col justify-between"
             >
               <div class="t">
                 <h3
-                  class="title text-xl md:text-xl lg:text-2xl xl:text-3xl font-extrabold"
+                  class="title text-xl  xl:text-2xl font-extrabold"
                 >
                   AlUIa
                 </h3>
-                <p class="desc md:text-base text-sm mt-1">
+                <p class="desc md:text-base text-sm mt-1 2xl:text-lg">
                   AIUIa is located deep in the desert in the northwest of Saudi
                   Arabia
                 </p>
               </div>
               <div class="b flex items-center">
                 <img
-                  src="../assets/shawl_man.png"
+                  src="./assets/shawl_man.png"
                   alt="person_pic"
                   class="w-12 lg:w-14 xl:w-16 rounded-full object-cover"
                 />
@@ -339,24 +340,24 @@
 
           <!-- Card 6 -->
           <div class="card relative" data-aos="zoom-in" data-aos-delay="500" data-aos-duration="500">
-            <img src="../assets/taif.png" alt="taif" class="filter brightness-75 dark:brightness-100" />
+            <img src="./assets/taif.png" alt="taif" class="filter brightness-75 dark:brightness-100" />
             <div
               class="absolute top-0 w-full h-full xl:py-8 2xl:py-10 p-6 lg:px-8 flex flex-col justify-between"
             >
               <div class="t">
                 <h3
-                  class="title text-xl md:text-xl lg:text-2xl xl:text-3xl font-extrabold"
+                  class="title text-xl  xl:text-2xl font-extrabold"
                 >
                   The best things To do in Taif
                 </h3>
-                <p class="desc md:text-base text-sm mt-1">
+                <p class="desc md:text-base text-sm mt-1 2xl:text-lg">
                   Taif is a city and governorate in the Makkah Region of Saudi
                   Arabia.
                 </p>
               </div>
               <div class="b flex items-center">
                 <img
-                  src="../assets/woman.png"
+                  src="./assets/woman.png"
                   alt="person_pic"
                   class="w-12 lg:w-14 xl:w-16 rounded-full object-cover"
                 />
@@ -392,7 +393,7 @@
                 <h2 class="font-popin md:text-6xl lg:text-7xl 2xl:text-8xl text-4xl font-semibold">Desert</h2>
               </div>
               <div class="right flex items-center" data-aos="zoom-in" data-aos-delay="200" data-aos-duration="400">
-                        <img src="../assets/middle_east.png" alt="person_pic" class="w-12 lg:w-14 xl:w-16 rounded-full object-cover">
+                        <img src="./assets/middle_east.png" alt="person_pic" class="w-12 lg:w-14 xl:w-16 rounded-full object-cover">
                         <div class="ml-3 flex flex-col justify-center">
                             <h3 class="name font-medium text-sm sm:text-base lg:text-base 2xl:text-lg">Wazeem Al Mulk</h3>
                             <p class="text-[12px] sm:text-sm  2xl:text-base ">Traveler</p>
@@ -431,7 +432,7 @@
     <footer class="overflow-x-hidden  paddings" data-aos="fade-up" data-aos-duration="1000" >
       <div class="business_footer container mx-auto">
         <div class="brand_logo w-[220px]" data-aos="fade-right" data-aos-delay="100">
-          <img src="../assets/brand_logo.png" alt="brand_logo" />
+          <img src="./assets/brand_logo.png" alt="brand_logo" />
         </div>
         <div
           class="flex flex-wrap lg:flex-row flex-col xl:gap-20 gap-[70px] justify-between"
@@ -441,8 +442,8 @@
             <h4 class="lg:text-lg text-base text-semibold 2xl:text-xl">About</h4>
             <ul class="flex flex-col gap-3 mt-3">
               <li><a href="./about.html">About us</a></li>
-              <li><a href="#">Features</a></li>
-              <li><a href="#">News & Blogs</a></li>
+              <li><a href="https://www.vocabulary.com/dictionary/feature">Features</a></li>
+              <li><a href="https://news.google.com/home?hl=en-PK&gl=PK&ceid=PK%3Aen">News & Blogs</a></li>
             </ul>
           </div>
 
@@ -450,19 +451,19 @@
           <div data-aos="fade-up" data-aos-delay="300">
             <h4 class="lg:text-lg text-base text-semibold 2xl:text-xl">Contact</h4>
             <ul class="flex flex-col gap-3 mt-3">
-              <li><a href="#">Instagram</a></li>
-              <li><a href="#">Twitter</a></li>
-              <li><a href="#">Facebook</a></li>
+              <li><a href="https://www.instagram.com/">Instagram</a></li>
+              <li><a href="https://x.com/">Twitter</a></li>
+              <li><a href="https://www.facebook.com/">Facebook</a></li>
             </ul>
           </div>
 
-          <!-- Third -->
+           <!-- Third -->
           <div data-aos="fade-up" data-aos-delay="400">
             <h4 class="lg:text-lg text-base text-semibold 2xl:text-xl">Support</h4>
             <ul class="flex flex-col gap-3 mt-3">
-              <li><a href="#">FAQs</a></li>
-              <li><a href="#">Support Centre</a></li>
-              <li><a href="#">Feedback</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/FAQ">FAQs</a></li>
+              <li><a href="https://www.merriam-webster.com/dictionary/support">Support Centre</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Feedback">Feedback</a></li>
             </ul>
           </div>
         </div>
