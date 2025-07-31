@@ -89,3 +89,4 @@
         📱 Ensured responsive behavior maintained across interactions
         ✅ Uploaded to GitHub
         🌐 Deployed on Vercel
+        🔗 Live Link: https://week1-day3-ecru.vercel.app/index.html
