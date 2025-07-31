@@ -14,6 +14,8 @@ export default {
         'explore' : "url('../assets/explore_bg.png')",
         'destination' : "url('../assets/destination_bg.png')",
         'about':"url('../assets/about_bg.png')",
+        'a' : "url('../assets/a.png')",
+        'd' : "url('../assets/d.png')",
       },
      },
    },
