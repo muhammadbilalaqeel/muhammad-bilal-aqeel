@@ -1,0 +1,46 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+
+.desktop_nav{
+    @apply flex gap-[90px] h-full items-center
+
+  
+}
+
+.desktop_nav  li {
+        @apply font-medium font-poppins text-[21px] ;
+
+        
+    }
+
+.paddings{
+    @apply px-[100px]
+}
+.btn {
+    @apply inline-flex items-center justify-center bg-[#DA8F4D] text-white  border-[1.35px]  border-white rounded-[22.9px] text-center;
+
+}    
+
+.btn-transparent{
+    @apply inline-flex items-center justify-center bg-transparent text-white border-[1.35px]  border-white rounded-[22.9px] text-center;
+}
+
+
+.hero-title{
+   @apply text-[86px] font-bold leading-tight;
+}
+
+.h-pad{
+    @apply py-32;
+}
+
+.sub-title{
+    @apply text-[54px] font-bold font-poppins text-center;
+}
