@@ -5,108 +5,964 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gold Mint</title>
     <link rel="stylesheet" href="./output.css" />
+    <link
+      href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script
+      src="https://kit.fontawesome.com/9b197449cc.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
-  <body class="text-white max-w-1728 bg-black">
+  <body class="text-white max-w-1728 mx-auto bg-black scroll-smooth">
+
+    <!-- <div class="modalBox absolute w-24 h-52 transform top-0 bg-white text-black flex items-center justify-center" >
+      <h1>Hello</h1>
+    </div> -->
     <!-- Header -->
-    <header class="w-full bg-[#191919] text-white max-w-1728 mx-auto">
+    <header class="w-full bg-[#191919]  text-white max-w-1728 mx-auto" >
       <!-- Navbar -->
       <nav
         class="h-[126.9px] flex justify-between paddings items-center relative"
       >
-        <div class="nav_brand w-[150px] flex items-center">
+        <div
+          class="nav_brand xl:-ml-0 -ml-6 w-[120px] 2xl:w-[150px] flex items-center"
+        >
           <img src="./assets/logo.png" alt="" class="w-full mt-5" />
         </div>
 
         <!-- Desktop Nav -->
         <ul class="desktop_nav">
-          <li><a href="#">About</a></li>
-          <li><a href="#">Collection</a></li>
-          <li><a href="#">Creator</a></li>
-          <li><a href="#">Roadmap</a></li>
-          <li><a href="#" class="btn h-[64px] w-[218px]">Sign in</a></li>
+          <li>
+            <a href="#about" class="hover:underline hover:underline-offset-1"
+              >About</a
+            >
+          </li>
+          <li>
+            <a
+              href="#collection"
+              class="hover:underline hover:underline-offset-1"
+              >Collection</a
+            >
+          </li>
+          <li>
+            <a href="#creator" class="hover:underline hover:underline-offset-1"
+              >Creator</a
+            >
+          </li>
+          <li>
+            <a href="#roadmap" class="hover:underline hover:underline-offset-1"
+              >Roadmap</a
+            >
+          </li>
+          <li>
+            <a href="#" id="sign_up" class="btn 2xl:h-[64px] px-9 py-3 2xl:w-[218px] hover:bg-transparent transition-all duration-150 ease-linear"
+              >Sign in</a
+            >
+          </li>
+        </ul>
+
+        <!-- Menu Icons -->
+
+        <div class="md:hidden flex items-center">
+          <button class="mobile_menu">
+            <i class="fa-solid fa-bars text-3xl"></i>
+            <!-- <i class="fa-solid fa-xmark"></i> -->
+          </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <ul
+          id="mobile_nav"
+          class="fixed transform z-50 translate-x-[100%] transition-all duration-200 ease-out top-[100px] md:hidden right-0 w-full max-w-[300px] bg-white h-[calc(100vh - 100px)] text-black pl-5 rounded-l-md py-8 flex flex-col gap-8"
+        >
+          <li>
+            <a href="#about" class="hover:underline hover:underline-offset-1"
+              >About</a
+            >
+          </li>
+          <li>
+            <a
+              href="#collection"
+              class="hover:underline hover:underline-offset-1"
+              >Collection</a
+            >
+          </li>
+          <li>
+            <a href="#creator" class="hover:underline hover:underline-offset-1"
+              >Creator</a
+            >
+          </li>
+          <li>
+            <a href="#roadmap" class="hover:underline hover:underline-offset-1"
+              >Roadmap</a
+            >
+          </li>
+          <li>
+            <a href="#" class="btn 2xl:h-[64px] px-9 py-3 2xl:w-[218px]"
+              >Sign in</a
+            >
+          </li>
         </ul>
       </nav>
     </header>
 
     <!-- Hero Section -->
     <section
-      class="bg-hero min-h-screen h-pad w-full justify-center bg-cover bg-center flex paddings items-center"
+      class="bg-hero min-h-screen gap-10 h-pad w-full justify-center bg-cover bg-center flex paddings items-center relative"
     >
-    <div class="gradient-box absolute left-0"></div>
-      <div class="left flex-1 relative flex flex-col justify-center items-center">
-       <div>
-         <div class="heading relative">
-          <h1 class="hero-title">We Have High</h1>
-          <h1 class="hero-title relative">
-            Quality <span class="text-[#DA8F4D]">NFT</span>
-            <div class="filled_star absolute right-0 top-8">
-          <img src="./assets/filled_star.png" alt="" />
-        </div>
-          </h1>
-          <h1 class="hero-title">Collections</h1>
-            
-        </div>
-        <p class="text-[15px]  max-w-[610px] mt-3">
-          Lorem ipsum dolor sit amet consectetur. Rhoncus massa suspendisse
-          turpis sed viverra tempus tortor. Habitant accumsan sagittis in
-          facilisi placerat ac. Laoreet scelerisque viverra viverra ornare
-          fermentum faucibus sit purus volutpat. Egestas lectus ornare convallis
-          ornare nullam enim neque.
-        </p>
-      
-        <div class="btn_container mt-12 flex justify-start items-center gap-10">
-          <button class="btn w-[199px] h-[58px] text-lg font-semibold">
-            Get Whitelist
-          </button>
-          <button
-            class="btn-transparent w-[199px] h-[58px] text-lg font-semibold"
+      <div class="gradient-box absolute left-0 w-8 h-8"></div>
+      <div class="left flex-1 flex flex-col justify-center items-center"  data-aos="fade-right" data-aos-duration="500" data-aos-delay="300">
+        <div>
+          <div class="heading md:relative md:block flex flex-col items-center">
+            <h1 class="hero-title">We Have High</h1>
+            <h1 class="hero-title relative">
+              Quality <span class="text-[#DA8F4D]">NFT</span>
+              <div
+                class="filled_star absolute -right-[185px] md:right-0 -top-[80px] md:top-5 lg:top-8"
+              >
+                <img
+                  src="./assets/filled_star.png"
+                  class="lg:w-full w-[30%] md:w-[70%]"
+                  alt=""
+                />
+              </div>
+            </h1>
+            <h1 class="hero-title">Collections</h1>
+          </div>
+          <p
+            class="md:text-[14px] lg:text-[15px] max-w-[610px] mt-1 xl:mt-2 2xl:mt-3 md:text-justify text-center"
           >
-            Contact Us
-          </button>
-        </div>
+            Lorem ipsum dolor sit amet consectetur. Rhoncus massa suspendisse
+            turpis sed viverra tempus tortor. Habitant accumsan sagittis in
+            facilisi placerat ac. Laoreet scelerisque viverra viverra ornare
+            fermentum faucibus sit purus volutpat. Egestas lectus ornare
+            convallis ornare nullam enim neque.
+          </p>
 
-        <div class="glass-box relative w-[599px] flex  px-6  rounded-[39px] h-[162px] bg-[#6B6B6B21] mt-12">
-            <div class="upperBox absolute top-0 left-16">
-                <img src="./assets/ellipse.png" alt="">
+          <div
+            class="btn_container mt-5 lg:mt-6 xl:mt-8 2xl:mt-12 flex justify-center md:justify-start items-center gap-6 lg:gap-10"
+          >
+            <button
+            id="white"
+              class="btn 2xl:w-[199px] lg:w-[170px] lg:h-[50px] h-[45px] w-[150px] 2xl:h-[58px] text-base 2xl:text-lg font-semibold hover:bg-transparent"
+            >
+              Get Whitelist
+            </button>
+            <button
+            id="contact"
+              class="btn-transparent 2xl:text-lg h-[44px] w-[150px] 2xl:w-[199px] 2xl:h-[58px] text-base font-semibold hover:bg-[#DA8F4D] transition-all duration-150 ease-linear"
+            >
+              Contact Us
+            </button>
+          </div>
+
+          <div
+            class="glass-box relative overflow-hidden max-w-[350px] lg:max-w-[450px] 2xl:max-w-[599px] flex px-6 rounded-[39px] md:mx-0 mx-auto h-[100px] lg:h-[130px] 2xl:h-[162px] bg-[#6B6B6B21] mt-5 lg:mt-6 xl:mt-8 2xl:mt-12"
+          >
+            <div class="upperBox absolute top-0 2xl:left-16">
+              <img src="./assets/ellipse.png" class="" alt="" />
             </div>
-            <div class="bottomBox absolute bottom-0 right-16 transform rotate-180">
-                <img src="./assets/ellipse.png" alt="">
+            <div
+              class="bottomBox absolute bottom-0 2xl:right-16 right-0 transform rotate-180"
+            >
+              <img src="./assets/ellipse.png" alt="" />
             </div>
-          <div class="content w-full flex items-center justify-between">
-            <div class="flex flex-col">
-                <h4 class="text-[34px] font-bold font-mono">240k+</h4>
-                <p class="text-[29px]">Total Sale</p>
-            </div>
-             <div class="flex flex-col">
-                <h4 class="text-[34px] font-bold font-mono">100k+</h4>
-                <p class="text-[29px]">Auctions</p>
-            </div>
-             <div class="flex flex-col">
-                <h4 class="text-[34px] font-bold font-mono">240k+</h4>
-                <p class="text-[29px]">Artists</p>
+            <div class="content w-full flex items-center justify-between">
+              <div class="flex flex-col">
+                <h4
+                  class="md:text-[20px] lg:text-[24px] xl:text-[28px] 2xl:text-[34px] font-bold font-mono"
+                >
+                  240k+
+                </h4>
+                <p
+                  class="md:text-[16px] lg:text-[18px] xl:text-[22px] 2xl:text-[29px]"
+                >
+                  Total Sale
+                </p>
+              </div>
+              <div class="flex flex-col">
+                <h4
+                  class="md:text-[20px] lg:text-[24px] xl:text-[28px] 2xl:text-[34px] font-bold font-mono"
+                >
+                  100k+
+                </h4>
+                <p
+                  class="md:text-[16px] lg:text-[18px] xl:text-[22px] 2xl:text-[29px]"
+                >
+                  Auctions
+                </p>
+              </div>
+              <div class="flex flex-col">
+                <h4
+                  class="md:text-[20px] lg:text-[24px] xl:text-[28px] 2xl:text-[34px] font-bold font-mono"
+                >
+                  240k+
+                </h4>
+                <p class="lg:text-[18px] xl:text-[22px] 2xl:text-[29px]">
+                  Artists
+                </p>
+              </div>
             </div>
           </div>
         </div>
-       </div>
       </div>
 
-      <div class="right flex-1 relative  flex justify-center items-end">
-        <img src="./assets/HeroImage.png" class="-mt-20" alt="">
-        <div class="w-[40px] rounded-r-xl  h-[350px]  border border-gray-400 flex items-center justify-center"><img src="./assets/chevron-right.png" alt=""></div>
+      <div
+        class="right flex-1 relative hidden md:flex justify-center items-end"
+        data-aos="fade-left" data-aos-duration="500" data-aos-delay="400"
+      >
+        <img src="./assets/HeroImage.png" class="-mt-20" alt="" />
+        <div
+          class="w-[40px] rounded-r-xl h-[350px] border border-gray-400 flex items-center justify-center"
+        >
+          <img src="./assets/chevron-right.png" alt="" />
+        </div>
         <div>
-            <img src="./assets/unfilled_star.png" class="absolute left-0 -bottom-3" alt="">
+          <img
+            src="./assets/unfilled_star.png"
+            class="absolute left-0 -bottom-3"
+            alt=""
+          />
         </div>
       </div>
     </section>
 
-
     <!-- About Section -->
-     <section id="about" class="h-screen paddings h-pad ">
-        <h2 class="sub-title">About Us</h2>
-        <div class="content">
-            <div class="left"></div>
-            <div class="right"></div>
+    <section id="about" class="min-h-screen h-pad">
+      <h2 class="sub-title" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200">About Us</h2>
+      <div
+        class="content bg-[#DA8F4D17] min-h-[620px] paddings flex justify-between lg:flex-row flex-col gap-12 xl:gap-20 2xl:gap-20 mt-20 py-20"
+      >
+        <div
+        data-aos="fade-right" data-aos-duration="500" data-aos-delay="400"
+          class="left min-h-[550px] flex-1 lg:order-1 order-2 xl:w-[50%] 2xl:w-[40%] justify-center grid md:grid-cols-2 grid-cols-1 gap-6 2xl:gap-12"
+        >
+          <div class="box">
+            <img src="./assets/image_3.png" class="object-cover" alt="" />
+          </div>
+          <div class="box">
+            <img src="./assets/image_4.png" class="object-cover" alt="" />
+          </div>
+          <div class="box">
+            <img src="./assets/image_2.png" class="object-cover" alt="" />
+          </div>
+          <div class="box">
+            <img src="./assets/image_1.png" class="object-cover" alt="" />
+          </div>
         </div>
-     </section>
+        <div class="right flex-1 lg:order-2 order-1 xl:w-[50%] 2xl:w-[50%]" data-aos="fade-left" data-aos-duration="500" data-aos-delay="400">
+          <p
+            class="mt-6 text-[14px] md:text-[15px] xl:text-[16.2px] md:font-bold leading-[20px] md:leading-[30px] xl:leading-[35px] font-semibold"
+          >
+            Lorem ipsum dolor sit amet consectetur. Pharetra faucibus donec
+            ultrices eros elit metus morbi aliquam quis. Suspendisse massa
+            ullamcorper tortor morbi nisi leo. Ultrices leo vel tincidunt nunc
+            eget elit. Gravida et duis ipsum pellentesque libero. Tellus rhoncus
+            metus et eget mattis fringilla nec id. Amet ultrices quam ridiculus
+            tellus. Leo adipiscing tincidunt amet nisi semper adipiscing quam in
+            est. Tempor sed dui nunc diam adipiscing at.
+          </p>
+          <p
+            class="mt-6 text-[14px] md:text-[15px] xl:text-[16.2px] md:font-bold font-semibold leading-[20px] md:leading-[30px] xl:leading-[35px]"
+          >
+            Tellus rhoncus metus et eget mattis fringilla nec id. Amet ultrices
+            quam ridiculus tellus. Leo adipiscing tincidunt amet nisi semper
+            adipiscing quam in est. Tempor sed dui nunc diam adipiscing at.
+          </p>
+          <button
+            class="btn-gray w-[199px] h-[58px] rounded-[22px] border-[1.23px] border-[#DA8F4D] mt-12 hover:bg-[#DA8F4D] transition-all duration-100 ease-linear"
+          >
+            Connect Wallet
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Collection Section -->
+    <section id="collection" class="h-pad">
+      <h2 class="sub-title" data-aos="fade-up" data-aos-duration="500" data-aos-delay="100">Top Collections</h2>
+      <p
+        class="w-[453px] text-[14px] md:text-[16] lg:text-[18px] md:leading-[27px] leading-[19px] text-center mx-auto mt-1"
+        data-aos="fade-up" data-aos-duration="500" data-aos-delay="300"
+      >
+        The largest and unique Super rare NFT marketplace For
+        crypto-collectibles
+      </p>
+      <div class="bg-hero bg-cover bg-center mt-20">
+        <div class="grid-container w-full h-full">
+          <!-- one -->
+          <div class="grid-box" data-aos="zoom-in" data-aos-duration="500" data-aos-delay="400">
+            <div class="w-full justify-start">
+              <p
+                class="text-[11px] md:text-[12px] lg:text-[14px] 2xl:text-[16px] text-[#B4C7CE]"
+              >
+                Created by
+              </p>
+              <h5
+                class="text-[13px] md:text-[14px] lg:text-[16px] 2xl:text-[18px] font-semibold text-[#EA9112] flex items-center gap-1 lg:gap-2 2xl:gap-3 mt-1"
+              >
+                <div
+                  class="2xl:h-[27px] 2xl:w-[27px] lg:w-[23px] lg:h-[23px] md:h-[19px] md:w-[19px] rounded-full bg-[#D9D9D9]"
+                ></div>
+                James Watson
+              </h5>
+            </div>
+            <div
+              class="2xl:h-[286px] 2xl:w-[286px] xl:h-[256px] xl:w-[256px] lg:h-[226px] lg:w-[226px] md:h-[186px] md:w-[186px] sm:w-[200px] sm:h-[200px] h-[170px] w-[170px] rounded-full overflow-hidden"
+            >
+              <img src="./assets/grid-1.png" alt="" />
+            </div>
+            <div class="w-full justify-start">
+              <p
+                class="text-[11px] md:text-[12px] lg:text-[14px] 2xl:text-[16px] text-[#B4C7CE]"
+              >
+                Created by
+                <span class="font-semibold text-[#EA9112]">James Watson</span>
+              </p>
+            </div>
+          </div>
+
+          <!-- two -->
+          <div class="grid-box" data-aos="zoom-in" data-aos-duration="500" data-aos-delay="500">
+            <div class="w-full justify-start">
+              <p
+                class="text-[11px] md:text-[12px] lg:text-[14px] 2xl:text-[16px] text-[#B4C7CE]"
+              >
+                Created by
+              </p>
+              <h5
+                class="text-[13px] md:text-[14px] lg:text-[16px] 2xl:text-[18px] font-semibold text-[#EA9112] flex items-center gap-1 lg:gap-2 2xl:gap-3 mt-1"
+              >
+                <div
+                  class="2xl:h-[27px] 2xl:w-[27px] lg:w-[23px] lg:h-[23px] md:h-[19px] md:w-[19px] rounded-full bg-[#D9D9D9]"
+                ></div>
+                James Watson
+              </h5>
+            </div>
+            <div
+              class="2xl:h-[286px] 2xl:w-[286px] xl:h-[256px] xl:w-[256px] lg:h-[226px] lg:w-[226px] md:h-[186px] md:w-[186px] sm:w-[200px] sm:h-[200px] h-[170px] w-[170px] rounded-full overflow-hidden"
+            >
+              <img src="./assets/grid-2.png" alt="" />
+            </div>
+            <div class="w-full justify-start">
+              <p
+                class="text-[11px] md:text-[12px] lg:text-[14px] 2xl:text-[16px] text-[#B4C7CE]"
+              >
+                Created by
+                <span class="font-semibold text-[#EA9112]">James Watson</span>
+              </p>
+            </div>
+          </div>
+
+          <!-- Three -->
+
+          <div class="grid-box" data-aos="zoom-in" data-aos-duration="500" data-aos-delay="600">
+            <div class="w-full justify-start">
+              <p
+                class="text-[11px] md:text-[12px] lg:text-[14px] 2xl:text-[16px] text-[#B4C7CE]"
+              >
+                Created by
+              </p>
+              <h5
+                class="text-[13px] md:text-[14px] lg:text-[16px] 2xl:text-[18px] font-semibold text-[#EA9112] flex items-center gap-1 lg:gap-2 2xl:gap-3 mt-1"
+              >
+                <div
+                  class="2xl:h-[27px] 2xl:w-[27px] lg:w-[23px] lg:h-[23px] md:h-[19px] md:w-[19px] rounded-full bg-[#D9D9D9]"
+                ></div>
+                James Watson
+              </h5>
+            </div>
+            <div
+              class="2xl:h-[286px] 2xl:w-[286px] xl:h-[256px] xl:w-[256px] lg:h-[226px] lg:w-[226px] md:h-[186px] md:w-[186px] sm:w-[200px] sm:h-[200px] h-[170px] w-[170px] rounded-full overflow-hidden"
+            >
+              <img src="./assets/grid-3.png" alt="" />
+            </div>
+            <div class="w-full justify-start">
+              <p
+                class="text-[11px] md:text-[12px] lg:text-[14px] 2xl:text-[16px] text-[#B4C7CE]"
+              >
+                Created by
+                <span class="font-semibold text-[#EA9112]">James Watson</span>
+              </p>
+            </div>
+          </div>
+
+          <!-- Four -->
+          <div class="grid-box" data-aos="zoom-in" data-aos-duration="500" data-aos-delay="700">
+            <div class="w-full justify-start">
+              <p
+                class="text-[11px] md:text-[12px] lg:text-[14px] 2xl:text-[16px] text-[#B4C7CE]"
+              >
+                Created by
+              </p>
+              <h5
+                class="text-[13px] md:text-[14px] lg:text-[16px] 2xl:text-[18px] font-semibold text-[#EA9112] flex items-center gap-1 lg:gap-2 2xl:gap-3 mt-1"
+              >
+                <div
+                  class="2xl:h-[27px] 2xl:w-[27px] lg:w-[23px] lg:h-[23px] md:h-[19px] md:w-[19px] rounded-full bg-[#D9D9D9]"
+                ></div>
+                James Watson
+              </h5>
+            </div>
+            <div
+              class="2xl:h-[286px] 2xl:w-[286px] xl:h-[256px] xl:w-[256px] lg:h-[226px] lg:w-[226px] md:h-[186px] md:w-[186px] sm:w-[200px] sm:h-[200px] h-[170px] w-[170px] rounded-full overflow-hidden"
+            >
+              <img src="./assets/grid-4.png" alt="" />
+            </div>
+            <div class="w-full justify-start">
+              <p
+                class="text-[11px] md:text-[12px] lg:text-[14px] 2xl:text-[16px] text-[#B4C7CE]"
+              >
+                Created by
+                <span class="font-semibold text-[#EA9112]">James Watson</span>
+              </p>
+            </div>
+          </div>
+
+          <!-- five -->
+          <div class="grid-box" data-aos="zoom-in" data-aos-duration="500" data-aos-delay="800">
+            <div class="w-full justify-start">
+              <p
+                class="text-[11px] md:text-[12px] lg:text-[14px] 2xl:text-[16px] text-[#B4C7CE]"
+              >
+                Created by
+              </p>
+              <h5
+                class="text-[13px] md:text-[14px] lg:text-[16px] 2xl:text-[18px] font-semibold text-[#EA9112] flex items-center gap-1 lg:gap-2 2xl:gap-3 mt-1"
+              >
+                <div
+                  class="2xl:h-[27px] 2xl:w-[27px] lg:w-[23px] lg:h-[23px] md:h-[19px] md:w-[19px] rounded-full bg-[#D9D9D9]"
+                ></div>
+                James Watson
+              </h5>
+            </div>
+            <div
+              class="2xl:h-[286px] 2xl:w-[286px] xl:h-[256px] xl:w-[256px] lg:h-[226px] lg:w-[226px] md:h-[186px] md:w-[186px] sm:w-[200px] sm:h-[200px] h-[170px] w-[170px] rounded-full overflow-hidden"
+            >
+              <img src="./assets/grid-5.png" alt="" />
+            </div>
+            <div class="w-full justify-start">
+              <p
+                class="text-[11px] md:text-[12px] lg:text-[14px] 2xl:text-[16px] text-[#B4C7CE]"
+              >
+                Created by
+                <span class="font-semibold text-[#EA9112]">James Watson</span>
+              </p>
+            </div>
+          </div>
+
+          <!-- Six -->
+          <div class="grid-box" data-aos="zoom-in" data-aos-duration="500" data-aos-delay="900">
+            <div class="w-full justify-start">
+              <p
+                class="text-[11px] md:text-[12px] lg:text-[14px] 2xl:text-[16px] text-[#B4C7CE]"
+              >
+                Created by
+              </p>
+              <h5
+                class="text-[13px] md:text-[14px] lg:text-[16px] 2xl:text-[18px] font-semibold text-[#EA9112] flex items-center gap-1 lg:gap-2 2xl:gap-3 mt-1"
+              >
+                <div
+                  class="2xl:h-[27px] 2xl:w-[27px] lg:w-[23px] lg:h-[23px] md:h-[19px] md:w-[19px] rounded-full bg-[#D9D9D9]"
+                ></div>
+                James Watson
+              </h5>
+            </div>
+            <div
+              class="2xl:h-[286px] 2xl:w-[286px] xl:h-[256px] xl:w-[256px] lg:h-[226px] lg:w-[226px] md:h-[186px] md:w-[186px] sm:w-[200px] sm:h-[200px] h-[170px] w-[170px] rounded-full overflow-hidden"
+            >
+              <img src="./assets/grid-6.png" alt="" />
+            </div>
+            <div class="w-full justify-start">
+              <p
+                class="text-[11px] md:text-[12px] lg:text-[14px] 2xl:text-[16px] text-[#B4C7CE]"
+              >
+                Created by
+                <span class="font-semibold text-[#EA9112]">James Watson</span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="flex justify-center pt-20" data-aos="zoom-in" data-aos-duration="500" data-aos-delay="1000">
+          <button
+            class="bg-white/35 w-[198px] h-[56px] rounded-[20px] border-[1.23px] border-[#DA8F4D]"
+          >
+            Explore More
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Creators Section -->
+    <section id="creator" class="h-pad">
+      <h2 class="sub-title" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200">Top Creators</h2>
+      <p class="text-[18px] leading-[27px] text-center mx-auto mt-1 font-work" data-aos="fade-up" data-aos-duration="500" data-aos-delay="300">
+        Checkout Top Rated Creators on the NFT Marketplace
+      </p>
+      <div class="mt-20">
+        <div class="g">
+          <!-- One -->
+          <div class="box" data-aos="zoom-in" data-aos-duration="500" data-aos-delay="400">
+            <div class="w-full">
+              <p
+                class="font-mono bg-[#2B2B2B] text-[#858584] h-[30px] w-[30px] flex items-center justify-center rounded-full"
+              >
+                1
+              </p>
+            </div>
+            <div class="w-[147px] h-[147px] rounded-full overflow-hidden">
+              <img src="./assets/i-1.png" class="w-full" alt="" />
+            </div>
+            <div class="mt-2">
+              <h4
+                class="font-work text-center text-[23px] xl:text-[26px] 2xl:text-[29px] font-semibold"
+              >
+                Name NFT
+              </h4>
+              <p
+                class="font-work text-center text-[#858584] xl:text-[20px] text[18px] 2xl:text-[21px]"
+              >
+                Total Sales:
+                <span class="font-mono text-white">34.53 ETH</span>
+              </p>
+            </div>
+          </div>
+
+          <!-- Two -->
+          <div class="box" data-aos="zoom-in" data-aos-duration="500" data-aos-delay="500">
+            <div class="w-full">
+              <p
+                class="font-mono bg-[#2B2B2B] text-[#858584] h-[30px] w-[30px] flex items-center justify-center rounded-full"
+              >
+                2
+              </p>
+            </div>
+            <div class="w-[147px] h-[147px] rounded-full overflow-hidden">
+              <img src="./assets/i-2.png" class="w-full" alt="" />
+            </div>
+            <div class="mt-2">
+              <h4
+                class="font-work text-center text-[23px] xl:text-[26px] 2xl:text-[29px] font-semibold"
+              >
+                Name NFT
+              </h4>
+              <p
+                class="font-work text-center text-[#858584] xl:text-[20px] text[18px] 2xl:text-[21px]"
+              >
+                Total Sales:
+                <span class="font-mono text-white">34.53 ETH</span>
+              </p>
+            </div>
+          </div>
+
+          <!-- Three -->
+          <div class="box" data-aos="zoom-in" data-aos-duration="500" data-aos-delay="600">
+            <div class="w-full">
+              <p
+                class="font-mono bg-[#2B2B2B] text-[#858584] h-[30px] w-[30px] flex items-center justify-center rounded-full"
+              >
+                3
+              </p>
+            </div>
+            <div class="w-[147px] h-[147px] rounded-full overflow-hidden">
+              <img src="./assets/i-3.png" class="w-full" alt="" />
+            </div>
+            <div class="mt-2">
+              <h4
+                class="font-work text-center text-[23px] xl:text-[26px] 2xl:text-[29px] font-semibold"
+              >
+                Name NFT
+              </h4>
+              <p
+                class="font-work text-center text-[#858584] xl:text-[20px] text[18px] 2xl:text-[21px]"
+              >
+                Total Sales:
+                <span class="font-mono text-white">34.53 ETH</span>
+              </p>
+            </div>
+          </div>
+
+          <!-- Four -->
+          <div class="box" data-aos="zoom-in" data-aos-duration="500" data-aos-delay="700">
+            <div class="w-full">
+              <p
+                class="font-mono bg-[#2B2B2B] text-[#858584] h-[30px] w-[30px] flex items-center justify-center rounded-full"
+              >
+                4
+              </p>
+            </div>
+            <div class="w-[147px] h-[147px] rounded-full overflow-hidden">
+              <img src="./assets/i-4.png" class="w-full" alt="" />
+            </div>
+            <div class="mt-2">
+              <h4
+                class="font-work text-center text-[23px] xl:text-[26px] 2xl:text-[29px] font-semibold"
+              >
+                Name NFT
+              </h4>
+              <p
+                class="font-work text-center text-[#858584] xl:text-[20px] text[18px] 2xl:text-[21px]"
+              >
+                Total Sales:
+                <span class="font-mono text-white">34.53 ETH</span>
+              </p>
+            </div>
+          </div>
+
+          <!-- Five -->
+          <div class="box" data-aos="zoom-in" data-aos-duration="500" data-aos-delay="800">
+            <div class="w-full">
+              <p
+                class="font-mono bg-[#2B2B2B] text-[#858584] h-[30px] w-[30px] flex items-center justify-center rounded-full"
+              >
+                5
+              </p>
+            </div>
+            <div class="w-[147px] h-[147px] rounded-full overflow-hidden">
+              <img src="./assets/i-5.png" class="w-full" alt="" />
+            </div>
+            <div class="mt-2">
+              <h4
+                class="font-work text-center text-[23px] xl:text-[26px] 2xl:text-[29px] font-semibold"
+              >
+                Name NFT
+              </h4>
+              <p
+                class="font-work text-center text-[#858584] xl:text-[20px] text[18px] 2xl:text-[21px]"
+              >
+                Total Sales:
+                <span class="font-mono text-white">34.53 ETH</span>
+              </p>
+            </div>
+          </div>
+
+          <!-- Six -->
+          <div class="box" data-aos="zoom-in" data-aos-duration="500" data-aos-delay="900">
+            <div class="w-full">
+              <p
+                class="font-mono bg-[#2B2B2B] text-[#858584] h-[30px] w-[30px] flex items-center justify-center rounded-full"
+              >
+                6
+              </p>
+            </div>
+            <div class="w-[147px] h-[147px] rounded-full overflow-hidden">
+              <img src="./assets/i-6.png" class="w-full" alt="" />
+            </div>
+            <div class="mt-2">
+              <h4
+                class="font-work text-center text-[23px] xl:text-[26px] 2xl:text-[29px] font-semibold"
+              >
+                Name NFT
+              </h4>
+              <p
+                class="font-work text-center text-[#858584] xl:text-[20px] text[18px] 2xl:text-[21px]"
+              >
+                Total Sales:
+                <span class="font-mono text-white">34.53 ETH</span>
+              </p>
+            </div>
+          </div>
+
+          <!-- Seven -->
+          <div class="box" data-aos="zoom-in" data-aos-duration="500" data-aos-delay="1000">
+            <div class="w-full">
+              <p
+                class="font-mono bg-[#2B2B2B] text-[#858584] h-[30px] w-[30px] flex items-center justify-center rounded-full"
+              >
+                7
+              </p>
+            </div>
+            <div class="w-[147px] h-[147px] rounded-full overflow-hidden">
+              <img src="./assets/i-7.png" class="w-full" alt="" />
+            </div>
+            <div class="mt-2">
+              <h4
+                class="font-work text-center text-[23px] xl:text-[26px] 2xl:text-[29px] font-semibold"
+              >
+                Name NFT
+              </h4>
+              <p
+                class="font-work text-center text-[#858584] xl:text-[20px] text[18px] 2xl:text-[21px]"
+              >
+                Total Sales:
+                <span class="font-mono text-white">34.53 ETH</span>
+              </p>
+            </div>
+          </div>
+
+          <!-- Eight -->
+          <div class="box" data-aos="zoom-in" data-aos-duration="500" data-aos-delay="1100">
+            <div class="w-full">
+              <p
+                class="font-mono bg-[#2B2B2B] text-[#858584] h-[30px] w-[30px] flex items-center justify-center rounded-full"
+              >
+                8
+              </p>
+            </div>
+            <div class="w-[147px] h-[147px] rounded-full overflow-hidden">
+              <img src="./assets/i-8.png" class="w-full" alt="" />
+            </div>
+            <div class="mt-2">
+              <h4
+                class="font-work text-center text-[23px] xl:text-[26px] 2xl:text-[29px] font-semibold"
+              >
+                Name NFT
+              </h4>
+              <p
+                class="font-work text-center text-[#858584] xl:text-[20px] text[18px] 2xl:text-[21px]"
+              >
+                Total Sales:
+                <span class="font-mono text-white">34.53 ETH</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Roadmap -->
+    <section id="roadmap" class="h-pad overflow-hidden lg:block hidden">
+      <h2 class="sub-title">Road Map</h2>
+      <div class="bg-map bg-cover paddings w-full bg-center mt-20">
+        <div class="py-20 flex items-center justify-between lg:flex-row flex-col">
+          <div class="left flex flex-col gap-y-10">
+            <div class="box relative py-5 bg-transparent">
+              <div class="inner mr-4 flex flex-col justify-between pt-5 py-8">
+                <p class="text-[23.08px] font-medium text-center">January</p>
+                <h3 class="text-[36.93px] font-semibold">Brief</h3>
+                <p class="text-[18.46px] font-medium text-[#B4C5CB]">
+                  Lorem ipsum dolor sit amet consectetur. Elit massa erat vitae
+                  non semper quis. Morbi sed aliquet donec facilisis. Senectus
+                  eget.
+                </p>
+              </div>
+              <div class="absolute right-0 top-0">
+                <img src="./assets/map_right.png" alt="" />
+              </div>
+            </div>
+
+            <div class="box relative py-5 bg-transparent">
+              <div class="inner mr-4 flex flex-col justify-between pt-5 py-8">
+                <p class="text-[23.08px] font-medium text-center">March</p>
+                <h3 class="text-[36.93px] font-semibold">Discover</h3>
+                <p class="text-[18.46px] font-medium text-[#B4C5CB]">
+                  Lorem ipsum dolor sit amet consectetur. Elit massa erat vitae
+                  non semper quis. Morbi sed aliquet donec facilisis. Senectus
+                  eget.
+                </p>
+              </div>
+              <div class="absolute right-0 top-0">
+                <img src="./assets/map_right.png" alt="" />
+              </div>
+            </div>
+
+            <div class="box relative py-5 bg-transparent">
+              <div class="inner mr-4 flex flex-col justify-between pt-5 py-8">
+                <p class="text-[23.08px] font-medium text-center">May</p>
+                <h3 class="text-[36.93px] font-semibold">Testing</h3>
+                <p class="text-[18.46px] font-medium text-[#B4C5CB]">
+                  Lorem ipsum dolor sit amet consectetur. Elit massa erat vitae
+                  non semper quis. Morbi sed aliquet donec facilisis. Senectus
+                  eget.
+                </p>
+              </div>
+              <div class="absolute right-0 top-0">
+                <img src="./assets/map_right.png" alt="" />
+              </div>
+            </div>
+          </div>
+
+          <div class="mid">
+            <img src="./assets/Line 98.png" alt="" />
+          </div>
+
+          <div class="right flex flex-col">
+            <div class="box relative py-5 bg-transparent">
+              <div class="inner flex flex-col justify-between pt-5 py-8">
+                <p class="text-[23.08px] font-medium text-center">Fabruary</p>
+                <h3 class="text-[36.93px] font-semibold">Research</h3>
+                <p class="text-[18.46px] font-medium text-[#B4C5CB]">
+                  Lorem ipsum dolor sit amet consectetur. Elit massa erat vitae
+                  non semper quis. Morbi sed aliquet donec facilisis. Senectus
+                  eget.
+                </p>
+              </div>
+              <div class="absolute top-0">
+                <img src="./assets/map_left.png" alt="" />
+              </div>
+            </div>
+
+            <div class="box relative py-5 bg-transparent">
+              <div class="inner mr-4 flex flex-col justify-between pt-5 py-8">
+                <p class="text-[23.08px] font-medium text-center">April</p>
+                <h3 class="text-[36.93px] font-semibold">Design</h3>
+                <p class="text-[18.46px] font-medium text-[#B4C5CB]">
+                  Lorem ipsum dolor sit amet consectetur. Elit massa erat vitae
+                  non semper quis. Morbi sed aliquet donec facilisis. Senectus
+                  eget.
+                </p>
+              </div>
+              <div class="absolute left-0 top-0">
+                <img src="./assets/map_left.png" alt="" />
+              </div>
+            </div>
+
+            <div class="box relative py-5 bg-transparent">
+              <div class="inner flex flex-col justify-between pt-5 py-8">
+                <p class="text-[23.08px] font-medium text-center">June</p>
+                <h3 class="text-[36.93px] font-semibold">Launch & Feedback</h3>
+                <p class="text-[18.46px] font-medium text-[#B4C5CB]">
+                  Lorem ipsum dolor sit amet consectetur. Elit massa erat vitae
+                  non semper quis. Morbi sed aliquet donec facilisis. Senectus
+                  eget.
+                </p>
+              </div>
+              <div class="absolute left-0 top-0 mr-3">
+                <img src="./assets/map_left.png" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- How It Works Section -->
+
+    <section class="h-pad">
+      <h2 class="sub-title" data-aos="fade-up" data-aos-duration="500" data-aos-delay="100">How It Works</h2>
+      <div
+        class="w mt-20 flex flex-col 2xl:gap-10 xl:gap-8 gap-6 px-3 lg:px-8 2xl:px-10"
+      >
+        <div
+          class="flex items-center 2xl:gap-10 xl:gap-8 gap-6 md:flex-row flex-col"
+          data-aos="fade-right" data-aos-duration="500" data-aos-delay="300"
+        >
+          <div class="flex-1 overflow-hidden rounded-3xl order-2 md:order-1">
+            <img
+              src="./assets/w-1.png"
+              class="w-full h-full object-cover"
+              alt=""
+            />
+          </div>
+          <div class="flex-1 max-w-[636px] order-1 md:order-2" data-aos="fade-left" data-aos-duration="500" data-aos-delay="300">
+            <h3
+              class="xl:text-[50px] lg:text-[40px] text-[28px] md:text-[36px] 2xl:text-[60px] max-w-[636px] md:leading-[41px] leading-[34px] lg:leading-[45px] xl:leading-[55px] 2xl:leading-[65px] font-bold"
+            >
+              Setup and Connect your Wallet.
+            </h3>
+            <p
+              class="sm:text-[14px] 2xl:mt-12 xl:mt-8 lg:mt-6 md:mt-4 mt-3 max-w-[545px] leading-thin text-justify"
+            >
+              Lorem ipsum dolor sit amet consectetur. Donec vitae pellentesque
+              nunc ut sit a volutpat elementum. Nunc elit nisi pellentesque
+              porta elementum. Id mattis neque diam nulla. Amet et a felis
+              pellentesque sed odio.
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="flex items-center 2xl:gap-10 xl:gap-8 gap-6 md:flex-row flex-col"
+          data-aos="fade-right" data-aos-duration="500" data-aos-delay="500"
+        >
+          <div class="flex-1 max-w-[636px] order-2 md:order-1">
+            <h3
+              class="xl:text-[50px] lg:text-[40px] text-[28px] md:text-[36px] 2xl:text-[60px] max-w-[636px] md:leading-[41px] leading-[34px] lg:leading-[45px] xl:leading-[55px] 2xl:leading-[65px] font-bold"
+            >
+              Create your Own Digital NFT
+            </h3>
+            <p
+              class="sm:text-[14px] 2xl:mt-12 xl:mt-8 lg:mt-6 md:mt-4 mt-3 max-w-[545px] leading-thin text-justify"
+            >
+              Lorem ipsum dolor sit amet consectetur. Donec vitae pellentesque
+              nunc ut sit a volutpat elementum. Nunc elit nisi pellentesque
+              porta elementum. Id mattis neque diam nulla. Amet et a felis
+              pellentesque sed odio.
+            </p>
+          </div>
+          <div class="flex-1 overflow-hidden rounded-3xl order-2 md:order-1" data-aos="fade-left" data-aos-duration="500" data-aos-delay="500">
+            <img
+              src="./assets/w-2.png"
+              class="w-full h-full object-cover"
+              alt=""
+            />
+          </div>
+        </div>
+
+        <div
+          class="flex items-center 2xl:gap-10 xl:gap-8 gap-6 md:flex-row flex-col"
+          data-aos="fade-right" data-aos-duration="500" data-aos-delay="700"
+        >
+          <div class="flex-1 max-w-[636px] order-1 md:order-2">
+            <h3
+              class="xl:text-[50px] lg:text-[40px] text-[28px] md:text-[36px] 2xl:text-[60px] max-w-[636px] md:leading-[41px] leading-[34px] lg:leading-[45px] xl:leading-[55px] 2xl:leading-[65px] font-bold"
+            >
+              Setup and Connect your Wallet.
+            </h3>
+            <p
+              class="sm:text-[14px] 2xl:mt-12 xl:mt-8 lg:mt-6 md:mt-4 mt-3 max-w-[545px] leading-thin text-justify"
+            >
+              Lorem ipsum dolor sit amet consectetur. Donec vitae pellentesque
+              nunc ut sit a volutpat elementum. Nunc elit nisi pellentesque
+              porta elementum. Id mattis neque diam nulla. Amet et a felis
+              pellentesque sed odio.
+            </p>
+          </div>
+
+          <div class="flex-1 overflow-hidden rounded-3xl order-2 md:order-1" data-aos="fade-left" data-aos-duration="500" data-aos-delay="700">
+            <img
+              src="./assets/w-3.png"
+              class="w-full h-full object-cover"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer
+      class="min-h-[477px] h-pad bg-footer bg-cover bg-center w-full px-6"
+
+      data-aos="fade-up" data-aos-duration="500" data-aos-delay="500"
+    >
+      <div class="max-w-[1000px] mx-auto flex flex-col gap-12">
+        <h2 class="sub-title">Join Our Community</h2>
+        <p class="max-w-[816px] mx-auto font-poppins text-[14px] text-center">
+          Lorem ipsum dolor sit amet consectetur. Donec vitae pellentesque nunc
+          ut sit a volutpat elementum. Nunc elit nisi pellentesque porta
+          elementum. Id mattis neque diam nulla. Amet et a felis pellentesque
+          sed odio.
+        </p>
+
+        <form
+          class="flex sm:flex-row flex-col max-w-[816px] mx-auto w-full md:gap-6 gap-3"
+        >
+          <input
+            type="email"
+            placeholder="Your Email"
+            class="w-full rounded-[41px] px-6 md:px-10 py-6 bg-[#D9D9D9] text-black text-[17px] outline-none"
+          />
+          <button
+            class="bg-[#EFE7D78F] w-full sm:w-[210px] text-[16px] sm:text-[17px] border-[1.35px] border-[#EA9112] py-6 text-white rounded-[41px] md:ml-0 ml-auto"
+          >
+            Join Now
+          </button>
+        </form>
+
+        <div class="copy_right mt-12">
+          <p class="text-center text-[#CCCCCC] text-[16px]">
+            Ⓒ NFT Market. Use this template freely.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+    <script src="./script.js"></script>
   </body>
 </html>

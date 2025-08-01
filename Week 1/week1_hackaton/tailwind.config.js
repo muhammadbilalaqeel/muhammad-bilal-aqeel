@@ -7,7 +7,8 @@ export default {
       fontFamily: {
         poppins: ['"Poppins"', "sans-serif"],
         mono : ['"Space Mono"','monospace'],
-        work : ['"Work Sans"', 'sans-serif']
+        work : ['"Work Sans"', 'sans-serif'],
+        clash: ['"Clash Display"', 'sans-serif'],
       },
       screens: {
         "3xl": "1728px", // custom breakpoint
@@ -17,6 +18,8 @@ export default {
       },
       backgroundImage: {
         hero: "url('./assets/hero_bg.png')",
+        footer:"url('./assets/footer_bg.png')",
+        map:"url('./assets/map_bg.png')"
       },
     },
   },

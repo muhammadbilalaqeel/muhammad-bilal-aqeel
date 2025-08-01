@@ -7,26 +7,56 @@
 
 
 
+@layer components {
+
+  .gradient-border {
+  position: relative;
+  border-radius: 8px; /* Adjust as needed */
+  background: transparent; /* Or your inner background color */
+}
+
+/* .gradient-box {
+background: #ffffff;
+background: radial-gradient(circle, rgba(255, 255, 255, 0.89) 22%, rgba(217, 217, 217, 1) 100%); */
+}
+
+
+#roadmap .box{
+    
+    @apply w-fit ;
+    .inner{
+        @apply max-w-[588.51px] h-[258.5px] bg-[#FFFFFF0D]  border-[1.15px] border-[#ADADADB2] rounded-[9.23px] px-6 font-clash;
+    }
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
 
 .desktop_nav{
-    @apply flex gap-[90px] h-full items-center
+    @apply hidden md:flex 2xl:gap-[70px]  md:gap-[30px] lg:gap-[35px] xl:gap-[50px] h-full items-center
 
   
 }
 
 .desktop_nav  li {
-        @apply font-medium font-poppins text-[21px] ;
+        @apply font-medium font-poppins xl:text-[16px] 2xl:text-[21px]  ;
 
         
     }
 
 .paddings{
-    @apply px-[100px]
+    @apply 2xl:px-[100px] px-10 md:px-[20px] lg:px-[80px];
 }
 .btn {
-    @apply inline-flex items-center justify-center bg-[#DA8F4D] text-white  border-[1.35px]  border-white rounded-[22.9px] text-center;
+    @apply inline-flex items-center justify-center bg-[#DA8F4D] text-white transition-all duration-150 ease-linear border-[1.35px]  border-white rounded-[22.9px] text-center;
 
-}    
+}   
+
+.btn-gray{
+    @apply bg-[#66615e] text-white
+}
 
 .btn-transparent{
     @apply inline-flex items-center justify-center bg-transparent text-white border-[1.35px]  border-white rounded-[22.9px] text-center;
@@ -34,13 +64,53 @@
 
 
 .hero-title{
-   @apply text-[86px] font-bold leading-tight;
+   @apply xl:text-[70px] text-[46px] lg:text-[60px] 2xl:text-[86px] font-bold leading-tight;
 }
 
 .h-pad{
-    @apply py-32;
+    @apply 2xl:py-20 xl:py-16 py-8 ;
 }
 
 .sub-title{
-    @apply text-[54px] font-bold font-poppins text-center;
+    @apply text-[27px] md:text-[30px] lg:text-[38px]  xl:text-[44px] 2xl:text-[54px] font-bold font-poppins text-center;
+}
+
+
+#about .box{
+    @apply  transform hover:scale-105 2xl:w-[297px] h-[252px] rounded-[13.81px] bg-[#2B2B2BAD] flex items-center justify-center overflow-hidden relative;
+
+    img{
+        @apply absolute bottom-0;
+    }
+}
+
+
+
+.grid-container{
+    @apply grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 max-w-[1400px] mx-auto h-full md:max-h-[1124px] 2xl:gap-10 xl:gap-8 gap-6  2xl:px-10 xl:px-8 px-6;
+
+    .grid-box{
+        @apply bg-[#F4E9C417] border-[1.16px] gradient-border 2xl:h-[531px] xl:h-[480px] lg:h-[430px] md:h-[365px] rounded-[18px] py-4 px-3 flex flex-col justify-between items-center gap-3;
+
+        img{
+            @apply w-full h-full object-cover;
+        }
+    }
+}
+
+.g{
+    @apply grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 max-w-[1400px] mx-auto 2xl:px-10 xl:px-8 px-6 h-fit 2xl:gap-10 xl:gap-8 gap-6 ;
+
+    .box{
+        @apply h-[321px] rounded-[27px] p-[27px] bg-[#E6DCBA33] flex flex-col items-center;
+
+        img{
+            @apply h-full w-full object-cover;
+        }
+    }
+
+}
+
+.w{
+    @apply max-w-[1400px] mx-auto;
 }
