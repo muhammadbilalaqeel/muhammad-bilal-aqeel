@@ -90,3 +90,20 @@
         ✅ Uploaded to GitHub
         🌐 Deployed on Vercel
         🔗 Live Link: https://week1-day3-ecru.vercel.app/index.html
+
+
+🗓️ Day 5 – Hackathon Day 1
+
+    📄 Task: Figma to Responsive Web Page (HTML + CSS + AOS)
+
+        🎯 Goal: Convert provided Figma design into a fully responsive webpage
+        🎨 Implemented pixel-perfect layout using HTML and custom CSS
+        📐 Maintained responsiveness across all screen sizes using media queries and flexible units
+        🎬 Integrated AOS (Animate On Scroll) for smooth section transitions
+        🍔 Added mobile-friendly burger menu with toggle functionality using JavaScript
+        🧠 Focused on clean semantic HTML structure and well-organized CSS
+        ✅ Ensured layout fidelity with Figma reference
+        ⚙️ Used Tailwind classes (if any) for quick styling enhancements (optional)
+        ✅ Uploaded project to GitHub
+        🌐 Deployed live on Vercel
+        🔗 Live Link: https://hackaton-1-orcin.vercel.app/
