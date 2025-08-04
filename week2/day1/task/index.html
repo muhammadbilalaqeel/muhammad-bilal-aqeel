@@ -1,11 +1,100 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en" class="">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Age Calculator</title>
-</head>
-<body>
-    
-</body>
+    <link
+      rel="shortcut icon"
+      href="./assets/favicon-32x32.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="output.css" />
+    <script
+      src="https://kit.fontawesome.com/9b197449cc.js"
+      crossorigin="anonymous"
+    ></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  </head>
+  <body
+    class="font-poppins dark:bg-dark-charcoal bg-light-neutral-gray100 transition-all duration-300 ease-in-out"
+  >
+    <div class="loading flex">
+      <div class="loading-spinner"></div>
+    </div>
+    <div
+      id="main"
+      class="custom-max-w h-screen justify-center items-center hidden"
+    >
+      <div
+        data-aos="zoom-in"
+        data-aos-duration="500"
+        class="box dark:bg-dark-d dark:card-shadow bg-light-neutral-white max-w-[700px] w-full max-h-[80vh] rounded-t-2xl rounded-l-2xl rounded-br-[150px] padding-x"
+      >
+        <div class="toggleBtn shadow-sm">
+          <div class="tb s">
+            <img
+              src="./assets/sun.png"
+              alt="sun_icon"
+              class="dark:hidden block"
+            />
+            <img
+              src="./assets/sun_black.png"
+              alt="sun_icon"
+              class="dark:block hidden"
+            />
+          </div>
+          <div class="m">
+            <img
+              src="./assets/moon.png"
+              alt="moon_icon"
+              class="dark:hidden block"
+            />
+            <img
+              src="./assets/moon_black.png"
+              alt="moon_icon"
+              class="dark:block hidden"
+            />
+          </div>
+        </div>
+        <form class="flex justify-center md:mt-0 mt-10">
+          <div class="">
+            <label for="day" class="d">DAY</label>
+            <input type="number" placeholder="DD" id="day" />
+            <div class="error d hidden">This field is required</div>
+          </div>
+          <div>
+            <label for="month" class="p">MONTH</label>
+            <input type="number" placeholder="MM" id="month" />
+            <div class="error m hidden">This field is required</div>
+          </div>
+          <div>
+            <label for="year" class="y">YEAR</label>
+            <input type="number" placeholder="YYYY" id="year" />
+            <div class="error y hidden">This field is required</div>
+          </div>
+        </form>
+        <div class="py-16 sm:py-10 relative">
+          <hr class="bg-light-neutral-gray200" />
+          <button
+            id="btn"
+            class="absolute bg-light-primary-purple sm:right-0 sm:left-auto left-1/2 sm:translate-x-0 -translate-x-1/2 transform -translate-y-1/2 top-1/2"
+          >
+            <img src="./assets/icon-arrow.svg" alt="" />
+          </button>
+        </div>
+        <div class="age">
+          <h1><span id="ty">- -</span> years</h1>
+          <h1><span id="tm">- -</span> months</h1>
+          <h1><span id="td">- -</span> days</h1>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+    <script src="script.js"></script>
+  </body>
 </html>
