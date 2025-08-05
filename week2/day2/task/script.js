@@ -1,3 +1,16 @@
+let notification = {
+  user: {
+    username: "",
+    profileImage: "",
+  },
+  postTitle: "",
+  postImage: "",
+  type: "post",
+  action: "commented",
+  createdAt: "",
+  seen: true,
+};
+
 let notifications = [
   {
     userImage: "./assets/avatar-mark-webber.webp",
@@ -115,14 +128,16 @@ function populateData() {
     }
 
     notificationsElem.innerHTML += `
-    <li class="notification ${elem.read ? '':'cursor-pointer'}" onclick="makeRead(${i})">
+    <li class="notification ${
+      elem.read ? "" : "cursor-pointer"
+    }" onclick="makeRead(${i})">
                   <div class="flex  sm:gap-3 n ${elem.read ? "" : "unread"}">
                   <div class="img">
                      <img src=${elem.userImage} alt=${elem.userName}>
                   </div>
                   <div class="content">
                        ${p}
-                       <p>1m ago</p>
+                       <p>${elem.timeOfAction} ago</p>
                   </div>
                   ${
                     elem.userAction === "comment"
