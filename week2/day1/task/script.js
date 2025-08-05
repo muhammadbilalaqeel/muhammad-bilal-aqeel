@@ -273,18 +273,7 @@ m.addEventListener("click", function () {
   localStorage.setItem("theme", "dark");
 });
 
-const theme = localStorage.getItem("theme");
-if (theme === "dark") {
-  document.documentElement.classList.add("dark");
-  m.classList.add("tb");
-  s.classList.remove("tb");
-  localStorage.setItem("theme", "dark");
-} else if (theme === "light") {
-  document.documentElement.classList.remove("dark");
-  s.classList.add("tb");
-  m.classList.remove("tb");
-  localStorage.setItem("theme", "light");
-}
+
 
 // Loading
 
