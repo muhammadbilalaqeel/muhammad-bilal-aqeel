@@ -42,7 +42,7 @@ btn.addEventListener("click", function () {
       error[0].classList.remove("animate-shake");
     }, 400);
     err = true;
-  } else if (parseDay < 0 || parseDay > 31) {
+  } else if (parseDay <= 0 || parseDay > 31) {
     error[0].innerHTML = "Must be a valid day <br> <strong>(1–31)</strong>";
     error[0].classList.remove("hidden");
     dayLabel.style.color = red;
@@ -71,7 +71,7 @@ btn.addEventListener("click", function () {
       error[1].classList.remove("animate-shake");
     }, 400);
     err = true;
-  } else if (parseMonth < 0 || parseMonth > 12) {
+  } else if (parseMonth <= 0 || parseMonth > 12) {
     error[1].innerHTML = "Must be a valid month <br> <strong>(1–12)</strong>";
     error[1].classList.remove("hidden");
     monthLabel.style.color = red;
@@ -113,8 +113,45 @@ btn.addEventListener("click", function () {
       yearLabel.classList.remove("animate-shake");
       error[2].classList.remove("animate-shake");
     }, 400);
+
+   
     err = true;
   }
+
+  else if(parseYear === 0){
+     error[2].innerHTML = "Correct the year input";
+    error[2].classList.remove("hidden");
+    yearLabel.style.color = red;
+    year.style.borderColor = red;
+    year.classList.add("animate-shake");
+    yearLabel.classList.add("animate-shake");
+    error[2].classList.add("animate-shake");
+    setTimeout(() => {
+      year.classList.remove("animate-shake");
+      yearLabel.classList.remove("animate-shake");
+      error[2].classList.remove("animate-shake");
+    }, 400);
+
+   
+    err = true;
+  }
+
+   else if(year.value.length<4){
+ error[2].innerHTML = " Year must be in digits of 4";
+    error[2].classList.remove("hidden");
+    yearLabel.style.color = red;
+    year.style.borderColor = red;
+    year.classList.add("animate-shake");
+    yearLabel.classList.add("animate-shake");
+    error[2].classList.add("animate-shake");
+    setTimeout(() => {
+      year.classList.remove("animate-shake");
+      yearLabel.classList.remove("animate-shake");
+      error[2].classList.remove("animate-shake");
+    }, 400);
+
+    err = true
+    }
 
   const numberOfDaysinFeb = leapYearChecking(parseYear);
 

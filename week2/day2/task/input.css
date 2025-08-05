@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.custom-max-w{
+    @apply max-w-[1440px] mx-auto h-full px-2 py-4
+}
+
+.card{
+    @apply w-[650px] h-fit bg-light-neutral-white drop-shadow-lg rounded-xl sm:p-6 sm:py-4  p-2 py-3 pb-2;
+}
+
+.head h1{
+    @apply text-[18px] font-bold text-light-neutral-navy950;
+
+    span{
+        @apply  bg-light-primary-blue950 text-light-neutral-white text-[12px] ml-1 rounded-md inline-flex w-7 items-center justify-center
+
+    }
+}
+
+.head button{
+    @apply text-[12px] text-light-neutral-gray600 active:text-light-primary-blue950 font-semibold
+}
+
+.notifications{
+    @apply mt-4 flex flex-col gap-2;
+}
+
+.notifications .notification{
+   
+    @apply flex flex-col gap-3 ;
+    .n {
+        @apply sm:px-4  sm:p-2  items-center  px-2 p-1.5 sm:gap-3 gap-1.5 sm:min-h-[64px]  h-full  rounded-md;
+    }
+   .img{
+    @apply w-8 h-8 flex-shrink-0;
+   }
+    .img>img{
+        @apply object-cover rounded-full  h-8 w-8;
+    }
+
+    p:nth-child(1){
+        @apply sm:text-[13px] text-[12px] text-light-neutral-gray600 text-justify;
+    }
+     p:nth-child(2){
+        @apply sm:text-[12px] text-[11px] text-light-neutral-gray500;
+    }
+
+    .name{
+        @apply text-light-neutral-navy950 font-bold mr-0.5 active:text-light-primary-blue950 hover:text-light-primary-blue950 cursor-pointer;
+    }
+    .post{
+        @apply font-bold ml-0.5 text-light-neutral-gray600 active:text-light-primary-blue950 hover:text-light-primary-blue950 cursor-pointer;
+    }
+    .group{
+        @apply font-bold ml-0.5 text-light-primary-blue950 active:text-light-primary-blue950 hover:text-light-primary-blue950 cursor-pointer;
+    }
+    .unread-circle{
+        @apply h-[9px] w-[9px] rounded-full inline-block ml-1.5 bg-light-primary-red500;
+    }
+
+    .cImg{
+        @apply ml-auto md:h-10 md:w-10 h-9 w-9 flex-shrink-0;
+
+        img{
+            @apply h-full w-full rounded-xl object-cover;
+        }
+    }
+}
+
+
+.notifications .notification .unread {
+   @apply  bg-light-neutral-navy50 border border-light-neutral-blue100;
+}
+
+.notifications .notification>div:nth-child(2){
+    @apply max-w-[480px] ml-auto border border-light-neutral-navy100  sm:p-4 p-2 rounded-md
+}
+
+.msg{
+    @apply text-light-neutral-gray600 sm:text-[13px] text-[12px] sm:max-w-full max-w-[250px];
+}
