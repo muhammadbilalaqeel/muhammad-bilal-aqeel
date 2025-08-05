@@ -24,7 +24,7 @@
           />
         </div>
       </div> -->
-      <div class="card transition-all duration-200 ease-out">
+      <div id="scrollContainer" class="card transition-all duration-200 ease-out overflow-y-auto" >
         <div class="head flex items-center justify-between relative">
           <h1>Notifications <span id="count"></span></h1>
           <div class="flex items-center gap-1 sm:gap-2">
@@ -56,6 +56,8 @@
           </ul>
         </div>
         <ul class="notifications" id="notifications"></ul>
+        <div id="loading" class="text-center py-3 hidden">Loading...</div>
+
       </div>
     </div>
 

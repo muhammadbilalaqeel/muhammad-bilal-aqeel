@@ -189,7 +189,8 @@ let notificationsElem = document.getElementById("notifications");
 function populateData(data = notifications) {
   notificationsElem.innerHTML = "";
   console.log(notifications);
-  data.forEach((elem, i) => {
+  if(data.length > 0){
+    data.forEach((elem, i) => {
     let p = "";
     if (elem.type == "reaction") {
       p = `<p>  <span class="name">${
@@ -272,12 +273,20 @@ function populateData(data = notifications) {
     </li>
     `;
   });
+  }
+  else{
+    notificationsElem.innerHTML = "<p class='text-center mt-10'>No Items to show</p>";
+  }
 }
 
 function toggleBar() {
   let mli = document.getElementById("mli");
   let m = document.getElementById("m");
    m.classList.toggle("hide");
+
+   let mImg = document.querySelector('.mImg img');
+mImg.classList.toggle('transform');
+mImg.classList.toggle('rotate-[180deg]');
 }
 
 function getShortTimeAgo(isoString) {
@@ -369,7 +378,7 @@ function handleClick(i) {
   }
 }
 
-toggleBar();
+
 
 // Toggle Button
 

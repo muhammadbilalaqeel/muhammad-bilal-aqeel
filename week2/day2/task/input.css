@@ -19,7 +19,7 @@
 }
 
 .card {
-  @apply w-[650px] min-w-[300px] h-fit dark:bg-dark-neutral-white bg-light-neutral-white drop-shadow-lg rounded-xl sm:p-6 sm:py-4  p-2 py-3 pb-2;
+  @apply w-[650px] min-w-[300px] h-fit min-h-[200px] dark:bg-dark-neutral-white bg-light-neutral-white drop-shadow-lg rounded-xl sm:p-6 sm:py-4  p-2 py-3 pb-2;
 }
 
 .head h1 {
@@ -81,6 +81,10 @@
 
 .mImg {
   @apply ml-auto cursor-pointer;
+}
+
+.mImg img{
+  @apply transition-all duration-200 ease-out
 }
 
 .notifications .notification .unread {
