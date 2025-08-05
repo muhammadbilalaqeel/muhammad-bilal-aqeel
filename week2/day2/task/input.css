@@ -6,7 +6,7 @@
 
 
 .custom-max-w{
-    @apply max-w-[1440px] mx-auto h-full px-2 py-4
+    @apply max-w-[1440px] mx-auto h-full px-2 py-4 flex items-center justify-center
 }
 
 .card{
