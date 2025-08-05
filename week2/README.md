@@ -27,4 +27,4 @@
         🌗 Dark Mode toggle
         📱 Fully responsive with Tailwind CSS
         ✅ Pushed to GitHub
-        🌐 Live on Vercel: https://week2-day2-task.vercel.app/
+        🌐 Live on Vercel: https://week2-day2.vercel.app/
