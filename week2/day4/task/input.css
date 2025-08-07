@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body{
+    @apply font-mono;
+}
+
+
+.toggleBtn {
+  @apply w-[48px] bg-light-green-900 dark:bg-white absolute right-3 top-3  z-50 h-[48px] rounded-full p-1.5 flex items-center gap-1;
+  > div {
+    @apply w-full h-full rounded-full flex items-center justify-center cursor-pointer;
+  }
+
+}
+
+
+
+
+.input-error {
+  border: 2px solid red !important;
+}
+
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  50% { transform: translateX(4px); }
+  75% { transform: translateX(-4px); }
+  100% { transform: translateX(0); }
+}
+
+.shake {
+  animation: shake 0.3s ease-in-out;
+}
+
+
+.sh {
+  box-shadow: 0 4px 20px hsla(185, 41%, 84%, 0.6);
+}
+
+#toast {
+  position: fixed;
+  top: -2rem;
+  right: 2rem;
+  background-color: #10b981;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.15);
+  font-weight: bold;
+  z-index: 9999;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: all 0.4s ease;
+}
+
+#toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
