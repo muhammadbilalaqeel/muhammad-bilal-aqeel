@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="output.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+  </head>
+  <body class="scroll-smooth">
+    <div class="w-full h-full">
+      <!-- Modal Box -->
+
+      <div
+        id="modalOverlay"
+        class="fixed inset-0 bg-black bg-opacity-80 z-50 hidden items-center justify-center"
+      >
+        <div class="custom-max-w w-full flex items-center justify-center">
+          <div
+            class="bg-white rounded-2xl w-full max-w-[95%] sm:max-w-[90%] md:max-w-[80%] lg:max-w-[70%] xl:max-w-[60%] max-h-[94vh] flex flex-col relative shadow-lg"
+          >
+            <button
+              id="closeModal"
+              class="absolute -top-4 -right-3 text-2xl bg-light-brand text-white h-[35px] w-[35px] rounded-full hover:text-light-darkbg"
+            >
+              &times;
+            </button>
+
+            <div class="w-full flex-shrink-0">
+              <img
+                src="./assets/cart_layout.png"
+                alt=""
+                class="w-full h-28 object-cover rounded-t-2xl"
+              />
+            </div>
+
+            <div
+              id="cart"
+              class="md:px-4 flex-grow md:py-4 p-2 overflow-visible"
+            ></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Header -->
+      <header class="custom-max-w relative">
+        <div class="brand-logo">
+          <img
+            src="./assets/logo_1.png"
+            alt=""
+            class="2xl:w-[268px] xl:w-[200px] md:w-[150px] w-[120px]"
+          />
+        </div>
+        <nav id="desktop">
+          <ul>
+            <li
+              class="hover:bg-light-brand px-7 py-4 hover:text-white rounded-[30px] cursor-pointer"
+            >
+              <a href="#hero" class="">Home</a>
+            </li>
+            <li
+              class="hover:bg-light-brand px-7 py-4 hover:text-white rounded-[30px] cursor-pointer"
+            >
+              <a href="#filter-menu">Special Offers</a>
+            </li>
+            <li
+              class="hover:bg-light-brand px-7 py-4 hover:text-white rounded-[30px] cursor-pointer bg-light-brand text-white"
+            >
+              <a href="#similar_restaurant">Restaurants</a>
+            </li>
+            <li
+              class="hover:bg-light-brand px-7 py-4 hover:text-white rounded-[30px] cursor-pointer"
+            >
+              <a href="#reviews-slider">Track Order</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="cart-btn relative cursor-pointer" id="openModal">
+          <div class="relative">
+            <img src="./assets/cart.png" alt="cart_icon" />
+
+            <div
+              id="cartCount"
+              class="absolute -top-1 -left-2 cursor-pointer flex items-center justify-center bg-light-brand text-white text-[12px] md:w-8 md:h-8 h-5 w-5 rounded-full leading-none"
+            >
+              0
+            </div>
+          </div>
+          <span>Cart</span>
+        </div>
+
+        <button id="menuToggle" class="text-3xl lg:hidden ml-3">☰</button>
+      </header>
+      <nav
+        id="mobile"
+        class="fixed top-0 left-0 w-full z-30 bg-light-brand transform -translate-y-full rounded-b-3xl transition-transform duration-500 ease-in-out lg:hidden"
+      >
+        <ul class="flex flex-col gap-6 px-6 py-8 pt-32 text-white text-lg">
+          <li><a href="#hero" class="hover:text-light-darkbg">Home</a></li>
+          <li>
+            <a href="#filter-menu" class="hover:text-light-darkbg"
+              >Special Offers</a
+            >
+          </li>
+          <li>
+            <a href="#similar_restaurant" class="hover:text-light-darkbg"
+              >Restaurants</a
+            >
+          </li>
+          <li>
+            <a href="#reviews-slider" class="hover:text-light-darkbg"
+              >Track Order</a
+            >
+          </li>
+        </ul>
+      </nav>
+
+      <div
+        id="overlay"
+        class="fixed inset-0 bg-black bg-opacity-60 lg:hidden hidden z-20"
+      ></div>
+
+      <!-- Hero Section -->
+      <section title="hero" id="hero" class="custom-max-w">
+        <div class="top">
+          <div class="hero-bg-layer"></div>
+          <div class="content">
+            <div
+              class="left md:h-full h-fit md:justify-end md:w-1/2 w-full flex flex-col text-white"
+            >
+              <p
+                class="2xl:text-[20px] 2xl:leading-[66px] xl:text-[18px] text-[17px] leading-[40px]"
+              >
+                I'm lovin'it!
+              </p>
+              <h1
+                class="2xl:text-[54px] 2xl:leading-[66px] xl:text-[50px] text-[46px] leading-[48px] font-semibold"
+              >
+                McDonald's East London
+              </h1>
+              <div
+                class="quick-info flex sm:flex-row flex-col xl:gap-5 sm:gap-4 gap-2 2xl:mt-8 xl:mt-6 md:mt-4 mt-8"
+              >
+                <div
+                  class="flex w-full gap-1.5 rounded-[120px] 2xl:h-[63px] h-[60px] px-3 border items-center justify-center"
+                >
+                  <img
+                    src="./assets/list.png"
+                    alt="list_icon"
+                    class="2xl:h-[34px] 2xl:w-[34px] xl:h-[30px] xl:w-[30px] h-[28px] w-[28px]"
+                  />
+                  <span class="2xl:text-[18px] xl:text-[16px] text-[14px]"
+                    >Minimum Order: 12 GBP</span
+                  >
+                </div>
+                <div
+                  class="flex w-full gap-1.5 rounded-[120px] 2xl:h-[63px] h-[60px] px-2 border items-center justify-center"
+                >
+                  <img
+                    src="./assets/bike.png"
+                    alt="bike_icon"
+                    class="2xl:h-[34px] 2xl:w-[34px] h-[30px] w-[30px]"
+                  />
+                  <span class="2xl:text-[18px] xl:text-[16px] text-[14px]"
+                    >Delivery in 20-25 Minutes</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div
+              class="right md:w-1/2 w-full mx-auto flex justify-center md:justify-end"
+            >
+              <div class="relative">
+                <img
+                  src="./assets/hero_img.png"
+                  alt=""
+                  class="2xl:h-[361px] 2xl:w-[581px] xl:w-[540px] lg:w-[450px] w-[90%] mx-auto rounded-[12px]"
+                />
+                <img
+                  src="./assets/hero_ratings_img.png"
+                  alt=""
+                  class="absolute -bottom-3 2xl:-left-14 xl:-left-10 lg:-left-6 2xl:h-[158px] xl:h-[120px] 2xl:w-[136px] xl:w-[110px] rounded-[12px]"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bottom relative lg:px-4 px-2">
+          <div
+            class="open-info absolute -top-8 left-0 flex items-center justify-center md:gap-3 gap-1.5 xl:w-[335px] md:w-[280px] w-[200px] h-[61px] rounded-r-[12px] bg-light-brand text-white"
+          >
+            <img
+              src="./assets/clock.png"
+              alt="clock_icon"
+              class="md:h-[29px] md:w-[29px] h-[24px] w-[24px]"
+            />
+            <span
+              class="xl:text-[18px] md:text-[16px] text-[14px] font-semibold"
+              >Open until 3:00 AM</span
+            >
+          </div>
+          <div
+            class="flex xl:h-[200px] sm:h-[150px] min-h-[200px] sm:py-0 py-10 sm:mt-0 items-center sm:justify-between justify-end sm:gap-0 gap-3 w-full sm:flex-row flex-col"
+          >
+            <p
+              class="xl:text-[32px] lg:text-[27px] sm:text-[25px] text-[22px] sm:text-left text-center font-bold"
+            >
+              All Offers from McDonald's East London
+            </p>
+            <form
+              class="xl:w-[344px] sm:w-[280px] w-full h-[50px] sm:h-[63px] search rounded-[120px] border flex gap-3 items-center xl:pl-8 pl-4 pr-3 border-light-darkbg"
+            >
+              <img
+                src="./assets/search_icon.png"
+                alt=""
+                class="w-[26px] h-[26px]"
+              />
+              <input
+                type="text"
+                placeholder="Search from menu"
+                class="text-darkbg placeholder-font-semibold outline-none bg-transparent border-none"
+              />
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- Filter Section -->
+      <section id="filter-menu" class="relative my-4">
+        <!-- Scroll buttons -->
+        <button
+          id="scroll-left"
+          class="absolute left-1 top-1/2 -translate-y-1/2 z-10 p-2 h-8 bg-[#ffffff99] w-8 hidden items-center justify-center rounded-full"
+        >
+          <img src="./assets/arrow_left.png" class="transform" alt="" />
+        </button>
+        <button
+          id="scroll-right"
+          class="absolute right-1 top-1/2 -translate-y-1/2 z-10 p-2 h-8 bg-[#ffffff99] w-8 hidden items-center rounded-full"
+        >
+          <img
+            src="./assets/arrow_left.png"
+            class="transform rotate-[180deg]"
+            alt=""
+          />
+        </button>
+
+        <!-- Scrollable tab list -->
+        <ul
+          id="tab-scroll-container"
+          class="custom-max-w flex gap-3 overflow-x-auto scrollbar-hide whitespace-nowrap scroll-smooth px-10"
+        >
+          <li>
+            <button class="tab-btn active" data-type="offer">Offers</button>
+          </li>
+          <li><button class="tab-btn" data-type="burger">Burgers</button></li>
+          <li><button class="tab-btn" data-type="fries">Fries</button></li>
+          <li>
+            <button class="tab-btn" data-type="cold-drinks">Cold Drinks</button>
+          </li>
+          <li><button class="tab-btn" data-type="pizza">Pizza</button></li>
+          <li><button class="tab-btn" data-type="salads">Salads</button></li>
+
+          <li>
+            <button class="tab-btn" data-type="happy">Happy Meal®</button>
+          </li>
+          <li>
+            <button class="tab-btn" data-type="desserts">Desserts</button>
+          </li>
+          <li><button class="tab-btn" data-type="hot">Hot Drinks</button></li>
+          <li><button class="tab-btn" data-type="sauces">Sauces</button></li>
+          <li><button class="tab-btn" data-type="orbit">Orbit®</button></li>
+        </ul>
+      </section>
+
+      <!-- Custom Loader -->
+      <div id="loader" class="flex justify-center items-center min-h-[300px]">
+        <div class="loader-spinner"></div>
+      </div>
+
+      <!-- Products Section -->
+      <main id="products"></main>
+
+      <!-- Restaurant Info Section -->
+      <section class="py-16">
+        <div class="custom-max-w">
+          <div
+            class="grid md:grid-cols-3 my-4 rounded-[12px] shadow-[5px_5px_14px_0px_#00000040] overflow-hidden min-h-[477px]"
+          >
+            <div class="d_info xl:px-8 px-4 py-8 flex flex-col gap-2 w-full">
+              <h3
+                class="flex items-center xl:gap-2 xl:text-[26px] text-[23px] xl:font-bold font-semibold text-light-darkbg"
+              >
+                <img
+                  src="./assets/Tracking.png"
+                  alt="trackin_icon"
+                  class="sm:w-14 w-10"
+                />
+                Delivery information
+              </h3>
+              <ul class="d_list flex flex-col xl:gap-6 gap-5 mt-5"></ul>
+            </div>
+
+            <div class="c_info px-4 py-8 flex flex-col gap-2 w-full">
+              <h3
+                class="flex items-center xl:gap-2 xl:text-[26px] text-[23px] xl:font-bold font-semibold text-light-darkbg"
+              >
+                <img
+                  src="./assets/ID Verified.png"
+                  alt="verified_icon"
+                  class="sm:w-14 w-10"
+                />Contact Information
+              </h3>
+              <p
+                class="md:max-w-[427px] lg:leading-[48px] leading-[36px] mt-2 text-[14px]"
+              >
+                If you have allergies or other dietary restrictions, please
+                contact the restaurant. The restaurant will provide
+                food-specific information upon request.
+              </p>
+              <span class="font-semibold text-[14px]">Phone number </span>
+              <span class="text-[14px]"
+                ><a href="tel:+934443-43">+934443-43</a></span
+              >
+              <span class="font-semibold text-[14px]">Website</span>
+              <span
+                ><a href="http://mcdonalds.uk/" class="text-[14px]"
+                  >http://mcdonalds.uk/</a
+                ></span
+              >
+            </div>
+
+            <div
+              class="op_info bg-light-darkbg text-white xl:px-8 px-4 py-8 flex flex-col gap-2 w-full"
+            >
+              <h3
+                class="flex items-center xl:gap-2 xl:text-[26px] text-[23px] xl:font-bold font-semibold"
+              >
+                <img src="./assets/Clock_1.png" alt="operational_time" />
+                Operational Times
+              </h3>
+              <ul class="op_list flex flex-col xl:gap-6 gap-5 mt-6"></ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+
+      <section
+        class="custom-max-w bg-light-gray min-h-[700px] lg:my-12 my-6 rounded-md bg-opacity-[30%] py-16 px-8 flex justify-center"
+      >
+        <div class="h-full w-full items-center justify-center">
+          <div
+            class="head flex justify-between items-center flex-wrap gap-4 relative w-full"
+          >
+            <h3 class="xl:text-[36px] md:text-[30px] text-[27px] font-bold">
+              Know more about us!
+            </h3>
+
+            <!-- Scrollable Tab Container -->
+            <div class="relative w-full xl:w-auto  ml-auto">
+              <!-- Left Scroll Button -->
+              <button
+                id="mainTabsScrollLeft"
+                class="absolute left-1 top-1/2 -translate-y-1/2 z-10 p-2 h-8 w-8 hidden items-center justify-center rounded-full bg-white shadow"
+              >
+                <img
+                  src="./assets/arrow_left.png"
+                  class="transform"
+                  alt="Left"
+                />
+              </button>
+
+              <!-- Scrollable Wrapper -->
+              <div
+                id="mainTabsWrapper"
+                class="md:overflow-visible  overflow-x-auto scrollbar-hide md:py-0 py-4  lg:px-6"
+              >
+                <ul
+                  id="mainTabs"
+                  class="flex items-center w-max xl:gap-4 md:gap-2 gap-1"
+                >
+                  <!-- Tabs go here -->
+                </ul>
+              </div>
+
+              <!-- Right Scroll Button -->
+              <button
+                id="mainTabsScrollRight"
+                class="absolute right-1 top-1/2 -translate-y-1/2 z-10 p-2 h-8 w-8 hidden items-center justify-center rounded-full bg-white shadow"
+              >
+                <img
+                  src="./assets/arrow_left.png"
+                  class="transform rotate-180"
+                  alt="Right"
+                />
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="c mt-10 bg-light-darkbg rounded-[12px] xl:min-h-[526px] flex xl:flex-row flex-col text-white items-center"
+          >
+            <div
+              class="left xl:py-16 py-8 md:px-4 px-2 xl:border-r xl:max-w-[500px]"
+            >
+              <ul
+                class="flex xl:flex-col flex-row items-center xl:gap-12 md:gap-4 gap-2 flex-wrap xl:justify-start justify-center"
+                id="subTabs"
+              ></ul>
+            </div>
+            <div class="divider h-full w-1 bg-light-gray xl:block hidden"></div>
+            <div
+              class="right max-w-[800px] mx-auto xl:py-16 py-8 xl:px-0 px-8"
+              id="tabContent"
+            ></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Reviews Section -->
+      <section id="reviews" class="bg-light-gray">
+        <div class="custom-max-w">
+          <div
+            class="head flex sm:flex-row flex-col sm:items-center items-end w-full justify-between"
+          >
+            <h2 class="text-center w-full">Customer Reviews</h2>
+            <div class="scrollBtns flex items-center md:gap-6 gap-2">
+              <button
+                id="custom-prev"
+                class="md:w-[75px] md:h-[75px] sm:w-[50px] sm:h-[50px] w-[40px] h-[40px] rounded-full bg-light-brand flex items-center justify-center"
+              >
+                <img
+                  src="./assets/arrow_left.png"
+                  alt=""
+                  class="md:w-[90%] md:h-[90%] h-[80%] w-[80%]"
+                />
+              </button>
+              <button
+                id="custom-next"
+                class="md:w-[75px] md:h-[75px] sm:w-[50px] sm:h-[50px] w-[40px] h-[40px] rounded-full bg-light-brand flex items-center justify-center"
+              >
+                <img
+                  src="./assets/arrow_left.png"
+                  alt=""
+                  class="transform rotate-[180deg] md:w-[90%] md:h-[90%] h-[80%] w-[80%]"
+                />
+              </button>
+            </div>
+          </div>
+
+          <!-- Splide Slider Container -->
+          <div id="reviews-slider" class="splide mt-6 pt-6 pb-20">
+            <div class="splide__track">
+              <ul class="splide__list">
+                <li class="splide__slide">
+                  <div
+                    class="review w-full h-full bg-white rounded-sm p-4 flex flex-col shadow-md"
+                  >
+                    <div
+                      class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4"
+                    >
+                      <div class="flex gap-2 items-center">
+                        <img
+                          src="./assets/review_user.png"
+                          class="w-12 h-12 sm:w-[54px] sm:h-[54px] rounded-full"
+                          alt="Reviewer"
+                        />
+                        <div
+                          class="divider w-px h-10 bg-light-brand hidden sm:block"
+                        ></div>
+                        <div>
+                          <h3
+                            class="text-base sm:text-lg font-semibold text-light-darkbg"
+                          >
+                            St Gix
+                          </h3>
+                          <p
+                            class="text-sm -mt-1 sm:text-base text-light-brand"
+                          >
+                            South London
+                          </p>
+                        </div>
+                      </div>
+                      <div class="flex flex-col items-start sm:items-end gap-1">
+                        <div class="flex gap-1.5">
+                          <img src="./assets/star.png" alt="Star" />
+                          <img src="./assets/star.png" alt="Star" />
+                          <img src="./assets/star.png" alt="Star" />
+                          <img src="./assets/star.png" alt="Star" />
+                          <img src="./assets/star.png" alt="Star" />
+                        </div>
+                        <div class="flex items-center gap-2 text-sm">
+                          <img src="./assets/time_span.png" alt="Date" />
+                          <p class="sm:text-[13px] text-sm">
+                            24th September, 2023
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="r mt-6 sm:mt-8">
+                      <p class="text-sm leading-relaxed">
+                        The positive aspect was undoubtedly the efficiency of
+                        the service. The queue moved quickly, the staff was
+                        friendly, and the food was up to the usual McDonald's
+                        standard – hot and satisfying.
+                      </p>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Similar Restaurants -->
+      <section id="similar_restaurant" class="py-16 relative">
+        <div class="custom-max-w">
+          <div>
+            <div class="absolute -top-16 left-1/2 transform -translate-x-1/2">
+              <img
+                src="./assets/hero_ratings_img.png"
+                class="rounded-[12px]"
+                alt=""
+              />
+            </div>
+            <h2 class="text-[32px] font-bold leading-[100%]">
+              Similar Restaurants
+            </h2>
+            <div class="restaurants-grid"></div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="">
+        <div class="bg-light-gray bg-opacity-[60%] business_footer pt-12">
+          <div class="custom-max-w pb-8 h">
+            <div>
+              <div class="logo">
+                <img
+                  src="./assets/logo_2.png"
+                  class="2xl:w-[268px] xl:w-[200px]"
+                  alt=""
+                />
+              </div>
+              <div
+                class="btns flex gap-2 items-center sm:flex-row flex-col mt-8"
+              >
+                <button
+                  class="2xl:w-[178px] w-[150px] rounded-[3px] 2xl:p-0 p-3 h-[50.61px] flex items-center justify-center bg-black"
+                >
+                <a href="https://www.apple.com/app-store/"> <img
+                    src="./assets/app_store.png"
+                    class="object-contain"
+                    alt=""
+                  /></a>
+                 
+                </button>
+                <button
+                  class="2xl:w-[178px] w-[150px] 2xl:p-0 p-3 h-[50.61px] bg-black rounded-[3px] flex items-center justify-center"
+                >
+                  <a href="https://play.google.com/store/apps"><img
+                    src="./assets/google_play.png"
+                    class="object-contain"
+                    alt=""
+                  /></a>
+                </button>
+              </div>
+              <div class="mt-6">
+                <p
+                  class="xl:text-[15px] text-[14px] leading-tight md:max-w-[311px] md:text-left text-center"
+                >
+                  Company # 490039-445, Registered with House of companies.
+                </p>
+              </div>
+            </div>
+
+            <div class="">
+              <h4
+                class="xl:text-[18px] text-[16px] font-bold leading-[43px] text-light-darkbg"
+              >
+                Get Exclusive Deals in your inbox
+              </h4>
+              <form
+                class="flex relative sm:flex-row flex-col sm:h-[59px] sm:rounded-[120px] overflow-hidden sm:bg-light-gray 2xl:w-[552px] lg:w-[450px] md:w-[350px] w-[90%]"
+              >
+                <input
+                  type="email"
+                  placeholder="youremail@gmail.com"
+                  required
+                  class="lg:pl-8 md:pl-4 md:pr-2 sm:p-6 p-3 pr-1 lg:pr-6 lg:w-[381px] md:w-[250px] sm:text-[16px] text-[14px] w-full border-none outline-none rounded-[120px] sm:rounded-0 bg-light-gray h-[59px] sm:border-0 border"
+                />
+                <button
+                  class="xl:text-[18px] sm:text-[16px] text-[14px] rounded-[120px] font-medium h-[59px] lg:w-[171px] md:w-[140px] sm:mt-0 mt-4 w-[171px] p-3 bg-light-brand text-white shrink-0 inline-block sm:ml-auto mx-auto text-center"
+                >
+                  Subscribe
+                </button>
+              </form>
+              <p class="text-[13px] leading-[43px] ml-6">
+                we wont spam, read our
+                <a href="#" class="underline">email policy</a>
+              </p>
+              <div class="icons ml-6 flex items-center gap-6 mt-4">
+                <a href="https://www.facebook.com/">
+                  <img
+                  src="./assets/Facebook.png"
+                  alt=""
+                  class="h-[45px] w-[45px]"
+                />
+                </a>
+               <a href="">
+                 <img
+                  src="./assets/Instagram.png"
+                  alt=""
+                  class="h-[45px] w-[45px]"
+                />
+               </a>
+                <a href="https://www.tiktok.com/en/">
+                  <img
+                  src="./assets/TikTok.png"
+                  alt=""
+                  class="h-[45px] w-[45px]"
+                />
+                </a>
+                <a href="https://www.snapchat.com/">
+                  <img
+                  src="./assets/Snapchat.png"
+                  alt=""
+                  class="h-[45px] w-[45px]"
+                />
+                </a>
+              </div>
+            </div>
+
+            <div>
+              <h4
+                class="xl:text-[18px] text-[16px] text-light-darkbg leading-[43px] font-bold md:text-left text-center"
+              >
+                Legal Pages
+              </h4>
+              <ul class="flex flex-col md:items-start items-center">
+                <li>
+                  <a
+                    href="#"
+                    class="underline text-[14px] xl:text-[15px] leading-[43px]"
+                    >Terms and conditions</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="underline text-[14px] xl:text-[15px] leading-[43px]"
+                    >Privacy</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="underline text-[14px] xl:text-[15px] leading-[43px]"
+                    >Cookies</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="underline text-[14px] xl:text-[15px] leading-[43px]"
+                    >Modern Slavery Statement</a
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h4
+                class="xl:text-[18px] text-[16px] text-light-darkbg leading-[43px] font-bold md:text-left text-center"
+              >
+                Important Links
+              </h4>
+              <ul class="flex flex-col md:items-start items-center">
+                <li>
+                  <a
+                    href="https://developer.mozilla.org/"
+                    class="underline text-[14px] xl:text-[15px] leading-[43px]"
+                    >Get Help</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://www.freecodecamp.org/"
+                    class="underline text-[14px] xl:text-[15px] leading-[43px]"
+                    >Add your restaurant</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://developer.mozilla.org/"
+                    class="underline text-[14px] xl:text-[15px] leading-[43px]"
+                    >Sign up to deliver</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://www.freecodecamp.org/"
+                    class="underline text-[14px] xl:text-[15px] leading-[43px]"
+                    >Create a business account</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="copyright_footer bg-light-darkbg">
+            <div class="custom-max-w text-white">
+              <div
+                class="flex items-center lg:flex-row flex-col justify-between w-full py-8 gap-4"
+              >
+                <p class="lg:text-[15px] text-[14px] sm:text-left text-center">
+                  Order.uk Copyright 2025, All Rights Reserved
+                </p>
+                <ul
+                  class="flex items-center justify-center lg:gap-4 gap-2 sm:flex-row flex-col"
+                >
+                  <li>
+                    <a
+                      href=" https://www.freecodecamp.org/"
+                      class="lg:text-[15px] text-[14px] sm:text-left text-center"
+                      >Privacy Policy</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="https://developer.mozilla.org/"
+                      class="lg:text-[15px] text-[14px] sm:text-left text-center"
+                      >Terms</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href=" https://www.freecodecamp.org/"
+                      class="lg:text-[15px] text-[14px] sm:text-left text-center"
+                      >Pricing</a
+                    >
+                  </li>
+                  <li class="sm:block flex items-center">
+                    <a
+                      href="https://developer.mozilla.org/"
+                      class="lg:text-[15px] text-[14px] sm:text-left text-center w-full"
+                      >Do not sell or share my personal information</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+      <button
+        id="scrollToTop"
+        class="hidden fixed bottom-16 right-6 z-40 bg-primary text-white p-3 rounded-full shadow-lg bg-light-darkbg h-[60px] w-[60px] transition text-3xl hover:bg-light-brand hover:-translate-y-2 duration-300 border border-white"
+        aria-label="Scroll to top"
+      >
+        ↑
+      </button>
+    </div>
+
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const splide = new Splide("#reviews-slider", {
+          type: "slide",
+          perPage: 3,
+          perMove: 1,
+          gap: "1.5rem",
+          pagination: false,
+          arrows: false,
+          breakpoints: {
+            1280: {
+              perPage: 2,
+            },
+            768: {
+              perPage: 1,
+            },
+          },
+        });
+
+        splide.mount();
+
+        const prevBtn = document.getElementById("custom-prev");
+        const nextBtn = document.getElementById("custom-next");
+
+        prevBtn.addEventListener("click", () => {
+          splide.go("<");
+        });
+
+        nextBtn.addEventListener("click", () => {
+          splide.go(">");
+        });
+      });
+    </script>
+    <script src="script.js"></script>
+  </body>
+</html>
