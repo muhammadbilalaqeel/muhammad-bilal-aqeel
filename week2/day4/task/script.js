@@ -1,21 +1,19 @@
 // Toggle Button
 
-  const toggleBtn = document.querySelector(".toggleBtn");
+const toggleBtn = document.querySelector(".toggleBtn");
 
-  toggleBtn.addEventListener("click", function () {
-    document.documentElement.classList.toggle("dark");
-    if (document.documentElement.classList.contains("dark")) {
-      localStorage.setItem("theme", "dark");
-    } else {
-      localStorage.setItem("theme", "light");
-    }
-  });
-
-  if (localStorage.getItem("theme") === "dark") {
-    document.documentElement.classList.add("dark");
+toggleBtn.addEventListener("click", function () {
+  document.documentElement.classList.toggle("dark");
+  if (document.documentElement.classList.contains("dark")) {
+    localStorage.setItem("theme", "dark");
+  } else {
+    localStorage.setItem("theme", "light");
   }
+});
 
-
+if (localStorage.getItem("theme") === "dark") {
+  document.documentElement.classList.add("dark");
+}
 
 const billInput = document.getElementById("bill");
 const numberOfPeopleInput = document.getElementById("number-of-people");
@@ -31,11 +29,9 @@ const peopleError = document.getElementById("number-of-people-error");
 let selectedTipPercent = 0;
 let lastToast = null;
 
-
 function formatAmount(amount) {
   return amount.toFixed(2);
 }
-
 
 function showErrorToast(message) {
   if (lastToast) lastToast.hideToast();
@@ -51,7 +47,6 @@ function showErrorToast(message) {
   lastToast.showToast();
 }
 
-
 function showSuccessToast(message = "Calculation successful!") {
   if (lastToast) lastToast.hideToast();
   lastToast = Toastify({
@@ -66,10 +61,8 @@ function showSuccessToast(message = "Calculation successful!") {
   lastToast.showToast();
 }
 
-
 function validateInput(input, errorElement, inputName) {
   const value = parseFloat(input.value);
-
 
   errorElement.textContent = "";
   errorElement.classList.add("hidden");
@@ -105,7 +98,6 @@ function resetErrors() {
   numberOfPeopleInput.classList.remove("border-red-400", "animate-shake");
 }
 
-
 function calculateTip() {
   resetErrors();
 
@@ -115,7 +107,6 @@ function calculateTip() {
     peopleError,
     "Number of people"
   );
-
 
   setTimeout(() => {
     billInput.classList.remove("animate-shake");
@@ -137,10 +128,8 @@ function calculateTip() {
   tipPerPersonDisplay.textContent = formatAmount(tipPerPerson);
   totalPerPersonDisplay.textContent = formatAmount(totalPerPerson);
 
-
   showSuccessToast();
 }
-
 
 tipButtons.forEach((btn) => {
   btn.addEventListener("click", () => {
@@ -155,16 +144,15 @@ tipButtons.forEach((btn) => {
   });
 });
 
-
 customTipInput.addEventListener("input", () => {
   tipButtons.forEach((b) =>
     b.classList.remove("bg-[#9ee7df]", "text-[#155a57]")
   );
 
   let tipValue = parseFloat(customTipInput.value);
-  
+
   if (tipValue > 100) {
-    customTipInput.classList.add("border-red-400", "animate-shake");
+    customTipInput.classList.add("outline", "outline-red-400", "animate-shake");
     showErrorToast("Tip percentage shouldn't exceed 100%");
     selectedTipPercent = 0;
     tipPerPersonDisplay.textContent = "0.00";
@@ -172,11 +160,18 @@ customTipInput.addEventListener("input", () => {
     return;
   }
 
-  customTipInput.classList.remove("border-red-400", "animate-shake");
+  customTipInput.classList.remove(
+    "outline",
+    "outline-red-400",
+    "animate-shake"
+  );
   selectedTipPercent = tipValue || 0;
   calculateTip();
 });
 
+customTipInput.addEventListener("animationend", () => {
+  customTipInput.classList.remove("animate-shake");
+});
 
 billInput.addEventListener("input", () => {
   billError.textContent = "";
@@ -207,7 +202,6 @@ numberOfPeopleInput.addEventListener("input", () => {
     showErrorToast(msg);
   }
 });
-
 
 resetButton.addEventListener("click", () => {
   billInput.value = "";

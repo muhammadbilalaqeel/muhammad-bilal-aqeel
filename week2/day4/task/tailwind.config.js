@@ -33,7 +33,7 @@ module.exports = {
         },
       },
       boxShadow: {
-        glow: '0px 0px 20px hsla(185, 41%, 84%, 0.8)',
+        glow: '0px 0px 17px hsla(185, 41%, 84%, 0.9)',
       },
     },
   },
