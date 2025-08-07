@@ -701,7 +701,7 @@ function renderCart() {
     </div>
 
     <div class="flex  py-4 justify-end items-end gap-2">
-      <a  class="text-sm underline text-gray-600" onclick="hideCart()">Take me back</a>
+      <a  class="text-sm cursor-pointer underline text-gray-600" onclick="hideCart()">Take me back</a>
       <a href="https://developer.mozilla.org/" class="bg-[#028643] text-white rounded-md px-6 py-3 flex items-center justify-center">
         Next Step
       </a>
