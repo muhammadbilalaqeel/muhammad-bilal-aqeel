@@ -245,7 +245,6 @@ const tabButtons = document.querySelectorAll(".tab-btn");
 
 const scrollAmount = 200;
 
-// Show/hide scroll buttons
 function toggleScrollButtons() {
   scrollLeftBtn.classList.toggle("hidden", scrollContainer.scrollLeft === 0);
   scrollRightBtn.classList.toggle(
@@ -255,7 +254,6 @@ function toggleScrollButtons() {
   );
 }
 
-// Scroll Buttons
 scrollLeftBtn.addEventListener("click", () => {
   scrollContainer.scrollBy({ left: -scrollAmount, behavior: "smooth" });
 });
@@ -269,6 +267,77 @@ window.addEventListener("load", () => {
   renderProducts("offer");
   toggleScrollButtons();
 });
+
+const searchInput = document.getElementById("searchInput");
+
+searchInput.addEventListener("input", (e) => {
+  const searchTerm = e.target.value.toLowerCase().trim();
+
+  const filteredItems = menuItems.filter((item) => {
+    return (
+      item.title.toLowerCase().includes(searchTerm) ||
+      item.description.toLowerCase().includes(searchTerm)
+    );
+  });
+
+  renderFilteredProducts(filteredItems);
+});
+
+function renderFilteredProducts(items) {
+  productContainer.innerHTML = "";
+
+  const itemsByType = items.reduce((acc, item) => {
+    if (!acc[item.type]) acc[item.type] = [];
+    acc[item.type].push(item);
+    return acc;
+  }, {});
+
+  for (const [type, typeItems] of Object.entries(itemsByType)) {
+    let sectionHTML = `
+      <section id="${type}" class="custom-max-w my-8">
+        <h2 class="${
+          type === "fries" || type === "cold-drinks" || type === "pizza"
+            ? "text-light-brand"
+            : ""
+        }">
+          ${type.toUpperCase()}
+        </h2>
+        <div class="product-grid grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+    `;
+
+    typeItems.forEach((item) => {
+      sectionHTML += `
+        <div class="card group flex sm:items-center sm:justify-between gap-2 relative cursor-pointer">
+          <div class="flex flex-col sm:justify-center sm:gap-6 gap-1">
+            <h3 class="text-xl font-semibold">${item.title}</h3>
+            <p>${item.description}</p>
+            <p class="text-brand font-bold">${item.currency} ${item.price}</p>
+          </div>
+          <div class="img relative ${item.type === "pizza" ? "pizza" : ""}">
+            <img src="${item.image}" alt="${item.title}" />
+            <div
+              class="add-to-cart w-[88px] h-[81px] rounded-tl-[45px] rounded-br-[12px] bg-white absolute right-0 bottom-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            >
+              <div onclick='addToCart(${
+                item.id
+              }, this)' class="plus w-[45px] h-[45px] rounded-full text-white flex items-center justify-center bg-light-darkbg text-2xl cursor-pointer transition-transform duration-300">
+                +
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    });
+
+    sectionHTML += `</div></section>`;
+    productContainer.innerHTML += sectionHTML;
+  }
+
+
+  if (items.length === 0) {
+    productContainer.innerHTML = `<p class="text-center text-gray-500 mt-8">No matching items found.</p>`;
+  }
+}
 
 function renderProducts(selectedType) {
   productContainer.innerHTML = "";
@@ -467,7 +536,6 @@ const openModalBtn = document.getElementById("openModal");
 const closeModalBtn = document.getElementById("closeModal");
 const modalOverlay = document.getElementById("modalOverlay");
 
-
 openModalBtn.addEventListener("click", () => {
   modalOverlay.classList.remove("hidden");
   modalOverlay.classList.add("flex");
@@ -488,8 +556,8 @@ closeModalBtn.addEventListener("click", () => {
   document.body.classList.remove("overflow-hidden");
 });
 
-function hideCart(){
-    modalOverlay.classList.add("hidden");
+function hideCart() {
+  modalOverlay.classList.add("hidden");
   modalOverlay.classList.remove("flex");
   document.body.classList.remove("overflow-hidden");
 }
@@ -1306,7 +1374,6 @@ mainTabsWrapper.addEventListener("scroll", checkMainTabsScroll);
 window.addEventListener("resize", checkMainTabsScroll);
 
 checkMainTabsScroll();
-
 
 const back = document.getElementById("back");
 

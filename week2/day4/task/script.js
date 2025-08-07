@@ -160,7 +160,20 @@ customTipInput.addEventListener("input", () => {
   tipButtons.forEach((b) =>
     b.classList.remove("bg-[#9ee7df]", "text-[#155a57]")
   );
-  selectedTipPercent = parseFloat(customTipInput.value) || 0;
+
+  let tipValue = parseFloat(customTipInput.value);
+  
+  if (tipValue > 100) {
+    customTipInput.classList.add("border-red-400", "animate-shake");
+    showErrorToast("Tip percentage shouldn't exceed 100%");
+    selectedTipPercent = 0;
+    tipPerPersonDisplay.textContent = "0.00";
+    totalPerPersonDisplay.textContent = "0.00";
+    return;
+  }
+
+  customTipInput.classList.remove("border-red-400", "animate-shake");
+  selectedTipPercent = tipValue || 0;
   calculateTip();
 });
 

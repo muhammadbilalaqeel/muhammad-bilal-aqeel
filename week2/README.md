@@ -28,3 +28,32 @@
         📱 Fully responsive with Tailwind CSS
         ✅ Pushed to GitHub
         🌐 Live on Vercel: https://week2-day2.vercel.app/
+
+🗓️ Day 3 – Figma to Restaurant Website + DOM Practice
+
+    📄 Task: Convert Restaurant Figma Design → HTML/CSS/JS Website
+
+        🎨 Built pixel-perfect UI from Figma using semantic HTML & custom CSS
+        💡 Used modern layout techniques (Flexbox + Grid)
+        🛒 Implemented interactive Product Listing & Cart System
+        🔍 Added Product Filters by category/type
+        🎞️ Created responsive Slider for customer reviews
+        🧠 Practiced DOM Manipulation (e.g. querySelector, addEventListener, appendChild)
+        🌗 Integrated Dark Mode toggle
+        📱 Fully responsive across all screen sizes using Tailwind CSS
+        ✅ Pushed to GitHub
+        🌐 Live on Vercel: https://week2-day3.vercel.app/
+
+🗓️ Day 4 – Tip Calculator + Success Toasts
+
+    📄 Task: Build Interactive Tip Calculator using JavaScript
+
+        🧮 Built real-time Tip Calculator with inputs for bill, tip %, and people
+        📤 Used JavaScript to validate input and display calculated values dynamically
+        ✅ Added Success Toast Notification on successful calculation
+        🚫 Removed default number input arrows (spin buttons) for cleaner UI
+        🌗 Included Dark Mode toggle for better accessibility
+        🔁 Fully functional Reset button to clear all fields
+        📱 Designed responsive layout using Tailwind CSS
+        ✅ Pushed to GitHub
+        🌐 Live on Vercel: https://week2-day4.vercel.app/
