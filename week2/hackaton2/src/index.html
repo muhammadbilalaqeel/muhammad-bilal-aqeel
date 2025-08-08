@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz Master</title>
+      <script
+      src="https://kit.fontawesome.com/9b197449cc.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="output.css" />
+  
+  </head>
+  <body class="bg-white">
+
+
+    <header
+      class="h-16 w-full py-3 md:px-10 sm:px-5 px-3 border-b border-b-light-border relative  bg-white custom-max-w"
+    >
+      <div class="flex items-center justify-between custom-max-w relative z-50 bg-white">
+        <div class="nav-logo flex items-center sm:gap-6 gap-4">
+          <!-- Burger Menu -->
+          <div class="flex md:hidden" id="toggleBtn">
+              <i class="fa-solid fa-bars text-2xl"></i>
+              <!-- <i class="fa-solid fa-xmark hidden"></i> -->
+          </div>
+          <div>
+            <h2
+              class="sm:text-lg text-base font-bold flex items-center gap-2 text-light-dark"
+            >
+              <div>
+                <img src="./assets/icons/logo.png" alt="" />
+              </div>
+              Quiz Master
+            </h2>
+          </div>
+        </div>
+        <div class="flex items-center md:gap-8 sm:gap-6 gap-3">
+          <nav class="desktop-nav md:block hidden">
+            <ul class="flex gap-9">
+              <li><a href="#" class="text-light-dark">Home</a></li>
+              <li><a href="#" class="text-light-dark">Quizzes</a></li>
+              <li><a href="#" class="text-light-dark">Leaderboard</a></li>
+              <li><a href="#" class="text-light-dark">Profile</a></li>
+            </ul>
+          </nav>
+
+          <button
+            class="h-10 w-10 rounded-lg bg-light-gray flex items-center justify-center p-2"
+          >
+            <img
+              src="./assets/icons/bell_icon.png"
+              alt=""
+              class="inline-block"
+            />
+          </button>
+
+          <a href="#" class="w-10 h-10 rounded-full overflow-hidden">
+            <img
+              src="./assets/images/user.png"
+              alt=""
+              class="object-cover object-center"
+            />
+          </a>
+
+             <!-- Burger Menu -->
+            <!-- <div class="flex md:hidden">
+              <i class="fa-solid fa-bars text-2xl"></i>
+              <i class="fa-solid fa-xmark hidden"></i>
+          </div> -->
+        </div>
+
+        
+      </div>
+      <!-- Mobile Menu -->
+         <div class="absolute top-16 left-0 bg-white z-40 w-full rounded-b-2xl overflow-hidden mobileMenu transform -translate-y-full transition-all duration-200 ease-out">        
+            <ul class="flex flex-col w-full bg-white gap-9 px-6 py-6">
+              <li><a href="" class="text-light-dark hover:underline sm:text-base text-sm">Home</a></li>
+              <li><a href="" class="text-light-dark hover:underline sm:text-base text-sm">Quizzes</a></li>
+              <li><a href="" class="text-light-dark hover:underline sm:text-base text-sm">Leaderboard</a></li>
+              <li><a href="" class="text-light-dark hover:underline sm:text-base text-sm">Profile</a></li>
+            </ul>    
+         </div>
+    </header>
+
+    <!-- Landing Page -->
+    <main class="max-w-[960px] mx-auto py-5">
+      <!-- Hero Section -->
+      <section
+        title="hero"
+        id="hero"
+        class="relative h-[480px] w-full bg-hero bg-cover bg-center rounded-lg"
+      >
+        <!-- Gradient Overlay -->
+        <div
+          class="bg-[linear-gradient(90deg,_rgba(0,0,0,0.1)_0%,_rgba(0,0,0,0.4)_100%)] absolute h-full w-full top-0 z-10"
+        ></div>
+
+        <!-- Hero Content -->
+        <div
+          class="content flex items-center sm:justify-end justify-center flex-col h-full w-full sm:pb-10 pb-3 sm:px-8 px-3 text-white absolute top-0 z-20 gap-3"
+        >
+          <h1 class="sm:text-5xl text-4xl font-extrabold text-center leading-tight">
+            Welcome to QuizMaster
+          </h1>
+          <p class="sm:text-base text-[15px] sm:leading-7 leading-5 text-center">
+            Test your knowledge with our engaging quizzes. Compete with friends
+            and climb the leaderboard. Start your quiz journey today!
+          </p>
+          <a
+            href="./pages/signup.html"
+            class="sm:px-5 px-4 sm:py-3 py-2 bg-light-blue text-white rounded-lg sm:mt-6 mt-3 sm:text-base text-[15px] font-bold"
+            >Get Started</a
+          >
+        </div>
+      </section>
+
+      <!-- Features Section -->
+      <section title="features" id="features" class="py-10 px-4">
+        <h2 class="text-light-dark sm:text-4xl text-3xl font-extrabold">Key Features</h2>
+        <p class="text-light-dark mt-4 sm:text-base text-[15px]">
+          Explore the exciting features that make QuizMaster the ultimate quiz
+          app.
+        </p>
+        <div
+          class="flex mt-8 items-center flex-wrap justify-between md:gap-3 gap-2 sm:flex-row flex-col"
+          id="features_box"
+        ></div>
+      </section>
+    </main>
+
+
+
+     <!-- <script type="module" src="./js/app.js"></script> -->
+    <script src="./js/script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Result</title>
+    <link rel="stylesheet" href="../output.css" />
+  </head>
+  <body class="bg-white">
+     <header
+      class="h-16 w-full py-3 md:px-10 sm:px-5 px-3 border-b border-b-light-border relative  bg-white custom-max-w"
+    >
+      <div class="flex items-center justify-between custom-max-w relative z-50 bg-white">
+        <div class="nav-logo flex items-center sm:gap-6 gap-4">
+          <!-- Burger Menu -->
+          <div class="flex md:hidden" id="toggleBtn">
+              <i class="fa-solid fa-bars text-2xl"></i>
+              <!-- <i class="fa-solid fa-xmark hidden"></i> -->
+          </div>
+          <div>
+            <h2
+              class="sm:text-lg text-base font-bold flex items-center gap-2 text-light-dark"
+            >
+              <!-- <div>
+                <img src="./assets/icons/logo.png" alt="" />
+              </div> -->
+              Quiz App
+            </h2>
+          </div>
+        </div>
+        <div class="flex items-center md:gap-8 sm:gap-6 gap-3">
+          <nav class="desktop-nav md:block hidden">
+            <ul class="flex gap-9">
+              <li><a href="../index.html" class="text-light-dark">Home</a></li>
+              <li><a href="./selectQuiz.html" class="text-light-dark">Quizzes</a></li>
+              <!-- <li><a href="#" class="text-light-dark">Leaderboard</a></li> -->
+              <li><a href="./profile.html" class="text-light-dark">Profile</a></li>
+            </ul>
+          </nav>
+
+          <button
+            class="h-10 w-10 rounded-lg bg-light-gray flex items-center justify-center p-2"
+          >
+            <img
+              src="./assets/icons/bell_icon.png"
+              alt=""
+              class="inline-block"
+            />
+          </button>
+
+          <a href="#" class="w-10 h-10 rounded-full overflow-hidden">
+            <img
+              src="./assets/images/user.png"
+              alt=""
+              class="object-cover object-center"
+            />
+          </a>
+
+             <!-- Burger Menu -->
+            <!-- <div class="flex md:hidden">
+              <i class="fa-solid fa-bars text-2xl"></i>
+              <i class="fa-solid fa-xmark hidden"></i>
+          </div> -->
+        </div>
+
+        
+      </div>
+      <!-- Mobile Menu -->
+         <div class="absolute top-16 left-0 bg-white z-40 w-full rounded-b-2xl overflow-hidden mobileMenu transform -translate-y-full transition-all duration-200 ease-out">        
+            <ul class="flex flex-col w-full bg-white gap-9 px-6 py-6">
+              <li><a href="../index.html" class="text-light-dark hover:underline sm:text-base text-sm">Home</a></li>
+              <li><a href="./selectQuiz.html" class="text-light-dark hover:underline sm:text-base text-sm">Quizzes</a></li>
+              <!-- <li><a href="" class="text-light-dark hover:underline sm:text-base text-sm">Leaderboard</a></li> -->
+              <li><a href="./profile.html" class="text-light-dark hover:underline sm:text-base text-sm">Profile</a></li>
+            </ul>    
+         </div>
+    </header>
+
+    <main class="max-w-[960px] mx-auto py-5">
+      <!-- Result -->
+      <section class="result py-5">
+        <div>
+          <h2 class="px-4 text-center py-5 text-[22px] font-bold text-light-dark">
+            Quiz Results
+          </h2>
+
+          <div id="resultContainer" class="p-4 flex flex-col gap-3">
+            <!-- Results will be dynamically inserted here -->
+          </div>
+
+          <div id="scoreContainer" class="p-4 h-[142px]">
+            <!-- Score will be dynamically inserted here -->
+          </div>
+
+          <div id="feedbackContainer" class="px-4 pb-3 pt-1 w-full">
+            <!-- Feedback will be dynamically inserted here -->
+          </div>
+
+          <div class="py-3 px-4 flex justify-center items-center">
+            <button id="reviewBtn" class="bg-light-blue h-10 px-4 rounded-lg text-white flex items-center justify-center font-bold text-sm leading-5">
+              Review Answers
+            </button>
+          </div>
+
+          <div class="py-3 px-4 flex justify-center items-center">
+            <button id="anotherQuizBtn" class="h-10 px-4 rounded-lg text-light-dark bg-light-gray flex items-center justify-center font-bold text-sm leading-5">
+              Take Another Quiz
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // Get quiz result from localStorage
+        const quizResult = JSON.parse(localStorage.getItem("quizResult"));
+        const userName = localStorage.getItem("userName") || "User"; // Default to "User" if no name is stored
+        
+        if (!quizResult) {
+          // Handle case where no result is found
+          document.getElementById("resultContainer").innerHTML = `
+            <div class="text-center py-10">
+              <p class="text-light-dark">No quiz results found.</p>
+              <a href="quizzes.html" class="text-light-blue underline">Take a quiz</a>
+            </div>
+          `;
+          return;
+        }
+
+        // Calculate percentage
+        const percentage = Math.round((quizResult.score / quizResult.total) * 100);
+        
+        // Generate feedback based on performance
+        let feedback = "";
+        if (percentage >= 80) {
+          feedback = `Congratulations, ${userName}! You've completed the quiz with a score of ${quizResult.score} out of ${quizResult.total}. Your performance indicates an excellent understanding of the subject matter. Keep up the great work!`;
+        } else if (percentage >= 60) {
+          feedback = `Good job, ${userName}! You scored ${quizResult.score} out of ${quizResult.total}. You have a good grasp of the material with some room for improvement.`;
+        } else {
+          feedback = `You scored ${quizResult.score} out of ${quizResult.total}. Consider reviewing the material and trying again. Every attempt helps you learn more!`;
+        }
+
+        // Update the DOM with actual results
+        document.getElementById("resultContainer").innerHTML = `
+          <div class="flex items-center justify-between">
+            <h5 class="text-base leading-6 font-medium text-light-dark">
+              ${quizResult.title || "Quiz Completed"}
+            </h5>
+            <p class="text-sm leading-5 text-light-dark">${percentage}%</p>
+          </div>
+          <div class="relative overflow-hidden h-2 rounded bg-light-gray w-full">
+            <div class="h-full bg-light-dark rounded" style="width: ${percentage}%"></div>
+          </div>
+        `;
+
+        document.getElementById("scoreContainer").innerHTML = `
+          <div class="p-6 flex flex-col gap-2 bg-light-gray h-full w-full rounded-lg">
+            <p class="text-base leading-6 font-medium text-light-dark">Score</p>
+            <p class="text-2xl leading-7 font-bold text-light-dark">${quizResult.score}/${quizResult.total}</p>
+          </div>
+        `;
+
+        document.getElementById("feedbackContainer").innerHTML = `
+          <p class="text-base leading-6 text-light-dark text-center">${feedback}</p>
+        `;
+
+        // Button event listeners
+        document.getElementById("reviewBtn").addEventListener("click", () => {
+          window.location.href = "review.html"; 
+        });
+
+        document.getElementById("anotherQuizBtn").addEventListener("click", () => {
+          window.location.href = "selectQuiz.html";
+        });
+      });
+    </script>
+  </body>
+</html>

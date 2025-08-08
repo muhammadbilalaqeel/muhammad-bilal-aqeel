@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="../output.css" />
+    <script
+      src="https://kit.fontawesome.com/9b197449cc.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body class="bg-white">
+    <header
+      class="h-16 w-full py-3 md:px-10 sm:px-5 px-3 border-b border-b-light-border relative bg-white custom-max-w"
+    >
+      <div
+        class="flex items-center justify-between custom-max-w relative z-50 bg-white"
+      >
+        <div class="nav-logo flex items-center sm:gap-6 gap-4">
+          <!-- Burger Menu -->
+          <div class="flex md:hidden" id="toggleBtn">
+            <i class="fa-solid fa-bars text-2xl"></i>
+          </div>
+          <div>
+            <h2
+              class="sm:text-lg text-base font-bold flex items-center gap-2 text-light-dark"
+            >
+              <div></div>
+              Quiz App
+            </h2>
+          </div>
+        </div>
+        <div class="flex items-center md:gap-8 sm:gap-6 gap-3">
+          <nav class="desktop-nav md:block hidden">
+            <ul class="flex gap-9">
+              <li><a href="#" class="text-light-dark">Home</a></li>
+              <li><a href="#" class="text-light-dark">Quizzes</a></li>
+              <li><a href="#" class="text-light-dark">Leaderboard</a></li>
+              <li><a href="#" class="text-light-dark">Profile</a></li>
+            </ul>
+          </nav>
+
+          <button
+            class="h-10 w-10 rounded-lg bg-light-gray flex items-center justify-center p-2"
+          >
+            <img
+              src="../assets/icons/bell_icon.png"
+              alt=""
+              class="inline-block"
+            />
+          </button>
+
+          <a href="#" class="w-10 h-10 rounded-full overflow-hidden">
+            <img
+              src="../assets/images/user.png"
+              alt=""
+              class="object-cover object-center"
+            />
+          </a>
+
+          <!-- Burger Menu -->
+          <!-- <div class="flex md:hidden">
+              <i class="fa-solid fa-bars text-2xl"></i>
+              <i class="fa-solid fa-xmark hidden"></i>
+          </div> -->
+        </div>
+      </div>
+      <!-- Mobile Menu -->
+      <div
+        class="absolute md:hidden top-16 left-0 bg-white z-40 w-full rounded-b-2xl overflow-hidden mobileMenu transform -translate-y-full transition-all duration-200 ease-out"
+      >
+        <ul class="flex flex-col w-full bg-white gap-9 px-6 py-6">
+          <li>
+            <a
+              href=""
+              class="text-light-dark hover:underline sm:text-base text-sm"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a
+              href=""
+              class="text-light-dark hover:underline sm:text-base text-sm"
+              >Quizzes</a
+            >
+          </li>
+          <li>
+            <a
+              href=""
+              class="text-light-dark hover:underline sm:text-base text-sm"
+              >Leaderboard</a
+            >
+          </li>
+          <li>
+            <a
+              href=""
+              class="text-light-dark hover:underline sm:text-base text-sm"
+              >Profile</a
+            >
+          </li>
+        </ul>
+      </div>
+    </header>
+
+    <main class="max-w-[960px] mx-auto py-5">
+      <!-- Sign Up Form Section -->
+
+      <section class="py-5">
+        <h2
+          class="sm:text-[28px] text-[24px] pt-5 px-4 pb-3 font-bold text-center text-light-dark"
+        >
+          Create your account
+        </h2>
+        <div
+          class="flex items-center lg:justify-between justify-center py-3 sm:px-4 px-2.5"
+        >
+          <div class="left max-w-[480px] w-full">
+            <form class="w-full flex flex-col gap-6">
+              <div class="relative">
+                <input
+                  type="text"
+                  placeholder="Full Name"
+                  name="name"
+                  id="name"
+                  class="h-[56px] max-w-[448px] w-full border border-light-boxborder p-4 rounded-lg text-base placeholder:text-light-darkGray outline-none"
+                />
+                <p
+                  id="nameError"
+                  class="text-red-500 text-sm mt-[1px] absolute left-1 hidden"
+                ></p>
+              </div>
+
+              <div class="relative">
+                <input
+                  type="email"
+                  placeholder="Email"
+                  name="email"
+                  id="email"
+                  class="h-[56px] max-w-[448px] w-full border border-light-boxborder p-4 rounded-lg text-base placeholder:text-light-darkGray outline-none"
+                />
+                <p
+                  id="emailError"
+                  class="text-red-500 text-sm mt-[1px] absolute left-1 hidden"
+                ></p>
+              </div>
+
+              <div class="relative">
+                <input
+                  type="password"
+                  placeholder="Password"
+                  name="password"
+                  id="password"
+                  class="h-[56px] max-w-[448px] w-full border border-light-boxborder p-4 rounded-lg text-base placeholder:text-light-darkGray outline-none"
+                />
+                <p
+                  id="passwordError"
+                  class="text-red-500 text-sm mt-[1px] absolute left-1 hidden"
+                ></p>
+              </div>
+              <div class="relative">
+                <input
+                  type="password"
+                  placeholder="Confirm Password"
+                  name="cpassword"
+                  id="cpassword"
+                  class="h-[56px] max-w-[448px] w-full border border-light-boxborder p-4 rounded-lg text-base placeholder:text-light-darkGray outline-none"
+                />
+                <p
+                  id="cpasswordError"
+                  class="text-red-500 text-sm mt-[1px] absolute left-1 hidden"
+                ></p>
+              </div>
+              <button
+                type="submit"
+                class="bg-light-blue text-white rounded-lg min-w-[84px] max-w-[480px] h-12 mt-1 w-full text-sm font-bold"
+              >
+                Sign Up
+              </button>
+            </form>
+          </div>
+          <div class="right lg:block hidden max-w-[480px] w-full">
+            <img src="../assets/images/sing_up.svg" alt="" />
+          </div>
+        </div>
+        <p
+          class="text-sm text-light-darkGray text-center lg:-mt-10 pt-1 px-4 pb-3"
+        >
+          Already have an account? <a href="login.html">Sign In</a>
+        </p>
+      </section>
+    </main>
+
+    <script src="../js/signup.js"></script>
+  </body>
+</html>

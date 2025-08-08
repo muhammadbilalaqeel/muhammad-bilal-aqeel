@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Review</title>
+    <link rel="stylesheet" href="../output.css" />
+  </head>
+  <body class="bg-white">
+     <header
+      class="h-16 w-full py-3 md:px-10 sm:px-5 px-3 border-b border-b-light-border relative  bg-white custom-max-w"
+    >
+      <div class="flex items-center justify-between custom-max-w relative z-50 bg-white">
+        <div class="nav-logo flex items-center sm:gap-6 gap-4">
+          <!-- Burger Menu -->
+          <div class="flex md:hidden" id="toggleBtn">
+              <i class="fa-solid fa-bars text-2xl"></i>
+              <!-- <i class="fa-solid fa-xmark hidden"></i> -->
+          </div>
+          <div>
+            <h2
+              class="sm:text-lg text-base font-bold flex items-center gap-2 text-light-dark"
+            >
+              <!-- <div>
+                <img src="./assets/icons/logo.png" alt="" />
+              </div> -->
+              Quiz App
+            </h2>
+          </div>
+        </div>
+        <div class="flex items-center md:gap-8 sm:gap-6 gap-3">
+          <nav class="desktop-nav md:block hidden">
+            <ul class="flex gap-9">
+              <li><a href="../index.html" class="text-light-dark">Home</a></li>
+              <li><a href="./selectQuiz.html" class="text-light-dark">Quizzes</a></li>
+              <!-- <li><a href="#" class="text-light-dark">Leaderboard</a></li> -->
+              <li><a href="./results.html" class="text-light-dark">Results</a></li>
+            </ul>
+          </nav>
+
+          <button
+            class="h-10 w-10 rounded-lg bg-light-gray flex items-center justify-center p-2"
+          >
+            <img
+              src="./assets/icons/bell_icon.png"
+              alt=""
+              class="inline-block"
+            />
+          </button>
+
+          <a href="#" class="w-10 h-10 rounded-full overflow-hidden">
+            <img
+              src="./assets/images/user.png"
+              alt=""
+              class="object-cover object-center"
+            />
+          </a>
+
+             <!-- Burger Menu -->
+            <!-- <div class="flex md:hidden">
+              <i class="fa-solid fa-bars text-2xl"></i>
+              <i class="fa-solid fa-xmark hidden"></i>
+          </div> -->
+        </div>
+
+        
+      </div>
+      <!-- Mobile Menu -->
+         <div class="absolute top-16 left-0 bg-white z-40 w-full rounded-b-2xl overflow-hidden mobileMenu transform -translate-y-full transition-all duration-200 ease-out">        
+            <ul class="flex flex-col w-full bg-white gap-9 px-6 py-6">
+              <li><a href="" class="text-light-dark hover:underline sm:text-base text-sm">Home</a></li>
+              <li><a href="" class="text-light-dark hover:underline sm:text-base text-sm">Quizzes</a></li>
+              <li><a href="" class="text-light-dark hover:underline sm:text-base text-sm">Leaderboard</a></li>
+              <li><a href="" class="text-light-dark hover:underline sm:text-base text-sm">Profile</a></li>
+            </ul>    
+         </div>
+    </header>
+
+   <main class="max-w-[960px] mx-auto py-5">
+      <section id="review" class="px-4">
+        <div class="py-4">
+          <h2 class="font-bold text-[32px] leading-10 text-light-dark">
+            Review Incorrect Answers
+          </h2>
+        </div>
+
+        <div id="incorrectAnswersContainer"></div>
+        
+        <div class="py-3 px-4 flex justify-end">
+          <button id="backToQuizzesBtn" class="min-w-[84px] max-w-[480px] px-4 h-10 bg-light-blue rounded-lg font-bold text-sm leading-5 flex items-center justify-center text-white">
+            Back to Quizzes
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const quizResult = JSON.parse(localStorage.getItem('quizResult'));
+        const backToQuizzesBtn = document.getElementById('backToQuizzesBtn');
+        const incorrectAnswersContainer = document.getElementById('incorrectAnswersContainer');
+        
+        if (!quizResult) {
+          incorrectAnswersContainer.innerHTML = `
+            <div class="text-center py-10">
+              <p class="text-light-dark">No quiz results found for review.</p>
+            </div>
+          `;
+          return;
+        }
+
+        const incorrectQuestions = quizResult.questions.filter((question, index) => {
+          return quizResult.answers[index] !== question.correctOption;
+        });
+
+        if (incorrectQuestions.length === 0) {
+          incorrectAnswersContainer.innerHTML = `
+            <div class="text-center py-10">
+              <p class="text-light-dark">Congratulations! You got all questions correct.</p>
+            </div>
+          `;
+          return;
+        }
+
+        incorrectAnswersContainer.innerHTML = incorrectQuestions.map((question, i) => {
+          const questionIndex = quizResult.questions.findIndex(q => q.question === question.question);
+          const userAnswerIndex = quizResult.answers[questionIndex];
+          const correctAnswerIndex = question.correctOption;
+          
+          // Function to safely display HTML tags as code
+          const displayOption = (option) => {
+            if (/<[a-z][\s\S]*>/i.test(option)) {
+              return `
+                <div class="code-container mt-1 mb-2">
+                  <code>${option.replace(/</g, "&lt;").replace(/>/g, "&gt;")}</code>
+                </div>
+              `;
+            }
+            return option;
+          };
+
+          return `
+            <div class="mb-6 border-b border-gray-200 pb-4">
+              <h3 class="pt-4 pb-2 font-bold text-lg leading-6 text-light-dark">
+                Question ${questionIndex + 1}
+              </h3>
+              <div>
+                <p class="pt-1 pb-3 text-sm leading-6 text-light-dark">${question.question}</p>
+                <p class="pt-1 text-sm leading-6 text-light-dark">Your answer:</p>
+                <div class="text-red-500">${displayOption(question.options[userAnswerIndex])}</div>
+                <p class="pt-1 text-sm leading-6 text-light-dark">Correct answer:</p>
+                <div class="text-green-500">${displayOption(question.options[correctAnswerIndex])}</div>
+              </div>
+            </div>
+          `;
+        }).join('');
+
+        backToQuizzesBtn.addEventListener('click', () => {
+          window.location.href = 'selectQuiz.html';
+        });
+      });
+    </script>
+
+    <script src="../js/script.js"></script>
+  </body>
+</html>

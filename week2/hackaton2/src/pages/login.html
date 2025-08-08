@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Log In</title>
+    <link rel="stylesheet" href="../output.css" />
+  </head>
+  <body class="bg-white">
+    <header
+      class="h-16 w-full py-3 md:px-10 sm:px-5 px-3 border-b border-b-light-border relative bg-white custom-max-w"
+    >
+      <div
+        class="flex items-center h-full justify-between custom-max-w relative z-50 bg-white"
+      >
+        <div class="nav-logo flex items-center sm:gap-6 gap-4">
+          <div>
+            <h2
+              class="sm:text-lg text-base font-bold flex items-center gap-2 text-light-dark"
+            >
+              Quiz App
+            </h2>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="max-w-[960px] mx-auto py-5">
+      <!-- Sign Up Form Section -->
+
+      <section class="py-5">
+        <h2
+          class="sm:text-[28px] text-[24px] pt-5 px-4 pb-3 font-bold text-center text-light-dark"
+        >
+          Welcome back
+        </h2>
+        <div
+          class="flex items-center lg:justify-between justify-center py-3 sm:px-4 px-3"
+        >
+          <div class="left max-w-[480px] w-full">
+            <form class="w-full flex flex-col gap-6">
+              <div class="relative">
+                <input
+                  type="email"
+                  placeholder="Email"
+                  name="email"
+                  id="email"
+                  class="h-[56px] max-w-[448px] w-full border border-light-boxborder p-4 outline-none rounded-lg text-base placeholder:text-light-darkGray"
+                />
+                <p
+                  id="emailError"
+                  class="text-red-500 text-sm mt-[1px] absolute left-1 hidden"
+                ></p>
+              </div>
+
+              <div class="relative">
+                <input
+                  type="password"
+                  placeholder="Password"
+                  name="password"
+                  id="password"
+                  class="h-[56px] max-w-[448px] w-full border border-light-boxborder p-4 outline-none rounded-lg text-base placeholder:text-light-darkGray"
+                />
+                <p
+                  id="passwordError"
+                  class="text-red-500 text-sm mt-[1px] absolute left-1 hidden"
+                ></p>
+              </div>
+
+              <a href="#" class="text-light-darkGray">Forgot password?</a>
+
+              <button
+                type="submit"
+                class="bg-light-blue text-white rounded-lg min-w-[84px] max-w-[480px] h-12 w-full text-sm font-bold"
+              >
+                Log in
+              </button>
+            </form>
+          </div>
+          <div class="right lg:block hidden max-w-[480px] w-full">
+            <img src="../assets/images/login.svg" alt="" />
+          </div>
+        </div>
+        <p
+          class="text-sm text-light-darkGray text-center lg:-mt-10 pt-1 px-4 pb-3"
+        >
+          Don't have an account? <a href="signup.html">Sign up</a>
+        </p>
+      </section>
+    </main>
+
+    <script src="../js/login.js"></script>
+  </body>
+</html>

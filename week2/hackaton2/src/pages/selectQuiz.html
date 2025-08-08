@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz</title>
+
+    <link rel="stylesheet" href="../output.css" />
+    <script
+      src="https://kit.fontawesome.com/9b197449cc.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body class="bg-white">
+    <header
+      class="h-16 w-full py-3 lg:px-10 sm:px-5 px-3 border-b border-b-light-border relative bg-white custom-max-w"
+    >
+      <div
+        class="flex items-center justify-between custom-max-w relative z-50 bg-white"
+      >
+        <div class="nav-logo flex items-center sm:gap-6 gap-4">
+          <!-- Burger Menu -->
+          <div class="flex md:hidden" id="toggleBtn">
+            <i class="fa-solid fa-bars text-2xl"></i>
+          </div>
+          <div>
+            <h2
+              class="sm:text-lg text-base font-bold flex items-center gap-2 text-light-dark"
+            >
+              <div>
+                <img src="../assets/icons/logo.png" alt="" />
+              </div>
+              Quiz Master
+            </h2>
+          </div>
+          <nav class="desktop-nav hidden md:block">
+            <ul class="flex gap-9">
+              <li><a href="" class="text-light-dark">Home</a></li>
+              <li><a href="" class="text-light-dark">Quizzes</a></li>
+              <li><a href="" class="text-light-dark">Leaderboard</a></li>
+              <li><a href="" class="text-light-dark">Profile</a></li>
+            </ul>
+          </nav>
+        </div>
+        <div class="flex items-center lg:gap-8 md:gap-6 sm:gap-5 gap-3">
+          <div
+            class="search w-[160px] h-[40px]  hidden sm:flex items-center rounded-lg overflow-hidden bg-light-gray"
+          >
+            <div class="w-10 h-10 pl-4 flex items-center">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g clip-path="url(#clip0_2_583)">
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M21.5306 20.4694L16.8366 15.7762C19.6629 12.383 19.3204 7.36693 16.0591 4.38935C12.7978 1.41176 7.77134 1.526 4.64867 4.64867C1.526 7.77134 1.41176 12.7978 4.38935 16.0591C7.36693 19.3204 12.383 19.6629 15.7762 16.8366L20.4694 21.5306C20.7624 21.8237 21.2376 21.8237 21.5306 21.5306C21.8237 21.2376 21.8237 20.7624 21.5306 20.4694ZM3.75 10.5C3.75 6.77208 6.77208 3.75 10.5 3.75C14.2279 3.75 17.25 6.77208 17.25 10.5C17.25 14.2279 14.2279 17.25 10.5 17.25C6.77379 17.2459 3.75413 14.2262 3.75 10.5Z"
+                    fill="#61738A"
+                  />
+                </g>
+                <defs>
+                  <clipPath id="clip0_2_583">
+                    <rect width="24" height="24" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
+            </div>
+            <input
+              type="text"
+               id="tabSearch"
+              placeholder="Search"
+              class="py-2 px-4 outline-none w-full bg-transparent placeholder:text-light-darkGray text-base"
+            />
+          </div>
+
+          <a href="#" class="w-10 h-10 rounded-full overflow-hidden">
+            <img
+              src="../assets/images/user.png"
+              alt=""
+              class="object-cover object-center"
+            />
+          </a>
+        </div>
+      </div>
+      <!-- Mobile Menu -->
+      <div
+        class="absolute top-16 left-0 bg-white z-40 w-full rounded-b-2xl overflow-hidden md:hidden mobileMenu transform -translate-y-full transition-all duration-200 ease-out"
+      >
+        <ul class="flex flex-col w-full bg-white gap-9 px-6 py-6">
+          <li>
+            <a
+              href=""
+              class="text-light-dark hover:underline sm:text-base text-sm"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a
+              href=""
+              class="text-light-dark hover:underline sm:text-base text-sm"
+              >Quizzes</a
+            >
+          </li>
+          <li>
+            <a
+              href=""
+              class="text-light-dark hover:underline sm:text-base text-sm"
+              >Leaderboard</a
+            >
+          </li>
+          <li>
+            <a
+              href=""
+              class="text-light-dark hover:underline sm:text-base text-sm"
+              >Profile</a
+            >
+          </li>
+        </ul>
+      </div>
+    </header>
+
+    <main class="max-w-[960px] mx-auto py-5 ">
+      <!-- Quizes Section -->
+      <section id="quizes">
+        <h2 class="p-4 text-light-dark md:text-[32px] text-[27px] font-bold">
+          Select a Quiz
+        </h2>
+
+        <!-- Filter tabs -->
+        <div class="h-14 py-3 pl-3 pr-4 relative">
+          <button
+            id="scrollLeft"
+            class="absolute left-1 top-1/2 -translate-y-1/2 z-10 bg-white bg-opacity-70  shadow p-2 rounded-full hidden"
+          >
+            <img src="../assets/icons/arrow_left.png" alt="" class="w-4 h-4">
+          </button>
+
+          <button
+            id="scrollRight"
+            class="absolute right-1 top-1/2 -translate-y-1/2 z-10 bg-white bg-opacity-70 shadow p-2 rounded-full hidden"
+          >
+            <img src="../assets/icons/arrow_left.png" alt="" class="transform rotate-[-180deg] w-4 h-4">
+          </button>
+
+          <div  id="tabContainer" class="overflow-x-auto no-scrollbar scroll-smooth">
+            <ul class="flex gap-3"  id="tabList">
+            
+            </ul>
+          </div>
+        </div>
+
+        <!-- Featured -->
+        <div>
+          <h2 class="px-4 py-5 text-[22px] font-bold text-light-dark">
+            Featured Quizzes
+          </h2>
+
+          <div class="w-full">
+            <div class="p-4 flex sm:flex-row flex-col w-full gap-3" id="featuredContainer">
+            </div>
+          </div>
+        </div>
+
+        <!-- Filtered Quiz -->
+        <div id="quizContainer">
+          <h2 class="px-4 py-5 text-[22px] font-bold text-light-dark">
+            All Quizzes
+          </h2>
+          <div class="q w-full">
+          </div>
+        </div>
+      </section>
+    </main>
+
+
+    <script src="../js/selectQuiz.js"></script>
+  </body>
+</html>

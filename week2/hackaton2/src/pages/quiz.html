@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz</title>
+    <link rel="stylesheet" href="../output.css" />
+  </head>
+  <body class="bg-white">
+     <header
+      class="h-16 w-full py-3 md:px-10 sm:px-5 px-3 border-b border-b-light-border relative  bg-white custom-max-w"
+    >
+      <div class="flex items-center justify-between custom-max-w relative z-50 bg-white">
+        <div class="nav-logo flex items-center sm:gap-6 gap-4">
+          <!-- Burger Menu -->
+          <div class="flex md:hidden" id="toggleBtn">
+              <i class="fa-solid fa-bars text-2xl"></i>
+              <!-- <i class="fa-solid fa-xmark hidden"></i> -->
+          </div>
+          <div>
+            <h2
+              class="sm:text-lg text-base font-bold flex items-center gap-2 text-light-dark"
+            >
+              <!-- <div>
+                <img src="./assets/icons/logo.png" alt="" />
+              </div> -->
+              Quiz App
+            </h2>
+          </div>
+        </div>
+        <div class="flex items-center md:gap-8 sm:gap-6 gap-3">
+          <nav class="desktop-nav md:block hidden">
+            <ul class="flex gap-9">
+              <li><a href="../index.html" class="text-light-dark">Home</a></li>
+              <li><a href="./selectQuiz.html" class="text-light-dark">Quizzes</a></li>
+              <!-- <li><a href="#" class="text-light-dark">Leaderboard</a></li> -->
+              <li><a href="./profile.html" class="text-light-dark">Profile</a></li>
+            </ul>
+          </nav>
+
+          <button
+            class="h-10 w-10 rounded-lg bg-light-gray flex items-center justify-center p-2"
+          >
+            <img
+              src="./assets/icons/bell_icon.png"
+              alt=""
+              class="inline-block"
+            />
+          </button>
+
+          <a href="#" class="w-10 h-10 rounded-full overflow-hidden">
+            <img
+              src="./assets/images/user.png"
+              alt=""
+              class="object-cover object-center"
+            />
+          </a>
+
+             <!-- Burger Menu -->
+            <!-- <div class="flex md:hidden">
+              <i class="fa-solid fa-bars text-2xl"></i>
+              <i class="fa-solid fa-xmark hidden"></i>
+          </div> -->
+        </div>
+
+        
+      </div>
+      <!-- Mobile Menu -->
+         <div class="absolute top-16 left-0 bg-white z-40 w-full rounded-b-2xl overflow-hidden mobileMenu transform -translate-y-full transition-all duration-200 ease-out">        
+            <ul class="flex flex-col w-full bg-white gap-9 px-6 py-6">
+              <li><a href="../index.html" class="text-light-dark hover:underline sm:text-base text-sm">Home</a></li>
+              <li><a href="./selectQuiz.html" class="text-light-dark hover:underline sm:text-base text-sm">Quizzes</a></li>
+              <!-- <li><a href="" class="text-light-dark hover:underline sm:text-base text-sm">Leaderboard</a></li> -->
+              <li><a href="./profile.html" class="text-light-dark hover:underline sm:text-base text-sm">Profile</a></li>
+            </ul>    
+         </div>
+    </header>
+
+    <main class="max-w-[960px] mx-auto py-5">
+      <!-- Quiz -->
+      <section class="quiz">
+        <div class="h-[109px] p-4 flex flex-col gap-3">
+          <h4 class="text-light-dark text-base font-medium leading-6">Progress</h4>
+          <div class="relative overflow-hidden h-2 rounded bg-light-gray w-full">
+            <div id="progressBar" class="h-full bg-light-dark rounded transition-all duration-300"></div>
+          </div>
+          <p id="progressText" class="text-sm leading-5 text-light-darkGray">Question 1 of 4</p>
+        </div>
+
+        <!-- Timing Container -->
+        <div class="timing-container h-[141px] w-full grid grid-cols-3 gap-4 px-4 py-6">
+          <div class="flex gap-4 flex-col justify-between h-full">
+            <div class="timer-box bg-light-gray px-3 rounded-lg text-center text-lg leading-6 font-bold text-light-dark h-[56px] flex items-center justify-center">
+              00
+            </div>
+            <p class="text-center text-light-dark text-sm leading-5">Hours</p>
+          </div>
+          <div class="flex gap-4 flex-col justify-between h-full">
+            <div class="timer-box bg-light-gray px-3 rounded-lg text-center text-lg leading-6 font-bold text-light-dark h-[56px] flex items-center justify-center">
+              00
+            </div>
+            <p class="text-center text-light-dark text-sm leading-5">Minutes</p>
+          </div>
+          <div class="flex gap-4 flex-col justify-between h-full">
+            <div class="timer-box bg-light-gray px-3 rounded-lg text-center text-lg leading-6 font-bold text-light-dark h-[56px] flex items-center justify-center">
+              00
+            </div>
+            <p class="text-center text-light-dark text-sm leading-5">Seconds</p>
+          </div>
+        </div>
+
+        <!-- Quiz Question -->
+        <div>
+          <h2 id="questionText" class="px-4 py-5 text-[22px] font-bold text-light-dark"></h2>
+          <div id="optionsContainer" class="p-4 flex flex-col gap-3 min-h-[280px]">
+            <!-- Options will be dynamically inserted here -->
+          </div>
+          
+          <!-- Action Buttons -->
+          <div class="px-4 py-3 flex justify-between">
+            <button id="prevBtn" class="min-w-[84px] max-w-[480px] px-4 h-10 bg-light-gray rounded-lg font-bold text-sm leading-5 flex items-center justify-center text-light-dark disabled:opacity-50">
+              Previous
+            </button>
+            <button id="nextBtn" class="min-w-[84px] max-w-[480px] px-4 h-10 bg-light-blue rounded-lg font-bold text-sm leading-5 flex items-center justify-center text-white">
+              Next
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      // Quiz State Management
+      let quizData = JSON.parse(localStorage.getItem("currentQuiz")) || {
+        title: "Sample Quiz",
+        questions: [
+          {
+            question: "What is the capital of France?",
+            options: ["London", "Berlin", "Paris", "Madrid"],
+            correctIndex: 2
+          },
+          {
+            question: "Which planet is known as the Red Planet?",
+            options: ["Venus", "Mars", "Jupiter", "Saturn"],
+            correctIndex: 1
+          },
+          {
+            question: "What is 2 + 2?",
+            options: ["3", "4", "5", "6"],
+            correctIndex: 1
+          }
+        ]
+      };
+
+      let currentQuestionIndex = 0;
+      let userAnswers = JSON.parse(localStorage.getItem("userAnswers")) || [];
+      let timer;
+      let timeLeft = 300; // 5 minutes in seconds
+
+      // DOM Elements
+      const questionText = document.getElementById("questionText");
+      const optionsContainer = document.getElementById("optionsContainer");
+      const progressText = document.getElementById("progressText");
+      const progressBar = document.getElementById("progressBar");
+      const prevBtn = document.getElementById("prevBtn");
+      const nextBtn = document.getElementById("nextBtn");
+      const timerBoxes = document.querySelectorAll(".timer-box");
+
+      // Initialize Quiz
+      document.addEventListener("DOMContentLoaded", () => {
+        if (!localStorage.getItem("currentQuiz")) {
+          localStorage.setItem("currentQuiz", JSON.stringify(quizData));
+        }
+        renderQuestion();
+        startTimer();
+      });
+
+    function renderQuestion() {
+  const question = quizData.questions[currentQuestionIndex];
+  questionText.textContent = question.question;
+  
+  // Update progress
+  progressText.textContent = `Question ${currentQuestionIndex + 1} of ${quizData.questions.length}`;
+  const progressPercentage = ((currentQuestionIndex + 1) / quizData.questions.length) * 100;
+  progressBar.style.width = `${progressPercentage}%`;
+  
+  // Render options
+  optionsContainer.innerHTML = "";
+  question.options.forEach((option, index) => {
+    const isSelected = userAnswers[currentQuestionIndex] === index;
+    const optionElement = document.createElement("div");
+    optionElement.className = `option flex items-center gap-4 rounded-lg p-4 border cursor-pointer transition-colors ${
+      isSelected ? "border-gray-600 bg-gray-200" : "border-light-boxborder hover:bg-gray-50"
+    }`;
+    
+    // Create text node to safely display HTML as text
+    const optionText = document.createTextNode(option);
+    const label = document.createElement("label");
+    label.className = "text-sm font-medium text-light-dark cursor-pointer";
+    label.appendChild(optionText);
+    
+    optionElement.innerHTML = `
+      <input 
+        type="radio" 
+        id="option-${index}" 
+        name="quiz-option" 
+        value="${index}" 
+        ${isSelected ? "checked" : ""}
+        class="h-5 w-5 rounded-full"
+      >
+    `;
+    optionElement.appendChild(label);
+    optionElement.addEventListener("click", () => selectOption(index));
+    optionsContainer.appendChild(optionElement);
+  });
+
+  // Update button states
+  prevBtn.disabled = currentQuestionIndex === 0;
+  nextBtn.textContent = currentQuestionIndex === quizData.questions.length - 1 ? "Submit" : "Next";
+}
+      // Option Selection
+      function selectOption(optionIndex) {
+        userAnswers[currentQuestionIndex] = optionIndex;
+        localStorage.setItem("userAnswers", JSON.stringify(userAnswers));
+        renderQuestion(); // Re-render to update UI
+      }
+
+      // Navigation
+      function goToNext() {
+        if (typeof userAnswers[currentQuestionIndex] === "undefined") {
+          alert("Please select an answer before proceeding");
+          return;
+        }
+
+        if (currentQuestionIndex < quizData.questions.length - 1) {
+          currentQuestionIndex++;
+          renderQuestion();
+        } else {
+          submitQuiz();
+        }
+      }
+
+      function goToPrevious() {
+        if (currentQuestionIndex > 0) {
+          currentQuestionIndex--;
+          renderQuestion();
+        }
+      }
+
+      // Timer Functions
+      function startTimer() {
+        clearInterval(timer);
+        updateTimerDisplay();
+        
+        timer = setInterval(() => {
+          timeLeft--;
+          updateTimerDisplay();
+          
+          if (timeLeft <= 0) {
+            clearInterval(timer);
+            submitQuiz();
+          }
+        }, 1000);
+      }
+
+      function updateTimerDisplay() {
+        const hours = Math.floor(timeLeft / 3600);
+        const minutes = Math.floor((timeLeft % 3600) / 60);
+        const seconds = timeLeft % 60;
+        
+        timerBoxes[0].textContent = hours.toString().padStart(2, "0");
+        timerBoxes[1].textContent = minutes.toString().padStart(2, "0");
+        timerBoxes[2].textContent = seconds.toString().padStart(2, "0");
+      }
+
+      // Quiz Submission
+    function submitQuiz() {
+  clearInterval(timer);
+  
+  // Calculate score - FIXED: Changed correctIndex to correctOption
+  let score = 0;
+  quizData.questions.forEach((question, index) => {
+    if (userAnswers[index] === question.correctOption) {  // Changed from correctIndex
+      score++;
+    }
+  });
+  
+  // Save results
+  const percentage = Math.round((score / quizData.questions.length) * 100);
+  const quizResult = {
+    title: quizData.title,
+    score: score,
+    total: quizData.questions.length,
+    percentage: percentage,
+    date: new Date().toLocaleDateString(),
+    answers: userAnswers,
+    questions: quizData.questions
+  };
+  
+  localStorage.setItem("quizResult", JSON.stringify(quizResult));
+  window.location.href = "results.html";
+}
+      // Event Listeners
+      prevBtn.addEventListener("click", goToPrevious);
+      nextBtn.addEventListener("click", goToNext);
+    </script>
+    <script src="../js/script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile</title>
+    <link rel="stylesheet" href="../output.css" />
+  </head>
+  <body class="bg-white">
+    <header class="h-16 w-full py-3 px-10 border-b border-b-light-border">
+      <div class="flex items-center justify-between custom-max-w">
+        <div class="nav-logo">
+          <h2 class="text-lg font-bold flex items-center gap-2 text-light-dark">
+            <div>
+              <img src="../assets/icons/logo.png" alt="" />
+            </div>
+            Quiz Master
+          </h2>
+        </div>
+        <div class="flex items-center gap-8">
+          <nav class="desktop-nav">
+            <ul class="flex gap-9">
+              <li><a href="" class="text-light-dark">Home</a></li>
+              <li><a href="" class="text-light-dark">Quizzes</a></li>
+              <li><a href="" class="text-light-dark">Leaderboard</a></li>
+              <li><a href="" class="text-light-dark">Profile</a></li>
+            </ul>
+          </nav>
+
+          <button
+            class="h-10 w-10 rounded-lg bg-light-gray flex items-center justify-center p-2"
+          >
+            <img
+              src="../assets/icons/bell_icon.png"
+              alt=""
+              class="inline-block"
+            />
+          </button>
+
+          <a href="#" class="w-10 h-10 rounded-full overflow-hidden">
+            <img
+              src="../assets/images/user.png"
+              alt=""
+              class="object-cover object-center"
+            />
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main class="max-w-[960px] mx-auto py-5">
+      <!-- Profile Section -->
+      <section id="profile">
+        <div class="h-[252px] flex flex-col w-full items-center p-4 gap-4">
+          <img
+            src="../assets/images/user.png"
+            alt=""
+            class="w-32 h-32 rounded-full object-cover object-center"
+          />
+          <div>
+            <h3 class="text-[22px] font-bold text-center text-light-dark">
+              Sophia Bennet
+            </h3>
+            <p class="text-center text-base text-light-darkGray">
+              Quiz Enthusiast
+            </p>
+            <p class="text-base text-light-darkGray text-center">Joined 2021</p>
+          </div>
+        </div>
+
+        <!-- Tabs -->
+        <div class="pb-3 w-full">
+          <ul class="flex gap-8 px-4 border-b border-b-light-boxborder">
+            <li class="border-b-[3px] border-b-light-border">
+              <a
+                href="#"
+                class="py-4 inline-block text-sm text-light-darkGray font-bold"
+                >Activity</a
+              >
+            </li>
+            <li class="border-b-[3px] border-b-light-border">
+              <a
+                href="#"
+                class="py-4 inline-block text-sm text-light-dark font-bold"
+                >Profile</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="px-4 py-5 text-[22px] font-bold text-light-dark">
+            Personal Information
+          </h2>
+        </div>
+
+        <div class="p-4">
+          <div class="flex gap-6">
+            <div class="py-10 border-t border-t-light-border w-[186px]">
+              <h4 class="text-sm text-light-darkGray leading-6">Name</h4>
+              <p class="text-sm text-light-dark leading-5">Sophia Bennet</p>
+            </div>
+            <div class="py-10 border-t border-t-light-border w-full">
+              <h4 class="text-sm text-light-darkGray leading-6">Email</h4>
+              <p class="text-sm text-light-dark leading-5">12345@gmail.com</p>
+            </div>
+          </div>
+          <div class="mt-6 flex gap-6">
+            <div class="py-10 border-t border-t-light-border w-[186px]">
+              <h4 class="text-sm text-light-darkGray leading-6">Bio</h4>
+              <p class="text-sm text-light-dark leading-5">
+                Avid quiz taker and trivia lover. Always up for a challenge!
+              </p>
+            </div>
+            <div class="w-full"></div>
+          </div>
+        </div>
+
+        <div>
+          <h2 class="px-4 py-5 text-[22px] font-bold text-light-dark">
+            Quiz History
+          </h2>
+        </div>
+
+        <div class="py-3 px-4">
+          <div
+            class="overflow-hidden rounded-lg border border-light-boxborder max-w-[928px] w-full"
+          >
+            <table class="w-full">
+              <tr class="h-[46px]">
+                <td class="text-sm text-light-dark py-3 px-4">Quiz Name</td>
+                <td class="text-sm text-light-dark py-3 px-4">Score</td>
+                <td class="text-sm text-light-dark py-3 px-4">Date</td>
+              </tr>
+              <tr class="h-[72px] border-t border-light-boxborder">
+                <td class="py-2 px-4 text-sm text-light-dark">
+                  General Knowledge
+                </td>
+                <td class="py-2 px-4 text-sm text-light-darkGray">85/100</td>
+                <td class="py-2 px-4 text-sm text-light-darkGray">
+                  2023-08-15
+                </td>
+              </tr>
+              <tr class="h-[72px] border-t border-light-boxborder">
+                <td class="py-2 px-4 text-sm text-light-dark">
+                  General Knowledge
+                </td>
+                <td class="py-2 px-4 text-sm text-light-darkGray">85/100</td>
+                <td class="py-2 px-4 text-sm text-light-darkGray">
+                  2023-08-15
+                </td>
+              </tr>
+              <tr class="h-[72px] border-t border-light-boxborder">
+                <td class="py-2 px-4 text-sm text-light-dark">
+                  General Knowledge
+                </td>
+                <td class="py-2 px-4 text-sm text-light-darkGray">85/100</td>
+                <td class="py-2 px-4 text-sm text-light-darkGray">
+                  2023-08-15
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+
+
+
+
+    <script src="../js/script.js"></script>
+  </body>
+</html>
