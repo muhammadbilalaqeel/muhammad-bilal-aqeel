@@ -11,7 +11,7 @@ const options = {
     },
     servers: [
       {
-        url: "http://localhost:8000/api", 
+        url: "https://week3-day1-task1.vercel.app/api", 
       },
     ],
   },

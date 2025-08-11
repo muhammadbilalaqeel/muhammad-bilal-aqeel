@@ -1,41 +1,5 @@
 /**
  * @swagger
- * components:
- *   schemas:
- *     Task:
- *       type: object
- *       required:
- *         - id
- *         - title
- *         - completed
- *         - createdAt
- *       properties:
- *         id:
- *           type: string
- *           description: Unique ID of the task
- *         title:
- *           type: string
- *           description: Title of the task
- *         completed:
- *           type: boolean
- *           description: Whether the task is completed or not
- *         createdAt:
- *           type: string
- *           format: date-time
- *           description: Creation timestamp
- *     TaskInput:
- *       type: object
- *       properties:
- *         title:
- *           type: string
- *           description: Task title
- *         completed:
- *           type: boolean
- *           description: Completion status (optional on create)
- */
-
-/**
- * @swagger
  * /tasks:
  *   get:
  *     summary: Get all tasks or filter by title query param
@@ -74,7 +38,7 @@
  *                   type: "null"
  *                 message:
  *                   type: string
- *
+ * 
  *   post:
  *     summary: Create a new task
  *     requestBody:
@@ -99,6 +63,12 @@
  *                   type: string
  *       400:
  *         description: Validation error
+ * 
+ *   delete:
+ *     summary: Delete all tasks
+ *     responses:
+ *       200:
+ *         description: All tasks deleted
  *
  * /tasks/{id}:
  *   get:
@@ -174,14 +144,7 @@
  *         description: Task deleted
  *       404:
  *         description: Task not found
- *
- * /tasks:
- *   delete:
- *     summary: Delete all tasks
- *     responses:
- *       200:
- *         description: All tasks deleted
- *
+ * 
  * /stats:
  *   get:
  *     summary: Get statistics about tasks
