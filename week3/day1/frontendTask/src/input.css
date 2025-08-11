@@ -1,0 +1,107 @@
+@font-face {
+  font-family: "AvenirArabic";
+  src: url("../fonts/avenir-arabic.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .custom-gradient-border {
+    border-bottom: 1px solid transparent;
+    border-image-source: linear-gradient(270deg, #08bbdd 0%, #1668c7 100%);
+    border-image-slice: 1;
+  }
+
+  .custom-linear-button {
+    background: linear-gradient(
+      83.21deg,
+      #3b0066 -130.25%,
+      #175fc4 -5.2%,
+      #00e1e7 140.51%,
+      #00f7e0 172.5%,
+      #00ffdd 192.89%
+    );
+  }
+
+  .custom-shadow {
+    position: relative;
+  }
+
+.custom-shadow::after {
+  content: "";
+  position: absolute;
+  inset: -3px; /* slightly larger spread */
+  border-radius: inherit;
+  background: linear-gradient(
+    83.21deg,
+    rgba(59, 0, 102, 0.3) -130.25%,
+    rgba(23, 95, 196, 0.3) -5.2%,
+    rgba(0, 225, 231, 0.3) 140.51%,
+    rgba(0, 247, 224, 0.3) 172.5%,
+    rgba(0, 255, 221, 0.3) 192.89%
+  );
+  filter: blur(10px); /* softer blur */
+  z-index: -1;
+}
+
+}
+
+body {
+  @apply font-avenir;
+}
+
+header nav {
+  @apply flex items-center justify-between xl:px-[100px] lg:px-[60px] py-[10px]  md:px-[30px]  px-[20px];
+}
+
+header #desktop-nav {
+  @apply lg:flex hidden items-center justify-center gap-[10px];
+}
+
+header li a {
+  @apply text-sm font-medium inline-block px-4 py-[10px] text-[#828282];
+}
+
+header li a.d {
+  @apply inline-flex items-center justify-center gap-2;
+}
+
+header li a.active {
+  @apply custom-gradient-border text-black;
+}
+
+header #desktop-btn {
+  @apply py-3 px-6 lg:flex hidden items-center justify-center custom-linear-button text-white rounded-lg text-lg font-medium;
+}
+
+.toggle_btn {
+  @apply w-[34px] h-[34px] bg-[#E7F3FA] rounded-lg lg:hidden flex items-center justify-center;
+}
+
+#mobile-nav a {
+  @apply w-full text-center;
+}
+
+header #mobile-btn {
+  @apply py-3 px-6  items-center justify-center custom-linear-button text-white rounded-lg text-lg font-medium;
+}
+
+#mobile-nav div a {
+  @apply py-1 hover:custom-gradient-border transition-all duration-200 ease-in-out;
+}
+
+.icon {
+  @apply transition-all duration-200 ease-in-out;
+}
+
+.icon.active {
+  @apply transform rotate-[180deg];
+}
+
+button {
+  @apply hover:custom-shadow;
+}

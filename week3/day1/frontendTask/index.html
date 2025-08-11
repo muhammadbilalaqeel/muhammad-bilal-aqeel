@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Navbar</title>
+    <script
+      src="https://kit.fontawesome.com/9b197449cc.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="./src/output.css" />
+  </head>
+  <body class="bg-slate-400 ">
+    <header
+      class=" lg:h-[100px] md:h-[72px] h-[54px] z-50 bg-white relative border-b border-b-[#F0F0F0]"
+    >
+      <div class="h-full w-full  flex items-center max-w-[1920px] mx-auto">
+        <nav class="bg-white w-full h-full relative z-50">
+        <a href="#" class="inline-block">
+          <!-- XL and up -->
+          <img
+            src="./assets/Logo.png"
+            alt="Large Logo"
+            class="hidden xl:inline-block"
+          />
+
+          <!-- LG to XL -->
+          <img
+            src="./assets/logo_1.png"
+            alt="Small Logo"
+            class="hidden lg:inline-block xl:hidden"
+          />
+
+          <!-- MD to LG -->
+          <img
+            src="./assets/logo_2.png"
+            alt="Medium Logo"
+            class="hidden md:inline-block lg:hidden"
+          />
+
+          <!-- Below MD -->
+          <img
+            src="./assets/logo_3.png"
+            alt="Smallest Logo"
+            class="inline-block md:hidden"
+          />
+        </a>
+
+        <ul class="min-w-[519px]" id="desktop-nav">
+          <li><a href="#" id="home">Home</a></li>
+          <li><a href="#">About Us</a></li>
+          <li id="desktop_features" class="dropdown relative group">
+            <a href="#" class="d" id="features_toggle"
+              >Features <i class="fa-solid fa-angle-down icon"></i
+            ></a>
+            <div
+              id="features_menu"
+              class="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-lg border border-gray-200 hidden p-3 overflow-hidden"
+            >
+              <a
+                href="#"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50"
+                >Dashboard Overview</a
+              >
+              <a
+                href="#"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50"
+                >Real-time Analytics</a
+              >
+              <a
+                href="#"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50"
+                >Custom Reports</a
+              >
+              <a
+                href="#"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50"
+                >Automation Tools</a
+              >
+              <a
+                href="#"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50"
+                >Integrations</a
+              >
+            </div>
+          </li>
+          <li id="desktop-services" class="dropdown relative">
+            <a
+              href="#"
+              class="d flex items-center justify-between"
+              id="services_toggle"
+            >
+              Our Services <i class="fa-solid fa-angle-down ml-1 icon"></i>
+            </a>
+            <div
+              id="services_menu"
+              class="absolute left-0 mt-2 w-72 bg-white shadow-lg rounded-lg border border-gray-200 hidden p-3 overflow-hidden z-50"
+            >
+              <a
+                href="#"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 rounded"
+                >Digital Marketing Strategy</a
+              >
+              <a
+                href="#"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 rounded"
+                >Search Engine Optimization (SEO)</a
+              >
+              <a
+                href="#"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 rounded"
+                >Pay-Per-Click (PPC) Advertising</a
+              >
+              <a
+                href="#"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 rounded"
+                >Social Media Campaigns</a
+              >
+              <a
+                href="#"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 rounded"
+                >Content Creation & Branding</a
+              >
+              <a
+                href="#"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 rounded"
+                >Email Marketing & Automation</a
+              >
+            </div>
+          </li>
+
+          <li id="desktop_ads" class="dropdown relative">
+            <a
+              href="#"
+              class="d flex items-center justify-between"
+              id="ads_toggle"
+            >
+              Why ADS? <i class="fa-solid fa-angle-down ml-1 icon"></i>
+            </a>
+            <div
+              id="ads_menu"
+              class="absolute left-0 mt-2 w-72 bg-white shadow-lg rounded-lg border border-gray-200 hidden p-3 overflow-hidden z-50"
+            >
+              <a
+                href="#"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 rounded"
+                >Advanced Targeting Options</a
+              >
+              <a
+                href="#"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 rounded"
+                >AI-Powered Campaign Optimization</a
+              >
+              <a
+                href="#"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 rounded"
+                >Real-Time Performance Tracking</a
+              >
+              <a
+                href="#"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 rounded"
+                >Seamless Platform Integrations</a
+              >
+              <a
+                href="#"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 rounded"
+                >Dedicated Account Management</a
+              >
+            </div>
+          </li>
+        </ul>
+        <button id="desktop-btn">Contact Us</button>
+
+        <!-- Menu Button -->
+        <div class="toggle_btn">
+          <img src="./assets/menu_btn.png" alt="" id="menu" />
+          <img src="./assets/cross_btn.png" alt="" class="hidden" id="cross" />
+        </div>
+      </nav>
+
+      <!-- Mobile Menu -->
+      <div
+        class="absolute transition-all duration-300 ease-in-out left-0 z-40 md:top-[72px] top-[54px] md:px-[30px] py-5 p-5 bg-white text-white lg:hidden flex flex-col gap-6 w-full overflow-hidden transform -translate-y-full"
+        id="mb_nav"
+      >
+        <ul id="mobile-nav" class="flex w-full justify-center flex-col gap-6">
+          <li><a href="#" id="home">Home</a></li>
+          <li><a href="#">About Us</a></li>
+          <li id="mobile_features" class="flex flex-col">
+            <a href="#" class="d" id="mobile_features_toggle">
+              Features <i class="fa-solid fa-angle-down icon"></i>
+            </a>
+            <div
+              id="mobile_features_menu"
+              class="w-full bg-slate-50 overflow-hidden flex flex-col gap-6 hidden"
+            >
+              <a href="#">Dashboard Overview</a>
+              <a href="#">Real-time Analytics</a>
+              <a href="#">Custom Reports</a>
+              <a href="#">Automation Tools</a>
+              <a href="#">Integrations</a>
+            </div>
+          </li>
+
+          <li id="mobile_services" class="flex flex-col">
+            <a href="#" class="d" id="mobile_services_toggle">
+              Our Services <i class="fa-solid fa-angle-down icon"></i>
+            </a>
+            <div
+              id="mobile_services_menu"
+              class="w-full bg-slate-50 overflow-hidden flex flex-col gap-6 hidden"
+            >
+              <a href="#">Digital Marketing</a>
+              <a href="#">SEO Optimization</a>
+              <a href="#">Content Creation</a>
+              <a href="#">Social Media Management</a>
+              <a href="#">Email Marketing</a>
+              <a href="#">Web Development</a>
+            </div>
+          </li>
+
+          <li id="mobile_ads" class="flex flex-col">
+            <a href="#" class="d" id="mobile_ads_toggle">
+              Why ADS? <i class="fa-solid fa-angle-down icon"></i>
+            </a>
+            <div
+              id="mobile_ads_menu"
+              class="w-full bg-slate-50 overflow-hidden flex flex-col gap-6 hidden"
+            >
+              <a href="#">Advanced Targeting Options</a>
+              <a href="#">AI-Powered Campaign Optimization</a>
+              <a href="#">Real-Time Performance Tracking</a>
+              <a href="#">Seamless Platform Integrations</a>
+              <a href="#">Dedicated Account Management</a>
+            </div>
+          </li>
+        </ul>
+
+        <button id="mobile-btn">Contact Us</button>
+      </div>
+      </div>
+    </header>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
