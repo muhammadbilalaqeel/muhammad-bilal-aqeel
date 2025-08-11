@@ -41,41 +41,6 @@ let tasks = [];
  *                   type: string
  *       404:
  *         description: No tasks found matching title
- */
-
-function getTasks(req, res) {
-  let { title } = req.query;
-
-  if (title) {
-    const lowerTitle = title.toLowerCase();
-    let filteredTasks = tasks.filter((task) =>
-      task.title.toLowerCase().includes(lowerTitle)
-    );
-
-    if (filteredTasks.length === 0) {
-      return res.status(404).json({
-        success: false,
-        data: null,
-        message: "No Task Found By this Title",
-      });
-    }
-
-    return res.status(200).json({
-      success: true,
-      data: filteredTasks,
-      message: `Tasks fetched successfully for title "${title}"`,
-    });
-  }
-  return res.status(200).json({
-    success: true,
-    data: tasks,
-    message: "Tasks fetched successfully",
-  });
-}
-
-/**
- * @swagger
- * /tasks:
  *   post:
  *     summary: Create a new task
  *     requestBody:
@@ -114,7 +79,55 @@ function getTasks(req, res) {
  *                       format: date-time
  *                 message:
  *                   type: string
+ *   delete:
+ *     summary: Delete all tasks
+ *     responses:
+ *       200:
+ *         description: All tasks deleted successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                 data:
+ *                   type: array
+ *                   items: {}
+ *                 message:
+ *                   type: string
  */
+
+function getTasks(req, res) {
+  let { title } = req.query;
+
+  if (title) {
+    const lowerTitle = title.toLowerCase();
+    let filteredTasks = tasks.filter((task) =>
+      task.title.toLowerCase().includes(lowerTitle)
+    );
+
+    if (filteredTasks.length === 0) {
+      return res.status(404).json({
+        success: false,
+        data: null,
+        message: "No Task Found By this Title",
+      });
+    }
+
+    return res.status(200).json({
+      success: true,
+      data: filteredTasks,
+      message: `Tasks fetched successfully for title "${title}"`,
+    });
+  }
+  return res.status(200).json({
+    success: true,
+    data: tasks,
+    message: "Tasks fetched successfully",
+  });
+}
+
 
 function createTask(req, res) {
   console.log(req.body);
@@ -136,45 +149,6 @@ function createTask(req, res) {
   });
 }
 
-/**
- * @swagger
- * /tasks/{id}:
- *   get:
- *     summary: Get task by ID
- *     parameters:
- *       - in: path
- *         name: id
- *         description: Task ID
- *         required: true
- *         schema:
- *           type: string
- *     responses:
- *       200:
- *         description: Task found
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 success:
- *                   type: boolean
- *                 data:
- *                   type: object
- *                   properties:
- *                     id:
- *                       type: string
- *                     title:
- *                       type: string
- *                     completed:
- *                       type: boolean
- *                     createdAt:
- *                       type: string
- *                       format: date-time
- *                 message:
- *                   type: string
- *       404:
- *         description: Task not found
- */
 
 function getTaskByID(req, res) {
   let { id } = req.params;
@@ -196,35 +170,6 @@ function getTaskByID(req, res) {
   });
 }
 
-/**
- * @swagger
- * /tasks/{id}:
- *   delete:
- *     summary: Delete task by ID
- *     parameters:
- *       - in: path
- *         name: id
- *         description: Task ID
- *         required: true
- *         schema:
- *           type: string
- *     responses:
- *       200:
- *         description: Task deleted successfully
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 success:
- *                   type: boolean
- *                 data:
- *                   type: object
- *                 message:
- *                   type: string
- *       404:
- *         description: Task not found
- */
 
 function deleteByID(req, res) {
   let { id } = req.params;
@@ -246,27 +191,6 @@ function deleteByID(req, res) {
   });
 }
 
-/**
- * @swagger
- * /tasks:
- *   delete:
- *     summary: Delete all tasks
- *     responses:
- *       200:
- *         description: All tasks deleted successfully
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 success:
- *                   type: boolean
- *                 data:
- *                   type: array
- *                   items: {}
- *                 message:
- *                   type: string
- */
 
 function deleteAll(req, res) {
   tasks = [];
@@ -277,50 +201,6 @@ function deleteAll(req, res) {
   });
 }
 
-/**
- * @swagger
- * /tasks/{id}:
- *   put:
- *     summary: Update task by ID
- *     parameters:
- *       - in: path
- *         name: id
- *         description: Task ID
- *         required: true
- *         schema:
- *           type: string
- *     requestBody:
- *       description: Task fields to update (title, completed)
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             properties:
- *               title:
- *                 type: string
- *               completed:
- *                 type: boolean
- *     responses:
- *       200:
- *         description: Task updated successfully
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 success:
- *                   type: boolean
- *                 data:
- *                   type: object
- *                 message:
- *                   type: string
- *                 changes:
- *                   type: object
- *                   description: Changed fields with old and new values
- *       404:
- *         description: Task not found
- */
 
 function updateByID(req, res) {
   const { id } = req.params;
@@ -351,34 +231,6 @@ function updateByID(req, res) {
     changes: changedFields,
   });
 }
-
-/**
- * @swagger
- * /stats:
- *   get:
- *     summary: Get task statistics
- *     responses:
- *       200:
- *         description: Task statistics fetched successfully
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 success:
- *                   type: boolean
- *                 data:
- *                   type: object
- *                   properties:
- *                     Total Tasks:
- *                       type: integer
- *                     Total Completed Tasks:
- *                       type: integer
- *                     Total Incomplete Tasks:
- *                       type: integer
- *                 message:
- *                   type: string
- */
 
 function taskStats(req, res) {
   let totalTasks = tasks.length;
