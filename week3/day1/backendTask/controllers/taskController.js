@@ -2,7 +2,6 @@ const { v4: uuidv4 } = require("uuid");
 
 let tasks = [];
 
-
 /**
  * @swagger
  * /tasks:
@@ -67,15 +66,12 @@ function getTasks(req, res) {
       message: `Tasks fetched successfully for title "${title}"`,
     });
   }
-  res.status(200).json({
+  return res.status(200).json({
     success: true,
     data: tasks,
     message: "Tasks fetched successfully",
   });
 }
-
-
-
 
 /**
  * @swagger
@@ -133,14 +129,12 @@ function createTask(req, res) {
 
   tasks.push(newTask);
 
-  res.status(201).json({
+  return res.status(201).json({
     success: true,
     data: newTask,
     message: "Task Created Successfully",
   });
 }
-
-
 
 /**
  * @swagger
@@ -195,15 +189,12 @@ function getTaskByID(req, res) {
     });
   }
 
-  res.status(200).json({
+  return res.status(200).json({
     success: true,
     data: existence,
     message: "Task with ID retrieved.",
   });
 }
-
-
-
 
 /**
  * @swagger
@@ -248,15 +239,12 @@ function deleteByID(req, res) {
 
   let deletedTask = tasks[taskIndex];
   tasks.splice(taskIndex, 1);
-  res.status(200).json({
+  return res.status(200).json({
     success: true,
     data: deletedTask,
     message: "Task deleted successfully.",
   });
 }
-
-
-
 
 /**
  * @swagger
@@ -282,14 +270,12 @@ function deleteByID(req, res) {
 
 function deleteAll(req, res) {
   tasks = [];
-  res.status(200).json({
+  return res.status(200).json({
     success: true,
     data: tasks,
     message: "All Tasks Deleted Successfully",
   });
 }
-
-
 
 /**
  * @swagger
@@ -358,15 +344,13 @@ function updateByID(req, res) {
     }
   }
 
-  res.status(200).json({
+  return res.status(200).json({
     success: true,
     data: task,
     message: "Task updated successfully.",
     changes: changedFields,
   });
 }
-
-
 
 /**
  * @swagger
@@ -398,10 +382,14 @@ function updateByID(req, res) {
 
 function taskStats(req, res) {
   let totalTasks = tasks.length;
-  let totalCompletedTask = tasks.filter((task) => task.completed === true).length;
-  let totalIncompletedTask = tasks.filter((task) => task.completed === false).length;
+  let totalCompletedTask = tasks.filter(
+    (task) => task.completed === true
+  ).length;
+  let totalIncompletedTask = tasks.filter(
+    (task) => task.completed === false
+  ).length;
 
-  res.status(200).json({
+  return res.status(200).json({
     success: true,
     data: {
       "Total Tasks": totalTasks,
