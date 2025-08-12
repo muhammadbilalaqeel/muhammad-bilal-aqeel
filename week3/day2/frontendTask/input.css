@@ -11,18 +11,33 @@
 
 
 
-.paddings{
-    @apply xxl:px-[100px] 2xl:px-[90px] xl:px-[60px] px-10;
+@layer components{
+    .custom-shadow{
+        box-shadow: 0px 0px 8px #292929;
+    }
+    .custom-shadow-dark{
+        box-shadow: 0px 0px 8px #925FF0;
+    }
 }
 
+#mobileNav a{
+    @apply hover:border-b dark:border-white border-black;
+}
 
+.paddings{
+    @apply xxl:px-[100px] 2xl:px-[90px] xl:px-[60px] lg:px-10 px-[30px];
+}
+
+#social-links a{
+    @apply transform hover:-translate-y-2 transition-all duration-150 ease-in-out
+}
 
 
 #desktopNav li a{
-    @apply font-montserrat 2xl:text-xl text-lg tracking-[-5%]
+    @apply font-montserrat 2xl:text-xl text-lg tracking-[-5%] hover:border-b dark:border-white border-black
 }
-header button{
-    @apply bg-[#925FF0] w-[133px] h-[40px] rounded-[4px] px-6 py-3 flex items-center justify-center;
+header .btn{
+    @apply dark:bg-[#925FF0] bg-[#292929] w-[133px] h-[40px] rounded-[4px] px-6 py-3 flex items-center justify-center text-white hover:custom-shadow dark:hover:custom-shadow-dark;
 }
 
 .otherMode{
@@ -30,8 +45,16 @@ header button{
 }
 
 
+#downloadBtn{
+    @apply hover:custom-shadow
+}
+
 .custom-text{
  background: linear-gradient(90deg, #FA709A 0%, #FEE140 100%);
  background-clip: text;
  -webkit-text-fill-color: transparent;
 }
+
+
+
+
