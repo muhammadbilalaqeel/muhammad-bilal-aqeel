@@ -589,6 +589,10 @@ video {
   margin-top: 2.5rem;
 }
 
+.mt-4{
+  margin-top: 1rem;
+}
+
 .mt-5{
   margin-top: 1.25rem;
 }
@@ -712,6 +716,10 @@ video {
 
 .flex-col{
   flex-direction: column;
+}
+
+.flex-col-reverse{
+  flex-direction: column-reverse;
 }
 
 .items-center{
@@ -988,7 +996,7 @@ video {
   }
 }
 
-header .btn{
+.btn{
   display: flex;
   height: 40px;
   width: 133px;
@@ -1005,15 +1013,15 @@ header .btn{
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
 }
 
-header .btn:hover{
+.btn:hover{
   box-shadow: 0px 0px 8px #292929;
 }
 
-header .btn:hover:is(.dark *){
+.btn:hover:is(.dark *){
   box-shadow: 0px 0px 8px #925FF0;
 }
 
-header .btn:is(.dark *){
+.btn:is(.dark *){
   --tw-bg-opacity: 1;
   background-color: rgb(146 95 240 / var(--tw-bg-opacity, 1));
 }
