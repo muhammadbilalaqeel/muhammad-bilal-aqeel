@@ -9,10 +9,9 @@ const options = {
       version: "1.0.0",
       description: "API documentation for Task Manager",
     },
-    servers: [{ url: "http://localhost:5000" }],
+    servers: [{ url: "http://localhost:5000/api" }],
   },
-apis: ["./routes/*.js", "./controllers/*.js"]
-
+  apis: ["./src/routes/*.js", "./src/controllers/*.js"],
 };
 
 const swaggerSpec = swaggerJsDoc(options);

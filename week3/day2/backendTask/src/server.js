@@ -15,8 +15,8 @@ connectDB();
 const app = express();
 app.use(express.json());
 
-app.use('/api/users', authRoutes);
-app.use('/api/tasks', taskRoutes);
+app.use('/api', authRoutes);
+app.use('/api', taskRoutes);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 const PORT = process.env.PORT || 5000;
