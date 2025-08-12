@@ -49,3 +49,25 @@ themeToggler.addEventListener("click", function () {
 const downloadBtn = document.getElementById('downloadBtn');
 
 
+
+const sun1 = document.getElementById("sun1");
+const moon1 = document.getElementById("moon1");
+const sunIcon1 = sun1.querySelector("img");
+const moonIcon1 = moon1.querySelector("img");
+
+const themeToggler1 = document.getElementById("themeToggler1");
+themeToggler1.addEventListener("click", function () {
+  if (sunIcon1.classList.contains("hidden")) {
+    sunIcon1.classList.remove("hidden");
+    sun1.classList.remove("otherMode");
+    moonIcon1.classList.add("hidden");
+    moon1.classList.add("otherMode");
+    document.documentElement.classList.remove('dark');
+  } else if (moonIcon1.classList.contains("hidden")) {
+    sunIcon1.classList.add("hidden");
+    sun1.classList.add("otherMode");
+    moonIcon1.classList.remove("hidden");
+    moon1.classList.remove("otherMode");
+    document.documentElement.classList.add('dark');
+  }
+});
