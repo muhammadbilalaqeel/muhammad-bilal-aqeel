@@ -14,7 +14,12 @@ app.use('/api',taskRoutes)
 
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 app.use(cors());
-app.listen(PORT, () => {
-  console.log(`Server started at http://localhost:${PORT}`);
-  console.log(`Swagger docs at http://localhost:${PORT}/api-docs`);
-});
+
+
+
+module.exports = app;
+
+// app.listen(PORT, () => {
+//   console.log(`Server started at http://localhost:${PORT}`);
+//   console.log(`Swagger docs at http://localhost:${PORT}/api-docs`);
+// });
