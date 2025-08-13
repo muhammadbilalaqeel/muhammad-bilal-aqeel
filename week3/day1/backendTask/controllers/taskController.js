@@ -60,7 +60,7 @@ let tasks = [];
  *         description: Task created successfully
  *         content:
  *           application/json:
- *             schema:
+ *             schema:\\
  *               type: object
  *               properties:
  *                 success:
