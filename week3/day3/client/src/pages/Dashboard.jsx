@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { userContextValue } from "../context/userContext";
+import { userContextValue } from "../context/USERContext";
 import Button from "../components/Button";
 import StatusBadge from "../components/StatusBadge";
 import { TbEditCircle } from "react-icons/tb";
@@ -21,7 +21,7 @@ const Dashboard = () => {
   const handleAddBtn = () => {
     setDeleteData(null);
     setEditData(null);
-    setDeleteAll(false)
+    setDeleteAll(false);
     setModalOpen(true);
   };
   const handleDeleteBtn = (task) => {
@@ -45,16 +45,28 @@ const Dashboard = () => {
       </div>
       <div className="grid sm:grid-cols-3 md:gap-8 gap-5 py-8">
         <div className="flex flex-col min-w-[150px] border border-gray-700 md:p-6 p-3 rounded-xl">
-          <h3 className="text-left md:text-xl text-base text-gray-500">Total Tasks</h3>
-          <span className="text-right grad md:text-3xl text-xl">{taskStats?.totalTasks}</span>
+          <h3 className="text-left md:text-xl text-base text-gray-500">
+            Total Tasks
+          </h3>
+          <span className="text-right grad md:text-3xl text-xl">
+            {taskStats?.totalTasks}
+          </span>
         </div>
         <div className="flex flex-col min-w-[150px] border border-gray-700 md:p-6 p-3 rounded-xl">
-          <h3 className="text-left md:text-xl text-base text-gray-500">Completed Tasks</h3>
-          <span className="text-right grad md:text-3xl text-xl">{taskStats?.totalCompletedTasks}</span>
+          <h3 className="text-left md:text-xl text-base text-gray-500">
+            Completed Tasks
+          </h3>
+          <span className="text-right grad md:text-3xl text-xl">
+            {taskStats?.totalCompletedTasks}
+          </span>
         </div>
         <div className="flex flex-col min-w-[150px] border border-gray-700 md:p-6 p-3 rounded-xl">
-          <h3 className="text-left md:text-xl text-base text-gray-500">Pending Tasks</h3>
-          <span className="text-right grad md:text-3xl text-xl">{taskStats?.totalPendingTasks}</span>
+          <h3 className="text-left md:text-xl text-base text-gray-500">
+            Pending Tasks
+          </h3>
+          <span className="text-right grad md:text-3xl text-xl">
+            {taskStats?.totalPendingTasks}
+          </span>
         </div>
       </div>
 
@@ -124,7 +136,7 @@ const Dashboard = () => {
             setModalOpen={setModalOpen}
             editData={editData}
             deleteData={deleteData}
-            deleteAll= {deleteAll}
+            deleteAll={deleteAll}
           />
         )}
       </div>

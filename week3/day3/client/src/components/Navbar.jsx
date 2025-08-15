@@ -1,17 +1,17 @@
 import React, { useContext } from "react";
 import Button from "./Button";
 import { Link, useNavigate } from "react-router-dom";
-import { userContextValue } from "../context/userContext";
+import { userContextValue } from "../context/USERContext";
 import { toast } from "react-toastify";
 
 const Navbar = () => {
-  const {userData,setUserData} = useContext(userContextValue);
+  const { userData, setUserData } = useContext(userContextValue);
   const navigate = useNavigate();
   const handleLogOut = () => {
     localStorage.removeItem("user");
-    setUserData(null)
-    toast.success('Logout Successfully')
-    navigate('/')
+    setUserData(null);
+    toast.success("Logout Successfully");
+    navigate("/");
   };
   return (
     <nav className="flex items-center w-full  justify-between md:px-8 px-2 h-20">

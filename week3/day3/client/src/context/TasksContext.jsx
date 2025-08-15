@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import api from "../services/api";
-import { userContextValue } from "./userContext";
+import { userContextValue } from "./USERContext";
 import { toast } from "react-toastify";
 
 export const taskContextValue = createContext();

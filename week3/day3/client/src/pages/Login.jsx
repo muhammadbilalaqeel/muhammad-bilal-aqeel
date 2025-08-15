@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import api from "../services/api";
-import { userContextValue } from "../context/userContext";
+import { userContextValue } from "../context/USERContext";
 
 const Login = () => {
   const {
