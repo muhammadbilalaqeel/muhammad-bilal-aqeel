@@ -6,10 +6,11 @@ const PORT = process.env.PORT || 9000;
 const app = express();
 dotenv.config();
 
+// Middlewares
+app.use(express.json())
+
 // Routes
-app.use("/api", userRoutes);
-
-
+app.use("/api/users", userRoutes);
 
 // DB Connection
 connectDB();
