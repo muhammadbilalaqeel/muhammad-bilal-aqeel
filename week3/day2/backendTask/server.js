@@ -5,7 +5,7 @@ const authRoutes = require('./src/routes/authRoutes');
 const taskRoutes = require('./src/routes/taskRoutes');
 const { swaggerUi, swaggerSpec } = require('./src/docs/swagger');
 
-dotenv.config({ path: __dirname + '/.env' });
+dotenv.config();
 
 
 console.log("MONGO_URI from env:", process.env.MONGO_URI);

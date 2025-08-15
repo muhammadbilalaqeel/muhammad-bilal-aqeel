@@ -9,7 +9,7 @@ const options = {
       version: "1.0.0",
       description: "API documentation for Task Manager",
     },
-    servers: [{ url: "http://localhost:5000/api" }],
+    servers: [{ url: "https://day2-backend-nu.vercel.app/api" }],
   },
   apis: ["./src/routes/*.js", "./src/controllers/*.js"],
 };

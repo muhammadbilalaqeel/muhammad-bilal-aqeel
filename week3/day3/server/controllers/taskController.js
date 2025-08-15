@@ -3,34 +3,36 @@ const Task = require('../models/Task');
 exports.getTasks = async (req, res) => {
   try {
     const { title } = req.query;
+
     let query = { user: req.user };
 
+   console.log(query)
     if (title) {
-      query.title = { $regex: title, $options: 'i' };
+      query.title = { $regex: title, $options: "i" };
     }
 
     const tasks = await Task.find(query);
-    
+
     if (title && tasks.length === 0) {
       return res.status(404).json({
         success: false,
         data: null,
-        message: "No Task Found By this Title"
+        message: "No Task Found By this Title",
       });
     }
 
     res.status(200).json({
       success: true,
       data: tasks,
-      message: title 
+      message: title
         ? `Tasks fetched successfully for title "${title}"`
-        : "Tasks fetched successfully"
+        : "Tasks fetched successfully",
     });
   } catch (error) {
     res.status(500).json({
       success: false,
       data: null,
-      message: error.message
+      message: error.message,
     });
   }
 };

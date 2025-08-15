@@ -1,102 +1,174 @@
 const { v4: uuidv4 } = require("uuid");
 
-let tasks = [];
-
 /**
  * @swagger
+ * tags:
+ *   name: Tasks
+ *   description: API for managing tasks
+ *
+ * components:
+ *   schemas:
+ *     Task:
+ *       type: object
+ *       required:
+ *         - title
+ *       properties:
+ *         id:
+ *           type: string
+ *           description: Unique task identifier
+ *           example: de81d328ce5747c7868ea9e52cf80eef
+ *         title:
+ *           type: string
+ *           description: The title or description of the task
+ *           example: Buy groceries
+ *         completed:
+ *           type: boolean
+ *           description: Whether the task is completed
+ *           example: false
+ *         createdAt:
+ *           type: string
+ *           format: date-time
+ *           description: The creation date of the task
+ *           example: 2025-08-15T04:17:14.135Z
+ *
  * /tasks:
  *   get:
- *     summary: Get all tasks or filter tasks by title query parameter
+ *     summary: Get all tasks or filter by title
+ *     tags: [Tasks]
  *     parameters:
  *       - in: query
  *         name: title
  *         schema:
  *           type: string
- *         description: Partial title to filter tasks
+ *         description: Filter tasks by title (case-insensitive)
  *     responses:
  *       200:
- *         description: List of tasks
+ *         description: List of tasks (optionally filtered)
  *         content:
  *           application/json:
  *             schema:
- *               type: object
- *               properties:
- *                 success:
- *                   type: boolean
- *                 data:
- *                   type: array
- *                   items:
- *                     type: object
- *                     properties:
- *                       id:
- *                         type: string
- *                       title:
- *                         type: string
- *                       completed:
- *                         type: boolean
- *                       createdAt:
- *                         type: string
- *                         format: date-time
- *                 message:
- *                   type: string
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/Task'
  *       404:
- *         description: No tasks found matching title
+ *         description: No task found for given title
  *   post:
  *     summary: Create a new task
+ *     tags: [Tasks]
  *     requestBody:
- *       description: Task object that needs to be added
  *       required: true
  *       content:
  *         application/json:
  *           schema:
  *             type: object
- *             required:
- *               - title
  *             properties:
  *               title:
  *                 type: string
+ *                 example: Finish homework
  *     responses:
  *       201:
  *         description: Task created successfully
  *         content:
  *           application/json:
- *             schema:\\
- *               type: object
- *               properties:
- *                 success:
- *                   type: boolean
- *                 data:
- *                   type: object
- *                   properties:
- *                     id:
- *                       type: string
- *                     title:
- *                       type: string
- *                     completed:
- *                       type: boolean
- *                     createdAt:
- *                       type: string
- *                       format: date-time
- *                 message:
- *                   type: string
+ *             schema:
+ *               $ref: '#/components/schemas/Task'
+ *
+ * /tasks/{id}:
+ *   get:
+ *     summary: Get a task by ID
+ *     tags: [Tasks]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: Unique task ID
+ *     responses:
+ *       200:
+ *         description: Task found
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Task'
+ *       404:
+ *         description: Task not found
+ *   put:
+ *     summary: Update a task by ID
+ *     tags: [Tasks]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: Unique task ID
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               title:
+ *                 type: string
+ *                 example: Updated task title
+ *               completed:
+ *                 type: boolean
+ *                 example: true
+ *     responses:
+ *       200:
+ *         description: Task updated successfully
+ *       404:
+ *         description: Task not found
+ *   delete:
+ *     summary: Delete a task by ID
+ *     tags: [Tasks]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: Unique task ID
+ *     responses:
+ *       200:
+ *         description: Task deleted successfully
+ *       404:
+ *         description: Task not found
+ *
+ * /tasks:
  *   delete:
  *     summary: Delete all tasks
+ *     tags: [Tasks]
  *     responses:
  *       200:
  *         description: All tasks deleted successfully
+ *
+ * /stats:
+ *   get:
+ *     summary: Get task statistics
+ *     tags: [Tasks]
+ *     responses:
+ *       200:
+ *         description: Task statistics
  *         content:
  *           application/json:
  *             schema:
  *               type: object
  *               properties:
- *                 success:
- *                   type: boolean
- *                 data:
- *                   type: array
- *                   items: {}
- *                 message:
- *                   type: string
+ *                 Total Tasks:
+ *                   type: integer
+ *                   example: 5
+ *                 Total Completed Tasks:
+ *                   type: integer
+ *                   example: 2
+ *                 Total Incomplete Tasks:
+ *                   type: integer
+ *                   example: 3
  */
+
+let tasks = [];
 
 function getTasks(req, res) {
   let { title } = req.query;
@@ -128,7 +200,6 @@ function getTasks(req, res) {
   });
 }
 
-
 function createTask(req, res) {
   console.log(req.body);
   const { title } = req.body;
@@ -148,7 +219,6 @@ function createTask(req, res) {
     message: "Task Created Successfully",
   });
 }
-
 
 function getTaskByID(req, res) {
   let { id } = req.params;
@@ -170,7 +240,6 @@ function getTaskByID(req, res) {
   });
 }
 
-
 function deleteByID(req, res) {
   let { id } = req.params;
   let taskIndex = tasks.findIndex((task) => task.id === id);
@@ -191,7 +260,6 @@ function deleteByID(req, res) {
   });
 }
 
-
 function deleteAll(req, res) {
   tasks = [];
   return res.status(200).json({
@@ -201,12 +269,12 @@ function deleteAll(req, res) {
   });
 }
 
-
 function updateByID(req, res) {
   const { id } = req.params;
   const updates = req.body;
 
-  const taskIndex = tasks.findIndex((task) => task.id === id);
+  // Find the task by string comparison
+  const taskIndex = tasks.findIndex((task) => task.id === String(id));
   if (taskIndex === -1) {
     return res.status(404).json({
       success: false,
@@ -217,11 +285,22 @@ function updateByID(req, res) {
   const task = tasks[taskIndex];
   const changedFields = {};
 
-  for (const key in updates) {
-    if (task[key] !== updates[key]) {
+  // Fields you allow updating
+  const allowedFields = ["title", "completed"];
+
+  for (const key of Object.keys(updates)) {
+    if (allowedFields.includes(key) && task[key] !== updates[key]) {
       changedFields[key] = { old: task[key], new: updates[key] };
       task[key] = updates[key];
     }
+  }
+
+  if (Object.keys(changedFields).length === 0) {
+    return res.status(200).json({
+      success: true,
+      message: "No changes applied.",
+      data: task,
+    });
   }
 
   return res.status(200).json({

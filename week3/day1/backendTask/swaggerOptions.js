@@ -11,11 +11,11 @@ const options = {
     },
     servers: [
       {
-        url: "https://week3-day1-task1.vercel.app", 
+        url: "https://day1-2i4vvgg12-muhammad-bilal-aqeels-projects.vercel.app/api-docs/api",
       },
     ],
   },
-  apis: ["./routes/*.js","./controllers/*.js","./middlewares/*.js"], 
+  apis: ["./routes/*.js", "./controllers/*.js", "./middlewares/*.js"],
 };
 
 const swaggerSpec = swaggerJsdoc(options);
