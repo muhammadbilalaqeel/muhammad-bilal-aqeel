@@ -1,7 +1,7 @@
 import axios from "axios"
 import type { Task, CreateTaskRequest, UpdateTaskRequest, TaskStats } from "../types/Task"
 
-const API_BASE_URL = "/api"
+const API_BASE_URL = "https://week4day1server.vercel.app"
 
 const api = axios.create({
   baseURL: API_BASE_URL,
