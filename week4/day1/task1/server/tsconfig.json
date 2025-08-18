@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    /* Language & Environment */
+    "target": "ES2020",           // Modern JS output
+    "module": "CommonJS",         // Node.js (require/exports)
+    "lib": ["ES2020"],            // Built-in JS features for ES2020
+    /* File Structure */
+    "rootDir": "src",             // Where your TS source files live
+    "outDir": "dist",             // Where compiled JS goes
+    /* Type Checking */
+    "strict": true,               // Enable all strict checks
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,      // Allow default imports from CJS modules
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true
+  },
+  "include": ["src"],             // Only compile from src/
+  "exclude": ["node_modules", "dist"]
+}
