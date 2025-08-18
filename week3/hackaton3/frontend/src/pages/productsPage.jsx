@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import MainPage from "../components/products/MainPage"
-import TopSection from "../components/products/topSection"
+import TopSection from "../components/products/TopSection"
 import Breadcrumb from "../components/shared/common/Breadcrumb"
 import RelatedProducts from "../components/shared/common/RelatedProducts"
 import { useLocation } from "react-router-dom"
