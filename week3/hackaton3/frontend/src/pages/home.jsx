@@ -2,6 +2,7 @@ import Collection from "../components/home/collection";
 import Hero from "../components/home/hero";
 import Feature from "../components/home/feature";
 import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 const Home = () => {
   const { pathname } = useLocation();
