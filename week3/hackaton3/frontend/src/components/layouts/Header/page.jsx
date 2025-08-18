@@ -7,25 +7,37 @@ import { Link } from "react-router-dom";
 import CartPopup from "../../shared/common/Cartpopup";
 import { MobileMenu } from "./MobileMenu";
 import logo from "../../../assets/header/logo.svg";
-
-
+import { CiLogout } from "react-icons/ci";
+import { toast } from "react-toastify";
+import { useAuth } from "../../../hooks/useAuth";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
-
-
-
+  const [useri, setUserI] = useState(localStorage.getItem("token"));
+  const {logout,isAuthenticated,user} = useAuth()
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 768) {
         setIsMenuOpen(false);
       }
     };
-
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  useEffect(() => {
+    const handleStorageChange = () => {
+      setUserI(localStorage.getItem("token"));
+    };
+    window.addEventListener("storage", handleStorageChange);
+    return () => window.removeEventListener("storage", handleStorageChange);
+  }, []);
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    setUserI(null);
+    logout()
+    toast.success("User logout Successfully!")
+  };
   return (
     <div className="flex items-center justify-center font-montserrat">
       <Container>
@@ -34,8 +46,14 @@ const Header = () => {
           <header className="flex items-center justify-between my-2 px-6 sm:px-2 md:my-7 lg:px-12 w-full">
             {/* Logo */}
             <div className="flex items-center gap-2 flex-shrink-0">
-              <img src={logo} alt="Company Logo" className="h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12" />
-              <h1 className="text-sm sm:text-xl md:text-xl font-prosto font-normal">Brand Name</h1>
+              <img
+                src={logo}
+                alt="Company Logo"
+                className="h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12"
+              />
+              <h1 className="text-sm sm:text-xl md:text-xl font-prosto font-normal">
+                Brand Name
+              </h1>
             </div>
 
             {/* Desktop Navigation */}
@@ -61,7 +79,11 @@ const Header = () => {
                     onClick={() => setIsCartOpen(!isCartOpen)}
                     className="hidden md:block cursor-pointer"
                   >
-                    <img src={icon.src} alt={icon.alt} className="h-5 w-5 sm:h-6 sm:w-6" />
+                    <img
+                      src={icon.src}
+                      alt={icon.alt}
+                      className="h-5 w-5 sm:h-6 sm:w-6"
+                    />
                   </button>
                 ) : (
                   <Link key={key} to={icon.path} className="cursor-pointer">
@@ -73,22 +95,29 @@ const Header = () => {
                   </Link>
                 )
               )}
+              {user && (
+                <button  className="cursor-pointer" onClick={handleLogout}>
+                  <CiLogout className="h-7 w-7 sm:h-6 sm:w-6" />
+                </button>
+              )}
 
               {/* Hamburger (mobile only) */}
               <button
                 onClick={() => setIsMenuOpen(true)}
                 className="md:hidden relative focus:outline-none"
               >
-                <img src={hamburgerIcon} alt="Menu" className="h-7 w-7 sm:h-6 sm:w-6" />
+                <img
+                  src={hamburgerIcon}
+                  alt="Menu"
+                  className="h-7 w-7 sm:h-6 sm:w-6"
+                />
               </button>
             </div>
           </header>
         )}
 
         {/* Mobile Menu */}
-        {isMenuOpen && (
-          <MobileMenu onClose={() => setIsMenuOpen(false)} />
-        )}
+        {isMenuOpen && <MobileMenu onClose={() => setIsMenuOpen(false)} />}
 
         {isCartOpen && <CartPopup onClose={() => setIsCartOpen(false)} />}
       </Container>
