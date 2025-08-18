@@ -1,4 +1,4 @@
-import person from "../assets/header/person.svg";
+import person from "../assets/header/Person.svg";
 import local_mall from "../assets/header/local_mall.svg";
 import Search from "../assets/header/Search.png";
 
