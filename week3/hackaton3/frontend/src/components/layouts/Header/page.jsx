@@ -4,7 +4,7 @@ import Container from "../../shared/common/Container";
 import hamburgerIcon from "../../../assets/header/hamburger.svg";
 import { NavList, Icons } from "../../../constants/gernal";
 import { Link } from "react-router-dom";
-import CartPopup from "../../shared/common/CartPopup";
+import CartPopup from "../../shared/common/Cartpopup";
 import { MobileMenu } from "./MobileMenu";
 import logo from "../../../assets/header/logo.svg";
 
