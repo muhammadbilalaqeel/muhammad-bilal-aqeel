@@ -1,8 +1,7 @@
 "use client"
 
-import axios from "axios"
 import Image from "next/image"
-import { Dispatch, SetStateAction, useEffect, useState } from "react"
+import { Dispatch, SetStateAction } from "react"
 import { job } from "../types/job"
 import Link from "next/link"
 

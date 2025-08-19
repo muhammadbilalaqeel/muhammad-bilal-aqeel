@@ -11,7 +11,7 @@ export default function Home() {
 const [loading, setLoading] = useState<boolean>(false);
     const fetchAllJobs = async()=>{
         setLoading(true)
-        let query = filterTags.length > 0 ? `?tags=${filterTags.join(',')}`: '';
+        const query = filterTags.length > 0 ? `?tags=${filterTags.join(',')}`: '';
         try {
             const res = await axios.get(`/api/jobs${query}`);
         if(res){
@@ -39,8 +39,8 @@ const [loading, setLoading] = useState<boolean>(false);
         }
 
         {
-          loading ? <p className="m-auto mt-10">Loading....</p> : jobs?.map((item,index)=>{
-            return  <JobCard key={index} setFilterTags={setFilterTags} job={item} />
+          loading ? <p className="m-auto mt-10">Loading....</p> : jobs?.map((item)=>{
+            return  <JobCard key={item.id} setFilterTags={setFilterTags} job={item} />
           }) 
         }
       

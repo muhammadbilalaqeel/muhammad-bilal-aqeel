@@ -2,12 +2,9 @@ import { NextResponse } from "next/server";
 import data from "@/data/data.json"
 export async function GET(request : Request){
 
-    let url = new URL(request.url);
-    console.log(url)
-    let tagsParam = url.searchParams.get('tags');
-    console.log(tagsParam)
-    let tags = tagsParam ? tagsParam.split(',') : [];
-    console.log(tags)
+    const url = new URL(request.url);
+    const tagsParam = url.searchParams.get('tags');
+    const tags = tagsParam ? tagsParam.split(',') : [];
     let filteredData = data;
     if(tags.length>0){
       filteredData = data.filter((job)=> tags.some((tag)=>job.languages.includes(tag)))

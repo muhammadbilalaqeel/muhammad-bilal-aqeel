@@ -10,7 +10,7 @@ type FilterCardProps  = {
 
 export default function FilterCard({filterTags,setFilterTags}:FilterCardProps){
     const handleDeleteTagClick = (index : number)=>{
-        let newData  =  filterTags?.filter((item,i)=> i!==index)
+        const newData  =  filterTags?.filter((item,i)=> i!==index)
         setFilterTags(newData)
     }
 
@@ -24,7 +24,7 @@ export default function FilterCard({filterTags,setFilterTags}:FilterCardProps){
 
                 {
                     filterTags?.length> 0 && filterTags?.map((tag,index)=>{
-                        return <div className="flex rounded-sm w-fit">
+                        return <div key={tag} className="flex rounded-sm w-fit">
                                 <div className="sm:px-2 px-1.5 py-1.5 text-[13px] active:text-white active:bg-[#5EA5A3]  bg-green-50 text-[#5EA5A3] font-bold rounded-l-sm">{tag}</div>
              <span className="relative inline-flex px-1.5 py-1.5 w-7 bg-[#5EA5A3] hover:bg-[#2c3a3a] transition-all duration-150 ease-linear items-center cursor-pointer rounded-r-sm" onClick={()=>handleDeleteTagClick(index)}><Image src={'icon-remove.svg'} alt="cross-icon" width={100} height={100}/></span>
             

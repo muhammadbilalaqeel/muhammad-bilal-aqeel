@@ -202,9 +202,9 @@ const JobDetailsPage = () => {
               This is a {job.contract.toLowerCase()} position that can be performed {job.location.toLowerCase()}.
             </p>
             <p>
-              As a {job.role} developer, you'll be working with cutting-edge technologies including{' '}
+              As a {job.role} developer, you&apos;ll be working with cutting-edge technologies including{' '}
               {job.languages.join(', ')} and {job?.tools?.join(', ')}. 
-              You'll be responsible for developing and maintaining high-quality applications that serve our users worldwide.
+              You&apos;ll be responsible for developing and maintaining high-quality applications that serve our users worldwide.
             </p>
             <p>
               Join {job.company} and be part of a dynamic team that values innovation, collaboration, and professional growth. 
