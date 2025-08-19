@@ -1,8 +1,8 @@
 import axios from "axios"
 import type { Task, CreateTaskRequest, UpdateTaskRequest, TaskStats } from "../types/Task"
 
-const API_BASE_URL = "https://week4day1server.vercel.app/api"
-
+// const API_BASE_URL = "https://week4day1server.vercel.app/api"
+const API_BASE_URL = "http://localhost:5000/api"
 const api = axios.create({
   baseURL: API_BASE_URL,
   headers: {
@@ -14,6 +14,7 @@ export const taskService = {
   // Get all tasks
   async getAllTasks(): Promise<Task[]> {
     const response = await api.get<Task[]>("/tasks")
+    console.log(response.data)
     return response.data
   },
 
