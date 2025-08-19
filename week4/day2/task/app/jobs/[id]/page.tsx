@@ -174,7 +174,8 @@ const JobDetailsPage = () => {
               </div>
 
               {/* Tools Section */}
-              <div>
+              {
+                job?.tools?.length && <div>
                 <h3 className="font-semibold text-[#5EA5A3] mb-2">Tools:</h3>
                 <div className="flex flex-wrap gap-2">
                   {job?.tools?.map((tool, index) => (
@@ -188,6 +189,7 @@ const JobDetailsPage = () => {
                   ))}
                 </div>
               </div>
+              }
             </div>
           </div>
 
