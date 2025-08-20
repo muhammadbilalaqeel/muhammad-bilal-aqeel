@@ -8,6 +8,8 @@ const cors = require('cors')
 dotenv.config({ path: __dirname + '/.env' });
 
 const app = express();
+
+// app.use(cors())
 app.use(cors({
   origin: "https://day3client.vercel.app", 
   methods: ["GET", "POST", "PUT", "DELETE","OPTIONS"],
