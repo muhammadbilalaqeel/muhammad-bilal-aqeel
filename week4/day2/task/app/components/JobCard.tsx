@@ -29,7 +29,7 @@ export default function JobCard({setFilterTags,job} : JobCardProps){
                 job.featured && <div className="w-1.5 top-0 h-full rounded-l-md bg-[#5EA5A3] absolute left-0"></div>
             }
             <div className="h-20 w-20 relative -mt-12 sm:mt-0 ">
-                <Image src={job.logo} alt="" fill/>
+                <Image src={`/${job.logo}`} alt="" fill/>
             </div>
             <div className="ml-2 w-fit sm:mt-0 mt-3">
                     <div className="flex flex-col ">

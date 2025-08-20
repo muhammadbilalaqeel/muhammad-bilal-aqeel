@@ -96,7 +96,7 @@ const JobDetailsPage = () => {
           {/* Header Section */}
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 mb-8">
             <div className="h-20 w-20 relative -mt-12 sm:mt-0">
-              <Image src={job.logo} alt={`${job.company} logo`} fill className="object-contain" />
+              <Image src={`/${job.logo}`} alt={`${job.company} logo`} fill className="object-contain" />
             </div>
             
             <div className="flex-1">
