@@ -1,27 +1,39 @@
+import { Game } from "@/app/types/game";
 import Image from "next/image";
+import Link from "next/link";
 
-export default function GameCard(){
+type GameCardProps = {
+    game : Game
+}
+
+export default function GameCard({game}:GameCardProps){
+      const calculateDiscountedPrice = (price: number, discount?: number | null): string => {
+        if(!discount) return price.toFixed(2);
+    return (price - (price * discount / 100)).toFixed(2);
+  };
     return (
-        <div className="flex flex-col gap-[10px]">
-            <div className="relative h-[284px] w-[200px] rounded-sm overflow-hidden">
-                <Image src={'/images/valorant.jpg'} alt="" fill/>
+        <Link href={`/games/${game.id}`} className="flex flex-col gap-[10px] cursor-pointer">
+            <div className="relative h-[284px] min-w-[200px] rounded-sm overflow-hidden group">
+                <Image src={`/images/${game.thumbnail}`} alt="" fill className="object-cover transition-all duration-150 ease-linear group-hover:scale-105"/>
             </div>
             <h3 className="text-[#F5F5F5] text-base">
-                Valorant
+                {game.title}
             </h3>
             <div className="flex gap-2">
                 <div className="sale px-2 rounded-sm text-[#F5F5F5] bg-[#0074E4]">
-                    -10%
+                    -{game.discount}%
                 </div>
-                <div className="price flex gap-1">
+                {
+                    game?.onSale && <div className="price flex gap-1">
                     <div className="old line-through text-[#F5F5F5]/60 text-base">
-                        ₹900
+                        ₹{game.price}
                     </div>
                     <div className="new text-[#F5F5F5] text-base">
-                        ₹850
+                        ₹{calculateDiscountedPrice(game.price,game?.discount)}
                     </div>
                 </div>
+                }
             </div>
-        </div>
+        </Link>
     )
 }

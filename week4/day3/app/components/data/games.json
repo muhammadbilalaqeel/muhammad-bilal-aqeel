@@ -1,0 +1,619 @@
+[
+  {
+    "id": 1,
+    "title": "Valorant",
+    "thumbnail": "valorant.jpg",
+    "coverImage": "valorant_r.jpg",
+    "price": 59.99,
+    "discount": 50,
+    "onSale": true,
+    "hasAchievements": true,
+    "description": "Cyberpunk 2077 is an open-world, action-adventure RPG set in the dark future of Night City — a dangerous megalopolis obsessed with power, glamour, and ceaseless body modification.",
+    "genre": ["RPG", "Action", "Open World"],
+    "releaseDate": "2020-12-10",
+    "developer": "CD Projekt Red",
+    "publisher": "CD Projekt",
+    "rating": 7.8,
+    "platforms": ["PC", "PS5", "Xbox Series X/S", "PS4", "Xbox One"],
+    "screenshots": [
+      "https://cdn.cloudflare.steamstatic.com/steam/apps/1091500/ss_1.jpg",
+      "https://cdn.cloudflare.steamstatic.com/steam/apps/1091500/ss_2.jpg",
+      "https://cdn.cloudflare.steamstatic.com/steam/apps/1091500/ss_3.jpg"
+    ],
+    "tags": ["Futuristic", "Cyberpunk", "Character Customization", "Mature", "Violence"],
+    "requirements": {
+      "minimum": {
+        "os": "Windows 10 64-bit",
+        "processor": "Intel Core i5-3570K / AMD FX-8310",
+        "memory": "8 GB RAM",
+        "graphics": "NVIDIA GeForce GTX 780 / AMD Radeon RX 470",
+        "storage": "70 GB available space"
+      },
+      "recommended": {
+        "os": "Windows 10 64-bit",
+        "processor": "Intel Core i7-4790 / AMD Ryzen 3 3200G",
+        "memory": "12 GB RAM",
+        "graphics": "NVIDIA GeForce GTX 1060 6GB / AMD Radeon R9 Fury",
+        "storage": "70 GB available space (SSD recommended)"
+      }
+    },
+    "reviews": [
+      {
+        "user": "GamerPro2023",
+        "comment": "After the updates, this game has become amazing. The story and world-building are incredible!",
+        "rating": 9
+      },
+      {
+        "user": "TechReviewer",
+        "comment": "Great visuals and atmosphere, but still has some bugs. Worth playing now.",
+        "rating": 7
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "GTA V",
+    "thumbnail": "gta5_r.jpg",
+    "coverImage": "gta5.jpg",
+    "price": 39.99,
+    "onSale": false,
+    "hasAchievements": true,
+    "description": "You are Geralt of Rivia, mercenary monster slayer. Before you stands a war-torn, monster-infested continent you can explore at will. Your current contract? Tracking down Ciri — the Child of Prophecy.",
+    "genre": ["RPG", "Action", "Open World"],
+    "releaseDate": "2015-05-18",
+    "developer": "CD Projekt Red",
+    "publisher": "CD Projekt",
+    "rating": 9.3,
+    "platforms": ["PC", "PS5", "Xbox Series X/S", "PS4", "Xbox One", "Nintendo Switch"],
+    "screenshots": [
+      "https://cdn.cloudflare.steamstatic.com/steam/apps/292030/ss_1.jpg",
+      "https://cdn.cloudflare.steamstatic.com/steam/apps/292030/ss_2.jpg",
+      "https://cdn.cloudflare.steamstatic.com/steam/apps/292030/ss_3.jpg"
+    ],
+    "tags": ["Fantasy", "Medieval", "Magic", "Monster Hunting", "Choice Matters"],
+    "requirements": {
+      "minimum": {
+        "os": "Windows 7 64-bit / Windows 8 64-bit / Windows 10 64-bit",
+        "processor": "Intel CPU Core i5-2500K 3.3GHz / AMD CPU Phenom II X4 940",
+        "memory": "6 GB RAM",
+        "graphics": "Nvidia GPU GeForce GTX 660 / AMD GPU Radeon HD 7870",
+        "storage": "35 GB available space"
+      },
+      "recommended": {
+        "os": "Windows 7 64-bit / Windows 8 64-bit / Windows 10 64-bit",
+        "processor": "Intel CPU Core i7 3770 3,4 GHz / AMD CPU AMD FX-8350 4 GHz",
+        "memory": "8 GB RAM",
+        "graphics": "Nvidia GPU GeForce GTX 770 / AMD GPU Radeon R9 290",
+        "storage": "35 GB available space"
+      }
+    },
+    "reviews": [
+      {
+        "user": "FantasyFan",
+        "comment": "Masterpiece! One of the best RPGs ever made. The story, characters, and world are all top-notch.",
+        "rating": 10
+      },
+      {
+        "user": "CasualGamer",
+        "comment": "Amazing game but can be overwhelming for newcomers. Take your time to enjoy it.",
+        "rating": 9
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Outlast 2",
+    "thumbnail": "outlast_r.png",
+    "coverImage": "outlast.jpg",
+    "price": 14.99,
+    "discount": 34,
+    "onSale": true,
+    "hasAchievements": true,
+    "description": "Forge your own path in Hollow Knight! An epic action adventure through a vast ruined kingdom of insects and heroes.",
+    "genre": ["Metroidvania", "Action", "Platformer"],
+    "releaseDate": "2017-02-24",
+    "developer": "Team Cherry",
+    "publisher": "Team Cherry",
+    "rating": 9.0,
+    "platforms": ["PC", "PS5", "Xbox Series X/S", "PS4", "Xbox One", "Nintendo Switch"],
+    "screenshots": [
+      "https://cdn.cloudflare.steamstatic.com/steam/apps/367520/ss_1.jpg",
+      "https://cdn.cloudflare.steamstatic.com/steam/apps/367520/ss_2.jpg",
+      "https://cdn.cloudflare.steamstatic.com/steam/apps/367520/ss_3.jpg"
+    ],
+    "tags": ["Indie", "Dark", "Difficult", "Hand-drawn", "Exploration"],
+    "requirements": {
+      "minimum": {
+        "os": "Windows 7",
+        "processor": "Intel Core 2 Duo E5200",
+        "memory": "4 GB RAM",
+        "graphics": "GeForce 9800GTX+ (1GB)",
+        "storage": "9 GB available space"
+      },
+      "recommended": {
+        "os": "Windows 10",
+        "processor": "Intel Core i5",
+        "memory": "8 GB RAM",
+        "graphics": "GeForce GTX 560",
+        "storage": "9 GB available space"
+      }
+    },
+    "reviews": [
+      {
+        "user": "IndieGamer",
+        "comment": "Absolutely beautiful art style and challenging gameplay. A must-play for Metroidvania fans!",
+        "rating": 9
+      },
+      {
+        "user": "PlatformerPro",
+        "comment": "Tough but fair. The atmosphere and music are incredible.",
+        "rating": 8
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Farcry 6",
+    "thumbnail": "farcry_r.jpg",
+    "coverImage": "farcry.jpg",
+    "price": 4.99,
+    "onSale": false,
+    "hasAchievements": false,
+    "description": "An online and local party game of teamwork and betrayal for 4-15 players...in space!",
+    "genre": ["Party", "Multiplayer", "Social Deduction"],
+    "releaseDate": "2018-06-15",
+    "developer": "InnerSloth",
+    "publisher": "InnerSloth",
+    "rating": 7.5,
+    "platforms": ["PC", "Mobile", "Nintendo Switch"],
+    "screenshots": [
+      "https://cdn.cloudflare.steamstatic.com/steam/apps/945360/ss_1.jpg",
+      "https://cdn.cloudflare.steamstatic.com/steam/apps/945360/ss_2.jpg"
+    ],
+    "tags": ["Multiplayer", "Online Co-Op", "Space", "Funny", "Casual"],
+    "requirements": {
+      "minimum": {
+        "os": "Windows 7 SP1+",
+        "processor": "SSE2 instruction set support",
+        "memory": "1 GB RAM",
+        "graphics": "Graphics card with DX10 (shader model 4.0) capabilities",
+        "storage": "250 MB available space"
+      },
+      "recommended": {
+        "os": "Windows 10",
+        "processor": "SSE2 instruction set support",
+        "memory": "2 GB RAM",
+        "graphics": "Graphics card with DX10 (shader model 4.0) capabilities",
+        "storage": "250 MB available space"
+      }
+    },
+    "reviews": [
+      {
+        "user": "PartyGamer",
+        "comment": "So much fun with friends! Simple but addictive gameplay.",
+        "rating": 8
+      },
+      {
+        "user": "SocialGamer",
+        "comment": "Great for parties and online play with friends. Gets repetitive after a while though.",
+        "rating": 6
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Assassin’s creed",
+    "thumbnail": "assasin.png",
+    "coverImage": "assasin.png",
+    "price": 59.99,
+    "discount": 25,
+    "onSale": true,
+    "hasAchievements": true,
+    "description": "Winner of over 175 Game of the Year Awards and recipient of over 250 perfect scores, RDR2 is the epic tale of outlaw Arthur Morgan and the infamous Van der Linde gang.",
+    "genre": ["Action", "Adventure", "Western", "Open World"],
+    "releaseDate": "2019-11-05",
+    "developer": "Rockstar Games",
+    "publisher": "Rockstar Games",
+    "rating": 8.9,
+    "platforms": ["PC", "PS4", "Xbox One"],
+    "screenshots": [
+      "https://cdn.cloudflare.steamstatic.com/steam/apps/1174180/ss_1.jpg",
+      "https://cdn.cloudflare.steamstatic.com/steam/apps/1174180/ss_2.jpg",
+      "https://cdn.cloudflare.steamstatic.com/steam/apps/1174180/ss_3.jpg"
+    ],
+    "tags": ["Western", "Open World", "Story Rich", "Realistic", "Horses"],
+    "requirements": {
+      "minimum": {
+        "os": "Windows 7 SP1 64-bit",
+        "processor": "Intel Core i5-2500K / AMD FX-6300",
+        "memory": "8 GB RAM",
+        "graphics": "Nvidia GeForce GTX 770 2GB / AMD Radeon R9 280 3GB",
+        "storage": "150 GB available space"
+      },
+      "recommended": {
+        "os": "Windows 10 64-bit",
+        "processor": "Intel Core i7-4770K / AMD Ryzen 5 1500X",
+        "memory": "12 GB RAM",
+        "graphics": "Nvidia GeForce GTX 1060 6GB / AMD Radeon RX 480 4GB",
+        "storage": "150 GB available space"
+      }
+    },
+    "reviews": [
+      {
+        "user": "WesternFan",
+        "comment": "Incredible attention to detail and immersive world. A true masterpiece of gaming.",
+        "rating": 10
+      },
+      {
+        "user": "ActionGamer",
+        "comment": "Beautiful game but pacing can be slow. Great story and characters though.",
+        "rating": 8
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "title": "God Of War 4",
+    "thumbnail": "god_of_war_r.jpg",
+    "coverImage": "god_of_war.jpg",
+    "price": 59.99,
+    "discount": 25,
+    "onSale": true,
+    "hasAchievements": true,
+    "description": "Kratos now lives as a man in the realm of Norse Gods and monsters. It is in this harsh, unforgiving world that he must fight to survive",
+    "genre": ["Action", "Adventure", "Western", "Open World"],
+    "releaseDate": "2019-11-05",
+    "developer": "Rockstar Games",
+    "publisher": "Rockstar Games",
+    "rating": 8.9,
+    "platforms": ["PC", "PS4", "Xbox One"],
+    "screenshots": [
+      "https://cdn.cloudflare.steamstatic.com/steam/apps/1174180/ss_1.jpg",
+      "https://cdn.cloudflare.steamstatic.com/steam/apps/1174180/ss_2.jpg",
+      "https://cdn.cloudflare.steamstatic.com/steam/apps/1174180/ss_3.jpg"
+    ],
+    "tags": ["Western", "Open World", "Story Rich", "Realistic", "Horses"],
+    "requirements": {
+      "minimum": {
+        "os": "Windows 7 SP1 64-bit",
+        "processor": "Intel Core i5-2500K / AMD FX-6300",
+        "memory": "8 GB RAM",
+        "graphics": "Nvidia GeForce GTX 770 2GB / AMD Radeon R9 280 3GB",
+        "storage": "150 GB available space"
+      },
+      "recommended": {
+        "os": "Windows 10 64-bit",
+        "processor": "Intel Core i7-4770K / AMD Ryzen 5 1500X",
+        "memory": "12 GB RAM",
+        "graphics": "Nvidia GeForce GTX 1060 6GB / AMD Radeon RX 480 4GB",
+        "storage": "150 GB available space"
+      }
+    },
+    "reviews": [
+      {
+        "user": "WesternFan",
+        "comment": "Incredible attention to detail and immersive world. A true masterpiece of gaming.",
+        "rating": 10
+      },
+      {
+        "user": "ActionGamer",
+        "comment": "Beautiful game but pacing can be slow. Great story and characters though.",
+        "rating": 8
+      }
+    ]
+  }
+  
+  ,
+  {
+    "id": 7,
+    "title": "Red Dead Redemption 2",
+    "thumbnail": "red.png",
+    "coverImage": "red.png",
+    "price": 59.99,
+    "discount": 25,
+    "onSale": true,
+    "hasAchievements": true,
+    "description": "Winner of over 175 Game of the Year Awards and recipient of over 250 perfect scores, RDR2 is the epic tale of outlaw Arthur Morgan and the infamous Van der Linde gang.",
+    "genre": ["Action", "Adventure", "Western", "Open World"],
+    "releaseDate": "2019-11-05",
+    "developer": "Rockstar Games",
+    "publisher": "Rockstar Games",
+    "rating": 8.9,
+    "platforms": ["PC", "PS4", "Xbox One"],
+    "screenshots": [
+      "https://cdn.cloudflare.steamstatic.com/steam/apps/1174180/ss_1.jpg",
+      "https://cdn.cloudflare.steamstatic.com/steam/apps/1174180/ss_2.jpg",
+      "https://cdn.cloudflare.steamstatic.com/steam/apps/1174180/ss_3.jpg"
+    ],
+    "tags": ["Western", "Open World", "Story Rich", "Realistic", "Horses"],
+    "requirements": {
+      "minimum": {
+        "os": "Windows 7 SP1 64-bit",
+        "processor": "Intel Core i5-2500K / AMD FX-6300",
+        "memory": "8 GB RAM",
+        "graphics": "Nvidia GeForce GTX 770 2GB / AMD Radeon R9 280 3GB",
+        "storage": "150 GB available space"
+      },
+      "recommended": {
+        "os": "Windows 10 64-bit",
+        "processor": "Intel Core i7-4770K / AMD Ryzen 5 1500X",
+        "memory": "12 GB RAM",
+        "graphics": "Nvidia GeForce GTX 1060 6GB / AMD Radeon RX 480 4GB",
+        "storage": "150 GB available space"
+      }
+    },
+    "reviews": [
+      {
+        "user": "WesternFan",
+        "comment": "Incredible attention to detail and immersive world. A true masterpiece of gaming.",
+        "rating": 10
+      },
+      {
+        "user": "ActionGamer",
+        "comment": "Beautiful game but pacing can be slow. Great story and characters though.",
+        "rating": 8
+      }
+    ]
+  }
+  ,
+  {
+    "id": 8,
+    "title": " The Tomb Raider",
+    "thumbnail": "tomb.png",
+    "coverImage": "tomb.png",
+    "price": 59.99,
+    "discount": 25,
+    "onSale": true,
+    "hasAchievements": true,
+    "description": "Winner of over 175 Game of the Year Awards and recipient of over 250 perfect scores, RDR2 is the epic tale of outlaw Arthur Morgan and the infamous Van der Linde gang.",
+    "genre": ["Action", "Adventure", "Western", "Open World"],
+    "releaseDate": "2019-11-05",
+    "developer": "Rockstar Games",
+    "publisher": "Rockstar Games",
+    "rating": 8.9,
+    "platforms": ["PC", "PS4", "Xbox One"],
+    "screenshots": [
+      "https://cdn.cloudflare.steamstatic.com/steam/apps/1174180/ss_1.jpg",
+      "https://cdn.cloudflare.steamstatic.com/steam/apps/1174180/ss_2.jpg",
+      "https://cdn.cloudflare.steamstatic.com/steam/apps/1174180/ss_3.jpg"
+    ],
+    "tags": ["Western", "Open World", "Story Rich", "Realistic", "Horses"],
+    "requirements": {
+      "minimum": {
+        "os": "Windows 7 SP1 64-bit",
+        "processor": "Intel Core i5-2500K / AMD FX-6300",
+        "memory": "8 GB RAM",
+        "graphics": "Nvidia GeForce GTX 770 2GB / AMD Radeon R9 280 3GB",
+        "storage": "150 GB available space"
+      },
+      "recommended": {
+        "os": "Windows 10 64-bit",
+        "processor": "Intel Core i7-4770K / AMD Ryzen 5 1500X",
+        "memory": "12 GB RAM",
+        "graphics": "Nvidia GeForce GTX 1060 6GB / AMD Radeon RX 480 4GB",
+        "storage": "150 GB available space"
+      }
+    },
+    "reviews": [
+      {
+        "user": "WesternFan",
+        "comment": "Incredible attention to detail and immersive world. A true masterpiece of gaming.",
+        "rating": 10
+      },
+      {
+        "user": "ActionGamer",
+        "comment": "Beautiful game but pacing can be slow. Great story and characters though.",
+        "rating": 8
+      }
+    ]
+  }
+  ,
+  {
+    "id": 9,
+    "title": "Cyberpunk 2077",
+    "thumbnail": "cyber.png",
+    "coverImage": "cyber.png",
+    "price": 59.99,
+    "discount": 25,
+    "onSale": true,
+    "hasAchievements": true,
+    "description": "Winner of over 175 Game of the Year Awards and recipient of over 250 perfect scores, RDR2 is the epic tale of outlaw Arthur Morgan and the infamous Van der Linde gang.",
+    "genre": ["Action", "Adventure", "Western", "Open World"],
+    "releaseDate": "2019-11-05",
+    "developer": "Rockstar Games",
+    "publisher": "Rockstar Games",
+    "rating": 8.9,
+    "platforms": ["PC", "PS4", "Xbox One"],
+    "screenshots": [
+      "https://cdn.cloudflare.steamstatic.com/steam/apps/1174180/ss_1.jpg",
+      "https://cdn.cloudflare.steamstatic.com/steam/apps/1174180/ss_2.jpg",
+      "https://cdn.cloudflare.steamstatic.com/steam/apps/1174180/ss_3.jpg"
+    ],
+    "tags": ["Western", "Open World", "Story Rich", "Realistic", "Horses"],
+    "requirements": {
+      "minimum": {
+        "os": "Windows 7 SP1 64-bit",
+        "processor": "Intel Core i5-2500K / AMD FX-6300",
+        "memory": "8 GB RAM",
+        "graphics": "Nvidia GeForce GTX 770 2GB / AMD Radeon R9 280 3GB",
+        "storage": "150 GB available space"
+      },
+      "recommended": {
+        "os": "Windows 10 64-bit",
+        "processor": "Intel Core i7-4770K / AMD Ryzen 5 1500X",
+        "memory": "12 GB RAM",
+        "graphics": "Nvidia GeForce GTX 1060 6GB / AMD Radeon RX 480 4GB",
+        "storage": "150 GB available space"
+      }
+    },
+    "reviews": [
+      {
+        "user": "WesternFan",
+        "comment": "Incredible attention to detail and immersive world. A true masterpiece of gaming.",
+        "rating": 10
+      },
+      {
+        "user": "ActionGamer",
+        "comment": "Beautiful game but pacing can be slow. Great story and characters though.",
+        "rating": 8
+      }
+    ]
+  }
+  ,
+  {
+    "id": 10,
+    "title": "NFS UNBOUND",
+    "thumbnail": "need-for-speed.jpg",
+    "coverImage": "need-for-speed.jpg",
+    "price": 59.99,
+    "discount": 25,
+    "onSale": false,
+    "hasAchievements": true,
+    "description": "Winner of over 175 Game of the Year Awards and recipient of over 250 perfect scores, RDR2 is the epic tale of outlaw Arthur Morgan and the infamous Van der Linde gang.",
+    "genre": ["Action", "Adventure", "Western", "Open World"],
+    "releaseDate": "2019-11-05",
+    "developer": "Rockstar Games",
+    "publisher": "Rockstar Games",
+    "rating": 8.9,
+    "platforms": ["PC", "PS4", "Xbox One"],
+    "screenshots": [
+      "https://cdn.cloudflare.steamstatic.com/steam/apps/1174180/ss_1.jpg",
+      "https://cdn.cloudflare.steamstatic.com/steam/apps/1174180/ss_2.jpg",
+      "https://cdn.cloudflare.steamstatic.com/steam/apps/1174180/ss_3.jpg"
+    ],
+    "tags": ["Western", "Open World", "Story Rich", "Realistic", "Horses"],
+    "requirements": {
+      "minimum": {
+        "os": "Windows 7 SP1 64-bit",
+        "processor": "Intel Core i5-2500K / AMD FX-6300",
+        "memory": "8 GB RAM",
+        "graphics": "Nvidia GeForce GTX 770 2GB / AMD Radeon R9 280 3GB",
+        "storage": "150 GB available space"
+      },
+      "recommended": {
+        "os": "Windows 10 64-bit",
+        "processor": "Intel Core i7-4770K / AMD Ryzen 5 1500X",
+        "memory": "12 GB RAM",
+        "graphics": "Nvidia GeForce GTX 1060 6GB / AMD Radeon RX 480 4GB",
+        "storage": "150 GB available space"
+      }
+    },
+    "reviews": [
+      {
+        "user": "WesternFan",
+        "comment": "Incredible attention to detail and immersive world. A true masterpiece of gaming.",
+        "rating": 10
+      },
+      {
+        "user": "ActionGamer",
+        "comment": "Beautiful game but pacing can be slow. Great story and characters though.",
+        "rating": 8
+      }
+    ]
+  }
+  ,
+  {
+    "id": 11,
+    "title": "FIFA 23",
+    "thumbnail": "fifa.jpg",
+    "coverImage": "fifa.jpg",
+    "price": 59.99,
+    "discount": 25,
+    "onSale": false,
+    "hasAchievements": true,
+    "description": "Winner of over 175 Game of the Year Awards and recipient of over 250 perfect scores, RDR2 is the epic tale of outlaw Arthur Morgan and the infamous Van der Linde gang.",
+    "genre": ["Action", "Adventure", "Western", "Open World"],
+    "releaseDate": "2019-11-05",
+    "developer": "Rockstar Games",
+    "publisher": "Rockstar Games",
+    "rating": 8.9,
+    "platforms": ["PC", "PS4", "Xbox One"],
+    "screenshots": [
+      "https://cdn.cloudflare.steamstatic.com/steam/apps/1174180/ss_1.jpg",
+      "https://cdn.cloudflare.steamstatic.com/steam/apps/1174180/ss_2.jpg",
+      "https://cdn.cloudflare.steamstatic.com/steam/apps/1174180/ss_3.jpg"
+    ],
+    "tags": ["Western", "Open World", "Story Rich", "Realistic", "Horses"],
+    "requirements": {
+      "minimum": {
+        "os": "Windows 7 SP1 64-bit",
+        "processor": "Intel Core i5-2500K / AMD FX-6300",
+        "memory": "8 GB RAM",
+        "graphics": "Nvidia GeForce GTX 770 2GB / AMD Radeon R9 280 3GB",
+        "storage": "150 GB available space"
+      },
+      "recommended": {
+        "os": "Windows 10 64-bit",
+        "processor": "Intel Core i7-4770K / AMD Ryzen 5 1500X",
+        "memory": "12 GB RAM",
+        "graphics": "Nvidia GeForce GTX 1060 6GB / AMD Radeon RX 480 4GB",
+        "storage": "150 GB available space"
+      }
+    },
+    "reviews": [
+      {
+        "user": "WesternFan",
+        "comment": "Incredible attention to detail and immersive world. A true masterpiece of gaming.",
+        "rating": 10
+      },
+      {
+        "user": "ActionGamer",
+        "comment": "Beautiful game but pacing can be slow. Great story and characters though.",
+        "rating": 8
+      }
+    ]
+  }
+  ,
+  {
+    "id": 12,
+    "title": "UNCHARTED 4",
+    "thumbnail": "uncharted.jpg",
+    "coverImage": "uncharted.jpg",
+    "price": 59.99,
+    "discount": 25,
+    "onSale": true,
+    "hasAchievements": true,
+    "description": "Winner of over 175 Game of the Year Awards and recipient of over 250 perfect scores, RDR2 is the epic tale of outlaw Arthur Morgan and the infamous Van der Linde gang.",
+    "genre": ["Action", "Adventure", "Western", "Open World"],
+    "releaseDate": "2019-11-05",
+    "developer": "Rockstar Games",
+    "publisher": "Rockstar Games",
+    "rating": 8.9,
+    "platforms": ["PC", "PS4", "Xbox One"],
+    "screenshots": [
+      "https://cdn.cloudflare.steamstatic.com/steam/apps/1174180/ss_1.jpg",
+      "https://cdn.cloudflare.steamstatic.com/steam/apps/1174180/ss_2.jpg",
+      "https://cdn.cloudflare.steamstatic.com/steam/apps/1174180/ss_3.jpg"
+    ],
+    "tags": ["Western", "Open World", "Story Rich", "Realistic", "Horses"],
+    "requirements": {
+      "minimum": {
+        "os": "Windows 7 SP1 64-bit",
+        "processor": "Intel Core i5-2500K / AMD FX-6300",
+        "memory": "8 GB RAM",
+        "graphics": "Nvidia GeForce GTX 770 2GB / AMD Radeon R9 280 3GB",
+        "storage": "150 GB available space"
+      },
+      "recommended": {
+        "os": "Windows 10 64-bit",
+        "processor": "Intel Core i7-4770K / AMD Ryzen 5 1500X",
+        "memory": "12 GB RAM",
+        "graphics": "Nvidia GeForce GTX 1060 6GB / AMD Radeon RX 480 4GB",
+        "storage": "150 GB available space"
+      }
+    },
+    "reviews": [
+      {
+        "user": "WesternFan",
+        "comment": "Incredible attention to detail and immersive world. A true masterpiece of gaming.",
+        "rating": 10
+      },
+      {
+        "user": "ActionGamer",
+        "comment": "Beautiful game but pacing can be slow. Great story and characters though.",
+        "rating": 8
+      }
+    ]
+  }
+  
+]
