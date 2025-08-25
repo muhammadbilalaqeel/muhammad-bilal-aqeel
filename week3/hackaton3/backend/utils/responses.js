@@ -19,6 +19,10 @@ export const success = {
   ITEM_DELETED: "Item removed from cart successfully",
   CART_CLEARED: "All items removed from cart successfully",
   CART_RETRIEVED: "Cart retrieved successfully",
+
+  // Admin/User Management
+  USER_BLOCKED: "User has been blocked successfully",
+  USER_UNBLOCKED: "User has been unblocked successfully",
 };
 
 export const errors = {
@@ -29,6 +33,8 @@ export const errors = {
   INVALID_TOKEN: "Invalid token",
   NO_TOKEN: "Not authorized, no token provided",
   USER_NOT_FOUND: "User not found",
+  USER_BLOCKED: "Your account has been blocked",
+  FORBIDDEN_ACTION: "You do not have permission to perform this action",
   INVALID_EMAIL: "Invalid email format",
 
   // Validation / General
@@ -47,5 +53,9 @@ export const errors = {
   INVALID_CART_ID: "Invalid cart ID",
   INVALID_PRODUCT_ID: "Invalid product ID",
   OUT_OF_STOCK: "Product is out of stock",
-  SERVER_ERROR: "Something went wrong",
+
+  // JWT / Auth middleware
+  TOKEN_EXPIRED: "Token has expired",
+  TOKEN_MISSING: "No token provided",
+  TOKEN_INVALID: "Invalid token",
 };

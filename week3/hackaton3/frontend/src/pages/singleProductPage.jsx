@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Container from "../components/shared/common/Container";
-// import { useParams } from "react-router-dom";
 import Breadcrumb from "../components/shared/common/Breadcrumb";
 import ProductOverview from "../components/singleProduct/ProductOverview";
 import ProductImage from "../components/singleProduct/ProductImage";
@@ -12,20 +11,29 @@ import ProductDescription from "../components/singleProduct/ProductDescription";
 import RelatedProducts from "../components/shared/common/RelatedProducts";
 import { getProductBySlug } from "../services/productService";
 import { useParams } from "react-router-dom";
+import { useGetProductBySlugQuery } from "../redux/apiSlice";
 const SingleProductPage = () => {
   const { slug } = useParams();
-  const [product, setProduct] = useState([]);
-  useEffect(() => {
-    const fetchProduct = async () => {
-      let result = await getProductBySlug(slug);
-      // console.log(result.data);
-      setProduct(result.data);
-    };
-    fetchProduct();
-  }, [slug]);
+ const { data, error, isLoading,isError } = useGetProductBySlugQuery(slug);
+
+  const product = data?.data
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [slug]);
+    if (isLoading ) {
+    return (
+      <div className="flex justify-center items-center h-64">
+        <div className="w-12 h-12 border-4 border-blue-500 border-dashed rounded-full animate-spin"></div>
+      </div>
+    );
+  }
+  if (isError) {
+    return (
+      <p className="text-red-500 py-8 px-3 text-center">
+        Something went wrong!
+      </p>
+    );
+  }
   return (
     <div className="">
       <Breadcrumb />
@@ -33,7 +41,7 @@ const SingleProductPage = () => {
         <Container>
           <ProductOverview>
             <ProductImage
-              img={`${import.meta.env.VITE_API_URL}/uploads/${
+              img={`${
                 product?.images?.[0]
               }`}
             />

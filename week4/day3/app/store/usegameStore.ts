@@ -40,15 +40,15 @@ const useGameStore = create<GameStore>((set, get) => ({
     }
   },
 
-  fetchGameById: async (id: number) => {
-    set({ loading: true, error: null });
-    try {
-      const response = await axios.get<Game>(`/api/games/${id}`);
-      set({ singleGame: response.data, loading: false });
-    } catch (error) {
-      set({ error: (error as Error).message, loading: false });
-    }
-  },
+fetchGameById: async (id: number) => {
+  set({ loading: true, error: null });
+  try {
+    const response = await axios.get<{ success: boolean; data: Game }>(`/api/games/${id}`);
+    set({ singleGame: response.data.data, loading: false }); 
+  } catch (error) {
+    set({ error: (error as Error).message, loading: false });
+  }
+},
 
 searchGames: async (title: string): Promise<Game[]> => {
   set({ loading: true, error: null });

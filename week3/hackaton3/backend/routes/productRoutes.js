@@ -9,12 +9,14 @@ import {
   getFilteredProductsByOption,
   getProductByID,
   getProductBySlug,
+  getProductsSummary,
   updateProductById,
 } from "../controllers/productController.js";
 
 import { upload } from "../multer/multer.js";
 import { validateID, validateProduct, validateSlug } from "../validators/productValidator.js";
 import { validate } from "../middlewares/productValidate.js";
+import { protect } from "../middlewares/authMiddleware.js";
 const productRoutes = express.Router();
 
 
@@ -24,12 +26,15 @@ productRoutes.post(
   "/",
   validateProduct,
   validate,
-  upload.array("images", 5),
   createProduct
 );
 
 // Get all Products
 productRoutes.get("/", getAllProducts);
+
+
+//Get Products Summary
+productRoutes.get('/summary',getProductsSummary)
 
 // Get Collections
 productRoutes.get('/collections',getCollections)
@@ -59,23 +64,24 @@ productRoutes.get(
 
 // Delete All Products
 
-productRoutes.delete("/", deleteAllProducts);
+productRoutes.delete("/",protect(['superAdmin']), deleteAllProducts);
 
 // Delete Product by id
 productRoutes.delete(
   "/:id",
   validateID,
   validate,
+  protect(['superAdmin']),
   deleteProductById
 );
 
 // Update by id
 
 productRoutes.put(
-  "/",
+  "/:id",
   validateProduct,
   validate,
-  upload.array("images", 5),
+  protect(['admin','superAdmin']),
   updateProductById
 );
 

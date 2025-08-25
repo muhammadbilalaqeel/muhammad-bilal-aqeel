@@ -1,54 +1,36 @@
-import { Minus, Plus, X } from "lucide-react";
-import { products } from "../../../constants/gernal";
 import { useEffect, useState } from "react";
 import Button from "../buttons/button";
 import {
-  decreaseQuantity,
-  getCartProducts,
-  increaseQuantity,
-  removeItemFromCart,
-} from "../../../services/cartServices";
+  useGetCartProductsQuery,
+  useIncreaseQuantityMutation,
+  useDecreaseQuantityMutation,
+  useRemoveItemFromCartMutation,
+} from "../../../redux/apiSlice";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import { FaMinus, FaPlus } from "react-icons/fa";
+import { X } from "lucide-react";
 
 const CartPopup = ({ onClose }) => {
   const [isVisible, setIsVisible] = useState(false);
-  const [cartProducts, setCartProducts] = useState([]);
-  const [subtotal, setSubTotal] = useState(0);
-  const [delivery, setDelivery] = useState(3.5);
-  const [total, setTotal] = useState(0);
+  const [delivery] = useState(3.5);
   const navigate = useNavigate();
-  const handlePurchaseBtn = () => {
-    navigate("/cart");
-    handleClose();
-  };
-  useEffect(() => {
-    if (Array.isArray(cartProducts)) {
-      let t = cartProducts.reduce(
-        (total, current) => total + (current.total || 0),
-        0
-      );
-      setSubTotal(t);
-      setTotal(delivery + t);
-    }
-  }, [cartProducts]);
-  const fetchCartProducts = async () => {
-    let result = await getCartProducts();
-    // console.log(result.data);
-     setCartProducts(result?.data || []);
-  };
+
+  const { data, isLoading, refetch } = useGetCartProductsQuery();
+  const cartProducts = data?.data || [];
+
+  const [increaseQuantity] = useIncreaseQuantityMutation();
+  const [decreaseQuantity] = useDecreaseQuantityMutation();
+  const [removeItemFromCart] = useRemoveItemFromCartMutation();
+
+  const subtotal = cartProducts.reduce(
+    (total, current) => total + (current.total || 0),
+    0
+  );
+  const total = subtotal + (cartProducts.length > 0 ? delivery : 0);
+
   useEffect(() => {
     setIsVisible(true);
-
-    fetchCartProducts();
-  }, []);
-
-  useEffect(() => {
-    const handleEsc = (e) => {
-      if (e.key === "Escape") handleClose();
-    };
-    window.addEventListener("keydown", handleEsc);
-    return () => window.removeEventListener("keydown", handleEsc);
   }, []);
 
   const handleClose = () => {
@@ -56,26 +38,38 @@ const CartPopup = ({ onClose }) => {
     setTimeout(() => onClose(), 300);
   };
 
+  const handlePurchaseBtn = () => {
+    navigate("/cart");
+    handleClose();
+  };
+
   const handleIncreaseQuantity = async (id) => {
-    let result = await increaseQuantity(id);
-    if (result?.success) {
-      fetchCartProducts();
+    try {
+      const result = await increaseQuantity(id).unwrap();
       toast.success(result?.message);
+      // refetch();
+    } catch (err) {
+      toast.error(err?.data?.message || "Something went wrong");
     }
   };
-  const handledecreaseQuantity = async (id) => {
-    let result = await decreaseQuantity(id);
-    if (result?.success) {
-      fetchCartProducts();
+
+  const handleDecreaseQuantity = async (id) => {
+    try {
+      const result = await decreaseQuantity(id).unwrap();
       toast.success(result?.message);
+      // refetch();
+    } catch (err) {
+      toast.error(err?.data?.message || "Something went wrong");
     }
   };
 
   const handleRemoveBtn = async (id) => {
-    let result = await removeItemFromCart(id);
-    if (result?.success) {
-      fetchCartProducts();
+    try {
+      const result = await removeItemFromCart(id).unwrap();
       toast.success(result?.message);
+  
+    } catch (err) {
+      toast.error(err?.data?.message || "Something went wrong");
     }
   };
 
@@ -103,7 +97,11 @@ const CartPopup = ({ onClose }) => {
             </button>
           </div>
           <div className="flex-1 overflow-y-auto">
-            {Array.isArray(cartProducts) && cartProducts.length > 0 ? (
+            {isLoading ? (
+              <div className="flex justify-center items-center h-64">
+                <div className="w-12 h-12 border-4 border-blue-500 border-dashed rounded-full animate-spin"></div>
+              </div>
+            ) : cartProducts.length > 0 ? (
               cartProducts.map((product) => (
                 <div
                   key={product.cartItemId}
@@ -113,7 +111,7 @@ const CartPopup = ({ onClose }) => {
                   <div className="w-12 h-12 sm:w-[71px] sm:h-[71px]">
                     <img
                       src={
-                        `${import.meta.env.VITE_API_URL}/uploads/${
+                        `${
                           product.image
                         }` || "/placeholder.svg"
                       }
@@ -131,10 +129,10 @@ const CartPopup = ({ onClose }) => {
                         <span
                           className="cursor-pointer"
                           onClick={() =>
-                            handledecreaseQuantity(product.cartItemId)
+                            handleDecreaseQuantity(product.cartItemId)
                           }
                         >
-                          <Minus size={14} />
+                          <FaMinus size={14} />
                         </span>
                         <span className="text-sm sm:text-xl">
                           {product.quantity}
@@ -145,11 +143,11 @@ const CartPopup = ({ onClose }) => {
                             handleIncreaseQuantity(product.cartItemId)
                           }
                         >
-                          <Plus size={14} />
+                          <FaPlus size={14} />
                         </span>
                       </div>
                     </div>
-                    {/* remove btn + price */}
+                 
                     <div className="flex items-center justify-between text-sm">
                       <button
                         onClick={() => handleRemoveBtn(product.cartItemId)}

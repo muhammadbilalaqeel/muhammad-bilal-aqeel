@@ -1,4 +1,9 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
 import "./App.css";
 import Header from "./components/layouts/Header/page";
 import Footer from "./components/layouts/Footer/page";
@@ -15,11 +20,28 @@ import BagPage from "./pages/BagPage";
 import ProtectedRoute from "./components/shared/common/ProtectedRoute";
 import ScrollToTop from "./components/ScrollToTop";
 
+import AdminDashboard from "./dashboard/pages/AdminDashboard";
+import RoleBasedRoute from "./components/shared/common/RoleBasedRoutes";
+import RoleBasedRoutes from "./components/shared/common/RoleBasedRoutes";
+
 function App() {
   return (
     <Router>
+      <MainLayout />
+    </Router>
+  );
+}
+
+export default App;
+
+function MainLayout() {
+  const location = useLocation();
+  const hideLayout = location.pathname.startsWith("/dashboard");
+
+  return (
+    <>
       <ScrollToTop />
-      <Header />
+      {!hideLayout && <Header />}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/collections" element={<ProductsPage />} />
@@ -48,23 +70,26 @@ function App() {
             </PublicRoute>
           }
         />
+        <Route
+          path="/dashboard"
+          element={
+            <RoleBasedRoutes allowedRoles={["admin", "superAdmin"]}>
+              <AdminDashboard />
+            </RoleBasedRoutes>
+          }
+        />
       </Routes>
-      <Footer />
+      {!hideLayout && <Footer />}
 
       <ToastContainer
         position="top-right"
         autoClose={3000}
         hideProgressBar={true}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
         pauseOnFocusLoss
         draggable
         pauseOnHover
         theme="light"
       />
-    </Router>
+    </>
   );
 }
-
-export default App;

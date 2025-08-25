@@ -1,6 +1,5 @@
 "use client"
 
-import Image from "next/image";
 import Container from "./components/Container/Container";
 import Search from "./components/Search/Search";
 import TopBanner from "./components/TopBanner/TopBanner";
@@ -17,7 +16,6 @@ import { useEffect } from "react";
 export default function Home() {
     const { 
     getGamesOnSale, 
-    getGamesWithAchievements, 
     getGamesOnSaleWithAchievements ,
     fetchGames,
     loading,
@@ -27,7 +25,6 @@ export default function Home() {
     fetchGames();
   }, [fetchGames]);
     const gamesOnSale: Game[] = getGamesOnSale();
-  const gamesWithAchievements: Game[] = getGamesWithAchievements();
   const gamesOnSaleWithAchievements : Game[] = getGamesOnSaleWithAchievements();
   if (loading) {
     return (

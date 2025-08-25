@@ -12,13 +12,14 @@ import cartRoutes from "./routes/cartRoutes.js";
 import { errorHandler } from "./middlewares/errorHandler.js";
 import swaggerUi from "swagger-ui-express";
 import swaggerFile from "./swagger-output.json" with { type: "json" };
-
+import { fileURLToPath } from 'url';
 const app = express();
 app.use(express.json());
 
 app.use(cors());
-
-app.use("/uploads", express.static(path.join(process.cwd(), "uploads")));
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // MongoDB Connection
 mongoose.connect(process.env.MONGO_URI)
@@ -40,11 +41,11 @@ app.use("/api/cart",cartRoutes)
 // Global Error Handler
 app.use(errorHandler);
 
-const PORT = process.env.PORT || 5000;
+// const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-});
+// app.listen(PORT, () => {
+//     console.log(`Server running on port ${PORT}`);
+// });
 
 
 

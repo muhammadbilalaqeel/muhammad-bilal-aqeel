@@ -8,9 +8,8 @@ import User from "../models/User.js";
 export const addToCart = async (req, res) => {
   try {
     const { id } = req.user;
+    // console.log(id)
     const { prod_id, variant, quantity } = req.body;
-
-    // Check if product with that variant exists
     const existence = await Product.findOne({
       _id: prod_id,
       "variants.weight": variant,
@@ -272,10 +271,10 @@ export const getUserCartProducts = async (req, res) => {
   
     const userCart = await Cart.findOne({ user: id }).populate(
       "products.product"
-    );
+    ).sort({ createdAt: -1 });
 
     if (!userCart || userCart.products.length === 0) {
-      return res.status(404).json({
+      return res.status(200).json({
         success: false,
         data: [],
         message: "Cart is empty",

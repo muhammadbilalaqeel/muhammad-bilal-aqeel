@@ -5,24 +5,34 @@ import { errors, success } from "../utils/responses.js";
 
 import fs from "fs";
 
+
 export const createProduct = async (req, res) => {
   try {
     let data = req.body;
 
-    // Attach images paths
-    if (req.files) {
-      data.images = req.files.map((file) => file.path);
+    data.stock = parseInt(data.stock) || 0;
+    if (data.variants && Array.isArray(data.variants)) {
+      data.variants = data.variants.map((v) => ({
+        weight: v.weight,
+        price: parseFloat(v.price) || 0,
+      }));
     }
 
-    let { name, slug } = data;
+ 
+
+    if (!data.slug && data.name) {
+      data.slug = data.name.toLowerCase().replace(/\s+/g, "-");
+    }
+
+  
     const existingProduct = await Product.findOne({
-      $or: [{ name }, { slug }],
+      $or: [{ name: data.name }, { slug: data.slug }],
     });
     if (existingProduct) {
       return res.status(400).json({
         success: false,
         message:
-          existingProduct.name === name
+          existingProduct.name === data.name
             ? "Product name already exists"
             : "Product slug already exists",
       });
@@ -35,25 +45,82 @@ export const createProduct = async (req, res) => {
       message: "Product created successfully",
     });
   } catch (error) {
+    console.error(error);
     res.status(500).json({ success: false, message: error.message });
   }
 };
+
+
 // Fetching all Products
 
 export const getAllProducts = async (req, res) => {
   try {
+    const page = parseInt(req.query.page) || 1;
+    const limit = 10; 
+    const skip = (page - 1) * limit;
+
     const products = await Product.aggregate([
       {
         $facet: {
-          data: [{ $match: {} }],
+          data: [
+            { $sort: { createdAt: -1 } }, 
+            { $skip: skip },
+            { $limit: limit },
+          ],
           count: [{ $count: "total" }],
         },
       },
     ]);
 
+    const total = products[0].count[0]?.total || 0;
+    const totalPages = Math.ceil(total / limit);
+
     return res.status(200).json({
       success: true,
-      data: products,
+      data: products[0].data,
+      page,
+      total,
+      totalPages,
+      message: "Products retrieved successfully",
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+
+
+
+//Get Products Summary
+export const getProductsSummary = async (req, res) => {
+  try {
+    const summary = await Product.aggregate([
+      {
+        $facet: {
+          totalProducts: [{ $count: "count" }],
+          distinctCollections: [
+            { $unwind: "$attributes.collections" },
+            { $group: { _id: null, collections: { $addToSet: "$attributes.collections" } } },
+          ],
+          totalStock: [
+            { $group: { _id: null, stock: { $sum: "$stock" } } }
+          ],
+        },
+      },
+      {
+        $project: {
+          totalProducts: { $arrayElemAt: ["$totalProducts.count", 0] },
+          collections: { $arrayElemAt: ["$distinctCollections.collections", 0] },
+          totalStock: { $arrayElemAt: ["$totalStock.stock", 0] },
+        },
+      },
+    ]);
+
+    res.status(200).json({
+      success: true,
+      data: summary[0],
       message: success.PRODUCTS_RETRIEVED,
     });
   } catch (error) {
@@ -63,6 +130,7 @@ export const getAllProducts = async (req, res) => {
     });
   }
 };
+
 
 // Get product by ID
 export const getProductByID = async (req, res) => {
@@ -125,14 +193,13 @@ export const getProductBySlug = async (req, res) => {
 export const getFilteredProductsByOption = async (req, res) => {
   try {
     let filteredQuery = req.query;
-
     let query = {};
 
     if (filteredQuery.caffeine) {
       query.caffeine = filteredQuery.caffeine;
     }
     if (filteredQuery.organic) {
-      query.organic = filteredQuery.organic == "true";
+      query.organic = filteredQuery.organic === "true";
     }
 
     const attributes = [
@@ -142,6 +209,7 @@ export const getFilteredProductsByOption = async (req, res) => {
       "qualities",
       "allergies",
     ];
+
     attributes.forEach((key) => {
       if (filteredQuery[key]) {
         query[`attributes.${key}`] = filteredQuery[key];
@@ -149,17 +217,14 @@ export const getFilteredProductsByOption = async (req, res) => {
     });
 
     const products = await Product.find(query);
-    if (products.length > 0) {
-      return res.status(200).json({
-        success: true,
-        data: products,
-        message: success.PRODUCTS_RETRIEVED,
-      });
-    }
-    return res.status(400).json({
-      success: false,
-      data: null,
-      message: errors.PRODUCT_NOT_FOUND,
+
+    return res.status(200).json({
+      success: true,
+      data: products,
+      message:
+        products.length > 0
+          ? success.PRODUCTS_RETRIEVED
+          : errors.PRODUCT_NOT_FOUND,
     });
   } catch (error) {
     res.status(500).json({
@@ -225,25 +290,13 @@ export const deleteProductById = async (req, res) => {
     const product = await Product.findById(req.params.id);
 
     if (!product) {
-      return res
-        .status(404)
-        .json({ success: false, message: "Product not found" });
+      return res.status(404).json({ success: false, message: "Product not found" });
     }
 
-    // Delete images from filesystem
-    if (product.images && product.images.length > 0) {
-      product.images.forEach((imgPath) => {
-        if (fs.existsSync(imgPath)) {
-          fs.unlinkSync(imgPath);
-        }
-      });
-    }
 
     await product.deleteOne();
 
-    return res
-      .status(200)
-      .json({ success: true, message: "Product deleted successfully" });
+    return res.status(200).json({ success: true, message: "Product deleted successfully" });
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });
   }
@@ -254,44 +307,19 @@ export const deleteProductById = async (req, res) => {
 export const updateProductById = async (req, res) => {
   try {
     let data = req.body;
-
-    // Parse JSON if frontend sends nested objects
-    // if (typeof data.attributes === "string") {
-    //   data.attributes = JSON.parse(data.attributes);
-    // }
-    // if (typeof data.variants === "string") {
-    //   data.variants = JSON.parse(data.variants);
-    // }
-
+    console.log(data)
     const product = await Product.findById(req.params.id);
 
     if (!product) {
-      return res
-        .status(404)
-        .json({ success: false, message: "Product not found" });
+      return res.status(404).json({ success: false, message: "Product not found" });
     }
 
-    // If new images are uploaded → delete old ones first
-    if (req.files && req.files.length > 0) {
-      if (product.images && product.images.length > 0) {
-        product.images.forEach((imgPath) => {
-          if (fs.existsSync(imgPath)) {
-            fs.unlinkSync(imgPath);
-          }
-        });
-      }
+ 
 
-      data.images = req.files.map((file) => file.path);
-    }
-
-    const updatedProduct = await Product.findByIdAndUpdate(
-      req.params.id,
-      data,
-      {
-        new: true,
-        runValidators: true,
-      }
-    );
+    const updatedProduct = await Product.findByIdAndUpdate(req.params.id, data, {
+      new: true,
+      runValidators: true,
+    });
 
     return res.status(200).json({
       success: true,
@@ -302,25 +330,21 @@ export const updateProductById = async (req, res) => {
     res.status(500).json({ success: false, message: error.message });
   }
 };
-
-
-
-
 // Get collections
 
 export const getCollections = async (req, res) => {
   try {
     const collections = await Product.aggregate([
       {
-        $unwind: "$attributes.collections" // break array into separate docs
+        $unwind: "$attributes.collections", // break array into separate docs
       },
       {
         $group: {
           _id: "$attributes.collections", // group by collection name
-          productId: { $first: "$_id" },  // pick first product
-          name: { $first: "$name" },      // pick first product name
-          image: { $first: { $arrayElemAt: ["$images", 0] } } // pick first image
-        }
+          productId: { $first: "$_id" }, // pick first product
+          name: { $first: "$name" }, // pick first product name
+          image: { $first: { $arrayElemAt: ["$images", 0] } }, // pick first image
+        },
       },
       {
         $project: {
@@ -328,20 +352,20 @@ export const getCollections = async (req, res) => {
           collection: "$_id",
           productId: 1,
           name: 1,
-          image: 1
-        }
-      }
+          image: 1,
+        },
+      },
     ]);
 
     res.status(200).json({
       success: true,
-      collections
+      collections,
     });
   } catch (error) {
     res.status(500).json({
       success: false,
       message: "Failed to fetch collections",
-      error: error.message
+      error: error.message,
     });
   }
 };

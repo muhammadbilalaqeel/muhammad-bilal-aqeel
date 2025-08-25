@@ -59,9 +59,9 @@ export default function GameCardContainer({ title,game }: GameCardContainerProps
     1140: { slidesPerView: 5 },   
   }}
   onBeforeInit={(swiper) => {
-    // @ts-ignore
+    // @ts-expect-error: temporary workaround for type mismatch
     swiper.params.navigation.prevEl = prevRef.current
-    // @ts-ignore
+   // @ts-expect-error: temporary workaround for type mismatch
     swiper.params.navigation.nextEl = nextRef.current
   }}
 onSwiper={(swiper) => {

@@ -1,48 +1,56 @@
 import React, { useEffect, useState } from "react";
-import { Minus, Plus } from "lucide-react";
+import { FaMinus, FaPlus } from "react-icons/fa";
 import {
-  getFilterOptions,
-  getFilteredProducts,
-} from "../../services/productService";
+  useGetFilteredProductsQuery,
+  useGetFilterOptionsQuery,
+} from "../../redux/apiSlice";
 
 const Sidebar = ({ onProductsFiltered }) => {
   const [enabled, setEnabled] = useState(false);
-  const [filterOptions, setFilterOptions] = useState([]);
   const [selectedFilters, setSelectedFilters] = useState({});
   const [openSections, setOpenSections] = useState({});
 
-  useEffect(() => {
-    const fetchOptions = async () => {
-      let result = await getFilterOptions();
-      setFilterOptions(result);
 
+  const {
+    data: filterOptions,
+    isLoading: isFilterOptionsLoading,
+    isError: isFilterOptionsError,
+  } = useGetFilterOptionsQuery();
+
+
+  const {
+    data: filterProducts,
+    isLoading: isProductsLoading,
+    isError: isProductsError,
+  } = useGetFilteredProductsQuery(selectedFilters);
+
+
+  useEffect(() => {
+    if (filterProducts?.data) {
+      onProductsFiltered(filterProducts.data,isProductsLoading,isProductsError);
+    }
+  }, [filterProducts, onProductsFiltered]);
+
+  useEffect(() => {
+    if (filterOptions?.attributes) {
       const initialOpenState = {};
-      result.attributes?.forEach((attr) => {
-        initialOpenState[attr._id] = false; 
+      filterOptions.attributes.forEach((attr) => {
+        initialOpenState[attr._id] = false;
       });
       initialOpenState["caffeine"] = false;
       setOpenSections(initialOpenState);
-    };
-    fetchOptions();
-  }, []);
-
-  useEffect(() => {
-    const fetchFilteredProducts = async () => {
-      const result = await getFilteredProducts(selectedFilters);
-      if (result?.success) {
-        onProductsFiltered(result.data);
-      }
-    };
-    fetchFilteredProducts();
-  }, [selectedFilters, enabled]);
+    }
+  }, [filterOptions]);
 
   const handleCheckboxChange = (category, value) => {
     setSelectedFilters((prev) => {
       const updated = { ...prev };
 
       if (updated[category] === value) {
+       
         delete updated[category];
       } else {
+      
         updated[category] = value;
       }
 
@@ -57,10 +65,25 @@ const Sidebar = ({ onProductsFiltered }) => {
     }));
   };
 
+  if (isFilterOptionsLoading ) {
+    return (
+      <div className="flex justify-center items-center h-64">
+        <div className="w-12 h-12 border-4 border-blue-500 border-dashed rounded-full animate-spin"></div>
+      </div>
+    );
+  }
+  if (isFilterOptionsError ) {
+    return (
+      <p className="text-red-500 py-8 px-3 text-center">
+        Something went wrong!
+      </p>
+    );
+  }
+
   return (
     <div className="hidden md:flex flex-col gap-4">
-      {/* Dynamic attribute filters */}
-      {filterOptions.attributes?.map((item) => (
+ 
+      {filterOptions?.attributes?.map((item) => (
         <div key={item._id}>
           <div
             className="flex items-center justify-between cursor-pointer"
@@ -70,7 +93,11 @@ const Sidebar = ({ onProductsFiltered }) => {
               {item._id}{" "}
               <span className="text-[#C3B212]">({item.values.length})</span>
             </p>
-            {openSections[item._id] ? <Minus size={20} /> : <Plus size={20} />}
+            {openSections[item._id] ? (
+              <FaMinus size={20} />
+            ) : (
+              <FaPlus size={20} />
+            )}
           </div>
           <div
             className={`transition-all duration-300 overflow-hidden ${
@@ -105,10 +132,14 @@ const Sidebar = ({ onProductsFiltered }) => {
           <p className="text-base font-medium uppercase w-[216px]">
             CAFFEINE{" "}
             <span className="text-[#C3B212]">
-              ({filterOptions.caffeineLevels?.length})
+              ({filterOptions?.caffeineLevels?.length})
             </span>
           </p>
-          {openSections["caffeine"] ? <Minus size={20} /> : <Plus size={20} />}
+          {openSections["caffeine"] ? (
+            <FaMinus size={20} />
+          ) : (
+            <FaPlus size={20} />
+          )}
         </div>
         <div
           className={`transition-all duration-300 overflow-hidden ${
@@ -118,7 +149,7 @@ const Sidebar = ({ onProductsFiltered }) => {
           }`}
         >
           <div className="mt-2">
-            {filterOptions.caffeineLevels?.map((level, index) => (
+            {filterOptions?.caffeineLevels?.map((level, index) => (
               <label key={index} className="flex items-center gap-2 my-2">
                 <input
                   type="checkbox"

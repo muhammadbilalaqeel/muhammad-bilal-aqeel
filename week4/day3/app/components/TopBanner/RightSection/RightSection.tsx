@@ -8,7 +8,7 @@ type RightSectionProps = {
 
 
 export default function RightSection({setBannerImage,bannerImg} : RightSectionProps ){
-    const {games,loading} = useGameStore()
+    const {games} = useGameStore()
     const handleClick = (img:string,description:string)=>{
         setBannerImage([img,description])
     }

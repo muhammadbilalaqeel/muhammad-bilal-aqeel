@@ -1,8 +1,9 @@
-import { X } from "lucide-react";
+
 import { useEffect, useState } from "react";
 import { Icons, NavList } from "../../../constants/gernal";
 import logo from "../../../assets/header/logo.svg";
 import { Link } from "react-router-dom";
+import { RxCross2 } from "react-icons/rx";
 
 
 export const MobileMenu = ({ onClose }) => {
@@ -34,7 +35,7 @@ export const MobileMenu = ({ onClose }) => {
                         {/* Close button */}
                         <div className="flex justify-end">
                             <button onClick={handleClose}>
-                                <X />
+                                <RxCross2 />
                             </button>
                         </div>
 
@@ -54,7 +55,7 @@ export const MobileMenu = ({ onClose }) => {
 
                         {/* Profile + Bag */}
                         <div className="mt-4 space-y-4">
-                            <div className="flex items-center gap-2 text-sm">
+                            <Link to={'/login'} className="flex items-center gap-2 text-sm">
                                 <img src={Icons.user.src} alt="User" className="h-6 w-6" />
                                 <p className="text-[11px] font-medium text-[#282828]">
                                     USER PROFILE<br />
@@ -62,7 +63,7 @@ export const MobileMenu = ({ onClose }) => {
                                         We know you as a guest user
                                     </span>
                                 </p>
-                            </div>
+                            </Link>
                             <div
                                 className="flex items-center gap-2 text-sm cursor-pointer"
                                 onClick={handleClose}

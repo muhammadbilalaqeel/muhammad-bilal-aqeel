@@ -6,9 +6,11 @@ import { IoBagHandleOutline } from "react-icons/io5";
 import Button from "../shared/buttons/button";
 import { addToCart } from "../../services/cartServices";
 import { toast } from "react-toastify";
+import { useAddToCartMutation } from "../../redux/apiSlice";
 const ProductDetails = ({ product }) => {
   const [quantity, setQuantity] = useState(1);
   const [selectedVariant, setSelectedVariant] = useState(null);
+   const [addToCart] = useAddToCartMutation();
   const handleDecreaseQuantity = () => {
     setQuantity((prev) => {
       if (prev == 1) {
@@ -33,27 +35,34 @@ const ProductDetails = ({ product }) => {
     });
   };
 
-  const handleAddBag = async () => {
-    if (!product || !selectedVariant) return;
+ const handleAddBag = async () => {
+  if (!product || !selectedVariant) return;
 
-    const data = {
-      prod_id: product._id,
-      variant: selectedVariant.weight,
-      quantity: quantity,
-    };
-    // console.log("Adding to cart:", data);
-
-    const result = await addToCart(data);
-    // console.log(result)
-    if (result?.success) {
-      toast.success(result?.message);
-    }
-    else{
-      if(result.message === "Not authorized, no token provided"){
-        toast.error("Login First")
-      }
-    }
+  const data = {
+    prod_id: product._id,
+    variant: selectedVariant.weight,
+    quantity: quantity,
   };
+
+  try {
+ 
+    const result = await addToCart(data).unwrap();
+    console.log(data)
+    console.log(result)
+    if (result?.success) {
+      toast.success(result?.message || "Added to cart");
+    } else {
+      toast.error(result?.message || "Something went wrong");
+    }
+  } catch (err) {
+   
+    if (err?.data?.message === "Not authorized, no token provided") {
+      toast.error("Login First");
+    } else {
+      toast.error(err?.data?.message || "Error adding to cart");
+    }
+  }
+};
 
   return (
     <div className="md:max-w-[574px] lg:min-h-[507px] flex flex-col gap-5 px-4 sm:px-10 md:px-0">
@@ -99,9 +108,9 @@ const ProductDetails = ({ product }) => {
           Variants
         </p>
 
-        <div className="flex py-[10px] xl:gap-3.5 lg:gap-2 gap-3.5 text-[#282828] sm:flex-wrap sm:justify-start justify-between overflow-x-auto">
+        <div className="flex py-[10px] xl:gap-3.5 lg:gap-2 gap-3.5 text-[#282828] sm:flex-wrap sm:justify-start  overflow-x-auto">
           {product?.variants?.map((item, index) => {
-            const isActive = selectedVariant?._id === item._id; // highlight selected
+            const isActive = selectedVariant?._id === item._id; 
             return (
               <div
                 key={index}

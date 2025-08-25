@@ -1,11 +1,11 @@
 
 import React from 'react'
-import { ChevronRightIcon } from 'lucide-react'
 import Button from '../shared/buttons/button'
 import visa from "../../assets/cart/visa.png"
 import maestro from "../../assets/cart/maestro.png"
 import mastercard from "../../assets/cart/mastecard.png" // you wrote mastecard, typo?
 import ideal from "../../assets/cart/ideal.png"
+import { FaChevronRight } from 'react-icons/fa'
 
 
 const OrderSummary = ({delivery,subtotal,total}) => {
@@ -55,19 +55,19 @@ const OrderSummary = ({delivery,subtotal,total}) => {
         {/* sub total */}
         <div className='w-full flex flex-col gap-4 pb-2 pt-6'>
           <di className='flex items-start gap-2'>
-            <span> <ChevronRightIcon size={16} /> </span>
+            <span> <FaChevronRight size={16} /> </span>
             <p className='text-sm'>Order before 12:00 and we will ship the same day.</p>
           </di>
           <di className='flex items-start gap-2'>
-            <span> <ChevronRightIcon size={16} /> </span>
+            <span> <FaChevronRight size={16} /> </span>
             <p className='text-sm'>Orders made after Friday 12:00 are processed on Monday.</p>
           </di>
           <di className='flex items-start gap-2'>
-            <span> <ChevronRightIcon size={16} /> </span>
+            <span> <FaChevronRight size={16} /> </span>
             <p className='text-sm'>To return your articles, please contact us first.</p>
           </di>
           <di className='flex items-start gap-2'>
-            <span> <ChevronRightIcon size={16} /> </span>
+            <span> <FaChevronRight size={16} /> </span>
             <p className='text-sm'>Postal charges for retour are not reimbursed.</p>
           </di>
         </div>

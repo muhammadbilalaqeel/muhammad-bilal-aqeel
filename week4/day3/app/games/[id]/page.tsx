@@ -1,22 +1,22 @@
 "use client";
 
 import Image from "next/image";
-import { Game } from "@/app/types/game";
 import { IoStar } from "react-icons/io5";
 import useGameStore from "@/app/store/usegameStore";
 import { use, useEffect } from "react";
 
 
 export default function GameByID({ params }: { params: Promise<{ id: string }> }) {
-    let {id} = use(params);
+    const {id} = use(params);
       const { singleGame, fetchGameById, loading, error } = useGameStore();
         useEffect(() => {
     fetchGameById(Number(id));
   }, [id, fetchGameById]);
-  const discountedPrice =
-    singleGame?.discount && singleGame?.onSale
-      ? (singleGame?.price - (singleGame?.price * singleGame?.discount) / 100).toFixed(2)
-      : singleGame?.price.toFixed(2);
+const discountedPrice = singleGame?.price
+  ? singleGame.discount && singleGame.onSale
+    ? (singleGame.price - (singleGame.price * singleGame.discount) / 100).toFixed(2)
+    : singleGame.price.toFixed(2)
+  : "N/A";
   if (loading) {
     return (
       <div className="flex justify-center items-center h-64">
@@ -31,12 +31,12 @@ export default function GameByID({ params }: { params: Promise<{ id: string }> }
       {/* Header */}
       <div className="flex flex-col md:flex-row gap-6">
        <div className="relative md:max-w-[400px] w-full h-[300px] overflow-hidden rounded">
-         <Image
-          src={`/images/${singleGame.coverImage}`}
-          alt={singleGame.title}
-          fill
-          className="object-cover"
-        />
+        <Image
+  src={`/images/${singleGame.coverImage}`}
+  alt={singleGame?.title || "Game cover"}
+  fill
+  className="object-cover"
+/>
        </div>
         <div>
           <h1 className="text-3xl font-bold">{singleGame?.title}</h1>
@@ -57,7 +57,10 @@ export default function GameByID({ params }: { params: Promise<{ id: string }> }
                 </span>
               </>
             ) : (
-              <span className="text-xl font-bold">${singleGame?.price.toFixed(2)}</span>
+             <span className="text-xl font-bold">
+  {singleGame?.price !== undefined ? `$${singleGame.price.toFixed(2)}` : "N/A"}
+</span>
+
             )}
           </div>
 
@@ -66,8 +69,9 @@ export default function GameByID({ params }: { params: Promise<{ id: string }> }
             <p>Release Date: {singleGame?.releaseDate}</p>
             <p>Developer: {singleGame?.developer}</p>
             <p>Publisher: {singleGame?.publisher}</p>
-            <p>Platforms: {singleGame?.platforms.join(", ")}</p>
-            <p>Tags: {singleGame?.tags.join(", ")}</p>
+      <p>Platforms: {(singleGame?.platforms ?? []).join(", ") || "N/A"}</p>
+<p>Tags: {(singleGame?.tags ?? []).join(", ") || "N/A"}</p>
+
           </div>
         </div>
       </div>
@@ -93,23 +97,30 @@ export default function GameByID({ params }: { params: Promise<{ id: string }> }
       <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-8">
         <div>
           <h2 className="text-2xl font-semibold mb-3">Minimum Requirements</h2>
-          <ul className="space-y-1 text-gray-300">
-            <li>OS: {singleGame?.requirements.minimum.os}</li>
-            <li>Processor: {singleGame?.requirements.minimum.processor}</li>
-            <li>Memory: {singleGame?.requirements.minimum.memory}</li>
-            <li>Graphics: {singleGame?.requirements.minimum.graphics}</li>
-            <li>Storage: {singleGame?.requirements.minimum.storage}</li>
-          </ul>
+       {singleGame?.requirements?.minimum ? (
+  <ul className="space-y-1 text-gray-300">
+    <li>OS: {singleGame.requirements.minimum.os}</li>
+    <li>Processor: {singleGame.requirements.minimum.processor}</li>
+    <li>Memory: {singleGame.requirements.minimum.memory}</li>
+    <li>Graphics: {singleGame.requirements.minimum.graphics}</li>
+  </ul>
+) : (
+  <p className="text-gray-400">Minimum requirements not available</p>
+)}
         </div>
         <div>
           <h2 className="text-2xl font-semibold mb-3">Recommended Requirements</h2>
-          <ul className="space-y-1 text-gray-300">
-            <li>OS: {singleGame?.requirements.recommended.os}</li>
-            <li>Processor: {singleGame?.requirements.recommended.processor}</li>
-            <li>Memory: {singleGame?.requirements.recommended.memory}</li>
-            <li>Graphics: {singleGame?.requirements.recommended.graphics}</li>
-            <li>Storage: {singleGame?.requirements.recommended.storage}</li>
-          </ul>
+          {singleGame?.requirements?.recommended ? (
+  <ul className="space-y-1 text-gray-300">
+    <li>OS: {singleGame.requirements.recommended.os}</li>
+    <li>Processor: {singleGame.requirements.recommended.processor}</li>
+    <li>Memory: {singleGame.requirements.recommended.memory}</li>
+    <li>Graphics: {singleGame.requirements.recommended.graphics}</li>
+  </ul>
+) : (
+  <p className="text-gray-400">Recommended requirements not available</p>
+)}
+
         </div>
       </div>
 
@@ -117,22 +128,16 @@ export default function GameByID({ params }: { params: Promise<{ id: string }> }
       <div className="mt-10">
         <h2 className="text-2xl font-semibold mb-4">User Reviews</h2>
         <div className="space-y-4">
-          {singleGame?.reviews.map((review, i) => (
-            <div
-              key={i}
-              className="bg-[#202020] p-4 rounded-lg flex flex-col gap-2"
-            >
-              <div className="flex items-center justify-between flex-wrap gap-3">
-                <span className="font-semibold">{review.user}</span>
-                <div className="flex items-center gap-1">
-                  {Array.from({ length: review.rating }).map((_, idx) => (
-                    <IoStar key={idx} className="text-yellow-400" />
-                  ))}
-                </div>
-              </div>
-              <p className="text-gray-300">{review.comment}</p>
-            </div>
-          ))}
+         {Array.isArray(singleGame?.reviews) && singleGame.reviews.length > 0 ? (
+  singleGame.reviews.map((review, i) => (
+    <div key={i} className="bg-[#202020] p-4 rounded-lg flex flex-col gap-2">
+      <p className="text-gray-200">{review.comment}</p>
+      <span className="text-sm text-gray-400">- {review.user}</span>
+    </div>
+  ))
+) : (
+  <p className="text-gray-400">No reviews available.</p>
+)}
         </div>
       </div>
     </div>

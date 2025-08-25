@@ -10,11 +10,15 @@ import logo from "../../../assets/header/logo.svg";
 import { CiLogout } from "react-icons/ci";
 import { toast } from "react-toastify";
 import { useAuth } from "../../../hooks/useAuth";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../../../redux/authSlice";
+import { RxDashboard } from "react-icons/rx";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
-  const [useri, setUserI] = useState(localStorage.getItem("token"));
-  const {logout,isAuthenticated,user} = useAuth()
+  const dispatch = useDispatch()
+  const auth = useSelector((state) => state.authReducer);
+  const { user, isAuthenticated, token } = auth;
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 768) {
@@ -33,9 +37,7 @@ const Header = () => {
     return () => window.removeEventListener("storage", handleStorageChange);
   }, []);
   const handleLogout = () => {
-    localStorage.removeItem("token");
-    setUserI(null);
-    logout()
+    dispatch(logout())
     toast.success("User logout Successfully!")
   };
   return (
@@ -71,6 +73,14 @@ const Header = () => {
 
             {/* Side Icons + Hamburger */}
             <div className="flex items-center gap-3 sm:gap-6 lg:gap-9 flex-shrink-0">
+              {
+               token && user?.role !== 'user' &&   <Link to={'/dashboard'} className="cursor-pointer">
+                    <RxDashboard
+                      
+                      className="h-5 w-5 sm:h-6 sm:w-6"
+                    />
+                  </Link>
+              }
               {/* Desktop icons */}
               {Object.entries(Icons).map(([key, icon]) =>
                 icon.alt === "cart Icon" ? (

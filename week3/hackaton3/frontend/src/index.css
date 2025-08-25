@@ -2,6 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
 @import "tailwindcss";
+@plugin "flowbite-react/plugin/tailwindcss";
+@source "../.flowbite-react/class-list.json";
 
 .font-prosto {
     font-family: 'Prosto One', cursive;

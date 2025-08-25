@@ -6,37 +6,38 @@ import api from "../../services/api";
 import { signUpSchema } from "../../schemas/authSchema";
 import LoadingSpinner from "../shared/common/LoadingSpinner";
 import { toast } from 'react-toastify';
+import { useSignupUserMutation } from "../../redux/apiSlice";
 
 const SignupForm = () => {
     const { register, handleSubmit, formState: { errors } } = useForm({
         resolver: yupResolver(signUpSchema),
     });
     const navigate = useNavigate();
-    const [loading, setLoading] = useState(false);
     const [errorMsg, setErrorMsg] = useState("");
     const [successMsg, setSuccessMsg] = useState("");
+    const [signup,{isLoading:loading,error}] = useSignupUserMutation()
+    console.log(error)
+   const onSubmit = async (data) => {
+  setErrorMsg("");
+  setSuccessMsg("");
 
-    const onSubmit = async (data) => {
-        setLoading(true);
-        setErrorMsg("");
-        setSuccessMsg("");
-        try {
-            let result = await api.post("/auth/register", {
-                name: data.name,
-                email: data.email,
-                password: data.password,
-            });
+  try {
+    const result = await signup({
+      name: data.name,
+      email: data.email,
+      password: data.password,
+    }).unwrap();  
 
-            setSuccessMsg("Account created successfully! Redirecting to login...");
-            toast.success(result?.data?.message)
-            setTimeout(() => navigate("/login"), 1000);
-        } catch (err) {
-            setErrorMsg(err.response?.data?.message || "Signup failed");
-             toast.error(err.response?.data?.message)
-        } finally {
-            setLoading(false);
-        }
-    };
+    toast.success(result.message || "Account created successfully!");
+    setTimeout(() => navigate("/login"), 1000);
+
+  } catch (err) {
+    // err comes from backend response
+    const msg = err?.data?.message || "Signup failed";
+    setErrorMsg(msg);
+    toast.error(msg);
+  }
+};
 
     return (
         <div className="flex items-center justify-center min-h-screen py-12 px-4 sm:px-6 lg:px-8 bg-[#f1faee]">

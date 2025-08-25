@@ -3,18 +3,21 @@ import { Collections } from "../../constants/gernal";
 import Container from "../shared/common/Container";
 import { getAllCollections } from "../../services/productService";
 import { Link } from "react-router-dom";
+import { useGetAllCollectionsQuery } from "../../redux/apiSlice";
 
 const Collection = () => {
-  const [collections, setCollections] = useState([]);
-  useEffect(() => {
-    const fetchCollections = async () => {
-      const result = await getAllCollections();
-      console.log(result);
-      setCollections(result.collections);
-    };
-
-    fetchCollections();
-  }, []);
+  // const [collections, setCollections] = useState([]);
+  const {data,isLoading,isError} = useGetAllCollectionsQuery()
+  const collections = data?.collections || []
+  console.log(data)
+   if (isLoading) {
+    return (
+      <div className="flex justify-center items-center h-64">
+        <div className="w-12 h-12 border-4 border-blue-500 border-dashed rounded-full animate-spin"></div>
+      </div>
+    );
+  }
+    if (isError) return <p className="text-red-500 py-8 px-3 text-center">Something went wrong!</p>;
   return (
     <div className="flex flex-col items-center justify-center">
       <Container>
@@ -39,7 +42,7 @@ const Collection = () => {
               >
                 <img
                   src={
-                    `${import.meta.env.VITE_API_URL}/uploads/${item.image}` ||
+                    `${item.image}` ||
                     "/placeholder.svg"
                   }
                   alt={item.collection}

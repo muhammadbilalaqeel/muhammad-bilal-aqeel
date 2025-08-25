@@ -34,10 +34,12 @@ const handleSearch = async () => {
 
     router.push(`/games/${results[0].id}`);
         setLoading(false);
-  } catch (err: any) {
-    toast.error(err.message || "Failed to search games");
-    setLoading(false)
-  }
+  } 
+  catch (err) {
+  const error = err as Error;
+  toast.error(error.message || "Failed to search games");
+  setLoading(false);
+}
 };
 
   return (

@@ -1,12 +1,14 @@
 import Collection from "../components/home/collection";
 import Hero from "../components/home/hero";
 import Feature from "../components/home/feature";
-import { useEffect } from "react";
+import { use, useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { useGetProductsQuery, useGetUsersQuery } from "../redux/apiSlice";
 
 const Home = () => {
   const { pathname } = useLocation();
-  useEffect(() => {
+
+  useEffect(() => { 
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [pathname]);
   return (

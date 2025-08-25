@@ -1,17 +1,24 @@
 import multer from "multer";
 import path from "path";
+import fs from "fs";
 
-// Storage config
+// Ensure uploads folder exists
+const uploadDir = path.join(process.cwd(), "uploads");
+if (!fs.existsSync(uploadDir)) {
+  fs.mkdirSync(uploadDir, { recursive: true });
+}
+
+
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "uploads/products"); // Folder where images will be saved
+    cb(null, uploadDir); 
   },
   filename: function (req, file, cb) {
-    cb(null, Date.now() + path.extname(file.originalname)); // Unique name
+    const uniqueName = Date.now() + "-" + file.originalname.replace(/\s+/g, "_");
+    cb(null, uniqueName);
   },
 });
 
-// File filter (optional: only images allowed)
 const fileFilter = (req, file, cb) => {
   const allowedTypes = /jpeg|jpg|png|webp/;
   const extname = allowedTypes.test(path.extname(file.originalname).toLowerCase());
@@ -21,5 +28,6 @@ const fileFilter = (req, file, cb) => {
     cb(new Error("Only images are allowed"));
   }
 };
+
 
 export const upload = multer({ storage, fileFilter });
