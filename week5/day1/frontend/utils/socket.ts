@@ -11,7 +11,7 @@ export interface Notification {
 }
 
 
-const URL = 'http://localhost:3001';
+const URL = 'https://week5day1server-production.up.railway.app/';
 const socket:Socket = io(URL, { transports: ["websocket"] })
 
 

@@ -12,15 +12,16 @@ import RelatedProducts from "../components/shared/common/RelatedProducts";
 import { getProductBySlug } from "../services/productService";
 import { useParams } from "react-router-dom";
 import { useGetProductBySlugQuery } from "../redux/apiSlice";
+import ProductReviews from "../components/singleProduct/ProductReviews";
 const SingleProductPage = () => {
   const { slug } = useParams();
- const { data, error, isLoading,isError } = useGetProductBySlugQuery(slug);
+  const { data, error, isLoading, isError } = useGetProductBySlugQuery(slug);
 
-  const product = data?.data
+  const product = data?.data;
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [slug]);
-    if (isLoading ) {
+  if (isLoading) {
     return (
       <div className="flex justify-center items-center h-64">
         <div className="w-12 h-12 border-4 border-blue-500 border-dashed rounded-full animate-spin"></div>
@@ -40,11 +41,7 @@ const SingleProductPage = () => {
       <div className="flex justify-center pb-12">
         <Container>
           <ProductOverview>
-            <ProductImage
-              img={`${
-                product?.images?.[0]
-              }`}
-            />
+            <ProductImage img={`${product?.images?.[0]}`} />
             <ProductDetails product={product} />
           </ProductOverview>
         </Container>
@@ -58,6 +55,12 @@ const SingleProductPage = () => {
             />
             <ProductDescription product={product} />
           </ProductInfoSection>
+        </Container>
+      </div>
+
+      <div>
+        <Container>
+          <ProductReviews />
         </Container>
       </div>
 

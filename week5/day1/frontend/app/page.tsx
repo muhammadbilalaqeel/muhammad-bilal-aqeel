@@ -50,7 +50,7 @@ export default function Home() {
       console.log("Disconnected from server");
     };
 
-    const handleConnectionEstablished = (data: any) => {
+    const handleConnectionEstablished = (data: {message:string,clientId:string,timestamp:string}) => {
       console.log("Connection established:", data);
       toast.success("Connected to server");
     };
@@ -87,7 +87,7 @@ export default function Home() {
         description: `"${data?.comment.text}" - by ${data?.comment.user}`,
       });
     };
-
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
     const handleError = (error: any) => {
       console.error("Socket error:", error);
       toast.error("Connection error occurred");
