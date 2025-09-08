@@ -67,13 +67,17 @@ export const biddingApi = createApi({
     }),
 
 
-    createWishlist : builder.mutation<GetWishlistUserResponse,void>({
-      query :()=> '/wishlist/user'
+    createWishlist : builder.mutation<GetWishlistUserResponse,PlaceWishlistRequest>({
+      query :(body)=> ( {
+        url:'/wishlist',
+        method:'POST',
+        body
+      } )
     })
   }),
 });
 
-export const { usePlaceBidMutation,useGetBidsByUserQuery } = biddingApi;
+export const { usePlaceBidMutation,useGetBidsByUserQuery,useCreateWishlistMutation,useGetWishlistByUserQuery } = biddingApi;
 
 
 

@@ -6,12 +6,16 @@ import { AuthGuard } from 'src/auth/auth.guard';
 export class WishlistController {
     constructor(private readonly wishlistService:WishlistService){}
 
-    // @UseGuards(AuthGuard)
-    @Post()
-    async create(@Body() carId:string,@Request() req){
-        const {userId} = req.user;
-        return this.wishlistService.createWishlist(userId,carId)
-    }
+   @Post()
+@UseGuards(AuthGuard)
+async create(@Body() body: { car: string }, @Request() req) {
+    const { userId } = req.user;
+    const { car } = body; 
+    return this.wishlistService.createWishlist(userId, car);
+}
+
+
+    @UseGuards(AuthGuard)
      @Get('user')
       async getListByUser(@Request() req){
         const {userId} = req.user

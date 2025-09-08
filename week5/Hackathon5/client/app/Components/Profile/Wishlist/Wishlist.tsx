@@ -1,0 +1,78 @@
+import { useGetWishlistByUserQuery } from "@/redux/api/biddingApiSlice";
+import Link from "next/link";
+import Container from "../../Common/Container";
+import ContentSpinner from "../../Spinners/ContentSpinner";
+import WishlistCard from "./WishlistCard";
+import moment from "moment";
+import Image from "next/image";
+import { FaRegStar } from "react-icons/fa";
+
+export default function Wishlist(){
+    const {data,isLoading} = useGetWishlistByUserQuery()
+    const list = data?.data.cars
+    console.log(list)
+    return (
+           <div className="max-w-[898px] w-full">
+               
+                 <div className="border-b border-[#B3B3B3]">
+                   <ul className="w-full flex">
+                    <li className="flex flex-col"><Link href={'#'} className="font-medium text-xl  w-[142px] h-[38px] inline-block text-[#2E3D83]">My Wishlist</Link>
+                    <div className="w-[80px] h-[5px] rounded-[5px] bg-[#FFC300]"></div>
+                    </li>
+                   </ul>
+                 </div>
+                  
+                 <div className="py-16">
+                      {
+                        isLoading ? <ContentSpinner/> :
+                        <Container className="grid grid-cols-[repeat(auto-fit,minmax(270px,1fr))] gap-5.5">
+                             {
+                                list && list.length > 0 ? list.map((item,index)=>{
+                                    return       <div className="overflow-hidden bg-white h-[400px] w-[273px] border border-[#A9A9A9] rounded-[5px]">
+                      <div className="head w-full pb-8 relative border-b border-[#A9A9A9]">
+                            <div className=" w-[76px] h-[19px] rounded-r-[2px] rounded-tl-[4px] flex items-center justify-center gap-2 bg-[#EF233C] text-white  text-[10px] font-semibold leading-[100%]">Trending <svg width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M7.79769 0.477484C7.61823 0.544483 7.48966 0.643641 7.20841 0.933078C6.91913 1.23055 6.83877 1.37527 6.81466 1.62451L6.79859 1.79066L6.62181 1.87374C5.75128 2.2811 4.25932 3.77384 3.84146 4.65822L3.74771 4.85654H3.61646C3.36736 4.85654 3.21468 4.93962 2.87986 5.26657C2.49683 5.63373 2.40308 5.80257 2.40308 6.10272C2.40308 6.26352 2.41647 6.32248 2.48611 6.4672C2.56111 6.61727 2.70575 6.77271 3.67807 7.74018C4.70932 8.76928 4.79503 8.847 4.93967 8.9006C5.14324 8.97564 5.36556 8.97296 5.56645 8.89792C5.69503 8.84968 5.77538 8.78804 6.03788 8.53345C6.39413 8.18237 6.47716 8.04837 6.50127 7.7777L6.51734 7.6035L6.66734 7.5365C6.85484 7.4561 7.15484 7.26047 7.4468 7.03267L7.66912 6.85847L7.78162 6.98979C8.0468 7.30334 8.87715 8.25205 9.48519 8.93008C10.9905 10.6185 11.6682 11.3447 11.92 11.535C12.5307 11.996 13.037 11.9772 13.5137 11.476C13.945 11.0231 13.9209 10.5059 13.4414 9.89755C13.2111 9.60811 10.9932 7.5901 9.18519 6.025L8.81823 5.70877L8.97358 5.51581C9.19055 5.24245 9.36197 4.97714 9.47179 4.74398L9.56822 4.54298L9.71822 4.53762C9.96197 4.53226 10.1227 4.44115 10.4521 4.11687C10.7575 3.81404 10.862 3.65592 10.9048 3.43884C10.9343 3.27804 10.8995 3.04757 10.8191 2.88677C10.7843 2.81977 10.3504 2.36418 9.67536 1.68883C8.7218 0.73208 8.56912 0.590042 8.42983 0.525723C8.22894 0.434605 7.9718 0.415845 7.79769 0.477484ZM9.26554 2.1069L10.3423 3.18424V3.29948C10.3423 3.40936 10.3289 3.42812 10.1093 3.65592C9.85215 3.91855 9.77447 3.97215 9.64054 3.97215C9.56286 3.97215 9.45572 3.87567 8.49948 2.91893C7.91823 2.34274 7.42805 1.83086 7.4093 1.78798C7.3477 1.65131 7.38787 1.56555 7.62894 1.31631C7.87805 1.05636 7.98519 0.989357 8.10573 1.01348C8.16734 1.0242 8.44591 1.28951 9.26554 2.1069ZM8.04948 3.29948C9.17447 4.42507 9.08876 4.28839 8.89055 4.62874C8.52626 5.24781 7.71734 6.11612 6.98877 6.66551C6.72895 6.86383 6.4102 7.06215 6.31109 7.09163C6.26824 7.10503 6.07002 6.92011 5.26913 6.1188C4.12539 4.97178 4.20843 5.12186 4.47092 4.69842C4.88342 4.03111 5.79145 3.09581 6.50663 2.60269C6.7477 2.43386 6.96466 2.31058 7.02091 2.31058C7.04234 2.31058 7.50573 2.75545 8.04948 3.29948ZM3.7745 5.45685C3.81468 5.47829 4.30753 5.958 4.87003 6.52348C5.57181 7.22563 5.90395 7.5767 5.91735 7.6303C5.95752 7.77502 5.90931 7.86078 5.64681 8.11805C5.39503 8.36729 5.31199 8.41285 5.18074 8.38337C5.12985 8.36997 4.75217 8.01085 4.04235 7.30066C3.01647 6.27424 2.97629 6.23136 2.97629 6.13488C2.97629 5.99284 3.0245 5.91512 3.2495 5.69805C3.5495 5.40593 3.61914 5.37377 3.7745 5.45685ZM8.90394 6.53688C9.80394 7.31406 11.5959 8.92204 12.5495 9.80911C13.0932 10.3103 13.2914 10.6104 13.2459 10.8543C13.2271 10.9535 13.0262 11.1893 12.9111 11.2482C12.6834 11.3662 12.4048 11.2375 11.987 10.8221C11.5129 10.3451 9.65394 8.28153 8.51019 6.96031L8.09501 6.47792L8.26109 6.30908C8.35216 6.21796 8.42983 6.14292 8.43519 6.14292C8.44323 6.14292 8.65215 6.3198 8.90394 6.53688Z" fill="white"/>
+        <path d="M0.710447 11.9078C0.579197 11.9453 0.375627 12.0927 0.279199 12.2213C0.134557 12.4143 0.102414 12.5697 0.115807 13.0789L0.123843 13.5265L0.214914 13.6953C0.316699 13.8829 0.399734 13.9633 0.603305 14.0705L0.739911 14.1429H4.1015H7.46309L7.60506 14.0785C7.7872 13.9955 7.99077 13.7757 8.05773 13.5881C8.09791 13.4729 8.10595 13.363 8.10595 12.9905C8.10595 12.551 8.10327 12.5295 8.03362 12.3821C7.93988 12.1811 7.75505 12.0042 7.56756 11.9346C7.42291 11.8783 7.39077 11.8783 4.10686 11.881C2.20776 11.881 0.758661 11.8944 0.710447 11.9078ZM7.39613 12.4866C7.51131 12.5536 7.53006 12.626 7.53006 13.0253C7.53006 13.3228 7.52202 13.4059 7.4872 13.4568C7.38809 13.5988 7.50863 13.5935 4.09882 13.5935C0.59259 13.5935 0.801518 13.6042 0.715804 13.4193C0.664911 13.3121 0.656876 12.7654 0.702411 12.6314C0.721161 12.5831 0.772054 12.5215 0.817589 12.492C0.897946 12.4438 1.00241 12.4411 4.10954 12.4411C7.05863 12.4411 7.32649 12.4438 7.39613 12.4866Z" fill="white"/>
+        </svg>
+        </div>
+        
+        <h4 className="font-bold text-base  text-center">{item.make} {item.model}</h4>
+        
+        {/* <div className="absolute flex items-end -right-5 -top-5 h-16 w-16 rounded-full bg-white shadow-[0px_0px_4px_0px_#00000040]">
+           <button><FaRegStar className="absolute bottom-4 left-4 text-lg text-[#2E3D83]"/>
+        </button>
+          </div> */}
+                      </div>
+                     <div className="px-4">
+                        <div className="h-[157px] py-4 w-full relative ">
+                        <div className="h-[140px] w-full relative">
+                            <Image src={item.images ? item.images[0]:''} alt="" fill/>
+                        </div>
+                        </div>
+                        
+                        <div className="flex justify-between mt-8">
+                            <div className="flex flex-col gap-2">
+                                <h5 className="font-bold text-sm">${item.currentBidAmount}</h5>
+                                <p className="font-medium text-sm">Current Bid</p>
+                            </div>
+                            <div className="flex flex-col gap-2">
+                                <h5 className="font-bold text-sm text-right">{moment(item.endsAt).format('hh:mma DD MMM YYYY')}</h5>
+                                <p className="font-medium text-sm text-right">Waiting for Bid</p>
+                            </div>
+                        </div>
+        
+                        <Link  href={`/auction/${item._id}`} className="inline-flex items-center justify-center w-full mt-5 h-[45px] rounded-[5px] bg-[#2E3D83] text-white font-bold text-base">
+                          Sumbit A Bid
+                        </Link>
+        
+                     </div>
+                </div>
+                                }) : <p>No data found</p>
+                             }
+                      </Container> 
+                      }
+                 </div>
+
+        </div>
+    )
+}

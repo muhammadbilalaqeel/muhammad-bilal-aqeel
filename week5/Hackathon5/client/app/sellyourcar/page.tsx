@@ -16,9 +16,9 @@ export default function SellYourCar(){
     const onSubmit =async (data: any) => {
         console.log("Final Data: ", data);
         try {
-            const res = await createAuction(data)
+            const res = await createAuction(data).unwrap()
             console.log(res)
-            alert(res.data.message)
+            alert(res.message)
             router.push('/auction')
         } catch (err) {
             alert(error.data.error)

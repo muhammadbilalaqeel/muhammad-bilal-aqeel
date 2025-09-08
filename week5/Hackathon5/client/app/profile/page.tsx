@@ -7,6 +7,7 @@ import Personal from "../Components/Profile/Personal/Personal"
 import MyCars from "../Components/Profile/My Cars/MyCars"
 import { useGetProfileQuery } from "@/redux/api/authApiSlice";
 import MyBids from "../Components/Profile/My Bids/MyBids";
+import Wishlist from "../Components/Profile/Wishlist/Wishlist";
 
 export default function Profile() {
 
@@ -105,7 +106,7 @@ export default function Profile() {
             {activeTab === "personal" && <Personal data= {data!} refetch = {refetch} />}
             {activeTab === "mycars" && <MyCars data= {data!} refetch = {refetch} />}
             {activeTab === "mybids" && <MyBids/>}
-            {activeTab === "wishlist" && <div>Wishlist Content</div>}
+            {activeTab === "wishlist" && <Wishlist/>}
           </div>
         </section>
       </Container>

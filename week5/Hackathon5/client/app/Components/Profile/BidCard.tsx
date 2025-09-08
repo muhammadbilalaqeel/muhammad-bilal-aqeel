@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import axios from "axios"; // or your api call function
 import { useEndAuctionMutation } from "@/redux/api/auctionApiSlice";
+import Link from "next/link";
 export type Auction = {
   _id: string;
   owner: string;
@@ -36,7 +37,7 @@ export type Auction = {
   __v: number;
 };
 
-export default function BidCard({ car,refetch }: { car: Auction,refetch: ()=>void }) {
+export default function BidCard({ car,refetch,t }: { car: Auction,refetch?: ()=>void,t?:boolean }) {
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
     hours: 0,
@@ -133,7 +134,9 @@ export default function BidCard({ car,refetch }: { car: Auction,refetch: ()=>voi
           </div>
         </div>
 
-        {!car.sold ? (
+       {
+        !t ? <>
+         {!car.sold ? (
           <button onClick={handleEndBid} className="w-full h-10 bg-[#2E3D83] font-bold text-base text-white rounded-[5px] mt-auto">
             End Bid
           </button>
@@ -142,6 +145,10 @@ export default function BidCard({ car,refetch }: { car: Auction,refetch: ()=>voi
             Sold
           </button>
         )}
+        </> : <Link  href={`/auction/${car._id}`} className="inline-flex items-center justify-center w-full mt-5 h-[45px] rounded-[5px] bg-[#2E3D83] text-white font-bold text-base">
+                          Sumbit A Bid
+                        </Link>
+       }
       </div>
     </div>
   );

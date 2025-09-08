@@ -1,14 +1,23 @@
 "use client"
 
 import { Auction } from "@/redux/api/auctionApiSlice";
+import { useCreateWishlistMutation } from "@/redux/api/biddingApiSlice";
 import moment from "moment";
 import Image from "next/image";
 import Link from "next/link";
 import { FaRegStar } from "react-icons/fa6";
 
 export default function HomeLiveActionCard({item}:{item:Auction}){
-    
-
+    const [wishlist,{isLoading}] = useCreateWishlistMutation()
+    const handleStar = async()=>{
+        try {
+            const res = await wishlist({car:item._id}).unwrap()
+            console.log(res)
+            alert(res.message)
+        } catch (error) {
+            console.log(error)
+        }
+    }
     return (
         <div className="overflow-hidden bg-white h-[400px] w-[273px] border border-[#A9A9A9] rounded-[5px]">
               <div className="head w-full pb-8 relative border-b border-[#A9A9A9]">
@@ -21,7 +30,7 @@ export default function HomeLiveActionCard({item}:{item:Auction}){
 <h4 className="font-bold text-base  text-center">{item.make} {item.model}</h4>
 
 <div className="absolute flex items-end -right-5 -top-5 h-16 w-16 rounded-full bg-white shadow-[0px_0px_4px_0px_#00000040]">
-   <button><FaRegStar className="absolute bottom-4 left-4 text-lg text-[#2E3D83]"/>
+   <button onClick={handleStar}><FaRegStar className="absolute bottom-4 left-4 text-lg text-[#2E3D83]"/>
 </button>
   </div>
               </div>

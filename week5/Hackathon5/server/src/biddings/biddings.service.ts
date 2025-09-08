@@ -93,14 +93,27 @@ export class BiddingsService {
     };
   }
 
+async getBidsByUser(userId: string) {
+  // Fetch all bids by the user and populate car details
+  const bids = await this.bidModel
+    .find({ user: userId })
+    .populate('car') // populate car details
+    .exec();
 
-  async getBidsByUser(userId:string){
-    const bids = await this.bidModel.find({user:userId}).populate('car');
+  // Extract cars and remove duplicates by _id
+const uniqueCars = Array.from(
+  new Map(
+    bids
+      .filter(bid => bid.car) 
+      .map(bid => [(bid.car as any)._id.toString(), bid.car]) // cast to any
+  ).values()
+);
 
-     return {
-      statusCode: HttpStatus.OK,
-      message: 'Bids fetched successfully',
-      data: bids,
-    };
-  }
+  return {
+    statusCode: HttpStatus.OK,
+    message: 'Bids fetched successfully',
+    data: { user: userId, cars: uniqueCars },
+  };
+}
+
 }

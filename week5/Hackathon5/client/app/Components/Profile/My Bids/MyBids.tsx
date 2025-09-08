@@ -3,11 +3,12 @@
 import { useGetBidsByUserQuery } from "@/redux/api/biddingApiSlice";
 import Link from "next/link";
 import AuctionCard from "../../AuctionCard/AuctionCard";
+import BidCard from "../BidCard";
 
 export default function MyBids(){
     const {data} = useGetBidsByUserQuery()
     console.log(data)
-    const bids = data?.data
+    const bids = data?.data.cars
     return (
          <div className="max-w-[898px] w-full">
                
@@ -23,7 +24,7 @@ export default function MyBids(){
                  <div className="py-8 grid grid-cols-3">
                     {
                       bids?.length >  0  ? bids?.map((item)=>{
-                         return <AuctionCard item={item} key={item._id}/>
+                         return <BidCard car={item} t={true} key={item._id}/>
                       }):
                       <p>No Data</p>
                     }

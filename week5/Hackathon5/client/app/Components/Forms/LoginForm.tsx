@@ -28,14 +28,15 @@ const [login,{isLoading,isSuccess,isError,error}] = useLoginUserMutation()
           const onSubmit = async (data: loginFormInputs) => {
     console.log("Form Submitted:", data);
     try {
-        const res = await login(data);
-        if(isSuccess){
-            const result = res.data.data
+        const res = await login(data).unwrap();
+        
+            const result = res.data
             console.log(result)
-            alert(res.data.message)
-              dispatch(setCredentials({ user: result.user, token: result.token }));
+            console.log(res.message)
+            
+            dispatch(setCredentials({ user: result.user, token: result.token }));
             router.push('/auction')
-        }
+        
     } catch (err) {
        alert(error.data.message)
         console.log(error)

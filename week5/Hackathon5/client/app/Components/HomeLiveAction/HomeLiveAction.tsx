@@ -28,7 +28,7 @@ export default function HomeLiveAction(){
            <div className="py-14">
              <Container className="grid grid-cols-[repeat(auto-fit,minmax(270px,1fr))] gap-5.5">
                 {
-                    auctionsData?.data?.length > 0 ? auctionsData?.data.map((item,index)=>{
+                    auctionsData && auctionsData?.data?.length > 0 ? auctionsData?.data.map((item,index)=>{
                         return <HomeLiveActionCard key={index} item={item}/>
                     }) : <p className="text-white">No Live Found</p>
                 }
