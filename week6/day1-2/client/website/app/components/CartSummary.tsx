@@ -36,7 +36,7 @@ export default function CartSummary({total,totalDiscount,subtotal}:CartSummaryPr
                  <p className="text-2xl font-bold text-black">${total}</p>
               </div>
             </div>
-
+{/* 
             <div className="flex items-center justify-between gap-3">
                 <div className="flex items-center gap-3 w-full bg-[#F0F0F0] py-3 px-4 rounded-[62px]">
                     <div>
@@ -51,7 +51,7 @@ export default function CartSummary({total,totalDiscount,subtotal}:CartSummaryPr
                      Apply
                 </Button>
 
-            </div>
+            </div> */}
             <Button onClick={handleCheckout} className="py-4 px-[54px] rounded-[62px] bg-black text-white w-full h-[60px]">
                 Go to Checkout
                 <div><svg width="19" height="16" viewBox="0 0 19 16" fill="none" xmlns="http://www.w3.org/2000/svg">

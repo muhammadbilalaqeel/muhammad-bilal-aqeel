@@ -28,6 +28,10 @@ export class User {
 
   @Prop({type:Date,required:false})
   otpExpiry?: Date ;
+
+
+  @Prop({type:Number,required:false})
+  loyaltyPoints ?: number
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);

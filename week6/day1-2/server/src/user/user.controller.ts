@@ -1,4 +1,4 @@
-import { Controller, Get, UseGuards, Param, Patch, Delete, Body } from '@nestjs/common';
+import { Controller, Get, UseGuards, Param, Patch, Delete, Body, Request, Put } from '@nestjs/common';
 import { UserService } from './user.service';
 import { JwtAuthGuard } from '../common/guards/jwt-auth.guard';
 import { RolesGuard } from '../common/guards/roles.guard';
@@ -15,6 +15,20 @@ export class UserController {
   @Get('me')
   me(@GetUser() user: any) {
     return user;
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Get('loyaltypoints')
+  async LoyaltyPoints(
+    @Request() req
+  ){
+     return this.userService.getLoyaltyPointsByUserId(req.user.userId)
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Put('/update-points')
+  async updatePoints(@Request() req,@Body() points:Points){
+     return this.userService.updateLoyaltyPoints(req.user.userId,points)
   }
 
   // admin: list all users
@@ -40,4 +54,10 @@ export class UserController {
   remove(@Param('id') id: string) {
     return this.userService.remove(id);
   }
+}
+
+
+
+export type Points = {
+  points : number
 }

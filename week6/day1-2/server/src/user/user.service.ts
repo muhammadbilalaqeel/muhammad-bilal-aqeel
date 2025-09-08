@@ -3,6 +3,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { User, UserDocument } from './schemas/user.schema';
 import * as bcrypt from 'bcrypt';
+import { Points } from './user.controller';
 
 @Injectable()
 export class UserService {
@@ -42,6 +43,33 @@ export class UserService {
 
  async findByUsername(username: string) {
   return await this.userModel.findOne({ username }).exec(); 
+}
+
+
+async getLoyaltyPointsByUserId(userId:string){
+  const user = this.findById(userId);
+  const loyaltyPoints = (await user).loyaltyPoints;
+
+  return {loyaltyPoints}
+}
+
+
+async updateLoyaltyPoints(userId: string, points: Points) {
+  const user = await this.userModel.findByIdAndUpdate(
+    userId,
+    { $inc: { loyaltyPoints: -points.points } }, // deduct points
+    { new: true } // return updated document
+  );
+
+  if (!user) throw new NotFoundException("User not found");
+
+  // Prevent negative points
+  if (user.loyaltyPoints! < 0) {
+    user.loyaltyPoints = 0;
+    await user.save();
+  }
+
+  return { loyaltyPoints: user.loyaltyPoints };
 }
 
  

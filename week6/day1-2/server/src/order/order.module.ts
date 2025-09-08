@@ -6,12 +6,14 @@ import { OrderController } from './order.controller';
 import { CartModule } from 'src/cart/cart.module';
 import { ProductModule } from 'src/product/product.module';
 import { NotificationsModule } from 'src/notifications/notifications.module';
+import { UserModule } from 'src/user/user.module';
 
 @Module({
   imports: [
     ProductModule,
     CartModule,
     NotificationsModule,
+    UserModule,
     MongooseModule.forFeature([{ name: Order.name, schema: OrderSchema }])],
   controllers: [OrderController],
   providers: [OrderService],

@@ -8,6 +8,7 @@ import { ProductService } from 'src/product/product.service';
 import { Product, ProductDocument } from 'src/product/schemas/product.schema';
 import { NotificationsService } from 'src/notifications/notifications.service';
 import { NotificationsGateway } from 'src/notifications/notifications.gateway';
+import { UserService } from 'src/user/user.service';
 
 @Injectable()
 export class OrderService {
@@ -15,13 +16,14 @@ export class OrderService {
     @InjectModel(Order.name) private orderModel: Model<OrderDocument>,
       private notificationsGateway: NotificationsGateway
     ,
-
+     private readonly userService : UserService,
       private readonly cartService: CartService,
      private readonly notificationsService : NotificationsService,
     @InjectModel(Product.name) private productModel : Model<ProductDocument>
   ) {}
 
 async createOrder(createOrderDto: CreateOrderDto, userId: string) {
+  console.log(userId)
   const orderData = {
     ...createOrderDto,
     user: userId,
@@ -30,16 +32,43 @@ async createOrder(createOrderDto: CreateOrderDto, userId: string) {
   const newOrder = new this.orderModel(orderData);
   const savedOrder = await newOrder.save();
 
+  // Populate product details to access loyaltyPoints
+  const populatedOrder = await savedOrder.populate('products.product');
+
+  // Calculate total loyalty points from products in the order
+  let totalLoyaltyPoints = 0;
+  populatedOrder.products.forEach((item) => {
+    if (
+      item.product.type === 'loyalty_points' ||
+      item.product.type === 'hybrid'
+    ) {
+      totalLoyaltyPoints += item.product.loyaltyPoints * item.quantity;
+    }
+  });
+
+  console.log('Total Loyalty Points:', totalLoyaltyPoints);
+const user = await this.userService.findById(userId);
+
+if (user) {
+  user.loyaltyPoints = (user.loyaltyPoints || 0) + totalLoyaltyPoints;
+  await user.save(); // Make sure to save after updating
+} else {
+  console.error(`User with ID ${userId} not found!`);
+}
+
+  // Clear user's cart after order
   await this.cartService.clearCart(userId);
 
   // Notify all admins when a new order is placed
-  this.notificationsGateway.notifyNewOrder(savedOrder._id as string);;
+  this.notificationsGateway.notifyNewOrder(savedOrder._id as string);
 
   return {
     message: 'Order placed successfully!',
-    order: savedOrder,
+    order: populatedOrder,
+    loyaltyPoints: totalLoyaltyPoints, // Optional: return loyalty points
   };
 }
+
 
 
 
